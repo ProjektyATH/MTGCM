@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FB4E3C8-A6E0-4734-B177-B1DA5F2DCB8B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTGCM</RootNamespace>
+    <AssemblyName>MTGCM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Artist_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Artist_Add.Designer.cs">
+      <DependentUpon>Artist_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Artist_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Artist_Edit.Designer.cs">
+      <DependentUpon>Artist_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Artist_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Artist_List.Designer.cs">
+      <DependentUpon>Artist_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Block_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Block_Edit.Designer.cs">
+      <DependentUpon>Block_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Block_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Block_Add.Designer.cs">
+      <DependentUpon>Block_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Block_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Block_List.Designer.cs">
+      <DependentUpon>Block_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardBase_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardBase_Add.Designer.cs">
+      <DependentUpon>CardBase_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardBase_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardBase_Edit.Designer.cs">
+      <DependentUpon>CardBase_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardBase_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardBase_List.Designer.cs">
+      <DependentUpon>CardBase_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardSubtype_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardSubtype_Add.Designer.cs">
+      <DependentUpon>CardSubtype_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardSubtype_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardSubtype_Edit.Designer.cs">
+      <DependentUpon>CardSubtype_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardSubtype_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardSubtype_List.Designer.cs">
+      <DependentUpon>CardSubtype_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardType_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardType_Edit.Designer.cs">
+      <DependentUpon>CardType_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardType_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardType_List.Designer.cs">
+      <DependentUpon>CardType_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Card_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Card_Add.Designer.cs">
+      <DependentUpon>Card_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Card_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Card_Edit.Designer.cs">
+      <DependentUpon>Card_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Card_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Card_List.Designer.cs">
+      <DependentUpon>Card_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardType_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardType_Add.Designer.cs">
+      <DependentUpon>CardType_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Deck_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck_Add.Designer.cs">
+      <DependentUpon>Deck_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Deck_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck_Edit.Designer.cs">
+      <DependentUpon>Deck_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Deck_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck_List.Designer.cs">
+      <DependentUpon>Deck_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Language_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Language_Add.Designer.cs">
+      <DependentUpon>Language_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Language_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Language_Edit.Designer.cs">
+      <DependentUpon>Language_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Language_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Language_List.Designer.cs">
+      <DependentUpon>Language_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_Add.Designer.cs">
+      <DependentUpon>OwnedCard_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_Edit.Designer.cs">
+      <DependentUpon>OwnedCard_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_List.Designer.cs">
+      <DependentUpon>OwnedCard_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rarity_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rarity_Add.Designer.cs">
+      <DependentUpon>Rarity_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rarity_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rarity_Edit.Designer.cs">
+      <DependentUpon>Rarity_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rarity_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rarity_List.Designer.cs">
+      <DependentUpon>Rarity_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Set_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Set_Add.Designer.cs">
+      <DependentUpon>Set_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Set_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Set_Edit.Designer.cs">
+      <DependentUpon>Set_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Set_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Set_List.Designer.cs">
+      <DependentUpon>Set_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User_Add.Designer.cs">
+      <DependentUpon>User_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User_Edit.Designer.cs">
+      <DependentUpon>User_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User_List.Designer.cs">
+      <DependentUpon>User_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Set_List.resx">
+      <DependentUpon>Set_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="DB.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
