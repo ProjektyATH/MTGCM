@@ -28,11 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.SuspendLayout();
+            // 
+            // Artist_Edit
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "Artist_Edit";
             this.Text = "Artist_Edit";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

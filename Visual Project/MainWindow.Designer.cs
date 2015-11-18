@@ -30,13 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Main_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.User_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogInTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Owned_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.OwnedCard_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Deck_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Other_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.CardBase_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Card_TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.User_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Set_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Block_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Rarity_TSMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,6 @@
             this.Subtype_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Language_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Artist_TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.LogInTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,19 @@
             this.Main_TSMI.Size = new System.Drawing.Size(50, 20);
             this.Main_TSMI.Text = "Menu";
             // 
+            // User_TSMI
+            // 
+            this.User_TSMI.Name = "User_TSMI";
+            this.User_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.User_TSMI.Text = "Użytkownicy";
+            this.User_TSMI.Click += new System.EventHandler(this.User_TSMI_Click);
+            // 
+            // LogInTSMI
+            // 
+            this.LogInTSMI.Name = "LogInTSMI";
+            this.LogInTSMI.Size = new System.Drawing.Size(152, 22);
+            this.LogInTSMI.Text = "Zaloguj";
+            // 
             // Owned_TSMI
             // 
             this.Owned_TSMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -88,7 +101,7 @@
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
             this.Deck_TSMI.Text = "Talie";
             // 
             // Other_TSMI
@@ -118,12 +131,6 @@
             this.Card_TSMI.Name = "Card_TSMI";
             this.Card_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Card_TSMI.Text = "Karty dostępne";
-            // 
-            // User_TSMI
-            // 
-            this.User_TSMI.Name = "User_TSMI";
-            this.User_TSMI.Size = new System.Drawing.Size(152, 22);
-            this.User_TSMI.Text = "Użytkownicy";
             // 
             // Set_TSMI
             // 
@@ -166,12 +173,6 @@
             this.Artist_TSMI.Name = "Artist_TSMI";
             this.Artist_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Artist_TSMI.Text = "Artyści";
-            // 
-            // LogInTSMI
-            // 
-            this.LogInTSMI.Name = "LogInTSMI";
-            this.LogInTSMI.Size = new System.Drawing.Size(152, 22);
-            this.LogInTSMI.Text = "Zaloguj";
             // 
             // statusStrip1
             // 
