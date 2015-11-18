@@ -97,12 +97,14 @@
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
             this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
             this.OwnedCard_TSMI.Text = "Karty";
+            this.OwnedCard_TSMI.Click += new System.EventHandler(this.OwnedCard_TSMI_Click);
             // 
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
             this.Deck_TSMI.Text = "Talie";
+            this.Deck_TSMI.Click += new System.EventHandler(this.Deck_TSMI_Click);
             // 
             // Other_TSMI
             // 
@@ -117,62 +119,71 @@
             this.Language_TSMI,
             this.Artist_TSMI});
             this.Other_TSMI.Name = "Other_TSMI";
-            this.Other_TSMI.Size = new System.Drawing.Size(72, 20);
-            this.Other_TSMI.Text = "Pozostałe ";
+            this.Other_TSMI.Size = new System.Drawing.Size(90, 20);
+            this.Other_TSMI.Text = "Obsługa bazy";
             // 
             // CardBase_TSMI
             // 
             this.CardBase_TSMI.Name = "CardBase_TSMI";
             this.CardBase_TSMI.Size = new System.Drawing.Size(153, 22);
             this.CardBase_TSMI.Text = "Bazy kart";
+            this.CardBase_TSMI.Click += new System.EventHandler(this.CardBase_TSMI_Click);
             // 
             // Card_TSMI
             // 
             this.Card_TSMI.Name = "Card_TSMI";
             this.Card_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Card_TSMI.Text = "Karty dostępne";
+            this.Card_TSMI.Click += new System.EventHandler(this.Card_TSMI_Click);
             // 
             // Set_TSMI
             // 
             this.Set_TSMI.Name = "Set_TSMI";
             this.Set_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Set_TSMI.Text = "Zestawy";
+            this.Set_TSMI.Click += new System.EventHandler(this.Set_TSMI_Click);
             // 
             // Block_TSMI
             // 
             this.Block_TSMI.Name = "Block_TSMI";
             this.Block_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Block_TSMI.Text = "Bloki";
+            this.Block_TSMI.Click += new System.EventHandler(this.Block_TSMI_Click);
             // 
             // Rarity_TSMI
             // 
             this.Rarity_TSMI.Name = "Rarity_TSMI";
             this.Rarity_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Rarity_TSMI.Text = "Rzadkość";
+            this.Rarity_TSMI.Click += new System.EventHandler(this.Rarity_TSMI_Click);
             // 
             // Type_TSMI
             // 
             this.Type_TSMI.Name = "Type_TSMI";
             this.Type_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Type_TSMI.Text = "Typy";
+            this.Type_TSMI.Click += new System.EventHandler(this.Type_TSMI_Click);
             // 
             // Subtype_TSMI
             // 
             this.Subtype_TSMI.Name = "Subtype_TSMI";
             this.Subtype_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Subtype_TSMI.Text = "Podtypy";
+            this.Subtype_TSMI.Click += new System.EventHandler(this.Subtype_TSMI_Click);
             // 
             // Language_TSMI
             // 
             this.Language_TSMI.Name = "Language_TSMI";
             this.Language_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Language_TSMI.Text = "Języki";
+            this.Language_TSMI.Click += new System.EventHandler(this.Language_TSMI_Click);
             // 
             // Artist_TSMI
             // 
             this.Artist_TSMI.Name = "Artist_TSMI";
             this.Artist_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Artist_TSMI.Text = "Artyści";
+            this.Artist_TSMI.Click += new System.EventHandler(this.Artist_TSMI_Click);
             // 
             // statusStrip1
             // 
