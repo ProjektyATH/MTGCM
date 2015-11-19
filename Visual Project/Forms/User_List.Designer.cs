@@ -38,13 +38,13 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.userTableAdapter = new MTGCM.DBDataSetTableAdapters.UserTableAdapter();
             this.userBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,7 +53,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -61,7 +61,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(565, 435);
+            this.dataGridView1.Size = new System.Drawing.Size(449, 619);
             this.dataGridView1.TabIndex = 0;
             // 
             // userBindingSource
@@ -78,9 +78,9 @@
             // 
             this.btAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btAdd.Location = new System.Drawing.Point(24, 279);
+            this.btAdd.Location = new System.Drawing.Point(12, 457);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(150, 46);
+            this.btAdd.Size = new System.Drawing.Size(149, 46);
             this.btAdd.TabIndex = 2;
             this.btAdd.Text = "Dodaj";
             this.btAdd.UseVisualStyleBackColor = true;
@@ -90,9 +90,9 @@
             // 
             this.btEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btEdit.Location = new System.Drawing.Point(24, 331);
+            this.btEdit.Location = new System.Drawing.Point(12, 509);
             this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(150, 46);
+            this.btEdit.Size = new System.Drawing.Size(149, 46);
             this.btEdit.TabIndex = 3;
             this.btEdit.Text = "Edytuj";
             this.btEdit.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             this.btDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btDelete.Location = new System.Drawing.Point(24, 383);
+            this.btDelete.Location = new System.Drawing.Point(12, 561);
             this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(150, 46);
+            this.btDelete.Size = new System.Drawing.Size(149, 46);
             this.btDelete.TabIndex = 4;
             this.btDelete.Text = "Usuń";
             this.btDelete.UseVisualStyleBackColor = true;
@@ -124,21 +124,6 @@
             this.userBindingSource1.DataMember = "User";
             this.userBindingSource1.DataSource = this.dBDataSet;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox2.Controls.Add(this.btAdd);
-            this.groupBox2.Controls.Add(this.btDelete);
-            this.groupBox2.Controls.Add(this.btEdit);
-            this.groupBox2.Location = new System.Drawing.Point(745, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(193, 435);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -148,24 +133,38 @@
             this.panel1.AutoScrollMinSize = new System.Drawing.Size(5, 5);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(166, 435);
+            this.panel1.Size = new System.Drawing.Size(170, 619);
             this.panel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.btDelete);
+            this.panel2.Controls.Add(this.btAdd);
+            this.panel2.Controls.Add(this.btEdit);
+            this.panel2.Location = new System.Drawing.Point(629, 0);
+            this.panel2.MinimumSize = new System.Drawing.Size(170, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(172, 619);
+            this.panel2.TabIndex = 7;
             // 
             // User_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 435);
+            this.ClientSize = new System.Drawing.Size(802, 619);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
+            this.MinimumSize = new System.Drawing.Size(550, 300);
             this.Name = "User_List";
             this.Text = "User_List";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -181,7 +180,7 @@
         private System.Windows.Forms.BindingSource userBindingSource;
         private DBDataSetTableAdapters.UserTableAdapter userTableAdapter;
         private System.Windows.Forms.BindingSource userBindingSource1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

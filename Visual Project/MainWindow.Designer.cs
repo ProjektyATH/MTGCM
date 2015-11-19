@@ -73,14 +73,14 @@
             // User_TSMI
             // 
             this.User_TSMI.Name = "User_TSMI";
-            this.User_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.User_TSMI.Size = new System.Drawing.Size(141, 22);
             this.User_TSMI.Text = "Użytkownicy";
             this.User_TSMI.Click += new System.EventHandler(this.User_TSMI_Click);
             // 
             // LogInTSMI
             // 
             this.LogInTSMI.Name = "LogInTSMI";
-            this.LogInTSMI.Size = new System.Drawing.Size(152, 22);
+            this.LogInTSMI.Size = new System.Drawing.Size(141, 22);
             this.LogInTSMI.Text = "Zaloguj";
             // 
             // Owned_TSMI
@@ -95,14 +95,14 @@
             // OwnedCard_TSMI
             // 
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
-            this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.OwnedCard_TSMI.Size = new System.Drawing.Size(101, 22);
             this.OwnedCard_TSMI.Text = "Karty";
             this.OwnedCard_TSMI.Click += new System.EventHandler(this.OwnedCard_TSMI_Click);
             // 
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
             this.Deck_TSMI.Text = "Talie";
             this.Deck_TSMI.Click += new System.EventHandler(this.Deck_TSMI_Click);
             // 
@@ -202,6 +202,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(550, 350);
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);

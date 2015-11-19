@@ -303,6 +303,9 @@
     <EmbeddedResource Include="Forms\Artist_Edit.resx">
       <DependentUpon>Artist_Edit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Artist_List.resx">
+      <DependentUpon>Artist_List.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rarity_List.resx">
       <DependentUpon>Rarity_List.cs</DependentUpon>
     </EmbeddedResource>
