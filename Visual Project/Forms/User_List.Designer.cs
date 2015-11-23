@@ -61,7 +61,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(449, 619);
+            this.dataGridView1.Size = new System.Drawing.Size(181, 262);
             this.dataGridView1.TabIndex = 0;
             // 
             // userBindingSource
@@ -78,7 +78,7 @@
             // 
             this.btAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btAdd.Location = new System.Drawing.Point(12, 457);
+            this.btAdd.Location = new System.Drawing.Point(12, 100);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(149, 46);
             this.btAdd.TabIndex = 2;
@@ -90,7 +90,7 @@
             // 
             this.btEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btEdit.Location = new System.Drawing.Point(12, 509);
+            this.btEdit.Location = new System.Drawing.Point(12, 152);
             this.btEdit.Name = "btEdit";
             this.btEdit.Size = new System.Drawing.Size(149, 46);
             this.btEdit.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             this.btDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btDelete.Location = new System.Drawing.Point(12, 561);
+            this.btDelete.Location = new System.Drawing.Point(12, 204);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(149, 46);
             this.btDelete.TabIndex = 4;
@@ -133,7 +133,7 @@
             this.panel1.AutoScrollMinSize = new System.Drawing.Size(5, 5);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(170, 619);
+            this.panel1.Size = new System.Drawing.Size(170, 262);
             this.panel1.TabIndex = 6;
             // 
             // panel2
@@ -143,17 +143,17 @@
             this.panel2.Controls.Add(this.btDelete);
             this.panel2.Controls.Add(this.btAdd);
             this.panel2.Controls.Add(this.btEdit);
-            this.panel2.Location = new System.Drawing.Point(629, 0);
+            this.panel2.Location = new System.Drawing.Point(361, 0);
             this.panel2.MinimumSize = new System.Drawing.Size(170, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(172, 619);
+            this.panel2.Size = new System.Drawing.Size(172, 262);
             this.panel2.TabIndex = 7;
             // 
             // User_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 619);
+            this.ClientSize = new System.Drawing.Size(534, 262);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);

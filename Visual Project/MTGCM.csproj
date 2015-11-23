@@ -309,6 +309,12 @@
     <EmbeddedResource Include="Forms\Rarity_List.resx">
       <DependentUpon>Rarity_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Set_Add.resx">
+      <DependentUpon>Set_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Set_Edit.resx">
+      <DependentUpon>Set_Edit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Set_List.resx">
       <DependentUpon>Set_List.cs</DependentUpon>
     </EmbeddedResource>
