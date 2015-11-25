@@ -35,7 +35,7 @@ namespace MTGCM.Forms
             {
                 conn.Open();
                 SQLiteCommand command = new SQLiteCommand(conn);
-                command.CommandText = "SELECT * FROM Set WHERE id=@id";
+                command.CommandText = "SELECT * FROM [Set] WHERE id=@id";
                 command.Parameters.Add(new SQLiteParameter("@id", id));
                 using (command)
                 {
@@ -55,8 +55,7 @@ namespace MTGCM.Forms
                             txtSymbol.Text = rdr.GetValue(3).ToString();
 
                             labelDate.Text = rdr.GetValue(4).ToString();
-                            datePicker.Value = DateTime.ParseExact(rdr.GetValue(4).ToString(), "yyyy-MM-dd HH:mm:ss,fff",
-                                       System.Globalization.CultureInfo.InvariantCulture);
+                            datePicker.Value = rdr.GetDateTime(4);
 
                             labelBlock.Text = rdr.GetValue(5).ToString();
                             txtBlock.Text = rdr.GetValue(5).ToString();
