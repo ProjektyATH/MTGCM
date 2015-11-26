@@ -186,12 +186,11 @@
             // 
             this.txtBlock.Location = new System.Drawing.Point(244, 205);
             this.txtBlock.Name = "txtBlock";
-            this.txtBlock.Size = new System.Drawing.Size(144, 20);
+            this.txtBlock.Size = new System.Drawing.Size(46, 20);
             this.txtBlock.TabIndex = 32;
             // 
             // datePicker
             // 
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datePicker.Location = new System.Drawing.Point(244, 166);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(144, 20);
@@ -201,7 +200,7 @@
             // 
             this.txtTotal.Location = new System.Drawing.Point(244, 231);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(144, 20);
+            this.txtTotal.Size = new System.Drawing.Size(46, 20);
             this.txtTotal.TabIndex = 34;
             // 
             // radioCore

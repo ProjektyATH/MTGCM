@@ -117,7 +117,7 @@
             // 
             this.txtTotal.Location = new System.Drawing.Point(102, 166);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(144, 20);
+            this.txtTotal.Size = new System.Drawing.Size(43, 20);
             this.txtTotal.TabIndex = 65;
             // 
             // datePicker
@@ -131,7 +131,7 @@
             // 
             this.txtBlock.Location = new System.Drawing.Point(102, 140);
             this.txtBlock.Name = "txtBlock";
-            this.txtBlock.Size = new System.Drawing.Size(144, 20);
+            this.txtBlock.Size = new System.Drawing.Size(43, 20);
             this.txtBlock.TabIndex = 63;
             // 
             // txtSymbol
