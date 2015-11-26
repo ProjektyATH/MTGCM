@@ -309,6 +309,15 @@
     <EmbeddedResource Include="Forms\Artist_List.resx">
       <DependentUpon>Artist_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Card_Add.resx">
+      <DependentUpon>Card_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Card_Edit.resx">
+      <DependentUpon>Card_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Card_List.resx">
+      <DependentUpon>Card_List.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_Add.resx">
       <DependentUpon>Language_Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,7 +326,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_List.resx">
       <DependentUpon>Language_List.cs</DependentUpon>
-	  </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardBase_Add.resx">
       <DependentUpon>CardBase_Add.cs</DependentUpon>
     </EmbeddedResource>

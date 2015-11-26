@@ -51,20 +51,17 @@ namespace MTGCM.Forms
                             labelText.Text = rdr.GetValue(2).ToString();
                             txtText.Text = rdr.GetValue(2).ToString();
 
-                            labelFlavor.Text = rdr.GetValue(3).ToString();
-                            txtFlavor.Text = rdr.GetValue(3).ToString();
+                            labelPower.Text = rdr.GetValue(3).ToString();
+                            txtPower.Text = rdr.GetValue(3).ToString();
 
-                            labelPower.Text = rdr.GetValue(4).ToString();
-                            txtPower.Text = rdr.GetValue(4).ToString();
+                            labelToughness.Text = rdr.GetValue(4).ToString();
+                            txtToughness.Text = rdr.GetValue(4).ToString();
 
-                            labelToughness.Text = rdr.GetValue(5).ToString();
-                            txtToughness.Text = rdr.GetValue(5).ToString();
+                            labelMana.Text = rdr.GetValue(5).ToString();
+                            txtMana.Text = rdr.GetValue(5).ToString();
 
-                            labelMana.Text = rdr.GetValue(6).ToString();
-                            txtMana.Text = rdr.GetValue(6).ToString();
-
-                            labelCmc.Text = rdr.GetValue(7).ToString();
-                            txtCmc.Text = rdr.GetValue(7).ToString();
+                            labelCmc.Text = rdr.GetValue(6).ToString();
+                            txtCmc.Text = rdr.GetValue(6).ToString();
                         }
                     }
                 }
@@ -82,7 +79,6 @@ namespace MTGCM.Forms
                                 UPDATE [CardBase] SET 
                                 name = @name,
                                 text = @text, 
-                                flavor = @flavor,
                                 power = @power,
                                 toughness = @toughness, 
                                 mana_cost = @mana_cost,
@@ -90,8 +86,7 @@ namespace MTGCM.Forms
                                 WHERE id = @id";
                 command.Parameters.Add(new SQLiteParameter("@id", id));
                 command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
-                command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));
-                command.Parameters.Add(new SQLiteParameter("@flavor", txtFlavor.Text));
+                command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));            
                 command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
                 command.Parameters.Add(new SQLiteParameter("@toughness", Convert.ToInt32(txtToughness.Text)));
                 command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
