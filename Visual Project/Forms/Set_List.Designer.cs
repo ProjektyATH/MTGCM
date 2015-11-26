@@ -63,11 +63,13 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(342, 389);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // userBindingSource
             // 
             this.userBindingSource.DataMember = "User";
             this.userBindingSource.DataSource = this.dBDataSet;
+            this.userBindingSource.CurrentChanged += new System.EventHandler(this.userBindingSource_CurrentChanged);
             // 
             // dBDataSet
             // 
@@ -114,6 +116,7 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // userTableAdapter
             // 
@@ -123,6 +126,7 @@
             // 
             this.userBindingSource1.DataMember = "User";
             this.userBindingSource1.DataSource = this.dBDataSet;
+            this.userBindingSource1.CurrentChanged += new System.EventHandler(this.userBindingSource1_CurrentChanged);
             // 
             // panel2
             // 
@@ -136,6 +140,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(172, 389);
             this.panel2.TabIndex = 10;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
@@ -148,6 +153,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(170, 389);
             this.panel1.TabIndex = 9;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Set_List
             // 
@@ -159,6 +165,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Set_List";
             this.Text = "Set_List";
+            this.Load += new System.EventHandler(this.Set_List_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();

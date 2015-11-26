@@ -11,7 +11,7 @@
     <AssemblyName>MTGCM</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>c2b9f841</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>3e211563</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -300,6 +300,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usings.cs" />
+    <EmbeddedResource Include="Forms\Artist_Add.resx">
+      <DependentUpon>Artist_Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Artist_Edit.resx">
       <DependentUpon>Artist_Edit.cs</DependentUpon>
     </EmbeddedResource>

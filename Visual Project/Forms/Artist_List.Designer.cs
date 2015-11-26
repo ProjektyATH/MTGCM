@@ -84,6 +84,7 @@
             this.btDelete.TabIndex = 4;
             this.btDelete.Text = "Usuń";
             this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // btAdd
             // 
@@ -95,6 +96,7 @@
             this.btAdd.TabIndex = 2;
             this.btAdd.Text = "Dodaj";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // btEdit
             // 
@@ -106,6 +108,7 @@
             this.btEdit.TabIndex = 3;
             this.btEdit.Text = "Edytuj";
             this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // notifyIcon1
             // 
