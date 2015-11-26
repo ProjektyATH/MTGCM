@@ -317,6 +317,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_List.resx">
       <DependentUpon>Language_List.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CardBase_Add.resx">
+      <DependentUpon>CardBase_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardBase_Edit.resx">
+      <DependentUpon>CardBase_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardBase_List.resx">
+      <DependentUpon>CardBase_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rarity_List.resx">
       <DependentUpon>Rarity_List.cs</DependentUpon>

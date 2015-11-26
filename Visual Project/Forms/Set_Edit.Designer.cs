@@ -34,7 +34,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.labelAbbrev = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.txt = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -115,16 +114,9 @@
             this.labelName.TabIndex = 23;
             this.labelName.Text = "oldNam";
             // 
-            // txt
-            // 
-            this.txt.Location = new System.Drawing.Point(244, 77);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(144, 20);
-            this.txt.TabIndex = 22;
-            // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(244, 43);
+            this.txtName.Location = new System.Drawing.Point(244, 77);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(144, 20);
             this.txtName.TabIndex = 21;
@@ -194,7 +186,7 @@
             // 
             this.txtBlock.Location = new System.Drawing.Point(244, 205);
             this.txtBlock.Name = "txtBlock";
-            this.txtBlock.Size = new System.Drawing.Size(144, 20);
+            this.txtBlock.Size = new System.Drawing.Size(46, 20);
             this.txtBlock.TabIndex = 32;
             // 
             // datePicker
@@ -208,7 +200,7 @@
             // 
             this.txtTotal.Location = new System.Drawing.Point(244, 231);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(144, 20);
+            this.txtTotal.Size = new System.Drawing.Size(46, 20);
             this.txtTotal.TabIndex = 34;
             // 
             // radioCore
@@ -360,7 +352,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelAbbrev);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.txt);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -381,7 +372,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelAbbrev;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
