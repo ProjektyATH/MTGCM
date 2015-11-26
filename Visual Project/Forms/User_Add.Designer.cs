@@ -30,9 +30,9 @@
         {
             this.btAdd = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -55,15 +55,6 @@
             this.btCancel.Text = "Anuluj";
             this.btCancel.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "hasło";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -79,6 +70,15 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(120, 20);
             this.txtLogin.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(62, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "hasło";
             // 
             // txtPassword
             // 
@@ -109,9 +109,9 @@
 
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btCancel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
     }
 }

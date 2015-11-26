@@ -11,7 +11,7 @@
     <AssemblyName>MTGCM</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>c2b9f841</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>3e211563</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -300,12 +300,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usings.cs" />
+    <EmbeddedResource Include="Forms\Artist_Add.resx">
+      <DependentUpon>Artist_Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Artist_Edit.resx">
       <DependentUpon>Artist_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Artist_List.resx">
       <DependentUpon>Artist_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Language_Add.resx">
+      <DependentUpon>Language_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Language_Edit.resx">
+      <DependentUpon>Language_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Language_List.resx">
+      <DependentUpon>Language_List.cs</DependentUpon>
     <EmbeddedResource Include="Forms\CardBase_Add.resx">
       <DependentUpon>CardBase_Add.cs</DependentUpon>
     </EmbeddedResource>

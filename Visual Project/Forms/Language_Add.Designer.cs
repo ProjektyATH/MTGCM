@@ -29,10 +29,131 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.userTableAdapter = new MTGCM.DBDataSetTableAdapters.UserTableAdapter();
+            this.userBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.txtJezyk = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btCancel = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.txtAbbrev = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataMember = "User";
+            this.userBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // userTableAdapter
+            // 
+            this.userTableAdapter.ClearBeforeFill = true;
+            // 
+            // userBindingSource1
+            // 
+            this.userBindingSource1.DataMember = "User";
+            this.userBindingSource1.DataSource = this.dBDataSet;
+            // 
+            // txtJezyk
+            // 
+            this.txtJezyk.Location = new System.Drawing.Point(104, 69);
+            this.txtJezyk.Name = "txtJezyk";
+            this.txtJezyk.Size = new System.Drawing.Size(120, 20);
+            this.txtJezyk.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Name";
+            // 
+            // btCancel
+            // 
+            this.btCancel.Location = new System.Drawing.Point(23, 171);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(75, 23);
+            this.btCancel.TabIndex = 13;
+            this.btCancel.Text = "Anuluj";
+            this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(186, 171);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(75, 23);
+            this.btAdd.TabIndex = 12;
+            this.btAdd.Text = "Dodaj";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // txtAbbrev
+            // 
+            this.txtAbbrev.Location = new System.Drawing.Point(104, 107);
+            this.txtAbbrev.Name = "txtAbbrev";
+            this.txtAbbrev.Size = new System.Drawing.Size(120, 20);
+            this.txtAbbrev.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Abbrev";
+            // 
+            // Language_Add
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.txtAbbrev);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtJezyk);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btCancel);
+            this.Controls.Add(this.btAdd);
+            this.Name = "Language_Add";
             this.Text = "Language_Add";
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private DBDataSet dBDataSet;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private DBDataSetTableAdapters.UserTableAdapter userTableAdapter;
+        private System.Windows.Forms.BindingSource userBindingSource1;
+        private System.Windows.Forms.TextBox txtJezyk;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btCancel;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.TextBox txtAbbrev;
+        private System.Windows.Forms.Label label2;
     }
 }
