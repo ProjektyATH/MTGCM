@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -309,6 +309,17 @@
     <EmbeddedResource Include="Forms\Artist_List.resx">
       <DependentUpon>Artist_List.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Forms\Block_Add.resx">
+      <DependentUpon>Block_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Block_Edit.resx">
+      <DependentUpon>Block_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Block_List.resx">
+      <DependentUpon>Block_List.cs</DependentUpon>
+
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Card_Add.resx">
       <DependentUpon>Card_Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +328,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Card_List.resx">
       <DependentUpon>Card_List.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_Add.resx">
       <DependentUpon>Language_Add.cs</DependentUpon>
