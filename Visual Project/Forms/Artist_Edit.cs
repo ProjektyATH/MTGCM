@@ -53,7 +53,7 @@ namespace MTGCM.Forms
                 SQLiteCommand command = new SQLiteCommand(conn);
                 command.CommandText = @"
                                 UPDATE [Artist] SET 
-                                name = @name,                              
+                                name = @name                              
                                 WHERE id = @id";
                 command.Parameters.Add(new SQLiteParameter("@id", id));
                 command.Parameters.Add(new SQLiteParameter("@name", txtImieNazw.Text));
