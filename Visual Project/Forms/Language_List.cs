@@ -35,7 +35,7 @@ namespace MTGCM.Forms
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                Artist_Edit objSet_Edit = new Artist_Edit(id);
+                Language_Edit objSet_Edit = new Language_Edit (id);
                 objSet_Edit.ShowDialog();
                 Odswierz();
             }

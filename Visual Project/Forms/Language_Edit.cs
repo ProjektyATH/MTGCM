@@ -7,14 +7,75 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace MTGCM.Forms
 {
     public partial class Language_Edit : Form
     {
-        public Language_Edit()
-        {
+
+        int id;
+        string connString = "Data Source = DB.db; Version = 3";
+
+        public Language_Edit(int id_)
+         {
             InitializeComponent();
+            id = id_;
+
+            using (SQLiteConnection conn = new SQLiteConnection(connString))
+            {
+                conn.Open();
+                SQLiteCommand command = new SQLiteCommand(conn);
+                command.CommandText = "SELECT * FROM Language WHERE id=@id";
+                command.Parameters.Add(new SQLiteParameter("@id", id));
+                using (command)
+                {
+                    using (SQLiteDataReader rdr = command.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+
+
+                            labelName1.Text = rdr.GetValue(1).ToString();
+                            txtLanguage.Text = rdr.GetValue(1).ToString();
+
+                            labelAbbrev1.Text = rdr.GetValue(2).ToString();
+                            txtAbbrev.Text = rdr.GetValue(2).ToString();
+
+                        }
+                    }
+                }
+                conn.Close();
+            }
         }
+
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btEdit_Click_1(object sender, EventArgs e)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connString))
+            {
+                conn.Open();
+                SQLiteCommand command = new SQLiteCommand(conn);
+                command.CommandText = @"
+                                UPDATE [Language] SET 
+                                name = @name,
+                                abbrev = @abbrev                               
+                                WHERE id = @id";
+                command.Parameters.Add(new SQLiteParameter("@id", id));
+                command.Parameters.Add(new SQLiteParameter("@name", txtLanguage.Text));
+                command.Parameters.Add(new SQLiteParameter("@abbrev", txtAbbrev.Text));
+                command.ExecuteNonQuery();
+                conn.Close();
+
+                this.Close();
+            }
+        }
+
     }
-}
+    }
+

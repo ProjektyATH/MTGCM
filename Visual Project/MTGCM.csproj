@@ -312,6 +312,9 @@
     <EmbeddedResource Include="Forms\Language_Add.resx">
       <DependentUpon>Language_Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Language_Edit.resx">
+      <DependentUpon>Language_Edit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_List.resx">
       <DependentUpon>Language_List.cs</DependentUpon>
     </EmbeddedResource>
