@@ -33,12 +33,11 @@ namespace MTGCM.Forms
                 conn.Open();
                 SQLiteCommand command = new SQLiteCommand(conn);
                 command.CommandText = @"
-                                INSERT INTO [CardBase] (name, text, flavor, power, toughness, mana_cost, cmc)
-                                VALUES (@name, @text, @flavor, @power, @toughness, @mana_cost, @cmc)
+                                INSERT INTO [CardBase] (name, text, power, toughness, mana_cost, cmc)
+                                VALUES (@name, @text,  @power, @toughness, @mana_cost, @cmc)
                                 ";
                 command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
-                command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));
-                command.Parameters.Add(new SQLiteParameter("@flavor", txtFlavor.Text));
+                command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));           
                 command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
                 command.Parameters.Add(new SQLiteParameter("@toughness", Convert.ToInt32(txtToughness.Text)));
                 command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
