@@ -16,5 +16,10 @@ namespace MTGCM.Forms
         {
             InitializeComponent();
         }
+
+        private void btEdit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
