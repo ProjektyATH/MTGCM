@@ -36,24 +36,15 @@ namespace MTGCM.Forms
                                 INSERT INTO [CardBase] (name, text, power, toughness, mana_cost, cmc)
                                 VALUES (@name, @text,  @power, @toughness, @mana_cost, @cmc)
                                 ";
-                if (txtName.Text == null || txtText.Text == null || txtPower.Text == "" ||txtToughness.Text == "" || txtMana.Text == null || txtCmc.Text==null)
-                {
-                    MessageBox.Show("Pola nie mogą być puste!");
-                }
-                else
-                {
-                    command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
-                    command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));
-                    command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
-                    command.Parameters.Add(new SQLiteParameter("@toughness", Convert.ToInt32(txtToughness.Text)));
-                    command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
-                    command.Parameters.Add(new SQLiteParameter("@cmc", txtCmc.Text));
-                    command.ExecuteNonQuery();
-                }
-                
+                command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
+                command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));           
+                command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
+                command.Parameters.Add(new SQLiteParameter("@toughness", Convert.ToInt32(txtToughness.Text)));
+                command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
+                command.Parameters.Add(new SQLiteParameter("@cmc", txtCmc.Text));
                
 
-              
+                command.ExecuteNonQuery();
                 conn.Close();
 
                 this.Close();
