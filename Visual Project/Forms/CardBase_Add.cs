@@ -39,9 +39,13 @@ namespace MTGCM.Forms
                 if (txtName.Text == null || txtText.Text == null || txtPower.Text == "" ||txtToughness.Text == "" || txtMana.Text == null || txtCmc.Text==null)
                 {
                     MessageBox.Show("Pola nie mogą być puste!");
+
                 }
                 else
                 {
+                    
+                    try
+                    {
                     command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
                     command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));
                     command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
@@ -49,14 +53,25 @@ namespace MTGCM.Forms
                     command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
                     command.Parameters.Add(new SQLiteParameter("@cmc", txtCmc.Text));
                     command.ExecuteNonQuery();
+
+                    conn.Close();
+                    this.Close();
+
+                    }
+                    catch (Exception )
+                    {
+
+                        MessageBox.Show("Zły format!");
+                        this.Close();
+                    }
+                  
                 }
                 
                
 
               
-                conn.Close();
 
-                this.Close();
+                
 
             }
         }

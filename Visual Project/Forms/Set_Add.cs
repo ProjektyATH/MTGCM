@@ -41,22 +41,34 @@ namespace MTGCM.Forms
                 if (txtName.Text==null ||txtAbbrev.Text==null||txtBlock.Text==""||txtTotal.Text=="")
                 {
                     MessageBox.Show("Pola nie mogą być puste!");
-                }else{
-                command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
-                command.Parameters.Add(new SQLiteParameter("@abbrev", txtAbbrev.Text));
-                command.Parameters.Add(new SQLiteParameter("@symbol", txtSymbol.Text));
-                command.Parameters.Add(new SQLiteParameter("@relase_date", datePicker.Value));
-                command.Parameters.Add(new SQLiteParameter("@fk_block_id", Convert.ToInt32(txtBlock.Text)));
-                command.Parameters.Add(new SQLiteParameter("@cards_total", Convert.ToInt32(txtTotal.Text)));
-                command.Parameters.Add(new SQLiteParameter("@is_core", radioCore.Checked));
-                command.Parameters.Add(new SQLiteParameter("@is_special", radioSpecial.Checked));
-                command.ExecuteNonQuery();
+                }else
+                {
+                    try
+                    {
+                        command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
+                        command.Parameters.Add(new SQLiteParameter("@abbrev", txtAbbrev.Text));
+                        command.Parameters.Add(new SQLiteParameter("@symbol", txtSymbol.Text));
+                        command.Parameters.Add(new SQLiteParameter("@relase_date", datePicker.Value));
+                        command.Parameters.Add(new SQLiteParameter("@fk_block_id", Convert.ToInt32(txtBlock.Text)));
+                        command.Parameters.Add(new SQLiteParameter("@cards_total", Convert.ToInt32(txtTotal.Text)));
+                        command.Parameters.Add(new SQLiteParameter("@is_core", radioCore.Checked));
+                        command.Parameters.Add(new SQLiteParameter("@is_special", radioSpecial.Checked));
+                        command.ExecuteNonQuery();
+                        conn.Close();
+
+                        this.Close();
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("Zły format!");
+
+                    }
+            
+
                 }
                 
-                conn.Close();
-
-                this.Close();
-
+               
             }
         }
     }
