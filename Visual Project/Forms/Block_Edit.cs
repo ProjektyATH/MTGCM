@@ -33,8 +33,7 @@ namespace MTGCM.Forms
                     {
                         while (rdr.Read())
                         {
-
-
+                            
                             labelName.Text = rdr.GetValue(1).ToString();
                             txtImieNazw.Text = rdr.GetValue(1).ToString();
 

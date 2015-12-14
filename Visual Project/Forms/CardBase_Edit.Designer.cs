@@ -123,7 +123,7 @@
             this.btCancel.TabIndex = 49;
             this.btCancel.Text = "Anuluj";
             this.btCancel.UseVisualStyleBackColor = true;
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+          //  this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btEdit
             // 

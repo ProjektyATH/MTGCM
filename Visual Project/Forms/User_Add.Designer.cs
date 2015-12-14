@@ -54,6 +54,7 @@
             this.btCancel.TabIndex = 1;
             this.btCancel.Text = "Anuluj";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // label1
             // 
@@ -63,6 +64,7 @@
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "login:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtLogin
             // 
@@ -70,6 +72,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(120, 20);
             this.txtLogin.TabIndex = 5;
+            this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
             // 
             // label2
             // 
@@ -79,6 +82,7 @@
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "hasło";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtPassword
             // 
@@ -86,6 +90,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(120, 20);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // User_Add
             // 

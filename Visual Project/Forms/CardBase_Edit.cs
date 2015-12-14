@@ -84,28 +84,41 @@ namespace MTGCM.Forms
                                 mana_cost = @mana_cost,
                                 cmc = @cmc
                                 WHERE id = @id";
-                command.Parameters.Add(new SQLiteParameter("@id", id));
-                command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
-                command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));            
-                command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
-                command.Parameters.Add(new SQLiteParameter("@toughness", Convert.ToInt32(txtToughness.Text)));
-                command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
-                command.Parameters.Add(new SQLiteParameter("@cmc", Convert.ToInt32(txtCmc.Text)));
+                if (txtName.Text == null || txtText.Text == null || txtPower.Text == "" || txtToughness.Text == "" || txtMana.Text == null || txtCmc.Text=="")
+                {
+                    MessageBox.Show("Pola nie mogą być puste");
+                }
+                else
+                {
+                    try
+                    {
+                        
+                        command.Parameters.Add(new SQLiteParameter("@id", id));
+                        command.Parameters.Add(new SQLiteParameter("@name", txtName.Text));
+                        command.Parameters.Add(new SQLiteParameter("@text", txtText.Text));
+                        command.Parameters.Add(new SQLiteParameter("@power", Convert.ToInt32(txtPower.Text)));
+                        command.Parameters.Add(new SQLiteParameter("@toughness", Convert.ToInt32(txtToughness.Text)));
+                        command.Parameters.Add(new SQLiteParameter("@mana_cost", txtMana.Text));
+                        command.Parameters.Add(new SQLiteParameter("@cmc", Convert.ToInt32(txtCmc.Text)));
 
 
-                command.ExecuteNonQuery();
-                conn.Close();
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                        this.Close();
+                    }
+                    catch (Exception)
+                    {
 
-                this.Close();
+                        MessageBox.Show("Zły format!");
+                        
+                    }
+                   
+                }
             }
         }
 
-        private void btCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
+      
+    
 
     }
 }
