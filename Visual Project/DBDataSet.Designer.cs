@@ -76,9 +76,9 @@ namespace MTGCM {
         
         private global::System.Data.DataRelation relationFK_OwnedCard_1_0;
         
-        private global::System.Data.DataRelation relationBlock_Set;
+        private global::System.Data.DataRelation relationFK_OwnedCard_2_0;
         
-        private global::System.Data.DataRelation relationCard_OwnedCard;
+        private global::System.Data.DataRelation relationFK_Set_0_0;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -546,8 +546,8 @@ namespace MTGCM {
             this.relationFK_LinkType_1_0 = this.Relations["FK_LinkType_1_0"];
             this.relationFK_OwnedCard_0_0 = this.Relations["FK_OwnedCard_0_0"];
             this.relationFK_OwnedCard_1_0 = this.Relations["FK_OwnedCard_1_0"];
-            this.relationBlock_Set = this.Relations["Block_Set"];
-            this.relationCard_OwnedCard = this.Relations["Card_OwnedCard"];
+            this.relationFK_OwnedCard_2_0 = this.Relations["FK_OwnedCard_2_0"];
+            this.relationFK_Set_0_0 = this.Relations["FK_Set_0_0"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -599,12 +599,12 @@ namespace MTGCM {
                         this.tableCard.fk_artist_idColumn}, false);
             this.Relations.Add(this.relationFK_Card_2_0);
             this.relationFK_Card_3_0 = new global::System.Data.DataRelation("FK_Card_3_0", new global::System.Data.DataColumn[] {
-                        this.tableCardBase.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCard.fk_base_idColumn}, false);
-            this.Relations.Add(this.relationFK_Card_3_0);
-            this.relationFK_Card_4_0 = new global::System.Data.DataRelation("FK_Card_4_0", new global::System.Data.DataColumn[] {
                         this.tableLanguage.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableCard.fk_language_idColumn}, false);
+            this.Relations.Add(this.relationFK_Card_3_0);
+            this.relationFK_Card_4_0 = new global::System.Data.DataRelation("FK_Card_4_0", new global::System.Data.DataColumn[] {
+                        this.tableCardBase.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCard.fk_base_idColumn}, false);
             this.Relations.Add(this.relationFK_Card_4_0);
             this.relationFK_Deck_0_0 = new global::System.Data.DataRelation("FK_Deck_0_0", new global::System.Data.DataColumn[] {
                         this.tableUser.idColumn}, new global::System.Data.DataColumn[] {
@@ -634,14 +634,14 @@ namespace MTGCM {
                         this.tableUser.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableOwnedCard.fk_user_idColumn}, false);
             this.Relations.Add(this.relationFK_OwnedCard_1_0);
-            this.relationBlock_Set = new global::System.Data.DataRelation("Block_Set", new global::System.Data.DataColumn[] {
+            this.relationFK_OwnedCard_2_0 = new global::System.Data.DataRelation("FK_OwnedCard_2_0", new global::System.Data.DataColumn[] {
+                        this.tableCard.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOwnedCard.fk_card_idColumn}, false);
+            this.Relations.Add(this.relationFK_OwnedCard_2_0);
+            this.relationFK_Set_0_0 = new global::System.Data.DataRelation("FK_Set_0_0", new global::System.Data.DataColumn[] {
                         this.tableBlock.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableSet.fk_block_idColumn}, false);
-            this.Relations.Add(this.relationBlock_Set);
-            this.relationCard_OwnedCard = new global::System.Data.DataRelation("Card_OwnedCard", new global::System.Data.DataColumn[] {
-                        this.tableCard.gatherer_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOwnedCard.fk_card_idColumn}, false);
-            this.Relations.Add(this.relationCard_OwnedCard);
+            this.Relations.Add(this.relationFK_Set_0_0);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1385,11 +1385,11 @@ namespace MTGCM {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class CardDataTable : global::System.Data.TypedTableBase<CardRow> {
             
-            private global::System.Data.DataColumn columngatherer_id;
-            
-            private global::System.Data.DataColumn columnfk_language_id;
+            private global::System.Data.DataColumn columnid;
             
             private global::System.Data.DataColumn columnfk_base_id;
+            
+            private global::System.Data.DataColumn columnfk_language_id;
             
             private global::System.Data.DataColumn columnartwork;
             
@@ -1440,17 +1440,9 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn gatherer_idColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columngatherer_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fk_language_idColumn {
-                get {
-                    return this.columnfk_language_id;
+                    return this.columnid;
                 }
             }
             
@@ -1459,6 +1451,14 @@ namespace MTGCM {
             public global::System.Data.DataColumn fk_base_idColumn {
                 get {
                     return this.columnfk_base_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fk_language_idColumn {
+                get {
+                    return this.columnfk_language_id;
                 }
             }
             
@@ -1555,7 +1555,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow AddCardRow(LanguageRow parentLanguageRowByFK_Card_4_0, CardBaseRow parentCardBaseRowByFK_Card_3_0, string artwork, ArtistRow parentArtistRowByFK_Card_2_0, RarityRow parentRarityRowByFK_Card_1_0, SetRow parentSetRowByFK_Card_0_0, string flavor_text, long number, string version) {
+            public CardRow AddCardRow(CardBaseRow parentCardBaseRowByFK_Card_4_0, LanguageRow parentLanguageRowByFK_Card_3_0, string artwork, ArtistRow parentArtistRowByFK_Card_2_0, RarityRow parentRarityRowByFK_Card_1_0, SetRow parentSetRowByFK_Card_0_0, string flavor_text, long number, string version) {
                 CardRow rowCardRow = ((CardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1568,11 +1568,11 @@ namespace MTGCM {
                         flavor_text,
                         number,
                         version};
-                if ((parentLanguageRowByFK_Card_4_0 != null)) {
-                    columnValuesArray[1] = parentLanguageRowByFK_Card_4_0[0];
+                if ((parentCardBaseRowByFK_Card_4_0 != null)) {
+                    columnValuesArray[1] = parentCardBaseRowByFK_Card_4_0[0];
                 }
-                if ((parentCardBaseRowByFK_Card_3_0 != null)) {
-                    columnValuesArray[2] = parentCardBaseRowByFK_Card_3_0[0];
+                if ((parentLanguageRowByFK_Card_3_0 != null)) {
+                    columnValuesArray[2] = parentLanguageRowByFK_Card_3_0[0];
                 }
                 if ((parentArtistRowByFK_Card_2_0 != null)) {
                     columnValuesArray[4] = parentArtistRowByFK_Card_2_0[0];
@@ -1590,9 +1590,9 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow FindBygatherer_id(long gatherer_id) {
+            public CardRow FindByid(long id) {
                 return ((CardRow)(this.Rows.Find(new object[] {
-                            gatherer_id})));
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1612,9 +1612,9 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columngatherer_id = base.Columns["gatherer_id"];
-                this.columnfk_language_id = base.Columns["fk_language_id"];
+                this.columnid = base.Columns["id"];
                 this.columnfk_base_id = base.Columns["fk_base_id"];
+                this.columnfk_language_id = base.Columns["fk_language_id"];
                 this.columnartwork = base.Columns["artwork"];
                 this.columnfk_artist_id = base.Columns["fk_artist_id"];
                 this.columnfk_rarity_id = base.Columns["fk_rarity_id"];
@@ -1627,12 +1627,12 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columngatherer_id = new global::System.Data.DataColumn("gatherer_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columngatherer_id);
-                this.columnfk_language_id = new global::System.Data.DataColumn("fk_language_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_language_id);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
                 this.columnfk_base_id = new global::System.Data.DataColumn("fk_base_id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfk_base_id);
+                this.columnfk_language_id = new global::System.Data.DataColumn("fk_language_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfk_language_id);
                 this.columnartwork = new global::System.Data.DataColumn("artwork", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnartwork);
                 this.columnfk_artist_id = new global::System.Data.DataColumn("fk_artist_id", typeof(long), null, global::System.Data.MappingType.Element);
@@ -1648,14 +1648,14 @@ namespace MTGCM {
                 this.columnversion = new global::System.Data.DataColumn("version", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnversion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columngatherer_id}, true));
-                this.columngatherer_id.AutoIncrement = true;
-                this.columngatherer_id.AutoIncrementSeed = -1;
-                this.columngatherer_id.AutoIncrementStep = -1;
-                this.columngatherer_id.AllowDBNull = false;
-                this.columngatherer_id.Unique = true;
-                this.columnfk_language_id.AllowDBNull = false;
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
                 this.columnfk_base_id.AllowDBNull = false;
+                this.columnfk_language_id.AllowDBNull = false;
                 this.columnartwork.MaxLength = 2147483647;
                 this.columnflavor_text.MaxLength = 2147483647;
                 this.columnversion.MaxLength = 2147483647;
@@ -1798,8 +1798,6 @@ namespace MTGCM {
             
             private global::System.Data.DataColumn columntext;
             
-            private global::System.Data.DataColumn columnflavor;
-            
             private global::System.Data.DataColumn columnpower;
             
             private global::System.Data.DataColumn columntoughness;
@@ -1862,14 +1860,6 @@ namespace MTGCM {
             public global::System.Data.DataColumn textColumn {
                 get {
                     return this.columntext;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn flavorColumn {
-                get {
-                    return this.columnflavor;
                 }
             }
             
@@ -1942,13 +1932,12 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardBaseRow AddCardBaseRow(string name, string text, string flavor, long power, long toughness, string mana_cost, long cmc) {
+            public CardBaseRow AddCardBaseRow(string name, string text, long power, long toughness, string mana_cost, long cmc) {
                 CardBaseRow rowCardBaseRow = ((CardBaseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
                         text,
-                        flavor,
                         power,
                         toughness,
                         mana_cost,
@@ -1985,7 +1974,6 @@ namespace MTGCM {
                 this.columnid = base.Columns["id"];
                 this.columnname = base.Columns["name"];
                 this.columntext = base.Columns["text"];
-                this.columnflavor = base.Columns["flavor"];
                 this.columnpower = base.Columns["power"];
                 this.columntoughness = base.Columns["toughness"];
                 this.columnmana_cost = base.Columns["mana_cost"];
@@ -2001,8 +1989,6 @@ namespace MTGCM {
                 base.Columns.Add(this.columnname);
                 this.columntext = new global::System.Data.DataColumn("text", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntext);
-                this.columnflavor = new global::System.Data.DataColumn("flavor", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnflavor);
                 this.columnpower = new global::System.Data.DataColumn("power", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpower);
                 this.columntoughness = new global::System.Data.DataColumn("toughness", typeof(long), null, global::System.Data.MappingType.Element);
@@ -2021,7 +2007,6 @@ namespace MTGCM {
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 2147483647;
                 this.columntext.MaxLength = 2147483647;
-                this.columnflavor.MaxLength = 2147483647;
                 this.columnpower.AllowDBNull = false;
                 this.columntoughness.AllowDBNull = false;
                 this.columnmana_cost.MaxLength = 2147483647;
@@ -4038,7 +4023,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OwnedCardRow AddOwnedCardRow(CardRow parentCardRowByCard_OwnedCard, UserRow parentUserRowByFK_OwnedCard_1_0, DeckRow parentDeckRowByFK_OwnedCard_0_0, bool foil, bool signed, long condition, bool altered, string tags, string comment) {
+            public OwnedCardRow AddOwnedCardRow(CardRow parentCardRowByFK_OwnedCard_2_0, UserRow parentUserRowByFK_OwnedCard_1_0, DeckRow parentDeckRowByFK_OwnedCard_0_0, bool foil, bool signed, long condition, bool altered, string tags, string comment) {
                 OwnedCardRow rowOwnedCardRow = ((OwnedCardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4051,8 +4036,8 @@ namespace MTGCM {
                         altered,
                         tags,
                         comment};
-                if ((parentCardRowByCard_OwnedCard != null)) {
-                    columnValuesArray[1] = parentCardRowByCard_OwnedCard[0];
+                if ((parentCardRowByFK_OwnedCard_2_0 != null)) {
+                    columnValuesArray[1] = parentCardRowByFK_OwnedCard_2_0[0];
                 }
                 if ((parentUserRowByFK_OwnedCard_1_0 != null)) {
                     columnValuesArray[2] = parentUserRowByFK_OwnedCard_1_0[0];
@@ -4718,7 +4703,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SetRow AddSetRow(string name, string abbrev, string symbol, System.DateTime relase_date, BlockRow parentBlockRowByBlock_Set, long cards_total, bool is_core, bool is_special) {
+            public SetRow AddSetRow(string name, string abbrev, string symbol, System.DateTime relase_date, BlockRow parentBlockRowByFK_Set_0_0, long cards_total, bool is_core, bool is_special) {
                 SetRow rowSetRow = ((SetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4730,8 +4715,8 @@ namespace MTGCM {
                         cards_total,
                         is_core,
                         is_special};
-                if ((parentBlockRowByBlock_Set != null)) {
-                    columnValuesArray[5] = parentBlockRowByBlock_Set[0];
+                if ((parentBlockRowByFK_Set_0_0 != null)) {
+                    columnValuesArray[5] = parentBlockRowByFK_Set_0_0[0];
                 }
                 rowSetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSetRow);
@@ -5326,11 +5311,11 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SetRow[] GetSetRows() {
-                if ((this.Table.ChildRelations["Block_Set"] == null)) {
+                if ((this.Table.ChildRelations["FK_Set_0_0"] == null)) {
                     return new SetRow[0];
                 }
                 else {
-                    return ((SetRow[])(base.GetChildRows(this.Table.ChildRelations["Block_Set"])));
+                    return ((SetRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Set_0_0"])));
                 }
             }
         }
@@ -5351,23 +5336,12 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long gatherer_id {
+            public long id {
                 get {
-                    return ((long)(this[this.tableCard.gatherer_idColumn]));
+                    return ((long)(this[this.tableCard.idColumn]));
                 }
                 set {
-                    this[this.tableCard.gatherer_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long fk_language_id {
-                get {
-                    return ((long)(this[this.tableCard.fk_language_idColumn]));
-                }
-                set {
-                    this[this.tableCard.fk_language_idColumn] = value;
+                    this[this.tableCard.idColumn] = value;
                 }
             }
             
@@ -5379,6 +5353,17 @@ namespace MTGCM {
                 }
                 set {
                     this[this.tableCard.fk_base_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long fk_language_id {
+                get {
+                    return ((long)(this[this.tableCard.fk_language_idColumn]));
+                }
+                set {
+                    this[this.tableCard.fk_language_idColumn] = value;
                 }
             }
             
@@ -5529,9 +5514,9 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardBaseRow CardBaseRow {
+            public LanguageRow LanguageRow {
                 get {
-                    return ((CardBaseRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_3_0"])));
+                    return ((LanguageRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_3_0"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Card_3_0"]);
@@ -5540,9 +5525,9 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LanguageRow LanguageRow {
+            public CardBaseRow CardBaseRow {
                 get {
-                    return ((LanguageRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_4_0"])));
+                    return ((CardBaseRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_4_0"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Card_4_0"]);
@@ -5636,11 +5621,11 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OwnedCardRow[] GetOwnedCardRows() {
-                if ((this.Table.ChildRelations["Card_OwnedCard"] == null)) {
+                if ((this.Table.ChildRelations["FK_OwnedCard_2_0"] == null)) {
                     return new OwnedCardRow[0];
                 }
                 else {
-                    return ((OwnedCardRow[])(base.GetChildRows(this.Table.ChildRelations["Card_OwnedCard"])));
+                    return ((OwnedCardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OwnedCard_2_0"])));
                 }
             }
         }
@@ -5694,22 +5679,6 @@ namespace MTGCM {
                 }
                 set {
                     this[this.tableCardBase.textColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string flavor {
-                get {
-                    try {
-                        return ((string)(this[this.tableCardBase.flavorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'flavor\' in table \'CardBase\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCardBase.flavorColumn] = value;
                 }
             }
             
@@ -5781,18 +5750,6 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsflavorNull() {
-                return this.IsNull(this.tableCardBase.flavorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetflavorNull() {
-                this[this.tableCardBase.flavorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ismana_costNull() {
                 return this.IsNull(this.tableCardBase.mana_costColumn);
             }
@@ -5818,11 +5775,11 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_3_0"] == null)) {
+                if ((this.Table.ChildRelations["FK_Card_4_0"] == null)) {
                     return new CardRow[0];
                 }
                 else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_3_0"])));
+                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_4_0"])));
                 }
             }
             
@@ -6161,11 +6118,11 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_4_0"] == null)) {
+                if ((this.Table.ChildRelations["FK_Card_3_0"] == null)) {
                     return new CardRow[0];
                 }
                 else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_4_0"])));
+                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_3_0"])));
                 }
             }
         }
@@ -6483,10 +6440,10 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CardRow CardRow {
                 get {
-                    return ((CardRow)(this.GetParentRow(this.Table.ParentRelations["Card_OwnedCard"])));
+                    return ((CardRow)(this.GetParentRow(this.Table.ParentRelations["FK_OwnedCard_2_0"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Card_OwnedCard"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OwnedCard_2_0"]);
                 }
             }
             
@@ -6827,10 +6784,10 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BlockRow BlockRow {
                 get {
-                    return ((BlockRow)(this.GetParentRow(this.Table.ParentRelations["Block_Set"])));
+                    return ((BlockRow)(this.GetParentRow(this.Table.ParentRelations["FK_Set_0_0"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Block_Set"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Set_0_0"]);
                 }
             }
             
@@ -7711,7 +7668,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8051,7 +8008,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8328,9 +8285,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Card";
-            tableMapping.ColumnMappings.Add("gatherer_id", "gatherer_id");
-            tableMapping.ColumnMappings.Add("fk_language_id", "fk_language_id");
+            tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("fk_base_id", "fk_base_id");
+            tableMapping.ColumnMappings.Add("fk_language_id", "fk_language_id");
             tableMapping.ColumnMappings.Add("artwork", "artwork");
             tableMapping.ColumnMappings.Add("fk_artist_id", "fk_artist_id");
             tableMapping.ColumnMappings.Add("fk_rarity_id", "fk_rarity_id");
@@ -8341,20 +8298,13 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Card] WHERE (([gatherer_id] = @Original_gatherer_id) AND ([fk_language_id] = @Original_fk_language_id) AND ([fk_base_id] = @Original_fk_base_id) AND ((@IsNull_artwork = 1 AND [artwork] IS NULL) OR ([artwork] = @Original_artwork)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Card] WHERE (([id] = @Original_id) AND ([fk_base_id] = @Original_fk_base_id) AND ([fk_language_id] = @Original_fk_language_id) AND ((@IsNull_artwork = 1 AND [artwork] IS NULL) OR ([artwork] = @Original_artwork)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_gatherer_id";
+            param.ParameterName = "@Original_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "gatherer_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
+            param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -8362,6 +8312,13 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "fk_base_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -8468,19 +8425,19 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[Card] ([fk_language_id], [fk_base_id], [artwork], [fk_artist_id], [fk_rarity_id], [fk_set_id], [flavor_text], [number], [version]) VALUES (@fk_language_id, @fk_base_id, @artwork, @fk_artist_id, @fk_rarity_id, @fk_set_id, @flavor_text, @number, @version)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[Card] ([fk_base_id], [fk_language_id], [artwork], [fk_artist_id], [fk_rarity_id], [fk_set_id], [flavor_text], [number], [version]) VALUES (@fk_base_id, @fk_language_id, @artwork, @fk_artist_id, @fk_rarity_id, @fk_set_id, @flavor_text, @number, @version)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@fk_base_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "fk_base_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@artwork";
@@ -8523,19 +8480,19 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Card] SET [fk_language_id] = @fk_language_id, [fk_base_id] = @fk_base_id, [artwork] = @artwork, [fk_artist_id] = @fk_artist_id, [fk_rarity_id] = @fk_rarity_id, [fk_set_id] = @fk_set_id, [flavor_text] = @flavor_text, [number] = @number, [version] = @version WHERE (([gatherer_id] = @Original_gatherer_id) AND ([fk_language_id] = @Original_fk_language_id) AND ([fk_base_id] = @Original_fk_base_id) AND ((@IsNull_artwork = 1 AND [artwork] IS NULL) OR ([artwork] = @Original_artwork)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Card] SET [fk_base_id] = @fk_base_id, [fk_language_id] = @fk_language_id, [artwork] = @artwork, [fk_artist_id] = @fk_artist_id, [fk_rarity_id] = @fk_rarity_id, [fk_set_id] = @fk_set_id, [flavor_text] = @flavor_text, [number] = @number, [version] = @version WHERE (([id] = @Original_id) AND ([fk_base_id] = @Original_fk_base_id) AND ([fk_language_id] = @Original_fk_language_id) AND ((@IsNull_artwork = 1 AND [artwork] IS NULL) OR ([artwork] = @Original_artwork)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@fk_base_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "fk_base_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@artwork";
@@ -8577,17 +8534,10 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "version";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_gatherer_id";
+            param.ParameterName = "@Original_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "gatherer_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
+            param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -8595,6 +8545,13 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "fk_base_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -8705,7 +8662,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8714,8 +8671,8 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [gatherer_id], [fk_language_id], [fk_base_id], [artwork], [fk_artist_id], " +
-                "[fk_rarity_id], [fk_set_id], [flavor_text], [number], [version] FROM [Card]";
+            this._commandCollection[0].CommandText = "SELECT [id], [fk_base_id], [fk_language_id], [artwork], [fk_artist_id], [fk_rarit" +
+                "y_id], [fk_set_id], [flavor_text], [number], [version] FROM [Card]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8776,10 +8733,10 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_gatherer_id, long Original_fk_language_id, long Original_fk_base_id, string Original_artwork, global::System.Nullable<long> Original_fk_artist_id, global::System.Nullable<long> Original_fk_rarity_id, global::System.Nullable<long> Original_fk_set_id, string Original_flavor_text, global::System.Nullable<long> Original_number, string Original_version) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_gatherer_id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_fk_language_id));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_fk_base_id));
+        public virtual int Delete(long Original_id, long Original_fk_base_id, long Original_fk_language_id, string Original_artwork, global::System.Nullable<long> Original_fk_artist_id, global::System.Nullable<long> Original_fk_rarity_id, global::System.Nullable<long> Original_fk_set_id, string Original_flavor_text, global::System.Nullable<long> Original_number, string Original_version) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_fk_base_id));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_fk_language_id));
             if ((Original_artwork == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -8856,9 +8813,9 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long fk_language_id, long fk_base_id, string artwork, global::System.Nullable<long> fk_artist_id, global::System.Nullable<long> fk_rarity_id, global::System.Nullable<long> fk_set_id, string flavor_text, global::System.Nullable<long> number, string version) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(fk_language_id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fk_base_id));
+        public virtual int Insert(long fk_base_id, long fk_language_id, string artwork, global::System.Nullable<long> fk_artist_id, global::System.Nullable<long> fk_rarity_id, global::System.Nullable<long> fk_set_id, string flavor_text, global::System.Nullable<long> number, string version) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(fk_base_id));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fk_language_id));
             if ((artwork == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -8922,8 +8879,8 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    long fk_language_id, 
                     long fk_base_id, 
+                    long fk_language_id, 
                     string artwork, 
                     global::System.Nullable<long> fk_artist_id, 
                     global::System.Nullable<long> fk_rarity_id, 
@@ -8931,9 +8888,9 @@ namespace MTGCM.DBDataSetTableAdapters {
                     string flavor_text, 
                     global::System.Nullable<long> number, 
                     string version, 
-                    long Original_gatherer_id, 
-                    long Original_fk_language_id, 
+                    long Original_id, 
                     long Original_fk_base_id, 
+                    long Original_fk_language_id, 
                     string Original_artwork, 
                     global::System.Nullable<long> Original_fk_artist_id, 
                     global::System.Nullable<long> Original_fk_rarity_id, 
@@ -8941,8 +8898,8 @@ namespace MTGCM.DBDataSetTableAdapters {
                     string Original_flavor_text, 
                     global::System.Nullable<long> Original_number, 
                     string Original_version) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(fk_language_id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fk_base_id));
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(fk_base_id));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fk_language_id));
             if ((artwork == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -8985,9 +8942,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(version));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_gatherer_id));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_fk_language_id));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_fk_base_id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_fk_base_id));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_fk_language_id));
             if ((Original_artwork == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
@@ -9185,7 +9142,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("text", "text");
-            tableMapping.ColumnMappings.Add("flavor", "flavor");
             tableMapping.ColumnMappings.Add("power", "power");
             tableMapping.ColumnMappings.Add("toughness", "toughness");
             tableMapping.ColumnMappings.Add("mana_cost", "mana_cost");
@@ -9193,7 +9149,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[CardBase] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_text = 1 AND [text] IS NULL) OR ([text] = @Original_text)) AND ((@IsNull_flavor = 1 AND [flavor] IS NULL) OR ([flavor] = @Original_flavor)) AND ([power] = @Original_power) AND ([toughness] = @Original_toughness) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[CardBase] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_text = 1 AND [text] IS NULL) OR ([text] = @Original_text)) AND ([power] = @Original_power) AND ([toughness] = @Original_toughness) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -9220,20 +9176,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.ParameterName = "@Original_text";
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "text";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_flavor";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "flavor";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -9281,9 +9223,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[CardBase] ([name], [text], [flavor], " +
-                "[power], [toughness], [mana_cost], [cmc]) VALUES (@name, @text, @flavor, @power," +
-                " @toughness, @mana_cost, @cmc)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[CardBase] ([name], [text], [power], [" +
+                "toughness], [mana_cost], [cmc]) VALUES (@name, @text, @power, @toughness, @mana_" +
+                "cost, @cmc)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -9294,11 +9236,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.ParameterName = "@text";
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "text";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@power";
@@ -9325,7 +9262,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[CardBase] SET [name] = @name, [text] = @text, [flavor] = @flavor, [power] = @power, [toughness] = @toughness, [mana_cost] = @mana_cost, [cmc] = @cmc WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_text = 1 AND [text] IS NULL) OR ([text] = @Original_text)) AND ((@IsNull_flavor = 1 AND [flavor] IS NULL) OR ([flavor] = @Original_flavor)) AND ([power] = @Original_power) AND ([toughness] = @Original_toughness) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[CardBase] SET [name] = @name, [text] = @text, [power] = @power, [toughness] = @toughness, [mana_cost] = @mana_cost, [cmc] = @cmc WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_text = 1 AND [text] IS NULL) OR ([text] = @Original_text)) AND ([power] = @Original_power) AND ([toughness] = @Original_toughness) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -9336,11 +9273,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.ParameterName = "@text";
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "text";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@power";
@@ -9390,20 +9322,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.ParameterName = "@Original_text";
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "text";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_flavor";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "flavor";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -9455,7 +9373,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9464,8 +9382,8 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [id], [name], [text], [flavor], [power], [toughness], [mana_cost], [cmc] F" +
-                "ROM [CardBase]";
+            this._commandCollection[0].CommandText = "SELECT [id], [name], [text], [power], [toughness], [mana_cost], [cmc] FROM [CardB" +
+                "ase]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9526,7 +9444,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, string Original_name, string Original_text, string Original_flavor, long Original_power, long Original_toughness, string Original_mana_cost, global::System.Nullable<long> Original_cmc) {
+        public virtual int Delete(long Original_id, string Original_name, string Original_text, long Original_power, long Original_toughness, string Original_mana_cost, global::System.Nullable<long> Original_cmc) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -9542,31 +9460,23 @@ namespace MTGCM.DBDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_text));
             }
-            if ((Original_flavor == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_flavor));
-            }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((long)(Original_power));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((long)(Original_toughness));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_power));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((long)(Original_toughness));
             if ((Original_mana_cost == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_mana_cost));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_mana_cost));
             }
             if ((Original_cmc.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((long)(Original_cmc.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((long)(Original_cmc.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9588,7 +9498,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string text, string flavor, long power, long toughness, string mana_cost, global::System.Nullable<long> cmc) {
+        public virtual int Insert(string name, string text, long power, long toughness, string mana_cost, global::System.Nullable<long> cmc) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -9601,25 +9511,19 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(text));
             }
-            if ((flavor == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(flavor));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(power));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((long)(toughness));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(power));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(toughness));
             if ((mana_cost == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(mana_cost));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(mana_cost));
             }
             if ((cmc.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((long)(cmc.Value));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((long)(cmc.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9641,7 +9545,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string text, string flavor, long power, long toughness, string mana_cost, global::System.Nullable<long> cmc, long Original_id, string Original_name, string Original_text, string Original_flavor, long Original_power, long Original_toughness, string Original_mana_cost, global::System.Nullable<long> Original_cmc) {
+        public virtual int Update(string name, string text, long power, long toughness, string mana_cost, global::System.Nullable<long> cmc, long Original_id, string Original_name, string Original_text, long Original_power, long Original_toughness, string Original_mana_cost, global::System.Nullable<long> Original_cmc) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -9654,66 +9558,52 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(text));
             }
-            if ((flavor == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(flavor));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(power));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(toughness));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(power));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(toughness));
             if ((mana_cost == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(mana_cost));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(mana_cost));
             }
             if ((cmc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(cmc.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(cmc.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_name));
             }
             if ((Original_text == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_text));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_text));
             }
-            if ((Original_flavor == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_flavor));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_power));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Original_toughness));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_power));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_toughness));
             if ((Original_mana_cost == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_mana_cost));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_mana_cost));
             }
             if ((Original_cmc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((long)(Original_cmc.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((long)(Original_cmc.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9912,7 +9802,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10248,7 +10138,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10693,7 +10583,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11155,7 +11045,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11543,7 +11433,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11887,7 +11777,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12567,7 +12457,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13193,7 +13083,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13851,7 +13741,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14458,7 +14348,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

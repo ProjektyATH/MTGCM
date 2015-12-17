@@ -14,7 +14,7 @@ namespace MTGCM
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles(); ///chujchujchujchujchujchujc
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
         }

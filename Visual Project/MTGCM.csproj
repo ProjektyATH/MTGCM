@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0FB4E3C8-A6E0-4734-B177-B1DA5F2DCB8B}</ProjectGuid>
+    <ProjectGuid>{D35D0E4D-72AF-4880-942B-582B53C72279}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MTGCM</RootNamespace>
     <AssemblyName>MTGCM</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>3e211563</NuGetPackageImportStamp>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -47,25 +47,39 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MTGCM.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite">
-      <HintPath>packages\System.Data.SQLite.Core.MSIL.1.0.98.1\lib\net45\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <HintPath>packages\System.Data.SQLite.x86.1.0.99.0\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data.SQLite.EF6">
-      <HintPath>packages\System.Data.SQLite.EF6.1.0.98.1\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.99.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq">
-      <HintPath>packages\System.Data.SQLite.Linq.1.0.98.1\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.99.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,98 +90,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBDataSet.cs">
-      <DependentUpon>DBDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Artist.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Block.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Card.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardBase.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardSubtype.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardType.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Artist_Add.cs">
-      <SubType>Form</SubType>
+    <Compile Include="DBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Artist_Add.Designer.cs">
-      <DependentUpon>Artist_Add.cs</DependentUpon>
+    <Compile Include="DBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Artist_Edit.cs">
-      <SubType>Form</SubType>
+    <Compile Include="DBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Artist_Edit.Designer.cs">
-      <DependentUpon>Artist_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Artist_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Artist_List.Designer.cs">
-      <DependentUpon>Artist_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Block_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Block_Edit.Designer.cs">
-      <DependentUpon>Block_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Block_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Block_Add.Designer.cs">
-      <DependentUpon>Block_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Block_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Block_List.Designer.cs">
-      <DependentUpon>Block_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardBase_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardBase_Add.Designer.cs">
-      <DependentUpon>CardBase_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardBase_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardBase_Edit.Designer.cs">
-      <DependentUpon>CardBase_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardBase_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardBase_List.Designer.cs">
-      <DependentUpon>CardBase_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardSubtype_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardSubtype_Add.Designer.cs">
-      <DependentUpon>CardSubtype_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardSubtype_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardSubtype_Edit.Designer.cs">
-      <DependentUpon>CardSubtype_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardSubtype_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardSubtype_List.Designer.cs">
-      <DependentUpon>CardSubtype_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardType_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardType_Edit.Designer.cs">
-      <DependentUpon>CardType_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CardType_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardType_List.Designer.cs">
-      <DependentUpon>CardType_List.cs</DependentUpon>
+    <Compile Include="Deck.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Forms\Card_Add.cs">
       <SubType>Form</SubType>
@@ -187,119 +149,8 @@
     <Compile Include="Forms\Card_List.Designer.cs">
       <DependentUpon>Card_List.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CardType_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CardType_Add.Designer.cs">
-      <DependentUpon>CardType_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Deck_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Deck_Add.Designer.cs">
-      <DependentUpon>Deck_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Deck_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Deck_Edit.Designer.cs">
-      <DependentUpon>Deck_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Deck_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Deck_List.Designer.cs">
-      <DependentUpon>Deck_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Language_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Language_Add.Designer.cs">
-      <DependentUpon>Language_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Language_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Language_Edit.Designer.cs">
-      <DependentUpon>Language_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Language_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Language_List.Designer.cs">
-      <DependentUpon>Language_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\OwnedCard_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\OwnedCard_Add.Designer.cs">
-      <DependentUpon>OwnedCard_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\OwnedCard_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\OwnedCard_Edit.Designer.cs">
-      <DependentUpon>OwnedCard_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\OwnedCard_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\OwnedCard_List.Designer.cs">
-      <DependentUpon>OwnedCard_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Rarity_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rarity_Add.Designer.cs">
-      <DependentUpon>Rarity_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Rarity_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rarity_Edit.Designer.cs">
-      <DependentUpon>Rarity_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Rarity_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Rarity_List.Designer.cs">
-      <DependentUpon>Rarity_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Set_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Set_Add.Designer.cs">
-      <DependentUpon>Set_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Set_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Set_Edit.Designer.cs">
-      <DependentUpon>Set_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Set_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Set_List.Designer.cs">
-      <DependentUpon>Set_List.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\User_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\User_Add.Designer.cs">
-      <DependentUpon>User_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\User_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\User_Edit.Designer.cs">
-      <DependentUpon>User_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\User_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\User_List.Designer.cs">
-      <DependentUpon>User_List.cs</DependentUpon>
+    <Compile Include="Language.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -307,27 +158,20 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="OwnedCard.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usings.cs" />
-    <EmbeddedResource Include="Forms\Artist_Add.resx">
-      <DependentUpon>Artist_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Artist_Edit.resx">
-      <DependentUpon>Artist_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Artist_List.resx">
-      <DependentUpon>Artist_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Block_Add.resx">
-      <DependentUpon>Block_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Block_Edit.resx">
-      <DependentUpon>Block_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Block_List.resx">
-      <DependentUpon>Block_List.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Rarity.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Set.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Card_Add.resx">
       <DependentUpon>Card_Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,51 +180,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Card_List.resx">
       <DependentUpon>Card_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Language_Add.resx">
-      <DependentUpon>Language_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Language_Edit.resx">
-      <DependentUpon>Language_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Language_List.resx">
-      <DependentUpon>Language_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CardBase_Add.resx">
-      <DependentUpon>CardBase_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CardBase_Edit.resx">
-      <DependentUpon>CardBase_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CardBase_List.resx">
-      <DependentUpon>CardBase_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rarity_Add.resx">
-      <DependentUpon>Rarity_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rarity_Edit.resx">
-      <DependentUpon>Rarity_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rarity_List.resx">
-      <DependentUpon>Rarity_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Set_Add.resx">
-      <DependentUpon>Set_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Set_Edit.resx">
-      <DependentUpon>Set_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Set_List.resx">
-      <DependentUpon>Set_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\User_Add.resx">
-      <DependentUpon>User_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\User_Edit.resx">
-      <DependentUpon>User_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\User_List.resx">
-      <DependentUpon>User_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -394,9 +193,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Content Include="DB.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="DB.db" />
+    <EntityDeploy Include="DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </None>
@@ -407,6 +208,19 @@
     </None>
     <None Include="DBDataSet.xss">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </None>
+    <None Include="DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -423,9 +237,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -439,14 +253,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets'))" />
-  </Target>
-  <Import Project="packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,0 +1,891 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;D:\PROJEKTY\MTG\MTGCM\MTGCM\Visual Project\DB.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_base_id" Type="integer" Nullable="false" />
+          <Property Name="fk_language_id" Type="integer" Nullable="false" />
+          <Property Name="artwork" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="fk_artist_id" Type="integer" />
+          <Property Name="fk_rarity_id" Type="integer" />
+          <Property Name="fk_set_id" Type="integer" />
+          <Property Name="flavor_text" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="number" Type="integer" />
+          <Property Name="version" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="CardBase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="power" Type="integer" Nullable="false" />
+          <Property Name="toughness" Type="integer" Nullable="false" />
+          <Property Name="mana_cost" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="cmc" Type="integer" />
+        </EntityType>
+        <EntityType Name="CardSubtype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deck">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="fk_user_id" Type="integer" />
+          <Property Name="tags" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="abbrev" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="LinkSubtype">
+          <Key>
+            <PropertyRef Name="fk_cardsubtype_id" />
+            <PropertyRef Name="fk_cardbase_id" />
+          </Key>
+          <Property Name="fk_cardsubtype_id" Type="integer" Nullable="false" />
+          <Property Name="fk_cardbase_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LinkType">
+          <Key>
+            <PropertyRef Name="fk_cardtype_id" />
+            <PropertyRef Name="fk_cardbase_id" />
+          </Key>
+          <Property Name="fk_cardtype_id" Type="integer" Nullable="false" />
+          <Property Name="fk_cardbase_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OwnedCard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_card_id" Type="integer" />
+          <Property Name="fk_user_id" Type="integer" />
+          <Property Name="fk_deck_id" Type="integer" />
+          <Property Name="foil" Type="bit" />
+          <Property Name="signed" Type="bit" />
+          <Property Name="condition" Type="integer" />
+          <Property Name="altered" Type="bit" />
+          <Property Name="tags" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="comment" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Rarity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="color" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Set">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="abbrev" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="symbol" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="relase_date" Type="datetime" />
+          <Property Name="fk_block_id" Type="integer" />
+          <Property Name="cards_total" Type="integer" />
+          <Property Name="is_core" Type="bit" />
+          <Property Name="is_special" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="password" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <Association Name="FK_Card_0_0">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_set_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_1_0">
+          <End Role="Rarity" Type="Self.Rarity" Multiplicity="0..1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rarity">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_rarity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_2_0">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_artist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_3_0">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_4_0">
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardBase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_base_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deck_0_0">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="fk_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkSubtype_0_0">
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
+          <End Role="LinkSubtype" Type="Self.LinkSubtype" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardBase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkSubtype">
+              <PropertyRef Name="fk_cardbase_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkSubtype_1_0">
+          <End Role="CardSubtype" Type="Self.CardSubtype" Multiplicity="1" />
+          <End Role="LinkSubtype" Type="Self.LinkSubtype" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardSubtype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkSubtype">
+              <PropertyRef Name="fk_cardsubtype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkType_0_0">
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
+          <End Role="LinkType" Type="Self.LinkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardBase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkType">
+              <PropertyRef Name="fk_cardbase_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinkType_1_0">
+          <End Role="CardType" Type="Self.CardType" Multiplicity="1" />
+          <End Role="LinkType" Type="Self.LinkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LinkType">
+              <PropertyRef Name="fk_cardtype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnedCard_0_0">
+          <End Role="Deck" Type="Self.Deck" Multiplicity="0..1" />
+          <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deck">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OwnedCard">
+              <PropertyRef Name="fk_deck_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnedCard_1_0">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OwnedCard">
+              <PropertyRef Name="fk_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnedCard_2_0">
+          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+          <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OwnedCard">
+              <PropertyRef Name="fk_card_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Set_0_0">
+          <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Block">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="fk_block_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="Artist" EntityType="Self.Artist" store:Type="Tables" />
+          <EntitySet Name="Block" EntityType="Self.Block" store:Type="Tables" />
+          <EntitySet Name="Card" EntityType="Self.Card" store:Type="Tables" />
+          <EntitySet Name="CardBase" EntityType="Self.CardBase" store:Type="Tables" />
+          <EntitySet Name="CardSubtype" EntityType="Self.CardSubtype" store:Type="Tables" />
+          <EntitySet Name="CardType" EntityType="Self.CardType" store:Type="Tables" />
+          <EntitySet Name="Deck" EntityType="Self.Deck" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" store:Type="Tables" />
+          <EntitySet Name="LinkSubtype" EntityType="Self.LinkSubtype" store:Type="Tables" />
+          <EntitySet Name="LinkType" EntityType="Self.LinkType" store:Type="Tables" />
+          <EntitySet Name="OwnedCard" EntityType="Self.OwnedCard" store:Type="Tables" />
+          <EntitySet Name="Rarity" EntityType="Self.Rarity" store:Type="Tables" />
+          <EntitySet Name="Set" EntityType="Self.Set" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
+          <AssociationSet Name="FK_Card_0_0" Association="Self.FK_Card_0_0">
+            <End Role="Set" EntitySet="Set" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_1_0" Association="Self.FK_Card_1_0">
+            <End Role="Rarity" EntitySet="Rarity" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_2_0" Association="Self.FK_Card_2_0">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_3_0" Association="Self.FK_Card_3_0">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_4_0" Association="Self.FK_Card_4_0">
+            <End Role="CardBase" EntitySet="CardBase" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deck_0_0" Association="Self.FK_Deck_0_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkSubtype_0_0" Association="Self.FK_LinkSubtype_0_0">
+            <End Role="CardBase" EntitySet="CardBase" />
+            <End Role="LinkSubtype" EntitySet="LinkSubtype" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkSubtype_1_0" Association="Self.FK_LinkSubtype_1_0">
+            <End Role="CardSubtype" EntitySet="CardSubtype" />
+            <End Role="LinkSubtype" EntitySet="LinkSubtype" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkType_0_0" Association="Self.FK_LinkType_0_0">
+            <End Role="CardBase" EntitySet="CardBase" />
+            <End Role="LinkType" EntitySet="LinkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinkType_1_0" Association="Self.FK_LinkType_1_0">
+            <End Role="CardType" EntitySet="CardType" />
+            <End Role="LinkType" EntitySet="LinkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnedCard_0_0" Association="Self.FK_OwnedCard_0_0">
+            <End Role="Deck" EntitySet="Deck" />
+            <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnedCard_1_0" Association="Self.FK_OwnedCard_1_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnedCard_2_0" Association="Self.FK_OwnedCard_2_0">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Set_0_0" Association="Self.FK_Set_0_0">
+            <End Role="Block" EntitySet="Block" />
+            <End Role="Set" EntitySet="Set" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_Card_2_0" FromRole="Artist" ToRole="Card" />
+        </EntityType>
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Set" Relationship="Self.FK_Set_0_0" FromRole="Block" ToRole="Set" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_base_id" Type="Int64" Nullable="false" />
+          <Property Name="fk_language_id" Type="Int64" Nullable="false" />
+          <Property Name="artwork" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="fk_artist_id" Type="Int64" />
+          <Property Name="fk_rarity_id" Type="Int64" />
+          <Property Name="fk_set_id" Type="Int64" />
+          <Property Name="flavor_text" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="Int64" />
+          <Property Name="version" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK_Card_2_0" FromRole="Card" ToRole="Artist" />
+          <NavigationProperty Name="Set" Relationship="Self.FK_Card_0_0" FromRole="Card" ToRole="Set" />
+          <NavigationProperty Name="Rarity" Relationship="Self.FK_Card_1_0" FromRole="Card" ToRole="Rarity" />
+          <NavigationProperty Name="Language" Relationship="Self.FK_Card_3_0" FromRole="Card" ToRole="Language" />
+          <NavigationProperty Name="CardBase" Relationship="Self.FK_Card_4_0" FromRole="Card" ToRole="CardBase" />
+          <NavigationProperty Name="OwnedCard" Relationship="Self.FK_OwnedCard_2_0" FromRole="Card" ToRole="OwnedCard" />
+        </EntityType>
+        <EntityType Name="CardBase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="power" Type="Int64" Nullable="false" />
+          <Property Name="toughness" Type="Int64" Nullable="false" />
+          <Property Name="mana_cost" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="cmc" Type="Int64" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_Card_4_0" FromRole="CardBase" ToRole="Card" />
+          <NavigationProperty Name="CardSubtype" Relationship="Self.LinkSubtype" FromRole="CardBase" ToRole="CardSubtype" />
+          <NavigationProperty Name="CardType" Relationship="Self.LinkType" FromRole="CardBase" ToRole="CardType" />
+        </EntityType>
+        <EntityType Name="CardSubtype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CardBase" Relationship="Self.LinkSubtype" FromRole="CardSubtype" ToRole="CardBase" />
+        </EntityType>
+        <EntityType Name="CardType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CardBase" Relationship="Self.LinkType" FromRole="CardType" ToRole="CardBase" />
+        </EntityType>
+        <EntityType Name="Deck">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="fk_user_id" Type="Int64" />
+          <Property Name="tags" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Deck_0_0" FromRole="Deck" ToRole="User" />
+          <NavigationProperty Name="OwnedCard" Relationship="Self.FK_OwnedCard_0_0" FromRole="Deck" ToRole="OwnedCard" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="abbrev" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_Card_3_0" FromRole="Language" ToRole="Card" />
+        </EntityType>
+        <EntityType Name="OwnedCard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_card_id" Type="Int64" />
+          <Property Name="fk_user_id" Type="Int64" />
+          <Property Name="fk_deck_id" Type="Int64" />
+          <Property Name="foil" Type="Boolean" />
+          <Property Name="signed" Type="Boolean" />
+          <Property Name="condition" Type="Int64" />
+          <Property Name="altered" Type="Boolean" />
+          <Property Name="tags" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_OwnedCard_2_0" FromRole="OwnedCard" ToRole="Card" />
+          <NavigationProperty Name="Deck" Relationship="Self.FK_OwnedCard_0_0" FromRole="OwnedCard" ToRole="Deck" />
+          <NavigationProperty Name="User" Relationship="Self.FK_OwnedCard_1_0" FromRole="OwnedCard" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Rarity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_Card_1_0" FromRole="Rarity" ToRole="Card" />
+        </EntityType>
+        <EntityType Name="Set">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="abbrev" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="symbol" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="relase_date" Type="DateTime" />
+          <Property Name="fk_block_id" Type="Int64" />
+          <Property Name="cards_total" Type="Int64" />
+          <Property Name="is_core" Type="Boolean" />
+          <Property Name="is_special" Type="Boolean" />
+          <NavigationProperty Name="Block" Relationship="Self.FK_Set_0_0" FromRole="Set" ToRole="Block" />
+          <NavigationProperty Name="Card" Relationship="Self.FK_Card_0_0" FromRole="Set" ToRole="Card" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Deck" Relationship="Self.FK_Deck_0_0" FromRole="User" ToRole="Deck" />
+          <NavigationProperty Name="OwnedCard" Relationship="Self.FK_OwnedCard_1_0" FromRole="User" ToRole="OwnedCard" />
+        </EntityType>
+        <Association Name="FK_Card_2_0">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_artist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Set_0_0">
+          <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Block">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="fk_block_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_0_0">
+          <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Set">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_set_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_1_0">
+          <End Role="Rarity" Type="Self.Rarity" Multiplicity="0..1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rarity">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_rarity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_3_0">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_4_0">
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardBase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="fk_base_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnedCard_2_0">
+          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+          <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OwnedCard">
+              <PropertyRef Name="fk_card_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deck_0_0">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="fk_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnedCard_0_0">
+          <End Role="Deck" Type="Self.Deck" Multiplicity="0..1" />
+          <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deck">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OwnedCard">
+              <PropertyRef Name="fk_deck_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnedCard_1_0">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OwnedCard">
+              <PropertyRef Name="fk_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LinkSubtype">
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
+          <End Role="CardSubtype" Type="Self.CardSubtype" Multiplicity="*" />
+        </Association>
+        <Association Name="LinkType">
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
+          <End Role="CardType" Type="Self.CardType" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artist" EntityType="Self.Artist" />
+          <EntitySet Name="Block" EntityType="Self.Block" />
+          <EntitySet Name="Card" EntityType="Self.Card" />
+          <EntitySet Name="CardBase" EntityType="Self.CardBase" />
+          <EntitySet Name="CardSubtype" EntityType="Self.CardSubtype" />
+          <EntitySet Name="CardType" EntityType="Self.CardType" />
+          <EntitySet Name="Deck" EntityType="Self.Deck" />
+          <EntitySet Name="Language" EntityType="Self.Language" />
+          <EntitySet Name="OwnedCard" EntityType="Self.OwnedCard" />
+          <EntitySet Name="Rarity" EntityType="Self.Rarity" />
+          <EntitySet Name="Set" EntityType="Self.Set" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Card_2_0" Association="Self.FK_Card_2_0">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Set_0_0" Association="Self.FK_Set_0_0">
+            <End Role="Block" EntitySet="Block" />
+            <End Role="Set" EntitySet="Set" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_0_0" Association="Self.FK_Card_0_0">
+            <End Role="Set" EntitySet="Set" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_1_0" Association="Self.FK_Card_1_0">
+            <End Role="Rarity" EntitySet="Rarity" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_3_0" Association="Self.FK_Card_3_0">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_4_0" Association="Self.FK_Card_4_0">
+            <End Role="CardBase" EntitySet="CardBase" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnedCard_2_0" Association="Self.FK_OwnedCard_2_0">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deck_0_0" Association="Self.FK_Deck_0_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnedCard_0_0" Association="Self.FK_OwnedCard_0_0">
+            <End Role="Deck" EntitySet="Deck" />
+            <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnedCard_1_0" Association="Self.FK_OwnedCard_1_0">
+            <End Role="User" EntitySet="User" />
+            <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="LinkSubtype" Association="Self.LinkSubtype">
+            <End Role="CardBase" EntitySet="CardBase" />
+            <End Role="CardSubtype" EntitySet="CardSubtype" />
+          </AssociationSet>
+          <AssociationSet Name="LinkType" Association="Self.LinkType">
+            <End Role="CardBase" EntitySet="CardBase" />
+            <End Role="CardType" EntitySet="CardType" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Artist">
+            <EntityTypeMapping TypeName="DBModel.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Block">
+            <EntityTypeMapping TypeName="DBModel.Block">
+              <MappingFragment StoreEntitySet="Block">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Card">
+            <EntityTypeMapping TypeName="DBModel.Card">
+              <MappingFragment StoreEntitySet="Card">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fk_base_id" ColumnName="fk_base_id" />
+                <ScalarProperty Name="fk_language_id" ColumnName="fk_language_id" />
+                <ScalarProperty Name="artwork" ColumnName="artwork" />
+                <ScalarProperty Name="fk_artist_id" ColumnName="fk_artist_id" />
+                <ScalarProperty Name="fk_rarity_id" ColumnName="fk_rarity_id" />
+                <ScalarProperty Name="fk_set_id" ColumnName="fk_set_id" />
+                <ScalarProperty Name="flavor_text" ColumnName="flavor_text" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardBase">
+            <EntityTypeMapping TypeName="DBModel.CardBase">
+              <MappingFragment StoreEntitySet="CardBase">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="toughness" ColumnName="toughness" />
+                <ScalarProperty Name="mana_cost" ColumnName="mana_cost" />
+                <ScalarProperty Name="cmc" ColumnName="cmc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardSubtype">
+            <EntityTypeMapping TypeName="DBModel.CardSubtype">
+              <MappingFragment StoreEntitySet="CardSubtype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardType">
+            <EntityTypeMapping TypeName="DBModel.CardType">
+              <MappingFragment StoreEntitySet="CardType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deck">
+            <EntityTypeMapping TypeName="DBModel.Deck">
+              <MappingFragment StoreEntitySet="Deck">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="DBModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abbrev" ColumnName="abbrev" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OwnedCard">
+            <EntityTypeMapping TypeName="DBModel.OwnedCard">
+              <MappingFragment StoreEntitySet="OwnedCard">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fk_card_id" ColumnName="fk_card_id" />
+                <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
+                <ScalarProperty Name="fk_deck_id" ColumnName="fk_deck_id" />
+                <ScalarProperty Name="foil" ColumnName="foil" />
+                <ScalarProperty Name="signed" ColumnName="signed" />
+                <ScalarProperty Name="condition" ColumnName="condition" />
+                <ScalarProperty Name="altered" ColumnName="altered" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rarity">
+            <EntityTypeMapping TypeName="DBModel.Rarity">
+              <MappingFragment StoreEntitySet="Rarity">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Set">
+            <EntityTypeMapping TypeName="DBModel.Set">
+              <MappingFragment StoreEntitySet="Set">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abbrev" ColumnName="abbrev" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="relase_date" ColumnName="relase_date" />
+                <ScalarProperty Name="fk_block_id" ColumnName="fk_block_id" />
+                <ScalarProperty Name="cards_total" ColumnName="cards_total" />
+                <ScalarProperty Name="is_core" ColumnName="is_core" />
+                <ScalarProperty Name="is_special" ColumnName="is_special" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="LinkSubtype" TypeName="DBModel.LinkSubtype" StoreEntitySet="LinkSubtype">
+            <EndProperty Name="CardBase">
+              <ScalarProperty Name="id" ColumnName="fk_cardbase_id" />
+            </EndProperty>
+            <EndProperty Name="CardSubtype">
+              <ScalarProperty Name="id" ColumnName="fk_cardsubtype_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LinkType" TypeName="DBModel.LinkType" StoreEntitySet="LinkType">
+            <EndProperty Name="CardBase">
+              <ScalarProperty Name="id" ColumnName="fk_cardbase_id" />
+            </EndProperty>
+            <EndProperty Name="CardType">
+              <ScalarProperty Name="id" ColumnName="fk_cardtype_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
