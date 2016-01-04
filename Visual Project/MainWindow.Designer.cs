@@ -46,6 +46,8 @@
             this.User_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Main_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,13 +133,13 @@
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
             this.Deck_TSMI.Text = "Talie";
             // 
             // OwnedCard_TSMI
             // 
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
-            this.OwnedCard_TSMI.Size = new System.Drawing.Size(101, 22);
+            this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
             this.OwnedCard_TSMI.Text = "Karty";
             // 
             // Owned_TSMI
@@ -152,13 +154,13 @@
             // LogInTSMI
             // 
             this.LogInTSMI.Name = "LogInTSMI";
-            this.LogInTSMI.Size = new System.Drawing.Size(141, 22);
+            this.LogInTSMI.Size = new System.Drawing.Size(152, 22);
             this.LogInTSMI.Text = "Zaloguj";
             // 
             // User_TSMI
             // 
             this.User_TSMI.Name = "User_TSMI";
-            this.User_TSMI.Size = new System.Drawing.Size(141, 22);
+            this.User_TSMI.Size = new System.Drawing.Size(152, 22);
             this.User_TSMI.Text = "Użytkownicy";
             // 
             // Main_TSMI
@@ -182,11 +184,31 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(558, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Zalogowany:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(633, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 461);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -220,5 +242,7 @@
         private System.Windows.Forms.ToolStripMenuItem User_TSMI;
         private System.Windows.Forms.ToolStripMenuItem Main_TSMI;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
