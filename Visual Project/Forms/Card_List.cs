@@ -89,18 +89,18 @@ namespace MTGCM.Forms
             DBEntities db = new DBEntities();
             Card c = new Card
             {
-                id = db.Card.Max(o=>o.id)+1,
-                fk_base_id = (int)BaseCB.SelectedValue,
-                fk_language_id = (int)LanguageCB.SelectedValue,
+
+                fk_base_id = Convert.ToInt32(BaseCB.SelectedValue),
+                fk_language_id = Convert.ToInt32(LanguageCB.SelectedValue),
                 artwork = ImmageTB.Text,
-                fk_artist_id = (int)ArtistCB.SelectedValue,
-                fk_rarity_id = (int)RarityCB.SelectedValue,
-                fk_set_id = (int)SetCB.SelectedValue,
+                fk_artist_id = Convert.ToInt32(ArtistCB.SelectedValue),
+                fk_rarity_id = Convert.ToInt32(RarityCB.SelectedValue),
+                fk_set_id = Convert.ToInt32(SetCB.SelectedValue),
                 flavor_text = TextTB.Text,
-                number = (int)NumberNUD.Value,
+                number = Convert.ToInt32(NumberNUD.Value),
                 version = VersionTB.Text
             };
-            
+
             db.Card.Add(c);
             db.SaveChanges();
             Filtrate();
@@ -111,8 +111,7 @@ namespace MTGCM.Forms
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                Card_Edit objCard_Edit = new Card_Edit(id);
-                objCard_Edit.ShowDialog();
+             
                 Filtrate();
             }
         }
@@ -134,9 +133,9 @@ namespace MTGCM.Forms
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
 
-            
+            if (dataGridView1.RowCount != 0)
+                id = Convert.ToInt32(dataGridView1.SelectedRows[e.RowIndex].Cells[0].Value);
 
         }
 
