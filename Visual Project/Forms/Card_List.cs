@@ -13,13 +13,13 @@ namespace MTGCM.Forms
 {
     public partial class Card_List : Form
     {
-        int id,index;
-
+        int id;
+        Card c = new Card();
         public Card_List()
         {
             InitializeComponent();
             Filtrate();
-            
+
         }
 
         private void Filtrate()
@@ -30,17 +30,17 @@ namespace MTGCM.Forms
 
                 var Cards = from c in db.Card
 
-                                select new
-                                {
-                                    Lp = c.id,
-                                    Nazwa = c.CardBase.name,
-                                    Dodatek = c.Set.name,
-                                    Koszt_many=c.CardBase.mana_cost,
-                                    Jezyk = c.Language.name,
-                                    Data_wydania = c.Set.relase_date,
-                                    Sumaryczny_koszt=c.CardBase.cmc
+                            select new
+                            {
+                                Lp = c.id,
+                                Nazwa = c.CardBase.name,
+                                Dodatek = c.Set.name,
+                                Koszt_many = c.CardBase.mana_cost,
+                                Jezyk = c.Language.name,
+                                Data_wydania = c.Set.relase_date,
+                                Sumaryczny_koszt = c.CardBase.cmc
 
-                                };
+                            };
 
                 if (checkBoxName.Checked)
                 {
@@ -71,13 +71,13 @@ namespace MTGCM.Forms
                 {
                     Cards = Cards.Where(c => c.Sumaryczny_koszt == numericUpDownCMC.Value);
                 }
-                
+
                 dataGridView1.DataSource = Cards.ToList();
             }
 
 
         }
-       
+
 
         private void buttonFiltrate_Click(object sender, EventArgs e)
         {
@@ -86,32 +86,47 @@ namespace MTGCM.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            DBEntities db = new DBEntities();
-            Card c = new Card
+            using (var db = new DBEntities())
             {
+                c = new Card();
+                c.fk_base_id = Convert.ToInt32(BaseCB.SelectedValue);
+                c.fk_language_id = Convert.ToInt32(LanguageCB.SelectedValue);
+                c.artwork = ImmageTB.Text;
+                c.fk_artist_id = Convert.ToInt32(ArtistCB.SelectedValue);
+                c.fk_rarity_id = Convert.ToInt32(RarityCB.SelectedValue);
+                c.fk_set_id = Convert.ToInt32(SetCB.SelectedValue);
+                c.flavor_text = TextTB.Text;
+                c.number = Convert.ToInt64(NumberNUD.Value);
+                c.version = VersionTB.Text;
 
-                fk_base_id = Convert.ToInt32(BaseCB.SelectedValue),
-                fk_language_id = Convert.ToInt32(LanguageCB.SelectedValue),
-                artwork = ImmageTB.Text,
-                fk_artist_id = Convert.ToInt32(ArtistCB.SelectedValue),
-                fk_rarity_id = Convert.ToInt32(RarityCB.SelectedValue),
-                fk_set_id = Convert.ToInt32(SetCB.SelectedValue),
-                flavor_text = TextTB.Text,
-                number = Convert.ToInt32(NumberNUD.Value),
-                version = VersionTB.Text
-            };
-
-            db.Card.Add(c);
-            db.SaveChanges();
-            Filtrate();
+                db.Card.Add(c);
+                db.SaveChanges();
+                Filtrate();
+            }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-             
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz edytować kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                        c.fk_base_id = Convert.ToInt32(BaseCB.SelectedValue);
+                        c.fk_language_id = Convert.ToInt32(LanguageCB.SelectedValue);
+                        c.artwork = ImmageTB.Text;
+                        c.fk_artist_id = Convert.ToInt32(ArtistCB.SelectedValue);
+                        c.fk_rarity_id = Convert.ToInt32(RarityCB.SelectedValue);
+                        c.fk_set_id = Convert.ToInt32(SetCB.SelectedValue);
+                        c.flavor_text = TextTB.Text;
+                        c.number = Convert.ToInt64(NumberNUD.Value);
+                        c.version = VersionTB.Text;
+                        db.Entry(c).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
                 Filtrate();
             }
         }
@@ -120,12 +135,15 @@ namespace MTGCM.Forms
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć użytkownika numer " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-
+                      using (var db = new DBEntities())
+                      {
+                          db.Entry(c).State = EntityState.Deleted;
+                         
+                          db.SaveChanges();
+                      }
                 }
                 Filtrate();
             }
@@ -133,13 +151,28 @@ namespace MTGCM.Forms
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
-            if (dataGridView1.RowCount != 0)
-                id = Convert.ToInt32(dataGridView1.SelectedRows[e.RowIndex].Cells[0].Value);
+                    c = (from C in db.Card
+                         where C.id == id
+                         select C).First();
 
+                    BaseCB.SelectedValue = c.fk_base_id;
+                    LanguageCB.SelectedValue = c.fk_language_id;
+                    ImmageTB.Text = c.artwork;
+                    ArtistCB.SelectedValue = c.fk_artist_id;
+                    RarityCB.SelectedValue = c.fk_rarity_id;
+                    SetCB.SelectedValue = c.fk_set_id;
+                    TextTB.Text = c.flavor_text;
+                    NumberNUD.Value = (int)c.number;
+                    VersionTB.Text = c.version;
+                }
+            }
         }
-
-
 
 
 
@@ -162,6 +195,6 @@ namespace MTGCM.Forms
             this.cardTableAdapter.Fill(this.dBDataSet.Card);
 
         }
-        
+
     }
- }
+}
