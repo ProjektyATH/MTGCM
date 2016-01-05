@@ -13,13 +13,13 @@ namespace MTGCM.Forms
 {
     public partial class Card_List : Form
     {
-        int id, index;
+        int id,index;
 
         public Card_List()
         {
             InitializeComponent();
             Filtrate();
-
+            
         }
 
         private void Filtrate()
@@ -30,17 +30,17 @@ namespace MTGCM.Forms
 
                 var Cards = from c in db.Card
 
-                            select new
-                            {
-                                Lp = c.id,
-                                Nazwa = c.CardBase.name,
-                                Dodatek = c.Set.name,
-                                Koszt_many = c.CardBase.mana_cost,
-                                Jezyk = c.Language.name,
-                                Data_wydania = c.Set.relase_date,
-                                Sumaryczny_koszt = c.CardBase.cmc
+                                select new
+                                {
+                                    Lp = c.id,
+                                    Nazwa = c.CardBase.name,
+                                    Dodatek = c.Set.name,
+                                    Koszt_many=c.CardBase.mana_cost,
+                                    Jezyk = c.Language.name,
+                                    Data_wydania = c.Set.relase_date,
+                                    Sumaryczny_koszt=c.CardBase.cmc
 
-                            };
+                                };
 
                 if (checkBoxName.Checked)
                 {
@@ -71,13 +71,13 @@ namespace MTGCM.Forms
                 {
                     Cards = Cards.Where(c => c.Sumaryczny_koszt == numericUpDownCMC.Value);
                 }
-
+                
                 dataGridView1.DataSource = Cards.ToList();
             }
 
 
         }
-
+       
 
         private void buttonFiltrate_Click(object sender, EventArgs e)
         {
@@ -89,18 +89,18 @@ namespace MTGCM.Forms
             DBEntities db = new DBEntities();
             Card c = new Card
             {
-
-                fk_base_id = Convert.ToInt32(BaseCB.SelectedValue),
-                fk_language_id = Convert.ToInt32(LanguageCB.SelectedValue),
+                id = db.Card.Max(o=>o.id)+1,
+                fk_base_id = (int)BaseCB.SelectedValue,
+                fk_language_id = (int)LanguageCB.SelectedValue,
                 artwork = ImmageTB.Text,
-                fk_artist_id = Convert.ToInt32(ArtistCB.SelectedValue),
-                fk_rarity_id = Convert.ToInt32(RarityCB.SelectedValue),
-                fk_set_id = Convert.ToInt32(SetCB.SelectedValue),
+                fk_artist_id = (int)ArtistCB.SelectedValue,
+                fk_rarity_id = (int)RarityCB.SelectedValue,
+                fk_set_id = (int)SetCB.SelectedValue,
                 flavor_text = TextTB.Text,
-                number = Convert.ToInt32(NumberNUD.Value),
+                number = (int)NumberNUD.Value,
                 version = VersionTB.Text
             };
-
+            
             db.Card.Add(c);
             db.SaveChanges();
             Filtrate();
@@ -134,10 +134,9 @@ namespace MTGCM.Forms
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.RowCount != 0)
-                id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+            id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
 
-
+            
 
         }
 
@@ -164,6 +163,6 @@ namespace MTGCM.Forms
             this.cardTableAdapter.Fill(this.dBDataSet.Card);
 
         }
-
+        
     }
-}
+ }
