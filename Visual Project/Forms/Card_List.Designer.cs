@@ -50,7 +50,9 @@
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.NumberTB = new System.Windows.Forms.TextBox();
+            this.NumberNUD = new System.Windows.Forms.NumericUpDown();
+            this.TextTB = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.VersionTB = new System.Windows.Forms.TextBox();
             this.SetCB = new System.Windows.Forms.ComboBox();
             this.RarityCB = new System.Windows.Forms.ComboBox();
@@ -79,9 +81,6 @@
             this.cardBaseTableAdapter = new MTGCM.DBDataSetTableAdapters.CardBaseTableAdapter();
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.rarityTableAdapter = new MTGCM.DBDataSetTableAdapters.RarityTableAdapter();
-            this.TextTB = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.NumberNUD = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).BeginInit();
@@ -90,11 +89,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumberNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumberNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -298,7 +297,6 @@
             this.panel2.Controls.Add(this.NumberNUD);
             this.panel2.Controls.Add(this.TextTB);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.NumberTB);
             this.panel2.Controls.Add(this.VersionTB);
             this.panel2.Controls.Add(this.SetCB);
             this.panel2.Controls.Add(this.RarityCB);
@@ -322,14 +320,35 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 2;
             // 
-            // NumberTB
+            // NumberNUD
             // 
-            this.NumberTB.AcceptsReturn = true;
-            this.NumberTB.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.NumberTB.Location = new System.Drawing.Point(77, 195);
-            this.NumberTB.Name = "NumberTB";
-            this.NumberTB.Size = new System.Drawing.Size(121, 20);
-            this.NumberTB.TabIndex = 18;
+            this.NumberNUD.Location = new System.Drawing.Point(77, 195);
+            this.NumberNUD.Maximum = new decimal(new int[] {
+            -1486618625,
+            232830643,
+            0,
+            0});
+            this.NumberNUD.Name = "NumberNUD";
+            this.NumberNUD.Size = new System.Drawing.Size(120, 20);
+            this.NumberNUD.TabIndex = 21;
+            // 
+            // TextTB
+            // 
+            this.TextTB.AcceptsReturn = true;
+            this.TextTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextTB.Location = new System.Drawing.Point(77, 169);
+            this.TextTB.Name = "TextTB";
+            this.TextTB.Size = new System.Drawing.Size(121, 20);
+            this.TextTB.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 172);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Tekst";
             // 
             // VersionTB
             // 
@@ -554,36 +573,6 @@
             // 
             this.rarityTableAdapter.ClearBeforeFill = true;
             // 
-            // TextTB
-            // 
-            this.TextTB.AcceptsReturn = true;
-            this.TextTB.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextTB.Location = new System.Drawing.Point(77, 169);
-            this.TextTB.Name = "TextTB";
-            this.TextTB.Size = new System.Drawing.Size(121, 20);
-            this.TextTB.TabIndex = 20;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 172);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Tekst";
-            // 
-            // NumberNUD
-            // 
-            this.NumberNUD.Location = new System.Drawing.Point(77, 248);
-            this.NumberNUD.Maximum = new decimal(new int[] {
-            -1486618625,
-            232830643,
-            0,
-            0});
-            this.NumberNUD.Name = "NumberNUD";
-            this.NumberNUD.Size = new System.Drawing.Size(120, 20);
-            this.NumberNUD.TabIndex = 21;
-            // 
             // Card_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,11 +594,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumberNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumberNUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -665,7 +654,6 @@
         private DBDataSetTableAdapters.ArtistTableAdapter artistTableAdapter;
         private System.Windows.Forms.BindingSource rarityBindingSource;
         private DBDataSetTableAdapters.RarityTableAdapter rarityTableAdapter;
-        private System.Windows.Forms.TextBox NumberTB;
         private System.Windows.Forms.TextBox TextTB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown NumberNUD;
