@@ -137,6 +137,14 @@
     <Compile Include="Forms\Card_List.Designer.cs">
       <DependentUpon>Card_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Import.Designer.cs">
+      <DependentUpon>Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JClasses\JCard.cs" />
+    <Compile Include="JClasses\JSet.cs" />
     <Compile Include="Language.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -162,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\Card_List.resx">
       <DependentUpon>Card_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Import.resx">
+      <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -216,7 +227,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">

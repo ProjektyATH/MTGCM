@@ -48,6 +48,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.importerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,13 +134,13 @@
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
             this.Deck_TSMI.Text = "Talie";
             // 
             // OwnedCard_TSMI
             // 
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
-            this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.OwnedCard_TSMI.Size = new System.Drawing.Size(101, 22);
             this.OwnedCard_TSMI.Text = "Karty";
             // 
             // Owned_TSMI
@@ -154,13 +155,13 @@
             // LogInTSMI
             // 
             this.LogInTSMI.Name = "LogInTSMI";
-            this.LogInTSMI.Size = new System.Drawing.Size(152, 22);
+            this.LogInTSMI.Size = new System.Drawing.Size(141, 22);
             this.LogInTSMI.Text = "Zaloguj";
             // 
             // User_TSMI
             // 
             this.User_TSMI.Name = "User_TSMI";
-            this.User_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.User_TSMI.Size = new System.Drawing.Size(141, 22);
             this.User_TSMI.Text = "Użytkownicy";
             // 
             // Main_TSMI
@@ -177,7 +178,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Main_TSMI,
             this.Owned_TSMI,
-            this.Other_TSMI});
+            this.Other_TSMI,
+            this.importerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(763, 24);
@@ -201,6 +203,13 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "label2";
+            // 
+            // importerToolStripMenuItem
+            // 
+            this.importerToolStripMenuItem.Name = "importerToolStripMenuItem";
+            this.importerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.importerToolStripMenuItem.Text = "Importer";
+            this.importerToolStripMenuItem.Click += new System.EventHandler(this.importerToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -244,5 +253,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem importerToolStripMenuItem;
     }
 }

@@ -105,7 +105,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(177, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 420);
+            this.dataGridView1.Size = new System.Drawing.Size(646, 406);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
@@ -130,7 +130,7 @@
             this.panel1.Controls.Add(this.buttonFiltrate);
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(168, 420);
+            this.panel1.Size = new System.Drawing.Size(168, 406);
             this.panel1.TabIndex = 1;
             // 
             // numericUpDownCMC
@@ -316,9 +316,9 @@
             this.panel2.Controls.Add(this.buttonDelete);
             this.panel2.Controls.Add(this.buttonEdit);
             this.panel2.Controls.Add(this.buttonAdd);
-            this.panel2.Location = new System.Drawing.Point(857, 2);
+            this.panel2.Location = new System.Drawing.Point(829, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(201, 420);
+            this.panel2.Size = new System.Drawing.Size(201, 406);
             this.panel2.TabIndex = 2;
             // 
             // NumberNUD
@@ -513,7 +513,7 @@
             // 
             this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDelete.Location = new System.Drawing.Point(23, 387);
+            this.buttonDelete.Location = new System.Drawing.Point(23, 373);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(153, 30);
             this.buttonDelete.TabIndex = 2;
@@ -525,7 +525,7 @@
             // 
             this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEdit.Location = new System.Drawing.Point(23, 351);
+            this.buttonEdit.Location = new System.Drawing.Point(23, 337);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(153, 30);
             this.buttonEdit.TabIndex = 1;
@@ -537,7 +537,7 @@
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(23, 315);
+            this.buttonAdd.Location = new System.Drawing.Point(23, 301);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(153, 30);
             this.buttonAdd.TabIndex = 0;
@@ -578,7 +578,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 427);
+            this.ClientSize = new System.Drawing.Size(1033, 413);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);

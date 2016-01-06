@@ -39,7 +39,13 @@ namespace MTGCM
         {
             CloseChildren();
             OpenChild<Forms.Card_List>();
-        }       
+        }
+
+            private void importerToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild <Forms.Import>();
+            }       
 
         //private void User_TSMI_Click(object sender, EventArgs e)
         //{
