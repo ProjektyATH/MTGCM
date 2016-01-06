@@ -51,6 +51,12 @@ namespace MTGCM
             {
                 CloseChildren();
                 OpenChild<Forms.Language_List>();
+            }
+
+            private void Subtype_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.CardSubtype_List>();
             }       
 
         //private void User_TSMI_Click(object sender, EventArgs e)

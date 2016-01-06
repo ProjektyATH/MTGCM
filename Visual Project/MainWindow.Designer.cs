@@ -71,6 +71,7 @@
             this.Subtype_TSMI.Name = "Subtype_TSMI";
             this.Subtype_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Subtype_TSMI.Text = "Podtypy";
+            this.Subtype_TSMI.Click += new System.EventHandler(this.Subtype_TSMI_Click);
             // 
             // Type_TSMI
             // 
