@@ -57,6 +57,13 @@ namespace MTGCM
             {
                 CloseChildren();
                 OpenChild<Forms.CardSubtype_List>();
+            }
+
+            private void Type_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.CardType_List>();
+
             }       
 
         //private void User_TSMI_Click(object sender, EventArgs e)

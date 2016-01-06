@@ -78,6 +78,7 @@
             this.Type_TSMI.Name = "Type_TSMI";
             this.Type_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Type_TSMI.Text = "Typy";
+            this.Type_TSMI.Click += new System.EventHandler(this.Type_TSMI_Click);
             // 
             // Rarity_TSMI
             // 

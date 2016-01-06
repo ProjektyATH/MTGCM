@@ -148,6 +148,12 @@
     <Compile Include="Forms\CardSubtype_List.Designer.cs">
       <DependentUpon>CardSubtype_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CardType_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardType_List.Designer.cs">
+      <DependentUpon>CardType_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Card_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardSubtype_List.resx">
       <DependentUpon>CardSubtype_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardType_List.resx">
+      <DependentUpon>CardType_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Card_List.resx">
       <DependentUpon>Card_List.cs</DependentUpon>
