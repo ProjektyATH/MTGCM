@@ -39,7 +39,19 @@ namespace MTGCM
         {
             CloseChildren();
             OpenChild<Forms.Card_List>();
-        }       
+        }
+
+            private void Artist_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.Artist_List>();
+            }
+
+            private void Language_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.Language_List>();
+            }       
 
         //private void User_TSMI_Click(object sender, EventArgs e)
         //{

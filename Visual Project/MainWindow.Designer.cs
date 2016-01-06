@@ -64,6 +64,7 @@
             this.Language_TSMI.Name = "Language_TSMI";
             this.Language_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Language_TSMI.Text = "Języki";
+            this.Language_TSMI.Click += new System.EventHandler(this.Language_TSMI_Click);
             // 
             // Subtype_TSMI
             // 
@@ -129,17 +130,18 @@
             this.Artist_TSMI.Name = "Artist_TSMI";
             this.Artist_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Artist_TSMI.Text = "Artyści";
+            this.Artist_TSMI.Click += new System.EventHandler(this.Artist_TSMI_Click);
             // 
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
             this.Deck_TSMI.Text = "Talie";
             // 
             // OwnedCard_TSMI
             // 
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
-            this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.OwnedCard_TSMI.Size = new System.Drawing.Size(101, 22);
             this.OwnedCard_TSMI.Text = "Karty";
             // 
             // Owned_TSMI
@@ -154,13 +156,13 @@
             // LogInTSMI
             // 
             this.LogInTSMI.Name = "LogInTSMI";
-            this.LogInTSMI.Size = new System.Drawing.Size(152, 22);
+            this.LogInTSMI.Size = new System.Drawing.Size(141, 22);
             this.LogInTSMI.Text = "Zaloguj";
             // 
             // User_TSMI
             // 
             this.User_TSMI.Name = "User_TSMI";
-            this.User_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.User_TSMI.Size = new System.Drawing.Size(141, 22);
             this.User_TSMI.Text = "Użytkownicy";
             // 
             // Main_TSMI

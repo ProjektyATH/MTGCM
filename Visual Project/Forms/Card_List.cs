@@ -196,5 +196,207 @@ namespace MTGCM.Forms
 
         }
 
+    
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numericUpDownCMC_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxCMC_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxTo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxFrom_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void languageBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxSet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxLanguage_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxSet_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxName_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cardBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void NumberNUD_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VersionTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RarityCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rarityBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ImmageTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ArtistCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void artistBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LanguageCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BaseCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cardBaseBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dBDataSetBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

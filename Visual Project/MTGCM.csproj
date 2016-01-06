@@ -113,6 +113,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,11 +136,23 @@
     <Compile Include="Deck.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Artist_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Artist_List.Designer.cs">
+      <DependentUpon>Artist_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Card_List.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Card_List.Designer.cs">
       <DependentUpon>Card_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Language_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Language_List.Designer.cs">
+      <DependentUpon>Language_List.cs</DependentUpon>
     </Compile>
     <Compile Include="Language.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -160,8 +177,14 @@
     <Compile Include="User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Artist_List.resx">
+      <DependentUpon>Artist_List.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Card_List.resx">
       <DependentUpon>Card_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Language_List.resx">
+      <DependentUpon>Language_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -190,6 +213,17 @@
     </None>
     <None Include="DBDataSet.xss">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet1.xsc">
+      <DependentUpon>DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet1.xss">
+      <DependentUpon>DBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
