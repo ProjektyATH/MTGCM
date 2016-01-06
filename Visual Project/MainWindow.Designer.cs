@@ -85,6 +85,7 @@
             this.Rarity_TSMI.Name = "Rarity_TSMI";
             this.Rarity_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Rarity_TSMI.Text = "Rzadkość";
+            this.Rarity_TSMI.Click += new System.EventHandler(this.Rarity_TSMI_Click);
             // 
             // Block_TSMI
             // 

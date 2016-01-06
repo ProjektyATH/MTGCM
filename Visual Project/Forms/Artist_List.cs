@@ -27,12 +27,12 @@ namespace MTGCM.Forms
             using (var db = new DBEntities())
             {
 
-                var Artists = from a in db.Card
+                var Artists = from a in db.Artist
 
                             select new
                             {
                                 Lp = a.id,
-                                Nazwa = a.Artist.name,
+                                Nazwa = a.name,
                                
                             };
 

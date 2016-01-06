@@ -166,6 +166,12 @@
     <Compile Include="Forms\Language_List.Designer.cs">
       <DependentUpon>Language_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Rarity_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rarity_List.Designer.cs">
+      <DependentUpon>Rarity_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="Language.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_List.resx">
       <DependentUpon>Language_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rarity_List.resx">
+      <DependentUpon>Rarity_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
