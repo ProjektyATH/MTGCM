@@ -70,6 +70,12 @@ namespace MTGCM
             {
                 CloseChildren();
                 OpenChild<Forms.Rarity_List>();
+            }
+
+            private void Block_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.Block_List>();
             }       
 
         //private void User_TSMI_Click(object sender, EventArgs e)

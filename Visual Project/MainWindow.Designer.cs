@@ -92,6 +92,7 @@
             this.Block_TSMI.Name = "Block_TSMI";
             this.Block_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Block_TSMI.Text = "Bloki";
+            this.Block_TSMI.Click += new System.EventHandler(this.Block_TSMI_Click);
             // 
             // Set_TSMI
             // 
