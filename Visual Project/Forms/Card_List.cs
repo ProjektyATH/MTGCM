@@ -419,6 +419,7 @@ namespace MTGCM.Forms
                     TextTB.Text = c.flavor_text;
                     NumberNUD.Value = (int)c.number;
                     VersionTB.Text = c.version;
+
                 }
             }
         }

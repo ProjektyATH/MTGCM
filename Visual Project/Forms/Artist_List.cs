@@ -127,6 +127,8 @@ namespace MTGCM.Forms
                       select A).First();
 
                  NazwaArtysty.Text= a.name ;
+                 db.Entry(a).State = EntityState.Modified;
+                 db.SaveChanges();
              }
          }
      }

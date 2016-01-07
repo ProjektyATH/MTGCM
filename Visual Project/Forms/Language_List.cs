@@ -129,6 +129,9 @@ namespace MTGCM.Forms
 
                     ImmageTB.Text = l.name;
                     abbrev.Text = l.abbrev;
+                    db.Entry(l).State = EntityState.Modified;
+                    db.SaveChanges();
+
                 }
             }
         }
