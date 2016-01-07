@@ -31,19 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TextTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ImmageTB = new System.Windows.Forms.TextBox();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTableAdapter();
@@ -60,14 +68,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -90,6 +90,7 @@
             this.buttonFiltrate.TabIndex = 0;
             this.buttonFiltrate.Text = "Filtruj";
             this.buttonFiltrate.UseVisualStyleBackColor = true;
+            this.buttonFiltrate.Click += new System.EventHandler(this.buttonFiltrate_Click);
             // 
             // panel2
             // 
@@ -115,6 +116,78 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 5;
             // 
+            // textBox4
+            // 
+            this.textBox4.AcceptsReturn = true;
+            this.textBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox4.Location = new System.Drawing.Point(77, 219);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 20);
+            this.textBox4.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 203);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Sumaryczny Koszt";
+            // 
+            // textBox3
+            // 
+            this.textBox3.AcceptsReturn = true;
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox3.Location = new System.Drawing.Point(80, 166);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 169);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Koszt Many";
+            // 
+            // textBox2
+            // 
+            this.textBox2.AcceptsReturn = true;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox2.Location = new System.Drawing.Point(77, 140);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Wytrzymałość";
+            // 
+            // textBox1
+            // 
+            this.textBox1.AcceptsReturn = true;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox1.Location = new System.Drawing.Point(77, 114);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Moc";
+            // 
             // TextTB
             // 
             this.TextTB.AcceptsReturn = true;
@@ -133,42 +206,12 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Tekst";
             // 
-            // setBindingSource
-            // 
-            this.setBindingSource.DataMember = "Set";
-            this.setBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rarityBindingSource
-            // 
-            this.rarityBindingSource.DataMember = "Rarity";
-            this.rarityBindingSource.DataSource = this.dBDataSet;
-            // 
             // ImmageTB
             // 
             this.ImmageTB.Location = new System.Drawing.Point(77, 62);
             this.ImmageTB.Name = "ImmageTB";
             this.ImmageTB.Size = new System.Drawing.Size(121, 20);
             this.ImmageTB.TabIndex = 14;
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
-            // 
-            // languageBindingSource
-            // 
-            this.languageBindingSource.DataMember = "Language";
-            this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // cardBaseBindingSource
-            // 
-            this.cardBaseBindingSource.DataMember = "CardBase";
-            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // label4
             // 
@@ -211,6 +254,36 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Dodaj";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // setBindingSource
+            // 
+            this.setBindingSource.DataMember = "Set";
+            this.setBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rarityBindingSource
+            // 
+            this.rarityBindingSource.DataMember = "Rarity";
+            this.rarityBindingSource.DataSource = this.dBDataSet;
+            // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataMember = "Artist";
+            this.artistBindingSource.DataSource = this.dBDataSet;
+            // 
+            // languageBindingSource
+            // 
+            this.languageBindingSource.DataMember = "Language";
+            this.languageBindingSource.DataSource = this.dBDataSet;
+            // 
+            // cardBaseBindingSource
+            // 
+            this.cardBaseBindingSource.DataMember = "CardBase";
+            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // artistTableAdapter
             // 
@@ -333,78 +406,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox1.Location = new System.Drawing.Point(77, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 117);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Moc";
-            // 
-            // textBox2
-            // 
-            this.textBox2.AcceptsReturn = true;
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox2.Location = new System.Drawing.Point(77, 140);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Wytrzymałość";
-            // 
-            // textBox3
-            // 
-            this.textBox3.AcceptsReturn = true;
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox3.Location = new System.Drawing.Point(80, 166);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 26;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 169);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Koszt Many";
-            // 
-            // textBox4
-            // 
-            this.textBox4.AcceptsReturn = true;
-            this.textBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox4.Location = new System.Drawing.Point(77, 219);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 20);
-            this.textBox4.TabIndex = 28;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 203);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Sumaryczny Koszt";
             // 
             // CardBase_List
             // 

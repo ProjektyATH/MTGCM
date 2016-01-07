@@ -42,10 +42,10 @@ namespace MTGCM.Forms
 
                             };
 
-                //if (checkBoxName.Checked)
-                //{
-                //    CardBases = CardBases.Where(cb => cb.Nazwa.Contains(textBoxName.Text));
-                //}
+                if (checkBoxName.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Nazwa.Contains(textBoxName.Text));
+                }
 
                 //if (checkBoxSet.Checked)
                 //{
@@ -63,6 +63,11 @@ namespace MTGCM.Forms
             }
 
 
+        }
+
+        private void buttonFiltrate_Click(object sender, EventArgs e)
+        {
+            Filtrate();
         }
     }
 }
