@@ -39,7 +39,7 @@ namespace MTGCM.Forms
                                 //Wytrzymalosc = cb.toughness,
                                 Koszt_Many = cb.mana_cost,
                                 Sumaryczny_koszt = cb.cmc
-
+                                //Zapis zapasowy jakby się zepsuło
                             };
 
                 if (checkBoxName.Checked)
