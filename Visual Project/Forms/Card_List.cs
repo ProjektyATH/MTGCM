@@ -398,5 +398,30 @@ namespace MTGCM.Forms
 
         }
 
+        private void dataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    c = (from C in db.Card
+                         where C.id == id
+                         select C).First();
+
+                    BaseCB.SelectedValue = c.fk_base_id;
+                    LanguageCB.SelectedValue = c.fk_language_id;
+                    ImmageTB.Text = c.artwork;
+                    ArtistCB.SelectedValue = c.fk_artist_id;
+                    RarityCB.SelectedValue = c.fk_rarity_id;
+                    SetCB.SelectedValue = c.fk_set_id;
+                    TextTB.Text = c.flavor_text;
+                    NumberNUD.Value = (int)c.number;
+                    VersionTB.Text = c.version;
+                }
+            }
+        }
+
     }
 }

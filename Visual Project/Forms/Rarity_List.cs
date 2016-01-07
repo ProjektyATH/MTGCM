@@ -131,5 +131,23 @@ namespace MTGCM.Forms
                 }
             }
         }
+
+        private void dataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    r = (from R in db.Rarity
+                         where R.id == id
+                         select R).First();
+
+                      r.color=TextTB.Text;
+                      r.color=textBox1.Text;
+                }
+            }
+        }
     }
 }

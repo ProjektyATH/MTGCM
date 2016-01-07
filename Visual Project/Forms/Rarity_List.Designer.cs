@@ -33,17 +33,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.TextTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ImmageTB = new System.Windows.Forms.TextBox();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTableAdapter();
@@ -53,11 +53,11 @@
             this.cardBaseTableAdapter = new MTGCM.DBDataSetTableAdapters.CardBaseTableAdapter();
             this.rarityTableAdapter = new MTGCM.DBDataSetTableAdapters.RarityTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBoxSet = new System.Windows.Forms.CheckBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -116,42 +116,12 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Kolor";
             // 
-            // setBindingSource
-            // 
-            this.setBindingSource.DataMember = "Set";
-            this.setBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rarityBindingSource
-            // 
-            this.rarityBindingSource.DataMember = "Rarity";
-            this.rarityBindingSource.DataSource = this.dBDataSet;
-            // 
             // ImmageTB
             // 
             this.ImmageTB.Location = new System.Drawing.Point(77, 62);
             this.ImmageTB.Name = "ImmageTB";
             this.ImmageTB.Size = new System.Drawing.Size(121, 20);
             this.ImmageTB.TabIndex = 14;
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
-            // 
-            // languageBindingSource
-            // 
-            this.languageBindingSource.DataMember = "Language";
-            this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // cardBaseBindingSource
-            // 
-            this.cardBaseBindingSource.DataMember = "CardBase";
-            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // label4
             // 
@@ -198,6 +168,36 @@
             this.buttonAdd.Text = "Dodaj";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // setBindingSource
+            // 
+            this.setBindingSource.DataMember = "Set";
+            this.setBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rarityBindingSource
+            // 
+            this.rarityBindingSource.DataMember = "Rarity";
+            this.rarityBindingSource.DataSource = this.dBDataSet;
+            // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataMember = "Artist";
+            this.artistBindingSource.DataSource = this.dBDataSet;
+            // 
+            // languageBindingSource
+            // 
+            this.languageBindingSource.DataMember = "Language";
+            this.languageBindingSource.DataSource = this.dBDataSet;
+            // 
+            // cardBaseBindingSource
+            // 
+            this.cardBaseBindingSource.DataMember = "CardBase";
+            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // artistTableAdapter
             // 
@@ -248,6 +248,15 @@
             this.panel1.Size = new System.Drawing.Size(168, 420);
             this.panel1.TabIndex = 4;
             // 
+            // textBox1
+            // 
+            this.textBox1.AcceptsReturn = true;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox1.Location = new System.Drawing.Point(24, 127);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.TabIndex = 21;
+            // 
             // checkBoxSet
             // 
             this.checkBoxSet.AutoSize = true;
@@ -286,15 +295,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox1.Location = new System.Drawing.Point(24, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 21;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter_1);
             // 
             // Rarity_List
             // 

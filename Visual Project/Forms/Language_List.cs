@@ -29,14 +29,14 @@ namespace MTGCM.Forms
 
                 var Languages = from l in db.Language
 
-                            select new
-                            {
-                                Lp = l.id,
-                                Nazwa = l.name,
-                                Skrot = l.abbrev,
-                                
+                                select new
+                                {
+                                    Lp = l.id,
+                                    Nazwa = l.name,
+                                    Skrot = l.abbrev,
 
-                            };
+
+                                };
 
                 if (checkBoxName.Checked)
                 {
@@ -49,7 +49,7 @@ namespace MTGCM.Forms
                     Languages = Languages.Where(l => l.Skrot.Contains(Skrot.Text));
                 }
 
-               
+
 
                 dataGridView1.DataSource = Languages.ToList();
             }
@@ -112,6 +112,24 @@ namespace MTGCM.Forms
                     }
                 }
                 Filtrate();
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    l = (from L in db.Language
+                         where L.id == id
+                         select L).First();
+
+                    ImmageTB.Text = l.name;
+                    abbrev.Text = l.abbrev;
+                }
             }
         }
     }
