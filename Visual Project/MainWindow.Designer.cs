@@ -99,6 +99,7 @@
             this.Set_TSMI.Name = "Set_TSMI";
             this.Set_TSMI.Size = new System.Drawing.Size(153, 22);
             this.Set_TSMI.Text = "Zestawy";
+            this.Set_TSMI.Click += new System.EventHandler(this.Set_TSMI_Click);
             // 
             // Card_TSMI
             // 
