@@ -112,6 +112,7 @@
             this.CardBase_TSMI.Name = "CardBase_TSMI";
             this.CardBase_TSMI.Size = new System.Drawing.Size(153, 22);
             this.CardBase_TSMI.Text = "Bazy kart";
+            this.CardBase_TSMI.Click += new System.EventHandler(this.CardBase_TSMI_Click);
             // 
             // Other_TSMI
             // 
