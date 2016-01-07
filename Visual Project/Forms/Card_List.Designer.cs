@@ -107,7 +107,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
+          
             // 
             // panel1
             // 
@@ -132,6 +132,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(168, 420);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // numericUpDownCMC
             // 
@@ -144,6 +145,7 @@
             this.numericUpDownCMC.Name = "numericUpDownCMC";
             this.numericUpDownCMC.Size = new System.Drawing.Size(71, 20);
             this.numericUpDownCMC.TabIndex = 13;
+            this.numericUpDownCMC.ValueChanged += new System.EventHandler(this.numericUpDownCMC_ValueChanged);
             // 
             // checkBoxCMC
             // 
@@ -155,6 +157,7 @@
             this.checkBoxCMC.Text = "Sumaryczny koszt";
             this.checkBoxCMC.UseMnemonic = false;
             this.checkBoxCMC.UseVisualStyleBackColor = true;
+            this.checkBoxCMC.CheckedChanged += new System.EventHandler(this.checkBoxCMC_CheckedChanged);
             // 
             // checkBoxTo
             // 
@@ -165,6 +168,7 @@
             this.checkBoxTo.TabIndex = 11;
             this.checkBoxTo.Text = "Do:";
             this.checkBoxTo.UseVisualStyleBackColor = true;
+            this.checkBoxTo.CheckedChanged += new System.EventHandler(this.checkBoxTo_CheckedChanged);
             // 
             // dateTimePickerTo
             // 
@@ -172,6 +176,7 @@
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(144, 20);
             this.dateTimePickerTo.TabIndex = 10;
+            this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
             // 
             // label1
             // 
@@ -181,6 +186,7 @@
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Data Wydania";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dateTimePickerFrom
             // 
@@ -190,6 +196,7 @@
             this.dateTimePickerFrom.Size = new System.Drawing.Size(144, 20);
             this.dateTimePickerFrom.TabIndex = 8;
             this.dateTimePickerFrom.Value = new System.DateTime(2016, 1, 4, 0, 0, 0, 0);
+            this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
             // 
             // checkBoxFrom
             // 
@@ -200,6 +207,7 @@
             this.checkBoxFrom.TabIndex = 7;
             this.checkBoxFrom.Text = "Od:";
             this.checkBoxFrom.UseVisualStyleBackColor = true;
+            this.checkBoxFrom.CheckedChanged += new System.EventHandler(this.checkBoxFrom_CheckedChanged);
             // 
             // comboBoxLanguage
             // 
@@ -211,11 +219,13 @@
             this.comboBoxLanguage.Size = new System.Drawing.Size(144, 21);
             this.comboBoxLanguage.TabIndex = 6;
             this.comboBoxLanguage.ValueMember = "name";
+            this.comboBoxLanguage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLanguage_SelectedIndexChanged);
             // 
             // languageBindingSource
             // 
             this.languageBindingSource.DataMember = "Language";
             this.languageBindingSource.DataSource = this.dBDataSet;
+            this.languageBindingSource.CurrentChanged += new System.EventHandler(this.languageBindingSource_CurrentChanged);
             // 
             // dBDataSet
             // 
@@ -232,11 +242,13 @@
             this.comboBoxSet.Size = new System.Drawing.Size(144, 21);
             this.comboBoxSet.TabIndex = 5;
             this.comboBoxSet.ValueMember = "name";
+            this.comboBoxSet.SelectedIndexChanged += new System.EventHandler(this.comboBoxSet_SelectedIndexChanged);
             // 
             // setBindingSource
             // 
             this.setBindingSource.DataMember = "Set";
             this.setBindingSource.DataSource = this.dBDataSet;
+            this.setBindingSource.CurrentChanged += new System.EventHandler(this.setBindingSource_CurrentChanged);
             // 
             // checkBoxLanguage
             // 
@@ -247,6 +259,7 @@
             this.checkBoxLanguage.TabIndex = 4;
             this.checkBoxLanguage.Text = "Język";
             this.checkBoxLanguage.UseVisualStyleBackColor = true;
+            this.checkBoxLanguage.CheckedChanged += new System.EventHandler(this.checkBoxLanguage_CheckedChanged);
             // 
             // checkBoxSet
             // 
@@ -257,6 +270,7 @@
             this.checkBoxSet.TabIndex = 3;
             this.checkBoxSet.Text = "Dodatek";
             this.checkBoxSet.UseVisualStyleBackColor = true;
+            this.checkBoxSet.CheckedChanged += new System.EventHandler(this.checkBoxSet_CheckedChanged);
             // 
             // textBoxName
             // 
@@ -264,6 +278,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(144, 20);
             this.textBoxName.TabIndex = 2;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // checkBoxName
             // 
@@ -274,6 +289,7 @@
             this.checkBoxName.TabIndex = 1;
             this.checkBoxName.Text = "Nazwa karty";
             this.checkBoxName.UseVisualStyleBackColor = true;
+            this.checkBoxName.CheckedChanged += new System.EventHandler(this.checkBoxName_CheckedChanged);
             // 
             // buttonFiltrate
             // 
@@ -290,6 +306,7 @@
             // 
             this.cardBindingSource.DataMember = "Card";
             this.cardBindingSource.DataSource = this.dBDataSet;
+            this.cardBindingSource.CurrentChanged += new System.EventHandler(this.cardBindingSource_CurrentChanged);
             // 
             // panel2
             // 
@@ -320,6 +337,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // NumberNUD
             // 
@@ -332,6 +350,7 @@
             this.NumberNUD.Name = "NumberNUD";
             this.NumberNUD.Size = new System.Drawing.Size(121, 20);
             this.NumberNUD.TabIndex = 21;
+            this.NumberNUD.ValueChanged += new System.EventHandler(this.NumberNUD_ValueChanged);
             // 
             // TextTB
             // 
@@ -341,6 +360,7 @@
             this.TextTB.Name = "TextTB";
             this.TextTB.Size = new System.Drawing.Size(121, 20);
             this.TextTB.TabIndex = 20;
+            this.TextTB.TextChanged += new System.EventHandler(this.TextTB_TextChanged);
             // 
             // label10
             // 
@@ -350,6 +370,7 @@
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 19;
             this.label10.Text = "Tekst";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // VersionTB
             // 
@@ -359,6 +380,7 @@
             this.VersionTB.Name = "VersionTB";
             this.VersionTB.Size = new System.Drawing.Size(121, 20);
             this.VersionTB.TabIndex = 17;
+            this.VersionTB.TextChanged += new System.EventHandler(this.VersionTB_TextChanged);
             // 
             // SetCB
             // 
@@ -370,6 +392,7 @@
             this.SetCB.Size = new System.Drawing.Size(121, 21);
             this.SetCB.TabIndex = 16;
             this.SetCB.ValueMember = "id";
+            this.SetCB.SelectedIndexChanged += new System.EventHandler(this.SetCB_SelectedIndexChanged);
             // 
             // RarityCB
             // 
@@ -381,11 +404,13 @@
             this.RarityCB.Size = new System.Drawing.Size(121, 21);
             this.RarityCB.TabIndex = 15;
             this.RarityCB.ValueMember = "id";
+            this.RarityCB.SelectedIndexChanged += new System.EventHandler(this.RarityCB_SelectedIndexChanged);
             // 
             // rarityBindingSource
             // 
             this.rarityBindingSource.DataMember = "Rarity";
             this.rarityBindingSource.DataSource = this.dBDataSet;
+            this.rarityBindingSource.CurrentChanged += new System.EventHandler(this.rarityBindingSource_CurrentChanged);
             // 
             // ImmageTB
             // 
@@ -393,6 +418,7 @@
             this.ImmageTB.Name = "ImmageTB";
             this.ImmageTB.Size = new System.Drawing.Size(121, 20);
             this.ImmageTB.TabIndex = 14;
+            this.ImmageTB.TextChanged += new System.EventHandler(this.ImmageTB_TextChanged);
             // 
             // ArtistCB
             // 
@@ -404,11 +430,13 @@
             this.ArtistCB.Size = new System.Drawing.Size(121, 21);
             this.ArtistCB.TabIndex = 13;
             this.ArtistCB.ValueMember = "id";
+            this.ArtistCB.SelectedIndexChanged += new System.EventHandler(this.ArtistCB_SelectedIndexChanged);
             // 
             // artistBindingSource
             // 
             this.artistBindingSource.DataMember = "Artist";
             this.artistBindingSource.DataSource = this.dBDataSet;
+            this.artistBindingSource.CurrentChanged += new System.EventHandler(this.artistBindingSource_CurrentChanged);
             // 
             // LanguageCB
             // 
@@ -420,6 +448,7 @@
             this.LanguageCB.Size = new System.Drawing.Size(121, 21);
             this.LanguageCB.TabIndex = 12;
             this.LanguageCB.ValueMember = "id";
+            this.LanguageCB.SelectedIndexChanged += new System.EventHandler(this.LanguageCB_SelectedIndexChanged);
             // 
             // BaseCB
             // 
@@ -431,11 +460,13 @@
             this.BaseCB.Size = new System.Drawing.Size(121, 21);
             this.BaseCB.TabIndex = 11;
             this.BaseCB.ValueMember = "id";
+            this.BaseCB.SelectedIndexChanged += new System.EventHandler(this.BaseCB_SelectedIndexChanged);
             // 
             // cardBaseBindingSource
             // 
             this.cardBaseBindingSource.DataMember = "CardBase";
             this.cardBaseBindingSource.DataSource = this.dBDataSet;
+            this.cardBaseBindingSource.CurrentChanged += new System.EventHandler(this.cardBaseBindingSource_CurrentChanged);
             // 
             // label9
             // 
@@ -445,6 +476,7 @@
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 10;
             this.label9.Text = "Wersja";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -454,6 +486,7 @@
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "Numer";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -463,6 +496,7 @@
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "Dodatek";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -472,6 +506,7 @@
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Unikatowość";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -481,6 +516,7 @@
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Artysta";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -490,6 +526,7 @@
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Zdjęcie";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -499,6 +536,7 @@
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Język";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -508,6 +546,7 @@
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Bazowa";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // buttonDelete
             // 
@@ -557,6 +596,7 @@
             // 
             this.dBDataSetBindingSource.DataSource = this.dBDataSet;
             this.dBDataSetBindingSource.Position = 0;
+            this.dBDataSetBindingSource.CurrentChanged += new System.EventHandler(this.dBDataSetBindingSource_CurrentChanged);
             // 
             // languageTableAdapter
             // 
