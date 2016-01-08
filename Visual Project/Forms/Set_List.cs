@@ -26,7 +26,7 @@ namespace MTGCM.Forms
             using (var db = new DBEntities())
             {
 
-                var Sets = from s in db.Sets
+                var Sets = from s in db.Set
 
                             select new
                             {

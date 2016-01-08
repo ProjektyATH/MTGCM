@@ -7,13 +7,13 @@
       <Diagram DiagramId="c6140d9a354d4f1cb69675bcef8ae05c" Name="Diagram1">
         <EntityTypeShape EntityType="DBModel.Artist" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Block" Width="1.5" PointX="2.625" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Card" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.CardBase" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Card" Width="1.5" PointX="5.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CardBase" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.CardSubtype" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.CardType" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Deck" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Language" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.OwnedCard" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.OwnedCard" Width="1.5" PointX="2.125" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Rarity" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Set" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />

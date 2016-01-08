@@ -172,7 +172,6 @@
     <Compile Include="Forms\Card_List.Designer.cs">
       <DependentUpon>Card_List.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Forms\Import.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -35,8 +35,8 @@ namespace MTGCM.Forms
                                 Lp = cb.id,
                                 Nazwa = cb.name,
                                 Tekst = cb.text,
-                                //Moc = cb.power,
-                                //Wytrzymalosc = cb.toughness,
+                                Moc = cb.power,
+                                Wytrzymalosc = cb.toughness,
                                 Koszt_Many = cb.mana_cost,
                                 Sumaryczny_koszt = cb.cmc
 

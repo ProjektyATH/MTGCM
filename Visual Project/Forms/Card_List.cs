@@ -153,6 +153,7 @@ namespace MTGCM.Forms
         {
             using (var db = new DBEntities())
             {
+
                 if (dataGridView1.SelectedRows.Count == 1)
                 {
                     id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);

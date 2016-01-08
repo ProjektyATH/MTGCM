@@ -26,7 +26,7 @@ namespace MTGCM.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=\"D:\\GITHUB\\MTGCM\\Visual Project\\DB.db\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=\"D:\\PROJEKTY\\MTG\\MTGCM\\MTGCM\\Visual Project\\DB.db\"")]
         public string DBConnectionString {
             get {
                 return ((string)(this["DBConnectionString"]));
