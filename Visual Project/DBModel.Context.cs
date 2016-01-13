@@ -35,7 +35,7 @@ namespace MTGCM
         public virtual DbSet<Language> Language { get; set; }
         public virtual DbSet<OwnedCard> OwnedCard { get; set; }
         public virtual DbSet<Rarity> Rarity { get; set; }
-        public virtual DbSet<Set> Sets { get; set; }
+        public virtual DbSet<Set> Set { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

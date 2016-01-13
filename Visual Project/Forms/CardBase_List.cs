@@ -30,17 +30,19 @@ namespace MTGCM.Forms
 
                 var CardBases = from cb in db.CardBase
 
-                                select new
-                                {
-                                    Lp = cb.id,
-                                    Nazwa = cb.name,
-                                    Tekst = cb.text,
-                                    Moc = cb.power,
-                                    Wytrzymalosc = cb.toughness,
-                                    Koszt_Many = cb.mana_cost,
-                                    Sumaryczny_koszt = cb.cmc
-                                    //Zapis zapasowy jakby się zepsuło
-                                };
+
+                            select new
+                            {
+                                Lp = cb.id,
+                                Nazwa = cb.name,
+                                Tekst = cb.text,
+                                Moc = cb.power,
+                                Wytrzymalosc = cb.toughness,
+                                Koszt_Many = cb.mana_cost,
+                                Sumaryczny_koszt = cb.cmc
+
+                            };
+
 
                 if (checkBoxName.Checked)
                 {
