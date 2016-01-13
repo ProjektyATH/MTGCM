@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ImmageTB = new System.Windows.Forms.TextBox();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTableAdapter();
@@ -60,6 +60,10 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -89,6 +93,10 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.ImmageTB);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.buttonDelete);
@@ -99,42 +107,12 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 5;
             // 
-            // setBindingSource
-            // 
-            this.setBindingSource.DataMember = "Set";
-            this.setBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rarityBindingSource
-            // 
-            this.rarityBindingSource.DataMember = "Rarity";
-            this.rarityBindingSource.DataSource = this.dBDataSet;
-            // 
             // ImmageTB
             // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 62);
+            this.ImmageTB.Location = new System.Drawing.Point(77, 58);
             this.ImmageTB.Name = "ImmageTB";
             this.ImmageTB.Size = new System.Drawing.Size(121, 20);
             this.ImmageTB.TabIndex = 14;
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
-            // 
-            // languageBindingSource
-            // 
-            this.languageBindingSource.DataMember = "Language";
-            this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // cardBaseBindingSource
-            // 
-            this.cardBaseBindingSource.DataMember = "CardBase";
-            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // label4
             // 
@@ -177,6 +155,37 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Dodaj";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // setBindingSource
+            // 
+            this.setBindingSource.DataMember = "Set";
+            this.setBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rarityBindingSource
+            // 
+            this.rarityBindingSource.DataMember = "Rarity";
+            this.rarityBindingSource.DataSource = this.dBDataSet;
+            // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataMember = "Artist";
+            this.artistBindingSource.DataSource = this.dBDataSet;
+            // 
+            // languageBindingSource
+            // 
+            this.languageBindingSource.DataMember = "Language";
+            this.languageBindingSource.DataSource = this.dBDataSet;
+            // 
+            // cardBaseBindingSource
+            // 
+            this.cardBaseBindingSource.DataMember = "CardBase";
+            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // artistTableAdapter
             // 
@@ -320,6 +329,38 @@
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(77, 84);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Skrot";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(77, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Symbol";
+            // 
             // Set_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,5 +422,9 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.NumericUpDown numericUpDownCMC;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label2;
     }
 }
