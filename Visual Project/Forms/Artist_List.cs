@@ -93,6 +93,7 @@ namespace MTGCM.Forms
          this.artistTableAdapter1.Fill(this.dBDataSet1.Artist);
 
      }
+    
 
      private void buttonEdit_Click(object sender, EventArgs e)
      {
@@ -112,28 +113,26 @@ namespace MTGCM.Forms
              Filtrate();
          }
      }
-        //private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    using (var db = new DBEntities())
-        //    {
-        //        if (dataGridView1.SelectedRows.Count == 1)
-        //        {
-        //            id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
-        //            a = (from A in db.Card
-        //                 where A.id == id
-        //                 select A).First();
+     private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+     {
+         using (var db = new DBEntities())
+         {
+             if (dataGridView1.SelectedRows.Count == 1)
+             {
+                 id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
-                    //BaseCB.SelectedValue = c.fk_base_id;
-                    //LanguageCB.SelectedValue = c.fk_language_id;
-                    //ImmageTB.Text = c.artwork;
-                    //ArtistCB.SelectedValue = c.fk_artist_id;
-                    //RarityCB.SelectedValue = c.fk_rarity_id;
-                    //SetCB.SelectedValue = c.fk_set_id;
-                    //TextTB.Text = c.flavor_text;
-                    //NumberNUD.Value = (int)c.number;
-                    //VersionTB.Text = c.version;
-            //    }
-            //}
+                 a = (from A in db.Artist
+                      where A.id == id
+                      select A).First();
+
+                 NazwaArtysty.Text= a.name ;
+                 db.Entry(a).State = EntityState.Modified;
+                 db.SaveChanges();
+             }
+         }
+     }
+ 
+
     }
 }

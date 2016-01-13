@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ImmageTB = new System.Windows.Forms.TextBox();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTableAdapter();
@@ -92,42 +92,12 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 5;
             // 
-            // setBindingSource
-            // 
-            this.setBindingSource.DataMember = "Set";
-            this.setBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rarityBindingSource
-            // 
-            this.rarityBindingSource.DataMember = "Rarity";
-            this.rarityBindingSource.DataSource = this.dBDataSet;
-            // 
             // ImmageTB
             // 
             this.ImmageTB.Location = new System.Drawing.Point(77, 62);
             this.ImmageTB.Name = "ImmageTB";
             this.ImmageTB.Size = new System.Drawing.Size(121, 20);
             this.ImmageTB.TabIndex = 14;
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
-            // 
-            // languageBindingSource
-            // 
-            this.languageBindingSource.DataMember = "Language";
-            this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // cardBaseBindingSource
-            // 
-            this.cardBaseBindingSource.DataMember = "CardBase";
-            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // label4
             // 
@@ -173,6 +143,36 @@
             this.buttonAdd.Text = "Dodaj";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // setBindingSource
+            // 
+            this.setBindingSource.DataMember = "Set";
+            this.setBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rarityBindingSource
+            // 
+            this.rarityBindingSource.DataMember = "Rarity";
+            this.rarityBindingSource.DataSource = this.dBDataSet;
+            // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataMember = "Artist";
+            this.artistBindingSource.DataSource = this.dBDataSet;
+            // 
+            // languageBindingSource
+            // 
+            this.languageBindingSource.DataMember = "Language";
+            this.languageBindingSource.DataSource = this.dBDataSet;
+            // 
+            // cardBaseBindingSource
+            // 
+            this.cardBaseBindingSource.DataMember = "CardBase";
+            this.cardBaseBindingSource.DataSource = this.dBDataSet;
             // 
             // artistTableAdapter
             // 
@@ -249,6 +249,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // Block_List
             // 
