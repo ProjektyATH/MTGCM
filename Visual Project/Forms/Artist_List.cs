@@ -93,6 +93,7 @@ namespace MTGCM.Forms
          this.artistTableAdapter1.Fill(this.dBDataSet1.Artist);
 
      }
+    
 
      private void buttonEdit_Click(object sender, EventArgs e)
      {
@@ -113,5 +114,24 @@ namespace MTGCM.Forms
          }
      }
 
+     private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+     {
+         using (var db = new DBEntities())
+         {
+             if (dataGridView1.SelectedRows.Count == 1)
+             {
+                 id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                 a = (from A in db.Artist
+                      where A.id == id
+                      select A).First();
+
+                 NazwaArtysty.Text= a.name ;
+                 db.Entry(a).State = EntityState.Modified;
+                 db.SaveChanges();
+             }
+         }
+     }
+ 
     }
 }
