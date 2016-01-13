@@ -17,7 +17,7 @@ namespace MTGCM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Language()
         {
-            this.Card = new HashSet<Card>();
+            this.CardBase = new HashSet<CardBase>();
         }
     
         public long id { get; set; }
@@ -25,6 +25,6 @@ namespace MTGCM
         public string abbrev { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Card> Card { get; set; }
+        public virtual ICollection<CardBase> CardBase { get; set; }
     }
 }

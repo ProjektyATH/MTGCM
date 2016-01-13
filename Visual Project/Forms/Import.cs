@@ -78,8 +78,7 @@ namespace MTGCM.Forms
 
                                 TmpS.abbrev = s.gathererCode;
                                 TmpS.symbol = s.code;
-                                TmpS.is_core = (s.type == "core") ? true : false;
-                                TmpS.is_special = (s.type == "core") ? false : true;
+                               
                                 TmpS.name = s.name;
                                 TmpS.relase_date = Convert.ToDateTime(s.releaseDate);
 

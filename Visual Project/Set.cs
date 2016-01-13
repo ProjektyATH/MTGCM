@@ -17,7 +17,7 @@ namespace MTGCM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Set()
         {
-            this.Card = new HashSet<Card>();
+            this.CardBase = new HashSet<CardBase>();
         }
     
         public long id { get; set; }
@@ -27,11 +27,11 @@ namespace MTGCM
         public Nullable<System.DateTime> relase_date { get; set; }
         public Nullable<long> fk_block_id { get; set; }
         public Nullable<long> cards_total { get; set; }
-        public Nullable<bool> is_core { get; set; }
-        public Nullable<bool> is_special { get; set; }
+        public Nullable<long> fk_type_id { get; set; }
     
         public virtual Block Block { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Card> Card { get; set; }
+        public virtual ICollection<CardBase> CardBase { get; set; }
+        public virtual SetType SetType { get; set; }
     }
 }

@@ -44,7 +44,7 @@
             this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTableAdapter();
+          
             this.setTableAdapter = new MTGCM.DBDataSetTableAdapters.SetTableAdapter();
             this.dBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageTableAdapter = new MTGCM.DBDataSetTableAdapters.LanguageTableAdapter();
@@ -195,10 +195,7 @@
             // 
             this.cardBindingSource.DataMember = "Card";
             this.cardBindingSource.DataSource = this.dBDataSet;
-            // 
-            // cardTableAdapter
-            // 
-            this.cardTableAdapter.ClearBeforeFill = true;
+            
             // 
             // setTableAdapter
             // 
@@ -379,7 +376,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -406,7 +402,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private DBDataSetTableAdapters.ArtistTableAdapter artistTableAdapter;
         private System.Windows.Forms.BindingSource cardBindingSource;
-        private DBDataSetTableAdapters.CardTableAdapter cardTableAdapter;
+    
         private DBDataSetTableAdapters.SetTableAdapter setTableAdapter;
         private System.Windows.Forms.BindingSource dBDataSetBindingSource;
         private DBDataSetTableAdapters.LanguageTableAdapter languageTableAdapter;

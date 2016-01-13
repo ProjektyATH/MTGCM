@@ -12,18 +12,18 @@ namespace MTGCM
     using System;
     using System.Collections.Generic;
     
-    public partial class Artist
+    public partial class SetType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Artist()
+        public SetType()
         {
-            this.CardBase = new HashSet<CardBase>();
+            this.Set = new HashSet<Set>();
         }
     
         public long id { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CardBase> CardBase { get; set; }
+        public virtual ICollection<Set> Set { get; set; }
     }
 }

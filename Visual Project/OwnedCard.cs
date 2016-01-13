@@ -15,7 +15,7 @@ namespace MTGCM
     public partial class OwnedCard
     {
         public long id { get; set; }
-        public Nullable<long> fk_card_id { get; set; }
+        public long fk_card_id { get; set; }
         public Nullable<long> fk_user_id { get; set; }
         public Nullable<long> fk_deck_id { get; set; }
         public Nullable<bool> foil { get; set; }
@@ -25,7 +25,7 @@ namespace MTGCM
         public string tags { get; set; }
         public string comment { get; set; }
     
-        public virtual Card Card { get; set; }
+        public virtual CardBase CardBase { get; set; }
         public virtual Deck Deck { get; set; }
         public virtual User User { get; set; }
     }

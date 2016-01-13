@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;D:\PROJEKTY\MTG\MTGCM\MTGCM\Visual Project\DB.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=DB.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Artist">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <EntityType Name="Block">
           <Key>
@@ -19,32 +19,25 @@
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
-        <EntityType Name="Card">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fk_base_id" Type="integer" Nullable="false" />
-          <Property Name="fk_language_id" Type="integer" Nullable="false" />
-          <Property Name="artwork" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="fk_artist_id" Type="integer" />
-          <Property Name="fk_rarity_id" Type="integer" />
-          <Property Name="fk_set_id" Type="integer" />
-          <Property Name="flavor_text" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="number" Type="integer" />
-          <Property Name="version" Type="nvarchar" MaxLength="2147483647" />
-        </EntityType>
         <EntityType Name="CardBase">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="text" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="power" Type="integer" Nullable="false" />
-          <Property Name="toughness" Type="integer" Nullable="false" />
+          <Property Name="oracle_text" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="power" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="toughness" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="mana_cost" Type="nvarchar" MaxLength="2147483647" />
-          <Property Name="cmc" Type="integer" />
+          <Property Name="cmc" Type="decimal" Precision="53" Scale="0" />
+          <Property Name="fk_language_id" Type="integer" />
+          <Property Name="image" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="fk_artist_id" Type="integer" />
+          <Property Name="fk_rarity_id" Type="integer" />
+          <Property Name="fk_set_id" Type="integer" />
+          <Property Name="flavor_text" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="number" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="version" Type="integer" />
         </EntityType>
         <EntityType Name="CardSubtype">
           <Key>
@@ -65,7 +58,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="fk_user_id" Type="integer" />
           <Property Name="tags" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
@@ -74,7 +67,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="abbrev" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
         <EntityType Name="LinkSubtype">
@@ -98,7 +91,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fk_card_id" Type="integer" />
+          <Property Name="fk_card_id" Type="integer" Nullable="false" />
           <Property Name="fk_user_id" Type="integer" />
           <Property Name="fk_deck_id" Type="integer" />
           <Property Name="foil" Type="bit" />
@@ -127,74 +120,68 @@
           <Property Name="relase_date" Type="datetime" />
           <Property Name="fk_block_id" Type="integer" />
           <Property Name="cards_total" Type="integer" />
-          <Property Name="is_core" Type="bit" />
-          <Property Name="is_special" Type="bit" />
+          <Property Name="fk_type_id" Type="integer" />
+        </EntityType>
+        <EntityType Name="SetType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
-        <Association Name="FK_Card_0_0">
+        <Association Name="FK_CardBase_0_0">
           <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Set">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_set_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_1_0">
+        <Association Name="FK_CardBase_1_0">
           <End Role="Rarity" Type="Self.Rarity" Multiplicity="0..1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rarity">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_rarity_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_2_0">
+        <Association Name="FK_CardBase_2_0">
           <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Artist">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_artist_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_3_0">
-          <End Role="Language" Type="Self.Language" Multiplicity="1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+        <Association Name="FK_CardBase_3_0">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Language">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_language_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Card_4_0">
-          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CardBase">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Card">
-              <PropertyRef Name="fk_base_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -283,10 +270,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OwnedCard_2_0">
-          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
           <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Card">
+            <Principal Role="CardBase">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="OwnedCard">
@@ -295,6 +282,18 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Set_0_0">
+          <End Role="SetType" Type="Self.SetType" Multiplicity="0..1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SetType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="fk_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Set_1_0">
           <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
           <End Role="Set" Type="Self.Set" Multiplicity="*" />
           <ReferentialConstraint>
@@ -309,7 +308,6 @@
         <EntityContainer Name="DBModelStoreContainer">
           <EntitySet Name="Artist" EntityType="Self.Artist" store:Type="Tables" />
           <EntitySet Name="Block" EntityType="Self.Block" store:Type="Tables" />
-          <EntitySet Name="Card" EntityType="Self.Card" store:Type="Tables" />
           <EntitySet Name="CardBase" EntityType="Self.CardBase" store:Type="Tables" />
           <EntitySet Name="CardSubtype" EntityType="Self.CardSubtype" store:Type="Tables" />
           <EntitySet Name="CardType" EntityType="Self.CardType" store:Type="Tables" />
@@ -320,26 +318,23 @@
           <EntitySet Name="OwnedCard" EntityType="Self.OwnedCard" store:Type="Tables" />
           <EntitySet Name="Rarity" EntityType="Self.Rarity" store:Type="Tables" />
           <EntitySet Name="Set" EntityType="Self.Set" store:Type="Tables" />
+          <EntitySet Name="SetType" EntityType="Self.SetType" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
-          <AssociationSet Name="FK_Card_0_0" Association="Self.FK_Card_0_0">
+          <AssociationSet Name="FK_CardBase_0_0" Association="Self.FK_CardBase_0_0">
             <End Role="Set" EntitySet="Set" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_1_0" Association="Self.FK_Card_1_0">
-            <End Role="Rarity" EntitySet="Rarity" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_2_0" Association="Self.FK_Card_2_0">
-            <End Role="Artist" EntitySet="Artist" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_3_0" Association="Self.FK_Card_3_0">
-            <End Role="Language" EntitySet="Language" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_4_0" Association="Self.FK_Card_4_0">
             <End Role="CardBase" EntitySet="CardBase" />
-            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardBase_1_0" Association="Self.FK_CardBase_1_0">
+            <End Role="Rarity" EntitySet="Rarity" />
+            <End Role="CardBase" EntitySet="CardBase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardBase_2_0" Association="Self.FK_CardBase_2_0">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="CardBase" EntitySet="CardBase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardBase_3_0" Association="Self.FK_CardBase_3_0">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="CardBase" EntitySet="CardBase" />
           </AssociationSet>
           <AssociationSet Name="FK_Deck_0_0" Association="Self.FK_Deck_0_0">
             <End Role="User" EntitySet="User" />
@@ -370,15 +365,20 @@
             <End Role="OwnedCard" EntitySet="OwnedCard" />
           </AssociationSet>
           <AssociationSet Name="FK_OwnedCard_2_0" Association="Self.FK_OwnedCard_2_0">
-            <End Role="Card" EntitySet="Card" />
+            <End Role="CardBase" EntitySet="CardBase" />
             <End Role="OwnedCard" EntitySet="OwnedCard" />
           </AssociationSet>
           <AssociationSet Name="FK_Set_0_0" Association="Self.FK_Set_0_0">
+            <End Role="SetType" EntitySet="SetType" />
+            <End Role="Set" EntitySet="Set" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Set_1_0" Association="Self.FK_Set_1_0">
             <End Role="Block" EntitySet="Block" />
             <End Role="Set" EntitySet="Set" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -387,8 +387,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_Card_2_0" FromRole="Artist" ToRole="Card" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CardBase" Relationship="Self.FK_CardBase_2_0" FromRole="Artist" ToRole="CardBase" />
         </EntityType>
         <EntityType Name="Block">
           <Key>
@@ -396,28 +396,7 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Set" Relationship="Self.FK_Set_0_0" FromRole="Block" ToRole="Set" />
-        </EntityType>
-        <EntityType Name="Card">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fk_base_id" Type="Int64" Nullable="false" />
-          <Property Name="fk_language_id" Type="Int64" Nullable="false" />
-          <Property Name="artwork" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="fk_artist_id" Type="Int64" />
-          <Property Name="fk_rarity_id" Type="Int64" />
-          <Property Name="fk_set_id" Type="Int64" />
-          <Property Name="flavor_text" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="number" Type="Int64" />
-          <Property Name="version" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Artist" Relationship="Self.FK_Card_2_0" FromRole="Card" ToRole="Artist" />
-          <NavigationProperty Name="Set" Relationship="Self.FK_Card_0_0" FromRole="Card" ToRole="Set" />
-          <NavigationProperty Name="Rarity" Relationship="Self.FK_Card_1_0" FromRole="Card" ToRole="Rarity" />
-          <NavigationProperty Name="Language" Relationship="Self.FK_Card_3_0" FromRole="Card" ToRole="Language" />
-          <NavigationProperty Name="CardBase" Relationship="Self.FK_Card_4_0" FromRole="Card" ToRole="CardBase" />
-          <NavigationProperty Name="OwnedCard" Relationship="Self.FK_OwnedCard_2_0" FromRole="Card" ToRole="OwnedCard" />
+          <NavigationProperty Name="Set" Relationship="Self.FK_Set_1_0" FromRole="Block" ToRole="Set" />
         </EntityType>
         <EntityType Name="CardBase">
           <Key>
@@ -425,12 +404,24 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="text" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="power" Type="Int64" Nullable="false" />
-          <Property Name="toughness" Type="Int64" Nullable="false" />
+          <Property Name="oracle_text" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="power" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="toughness" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="mana_cost" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="cmc" Type="Int64" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_Card_4_0" FromRole="CardBase" ToRole="Card" />
+          <Property Name="cmc" Type="Decimal" Precision="53" Scale="0" />
+          <Property Name="fk_language_id" Type="Int64" />
+          <Property Name="image" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="fk_artist_id" Type="Int64" />
+          <Property Name="fk_rarity_id" Type="Int64" />
+          <Property Name="fk_set_id" Type="Int64" />
+          <Property Name="flavor_text" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="Int64" />
+          <NavigationProperty Name="Artist" Relationship="Self.FK_CardBase_2_0" FromRole="CardBase" ToRole="Artist" />
+          <NavigationProperty Name="Set" Relationship="Self.FK_CardBase_0_0" FromRole="CardBase" ToRole="Set" />
+          <NavigationProperty Name="Rarity" Relationship="Self.FK_CardBase_1_0" FromRole="CardBase" ToRole="Rarity" />
+          <NavigationProperty Name="Language" Relationship="Self.FK_CardBase_3_0" FromRole="CardBase" ToRole="Language" />
+          <NavigationProperty Name="OwnedCard" Relationship="Self.FK_OwnedCard_2_0" FromRole="CardBase" ToRole="OwnedCard" />
           <NavigationProperty Name="CardSubtype" Relationship="Self.LinkSubtype" FromRole="CardBase" ToRole="CardSubtype" />
           <NavigationProperty Name="CardType" Relationship="Self.LinkType" FromRole="CardBase" ToRole="CardType" />
         </EntityType>
@@ -454,8 +445,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="fk_user_id" Type="Int64" />
           <Property Name="tags" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="Self.FK_Deck_0_0" FromRole="Deck" ToRole="User" />
@@ -466,16 +457,16 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="abbrev" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_Card_3_0" FromRole="Language" ToRole="Card" />
+          <NavigationProperty Name="CardBase" Relationship="Self.FK_CardBase_3_0" FromRole="Language" ToRole="CardBase" />
         </EntityType>
         <EntityType Name="OwnedCard">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fk_card_id" Type="Int64" />
+          <Property Name="fk_card_id" Type="Int64" Nullable="false" />
           <Property Name="fk_user_id" Type="Int64" />
           <Property Name="fk_deck_id" Type="Int64" />
           <Property Name="foil" Type="Boolean" />
@@ -484,7 +475,7 @@
           <Property Name="altered" Type="Boolean" />
           <Property Name="tags" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="comment" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_OwnedCard_2_0" FromRole="OwnedCard" ToRole="Card" />
+          <NavigationProperty Name="CardBase" Relationship="Self.FK_OwnedCard_2_0" FromRole="OwnedCard" ToRole="CardBase" />
           <NavigationProperty Name="Deck" Relationship="Self.FK_OwnedCard_0_0" FromRole="OwnedCard" ToRole="Deck" />
           <NavigationProperty Name="User" Relationship="Self.FK_OwnedCard_1_0" FromRole="OwnedCard" ToRole="User" />
         </EntityType>
@@ -495,7 +486,7 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="color" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_Card_1_0" FromRole="Rarity" ToRole="Card" />
+          <NavigationProperty Name="CardBase" Relationship="Self.FK_CardBase_1_0" FromRole="Rarity" ToRole="CardBase" />
         </EntityType>
         <EntityType Name="Set">
           <Key>
@@ -508,34 +499,42 @@
           <Property Name="relase_date" Type="DateTime" />
           <Property Name="fk_block_id" Type="Int64" />
           <Property Name="cards_total" Type="Int64" />
-          <Property Name="is_core" Type="Boolean" />
-          <Property Name="is_special" Type="Boolean" />
-          <NavigationProperty Name="Block" Relationship="Self.FK_Set_0_0" FromRole="Set" ToRole="Block" />
-          <NavigationProperty Name="Card" Relationship="Self.FK_Card_0_0" FromRole="Set" ToRole="Card" />
+          <Property Name="fk_type_id" Type="Int64" />
+          <NavigationProperty Name="Block" Relationship="Self.FK_Set_1_0" FromRole="Set" ToRole="Block" />
+          <NavigationProperty Name="CardBase" Relationship="Self.FK_CardBase_0_0" FromRole="Set" ToRole="CardBase" />
+          <NavigationProperty Name="SetType" Relationship="Self.FK_Set_0_0" FromRole="Set" ToRole="SetType" />
+        </EntityType>
+        <EntityType Name="SetType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Set" Relationship="Self.FK_Set_0_0" FromRole="SetType" ToRole="Set" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Deck" Relationship="Self.FK_Deck_0_0" FromRole="User" ToRole="Deck" />
           <NavigationProperty Name="OwnedCard" Relationship="Self.FK_OwnedCard_1_0" FromRole="User" ToRole="OwnedCard" />
         </EntityType>
-        <Association Name="FK_Card_2_0">
+        <Association Name="FK_CardBase_2_0">
           <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Artist">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_artist_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Set_0_0">
+        <Association Name="FK_Set_1_0">
           <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
           <End Role="Set" Type="Self.Set" Multiplicity="*" />
           <ReferentialConstraint>
@@ -547,59 +546,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_0_0">
+        <Association Name="FK_CardBase_0_0">
           <End Role="Set" Type="Self.Set" Multiplicity="0..1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Set">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_set_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_1_0">
+        <Association Name="FK_CardBase_1_0">
           <End Role="Rarity" Type="Self.Rarity" Multiplicity="0..1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rarity">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_rarity_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_3_0">
-          <End Role="Language" Type="Self.Language" Multiplicity="1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+        <Association Name="FK_CardBase_3_0">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Language">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Card">
+            <Dependent Role="CardBase">
               <PropertyRef Name="fk_language_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Card_4_0">
-          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CardBase">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Card">
-              <PropertyRef Name="fk_base_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OwnedCard_2_0">
-          <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+          <End Role="CardBase" Type="Self.CardBase" Multiplicity="1" />
           <End Role="OwnedCard" Type="Self.OwnedCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Card">
+            <Principal Role="CardBase">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="OwnedCard">
@@ -643,6 +630,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Set_0_0">
+          <End Role="SetType" Type="Self.SetType" Multiplicity="0..1" />
+          <End Role="Set" Type="Self.Set" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SetType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Set">
+              <PropertyRef Name="fk_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="LinkSubtype">
           <End Role="CardBase" Type="Self.CardBase" Multiplicity="*" />
           <End Role="CardSubtype" Type="Self.CardSubtype" Multiplicity="*" />
@@ -654,7 +653,6 @@
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Artist" EntityType="Self.Artist" />
           <EntitySet Name="Block" EntityType="Self.Block" />
-          <EntitySet Name="Card" EntityType="Self.Card" />
           <EntitySet Name="CardBase" EntityType="Self.CardBase" />
           <EntitySet Name="CardSubtype" EntityType="Self.CardSubtype" />
           <EntitySet Name="CardType" EntityType="Self.CardType" />
@@ -663,33 +661,30 @@
           <EntitySet Name="OwnedCard" EntityType="Self.OwnedCard" />
           <EntitySet Name="Rarity" EntityType="Self.Rarity" />
           <EntitySet Name="Set" EntityType="Self.Set" />
+          <EntitySet Name="SetType" EntityType="Self.SetType" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Card_2_0" Association="Self.FK_Card_2_0">
+          <AssociationSet Name="FK_CardBase_2_0" Association="Self.FK_CardBase_2_0">
             <End Role="Artist" EntitySet="Artist" />
-            <End Role="Card" EntitySet="Card" />
+            <End Role="CardBase" EntitySet="CardBase" />
           </AssociationSet>
-          <AssociationSet Name="FK_Set_0_0" Association="Self.FK_Set_0_0">
+          <AssociationSet Name="FK_Set_1_0" Association="Self.FK_Set_1_0">
             <End Role="Block" EntitySet="Block" />
             <End Role="Set" EntitySet="Set" />
           </AssociationSet>
-          <AssociationSet Name="FK_Card_0_0" Association="Self.FK_Card_0_0">
+          <AssociationSet Name="FK_CardBase_0_0" Association="Self.FK_CardBase_0_0">
             <End Role="Set" EntitySet="Set" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_1_0" Association="Self.FK_Card_1_0">
-            <End Role="Rarity" EntitySet="Rarity" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_3_0" Association="Self.FK_Card_3_0">
-            <End Role="Language" EntitySet="Language" />
-            <End Role="Card" EntitySet="Card" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Card_4_0" Association="Self.FK_Card_4_0">
             <End Role="CardBase" EntitySet="CardBase" />
-            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardBase_1_0" Association="Self.FK_CardBase_1_0">
+            <End Role="Rarity" EntitySet="Rarity" />
+            <End Role="CardBase" EntitySet="CardBase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardBase_3_0" Association="Self.FK_CardBase_3_0">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="CardBase" EntitySet="CardBase" />
           </AssociationSet>
           <AssociationSet Name="FK_OwnedCard_2_0" Association="Self.FK_OwnedCard_2_0">
-            <End Role="Card" EntitySet="Card" />
+            <End Role="CardBase" EntitySet="CardBase" />
             <End Role="OwnedCard" EntitySet="OwnedCard" />
           </AssociationSet>
           <AssociationSet Name="FK_Deck_0_0" Association="Self.FK_Deck_0_0">
@@ -703,6 +698,10 @@
           <AssociationSet Name="FK_OwnedCard_1_0" Association="Self.FK_OwnedCard_1_0">
             <End Role="User" EntitySet="User" />
             <End Role="OwnedCard" EntitySet="OwnedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Set_0_0" Association="Self.FK_Set_0_0">
+            <End Role="SetType" EntitySet="SetType" />
+            <End Role="Set" EntitySet="Set" />
           </AssociationSet>
           <AssociationSet Name="LinkSubtype" Association="Self.LinkSubtype">
             <End Role="CardBase" EntitySet="CardBase" />
@@ -735,32 +734,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Card">
-            <EntityTypeMapping TypeName="DBModel.Card">
-              <MappingFragment StoreEntitySet="Card">
+          <EntitySetMapping Name="CardBase">
+            <EntityTypeMapping TypeName="DBModel.CardBase">
+              <MappingFragment StoreEntitySet="CardBase">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="fk_base_id" ColumnName="fk_base_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="oracle_text" ColumnName="oracle_text" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="toughness" ColumnName="toughness" />
+                <ScalarProperty Name="mana_cost" ColumnName="mana_cost" />
+                <ScalarProperty Name="cmc" ColumnName="cmc" />
                 <ScalarProperty Name="fk_language_id" ColumnName="fk_language_id" />
-                <ScalarProperty Name="artwork" ColumnName="artwork" />
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="fk_artist_id" ColumnName="fk_artist_id" />
                 <ScalarProperty Name="fk_rarity_id" ColumnName="fk_rarity_id" />
                 <ScalarProperty Name="fk_set_id" ColumnName="fk_set_id" />
                 <ScalarProperty Name="flavor_text" ColumnName="flavor_text" />
                 <ScalarProperty Name="number" ColumnName="number" />
                 <ScalarProperty Name="version" ColumnName="version" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CardBase">
-            <EntityTypeMapping TypeName="DBModel.CardBase">
-              <MappingFragment StoreEntitySet="CardBase">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="power" ColumnName="power" />
-                <ScalarProperty Name="toughness" ColumnName="toughness" />
-                <ScalarProperty Name="mana_cost" ColumnName="mana_cost" />
-                <ScalarProperty Name="cmc" ColumnName="cmc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -834,8 +825,15 @@
                 <ScalarProperty Name="relase_date" ColumnName="relase_date" />
                 <ScalarProperty Name="fk_block_id" ColumnName="fk_block_id" />
                 <ScalarProperty Name="cards_total" ColumnName="cards_total" />
-                <ScalarProperty Name="is_core" ColumnName="is_core" />
-                <ScalarProperty Name="is_special" ColumnName="is_special" />
+                <ScalarProperty Name="fk_type_id" ColumnName="fk_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SetType">
+            <EntityTypeMapping TypeName="DBModel.SetType">
+              <MappingFragment StoreEntitySet="SetType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

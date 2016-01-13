@@ -36,8 +36,7 @@ namespace MTGCM.Forms
                                 Data_wydania = s.relase_date,
                                 Blok=s.Block.name,
                                 Suma_Kart = s.cards_total,
-                                Podstawowa = s.is_core,
-                                Specjalna = s.is_special
+                               
 
                             };
 

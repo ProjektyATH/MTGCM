@@ -87,8 +87,7 @@ namespace MTGCM.Forms
 
      private void Artist_List_Load(object sender, EventArgs e)
      {
-         // TODO: This line of code loads data into the 'dBDataSet.Card' table. You can move, or remove it, as needed.
-         this.cardTableAdapter.Fill(this.dBDataSet.Card);
+       
      
 
      }

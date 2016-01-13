@@ -27,7 +27,6 @@ namespace MTGCM
     
         public virtual DbSet<Artist> Artist { get; set; }
         public virtual DbSet<Block> Block { get; set; }
-        public virtual DbSet<Card> Card { get; set; }
         public virtual DbSet<CardBase> CardBase { get; set; }
         public virtual DbSet<CardSubtype> CardSubtype { get; set; }
         public virtual DbSet<CardType> CardType { get; set; }
@@ -36,6 +35,7 @@ namespace MTGCM
         public virtual DbSet<OwnedCard> OwnedCard { get; set; }
         public virtual DbSet<Rarity> Rarity { get; set; }
         public virtual DbSet<Set> Set { get; set; }
+        public virtual DbSet<SetType> SetType { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

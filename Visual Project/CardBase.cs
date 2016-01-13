@@ -17,21 +17,33 @@ namespace MTGCM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CardBase()
         {
-            this.Card = new HashSet<Card>();
+            this.OwnedCard = new HashSet<OwnedCard>();
             this.CardSubtype = new HashSet<CardSubtype>();
             this.CardType = new HashSet<CardType>();
         }
     
         public long id { get; set; }
         public string name { get; set; }
-        public string text { get; set; }
-        public long power { get; set; }
-        public long toughness { get; set; }
+        public string oracle_text { get; set; }
+        public string power { get; set; }
+        public string toughness { get; set; }
         public string mana_cost { get; set; }
-        public Nullable<long> cmc { get; set; }
+        public Nullable<decimal> cmc { get; set; }
+        public Nullable<long> fk_language_id { get; set; }
+        public string image { get; set; }
+        public Nullable<long> fk_artist_id { get; set; }
+        public Nullable<long> fk_rarity_id { get; set; }
+        public Nullable<long> fk_set_id { get; set; }
+        public string flavor_text { get; set; }
+        public string number { get; set; }
+        public Nullable<long> version { get; set; }
     
+        public virtual Artist Artist { get; set; }
+        public virtual Set Set { get; set; }
+        public virtual Rarity Rarity { get; set; }
+        public virtual Language Language { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Card> Card { get; set; }
+        public virtual ICollection<OwnedCard> OwnedCard { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CardSubtype> CardSubtype { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

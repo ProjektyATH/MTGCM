@@ -96,9 +96,6 @@
     <Compile Include="Block.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Card.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CardBase.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -161,12 +158,6 @@
     <Compile Include="Forms\CardType_List.Designer.cs">
       <DependentUpon>CardType_List.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Card_List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Card_List.Designer.cs">
-      <DependentUpon>Card_List.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Import.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +204,9 @@
     <Compile Include="Set.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SetType.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -230,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardType_List.resx">
       <DependentUpon>CardType_List.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Card_List.resx">
-      <DependentUpon>Card_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
@@ -261,10 +252,6 @@
     <None Include="DB.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <EntityDeploy Include="DBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </None>
@@ -276,6 +263,10 @@
     <None Include="DBDataSet.xss">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>

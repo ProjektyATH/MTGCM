@@ -31,17 +31,16 @@ namespace MTGCM.Forms
                 var CardBases = from cb in db.CardBase
 
 
-                            select new
-                            {
-                                Lp = cb.id,
-                                Nazwa = cb.name,
-                                Tekst = cb.text,
-                                Moc = cb.power,
-                                Wytrzymalosc = cb.toughness,
-                                Koszt_Many = cb.mana_cost,
-                                Sumaryczny_koszt = cb.cmc
+                                select new
+                                {
+                                    Lp = cb.id,
+                                    Nazwa = cb.name,
+                                    Moc = cb.power,
+                                    Wytrzymalosc = cb.toughness,
+                                    Koszt_Many = cb.mana_cost,
+                                    Sumaryczny_koszt = cb.cmc
 
-                            };
+                                };
 
 
                 if (checkBoxName.Checked)
@@ -78,12 +77,12 @@ namespace MTGCM.Forms
             {
                 cb = new CardBase();
 
-                cb.name = ImmageTB.Text;
-                cb.text = TextTB.Text;
-                cb.power = Convert.ToInt32(numericUpDownCMC);
-                cb.toughness = Convert.ToInt32(numericUpDown1);
-                cb.mana_cost = textBox1.Text;
-                cb.cmc = Convert.ToInt32(numericUpDown2);
+                //cb.name = ImmageTB.Text;
+                //cb.text = TextTB.Text;
+                //cb.power = Convert.ToInt32(numericUpDownCMC);
+                //cb.toughness = Convert.ToInt32(numericUpDown1);
+                //cb.mana_cost = textBox1.Text;
+                //cb.cmc = Convert.ToInt32(numericUpDown2);
 
                 db.CardBase.Add(cb);
                 db.SaveChanges();
@@ -100,12 +99,12 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
-                        cb.name = ImmageTB.Text;
-                        cb.text = TextTB.Text;
-                        cb.power = Convert.ToInt32(numericUpDownCMC);
-                        cb.toughness = Convert.ToInt32(numericUpDown1);
-                        cb.mana_cost = textBox1.Text;
-                        cb.cmc = Convert.ToInt32(numericUpDown2);
+                        //cb.name = ImmageTB.Text;
+                        //cb.text = TextTB.Text;
+                        //cb.power = Convert.ToInt32(numericUpDownCMC);
+                        //cb.toughness = Convert.ToInt32(numericUpDown1);
+                        //cb.mana_cost = textBox1.Text;
+                        //cb.cmc = Convert.ToInt32(numericUpDown2);
                         db.Entry(cb).State = EntityState.Modified;
                         db.SaveChanges();
                     }
@@ -145,7 +144,7 @@ namespace MTGCM.Forms
                           select CB).First();
 
                     ImmageTB.Text = cb.name;
-                    TextTB.Text = cb.text;
+                    TextTB.Text = cb.oracle_text;
                     numericUpDownCMC.Value = Convert.ToInt64(cb.power);
                     numericUpDown1.Value = Convert.ToInt32(cb.toughness);
                     textBox1.Text = cb.mana_cost;
