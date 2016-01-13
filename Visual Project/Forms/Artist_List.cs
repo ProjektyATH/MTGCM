@@ -89,8 +89,7 @@ namespace MTGCM.Forms
      {
          // TODO: This line of code loads data into the 'dBDataSet.Card' table. You can move, or remove it, as needed.
          this.cardTableAdapter.Fill(this.dBDataSet.Card);
-         // TODO: This line of code loads data into the 'dBDataSet1.Artist' table. You can move, or remove it, as needed.
-         this.artistTableAdapter1.Fill(this.dBDataSet1.Artist);
+     
 
      }
     

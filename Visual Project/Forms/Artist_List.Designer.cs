@@ -54,9 +54,9 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dBDataSet1 = new MTGCM.DBDataSet1();
+            
             this.artistBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.artistTableAdapter1 = new MTGCM.DBDataSet1TableAdapters.ArtistTableAdapter();
+           
             this.fKCard20BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
@@ -70,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet1)).BeginInit();
+           
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -263,20 +263,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            // 
-            // dBDataSet1
-            // 
-            this.dBDataSet1.DataSetName = "DBDataSet1";
-            this.dBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // artistBindingSource1
-            // 
-            this.artistBindingSource1.DataMember = "Artist";
-            this.artistBindingSource1.DataSource = this.dBDataSet1;
-            // 
-            // artistTableAdapter1
-            // 
-            this.artistTableAdapter1.ClearBeforeFill = true;
+          
             // 
             // fKCard20BindingSource
             // 
@@ -312,7 +299,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet1)).EndInit();
+           
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -347,9 +334,9 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.CheckBox checkBoxName;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DBDataSet1 dBDataSet1;
+      
         private System.Windows.Forms.BindingSource artistBindingSource1;
-        private DBDataSet1TableAdapters.ArtistTableAdapter artistTableAdapter1;
+      
         private System.Windows.Forms.BindingSource fKCard20BindingSource;
         private System.Windows.Forms.BindingSource bindingSource1;
     }
