@@ -104,6 +104,7 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
+                       
                         r.name = ImmageTB.Text;
                         r.color = TextTB.Text;
                         db.Entry(r).State = EntityState.Modified;
@@ -113,7 +114,9 @@ namespace MTGCM.Forms
                 Filtrate();
             }
         }
-        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void dataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
         {
             using (var db = new DBEntities())
             {
@@ -124,10 +127,12 @@ namespace MTGCM.Forms
                     r = (from R in db.Rarity
                          where R.id == id
                          select R).First();
-           
-                    TextTB.Text = r.color;
-                    textBox1.Text = r.color;
-                   
+
+                      r.color=TextTB.Text;
+                      r.color=textBox1.Text;
+                      db.Entry(r).State = EntityState.Modified;
+                      db.SaveChanges();
+
                 }
             }
         }

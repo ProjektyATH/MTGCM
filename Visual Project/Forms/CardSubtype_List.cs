@@ -28,12 +28,12 @@ namespace MTGCM.Forms
 
                 var CardSubtypes = from cs in db.CardSubtype
 
-                            select new
-                            {
-                                Lp = cs.id,
-                                Nazwa = cs.name,
+                                   select new
+                                   {
+                                       Lp = cs.id,
+                                       Nazwa = cs.name,
 
-                            };
+                                   };
 
                 if (checkBoxName.Checked)
                 {
@@ -57,9 +57,9 @@ namespace MTGCM.Forms
             using (var db = new DBEntities())
             {
                 cs = new CardSubtype();
-              
+
                 cs.name = ImmageTB.Text;
-                
+
 
                 db.CardSubtype.Add(cs);
                 db.SaveChanges();
@@ -101,6 +101,23 @@ namespace MTGCM.Forms
                     }
                 }
                 Filtrate();
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    cs = (from CS in db.CardSubtype
+                          where CS.id == id
+                          select CS).First();
+
+                    ImmageTB.Text = cs.name;
+                }
             }
         }
     }

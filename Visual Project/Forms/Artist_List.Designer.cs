@@ -32,15 +32,15 @@
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.NazwaArtysty = new System.Windows.Forms.ComboBox();
-            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDataSet = new MTGCM.DBDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
+            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,11 +60,11 @@
             this.fKCard20BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
@@ -112,10 +112,10 @@
             this.NazwaArtysty.TabIndex = 11;
             this.NazwaArtysty.ValueMember = "id";
             // 
-            // cardBaseBindingSource
+            // artistBindingSource
             // 
-            this.cardBaseBindingSource.DataMember = "CardBase";
-            this.cardBaseBindingSource.DataSource = this.dBDataSet;
+            this.artistBindingSource.DataMember = "Artist";
+            this.artistBindingSource.DataSource = this.dBDataSet;
             // 
             // dBDataSet
             // 
@@ -167,6 +167,11 @@
             this.buttonArtist.UseVisualStyleBackColor = true;
             this.buttonArtist.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // cardBaseBindingSource
+            // 
+            this.cardBaseBindingSource.DataMember = "CardBase";
+            this.cardBaseBindingSource.DataSource = this.dBDataSet;
+            // 
             // setBindingSource
             // 
             this.setBindingSource.DataMember = "Set";
@@ -176,11 +181,6 @@
             // 
             this.rarityBindingSource.DataMember = "Rarity";
             this.rarityBindingSource.DataSource = this.dBDataSet;
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
             // 
             // languageBindingSource
             // 
@@ -262,6 +262,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // dBDataSet1
             // 
@@ -300,11 +301,11 @@
             this.Load += new System.EventHandler(this.Artist_List_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();

@@ -73,5 +73,22 @@ namespace MTGCM.Forms
             Filtrate();
         }
 
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                s = new Set();
+               
+                s.name = ImmageTB.Text;
+                s.abbrev = textBox2.Text;
+                s.symbol = textBox2.Text;
+               
+
+                db.Set.Add(s);
+                db.SaveChanges();
+                Filtrate();
+            }
+        }
+
     }
 }

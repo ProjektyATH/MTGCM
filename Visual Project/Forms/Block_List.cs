@@ -105,5 +105,24 @@ namespace MTGCM.Forms
             }
         }
 
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                   b= (from B in db.Block
+                         where B.id == id
+                         select B).First();
+                  ImmageTB.Text = b.name ;
+                    db.Entry(b).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+        }
+
     }
 }
