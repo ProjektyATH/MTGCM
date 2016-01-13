@@ -65,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -299,7 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
            
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
+       
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
