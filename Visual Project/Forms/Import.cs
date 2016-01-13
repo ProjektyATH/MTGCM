@@ -60,7 +60,7 @@ namespace MTGCM.Forms
                     }
                     break;  
 
-                case 1:
+                case 2:
                     textBox2.Text = text = "[" + System.IO.File.ReadAllText(@path) + "]";
                     List<JClasses.JSet> sets2 = JsonConvert.DeserializeObject<List<JClasses.JSet>>(text);
                     using (var db = new DBEntities())
