@@ -38,7 +38,14 @@ namespace MTGCM.Forms
                                     Moc = cb.power,
                                     Wytrzymalosc = cb.toughness,
                                     Koszt_Many = cb.mana_cost,
-                                    Sumaryczny_koszt = cb.cmc
+                                    Sumaryczny_koszt = cb.cmc,
+                                    Artysta = cb.Artist.name,
+                                    Zestaw = cb.Set.name,
+                                    Rzadkosc = cb.Rarity.name,
+                                    Jezyk = cb.Language.name,
+                                    wersja = cb.version.ToString() + " " + cb.number
+
+
 
                                 };
 
@@ -48,17 +55,47 @@ namespace MTGCM.Forms
                     CardBases = CardBases.Where(cb => cb.Nazwa.Contains(textBoxName.Text));
                 }
 
-                //if (checkBoxSet.Checked)
-                //{
-                //    Cards = Cards.Where(c => c.Dodatek == comboBoxSet.SelectedValue);
-                //}
+             
 
-                //if (checkBoxLanguage.Checked)
-                //{
-                //    Cards = Cards.Where(c => c.Jezyk == comboBoxLanguage.SelectedValue);
-                //}
+                if (checkBoxLanguage.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Jezyk == comboBoxLanguage.SelectedValue);
+                }
 
+                if (checkBox1.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Moc.Contains(textBox8.Text));
+                }
 
+                if (checkBox2.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Wytrzymalosc.Contains(textBox8.Text));
+                }
+
+                if (checkBox3.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Koszt_Many.Contains(comboBox1.Text));
+                }
+
+                if (checkBox4.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Rzadkosc.Contains(comboBox2.Text));
+                }
+
+                if (checkBox5.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Artysta.Contains(comboBox3.Text));
+                }
+
+                if (checkBox6.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Zestaw.Contains(comboBox4.Text));
+                }
+
+                if (checkBox7.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.wersja.Contains(comboBox5.Text));
+                }
 
                 dataGridView1.DataSource = CardBases.ToList();
             }
@@ -77,12 +114,20 @@ namespace MTGCM.Forms
             {
                 cb = new CardBase();
 
-                //cb.name = ImmageTB.Text;
-                //cb.text = TextTB.Text;
-                //cb.power = Convert.ToInt32(numericUpDownCMC);
-                //cb.toughness = Convert.ToInt32(numericUpDown1);
-                //cb.mana_cost = textBox1.Text;
-                //cb.cmc = Convert.ToInt32(numericUpDown2);
+                cb.name = ImmageTB.Text;
+                cb.oracle_text = TextTB.Text;
+                cb.power = textBox6.Text;
+                cb.toughness = textBox7.Text;
+                cb.mana_cost = textBox1.Text;
+                cb.cmc = numericUpDown2.Value;
+                cb.fk_language_id = Convert.ToInt32(comboBox9.SelectedValue);
+                cb.image = textBox2.Text;
+                cb.fk_artist_id = Convert.ToInt32(comboBox6.SelectedValue);
+                cb.fk_rarity_id = Convert.ToInt32(comboBox7.SelectedValue);
+                cb.fk_set_id = Convert.ToInt32(comboBox8.SelectedValue);
+                cb.flavor_text = textBox3.Text;
+                cb.number = textBox4.Text;
+                cb.version = Convert.ToInt32(textBox5.Text);
 
                 db.CardBase.Add(cb);
                 db.SaveChanges();
@@ -99,12 +144,26 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
-                        //cb.name = ImmageTB.Text;
-                        //cb.text = TextTB.Text;
-                        //cb.power = Convert.ToInt32(numericUpDownCMC);
-                        //cb.toughness = Convert.ToInt32(numericUpDown1);
-                        //cb.mana_cost = textBox1.Text;
-                        //cb.cmc = Convert.ToInt32(numericUpDown2);
+                        cb.name = ImmageTB.Text;
+                        cb.oracle_text = TextTB.Text;
+                        cb.power = textBox6.Text;
+                        cb.toughness = textBox7.Text;
+                        cb.mana_cost = textBox1.Text;
+                        cb.cmc = numericUpDown2.Value;
+                        cb.fk_language_id = Convert.ToInt32(comboBox9.SelectedValue);
+                        cb.image = textBox2.Text;
+                        cb.fk_artist_id = Convert.ToInt32(comboBox6.SelectedValue);
+                        cb.fk_rarity_id = Convert.ToInt32(comboBox7.SelectedValue);
+                        cb.fk_set_id = Convert.ToInt32(comboBox8.SelectedValue);
+                        cb.flavor_text = textBox3.Text;
+                        cb.number = textBox4.Text;
+                        cb.version = Convert.ToInt32(textBox5.Text);
+
+
+
+
+
+
                         db.Entry(cb).State = EntityState.Modified;
                         db.SaveChanges();
                     }
@@ -131,6 +190,48 @@ namespace MTGCM.Forms
             }
         }
 
+
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CardBase_List_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dBDataSet.Set' table. You can move, or remove it, as needed.
+            this.setTableAdapter.Fill(this.dBDataSet.Set);
+            // TODO: This line of code loads data into the 'dBDataSet.Rarity' table. You can move, or remove it, as needed.
+            this.rarityTableAdapter.Fill(this.dBDataSet.Rarity);
+            // TODO: This line of code loads data into the 'dBDataSet.Language' table. You can move, or remove it, as needed.
+            this.languageTableAdapter.Fill(this.dBDataSet.Language);
+            // TODO: This line of code loads data into the 'dBDataSet.Artist' table. You can move, or remove it, as needed.
+            this.artistTableAdapter.Fill(this.dBDataSet.Artist);
+            // TODO: This line of code loads data into the 'dBDataSet.Language' table. You can move, or remove it, as needed.
+            this.languageTableAdapter.Fill(this.dBDataSet.Language);
+
+        }
+
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             using (var db = new DBEntities())
@@ -145,16 +246,23 @@ namespace MTGCM.Forms
 
                     ImmageTB.Text = cb.name;
                     TextTB.Text = cb.oracle_text;
-                    numericUpDownCMC.Value = Convert.ToInt64(cb.power);
-                    numericUpDown1.Value = Convert.ToInt32(cb.toughness);
+                    textBox6.Text = cb.power;
+                    textBox7.Text = cb.toughness;
                     textBox1.Text = cb.mana_cost;
                     numericUpDown2.Value = Convert.ToInt32(cb.cmc);
+                    comboBox9.Text = Convert.ToString(cb.fk_language_id);
+                    textBox2.Text = cb.image;
+                    comboBox6.Text = Convert.ToString(cb.fk_artist_id);
+                    comboBox7.Text = Convert.ToString(cb.fk_rarity_id);
+                    comboBox8.Text = Convert.ToString(cb.fk_set_id);
+                    textBox3.Text = Convert.ToString(cb.flavor_text);
+                    textBox4.Text = cb.number;
+                    textBox5.Text = Convert.ToString(cb.version);
+
 
                     db.Entry(cb).State = EntityState.Modified;
                     db.SaveChanges();
                 }
-
-
             }
         }
     }
