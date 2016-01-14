@@ -164,8 +164,6 @@
     <Compile Include="Forms\Import.Designer.cs">
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
-    <Compile Include="JClasses\JCard.cs" />
-    <Compile Include="JClasses\JSet.cs" />
     <Compile Include="Forms\Language_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +182,7 @@
     <Compile Include="Forms\Set_List.Designer.cs">
       <DependentUpon>Set_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Json.cs" />
     <Compile Include="Language.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -250,7 +249,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DB.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
