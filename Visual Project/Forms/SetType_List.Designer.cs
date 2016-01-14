@@ -107,9 +107,9 @@
             this.checkBoxName.AutoSize = true;
             this.checkBoxName.Location = new System.Drawing.Point(5, 55);
             this.checkBoxName.Name = "checkBoxName";
-            this.checkBoxName.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxName.Size = new System.Drawing.Size(103, 17);
             this.checkBoxName.TabIndex = 1;
-            this.checkBoxName.Text = "Nazwa Typu";
+            this.checkBoxName.Text = "Nazwa Zestawu";
             this.checkBoxName.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -196,9 +196,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nazwa Typu";
+            this.label2.Text = "Nazwa Zestawu";
             // 
             // buttonDelete
             // 
@@ -241,9 +241,9 @@
             this.NazwaArtysty.DataSource = this.artistBindingSource;
             this.NazwaArtysty.DisplayMember = "name";
             this.NazwaArtysty.FormattingEnabled = true;
-            this.NazwaArtysty.Location = new System.Drawing.Point(77, 8);
+            this.NazwaArtysty.Location = new System.Drawing.Point(93, 8);
             this.NazwaArtysty.Name = "NazwaArtysty";
-            this.NazwaArtysty.Size = new System.Drawing.Size(121, 21);
+            this.NazwaArtysty.Size = new System.Drawing.Size(105, 21);
             this.NazwaArtysty.TabIndex = 11;
             this.NazwaArtysty.ValueMember = "id";
             // 
@@ -285,7 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
-           
+            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();

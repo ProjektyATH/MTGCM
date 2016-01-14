@@ -31,26 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ImmageTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
-            this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-          
-            this.setTableAdapter = new MTGCM.DBDataSetTableAdapters.SetTableAdapter();
-            this.dBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.languageTableAdapter = new MTGCM.DBDataSetTableAdapters.LanguageTableAdapter();
-            this.cardBaseTableAdapter = new MTGCM.DBDataSetTableAdapters.CardBaseTableAdapter();
-            this.rarityTableAdapter = new MTGCM.DBDataSetTableAdapters.RarityTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.numericUpDownCMC = new System.Windows.Forms.NumericUpDown();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -60,22 +64,19 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.blockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.blockTableAdapter = new MTGCM.DBDataSetTableAdapters.BlockTableAdapter();
+            this.cardTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cardTypeTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTypeTableAdapter();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFiltrate
@@ -93,6 +94,14 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBox2);
@@ -106,6 +115,115 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Typ Zestawu";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.cardTypeBindingSource;
+            this.comboBox3.DisplayMember = "name";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(92, 262);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(100, 21);
+            this.comboBox3.TabIndex = 25;
+            this.comboBox3.ValueMember = "id";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 220);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Suma Kart";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(92, 220);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(71, 20);
+            this.numericUpDown1.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Blok";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.blockBindingSource;
+            this.comboBox2.DisplayMember = "name";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(71, 184);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 25;
+            this.comboBox2.ValueMember = "id";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Data Wydania:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(23, 153);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(153, 20);
+            this.dateTimePicker2.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(77, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Symbol";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(77, 84);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Skrot";
             // 
             // ImmageTB
             // 
@@ -157,72 +275,17 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // setBindingSource
-            // 
-            this.setBindingSource.DataMember = "Set";
-            this.setBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rarityBindingSource
-            // 
-            this.rarityBindingSource.DataMember = "Rarity";
-            this.rarityBindingSource.DataSource = this.dBDataSet;
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
-            // 
-            // languageBindingSource
-            // 
-            this.languageBindingSource.DataMember = "Language";
-            this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // cardBaseBindingSource
-            // 
-            this.cardBaseBindingSource.DataMember = "CardBase";
-            this.cardBaseBindingSource.DataSource = this.dBDataSet;
-            // 
-            // artistTableAdapter
-            // 
-            this.artistTableAdapter.ClearBeforeFill = true;
-            // 
-            // cardBindingSource
-            // 
-            this.cardBindingSource.DataMember = "Card";
-            this.cardBindingSource.DataSource = this.dBDataSet;
-            
-            // 
-            // setTableAdapter
-            // 
-            this.setTableAdapter.ClearBeforeFill = true;
-            // 
-            // dBDataSetBindingSource
-            // 
-            this.dBDataSetBindingSource.DataSource = this.dBDataSet;
-            this.dBDataSetBindingSource.Position = 0;
-            // 
-            // languageTableAdapter
-            // 
-            this.languageTableAdapter.ClearBeforeFill = true;
-            // 
-            // cardBaseTableAdapter
-            // 
-            this.cardBaseTableAdapter.ClearBeforeFill = true;
-            // 
-            // rarityTableAdapter
-            // 
-            this.rarityTableAdapter.ClearBeforeFill = true;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.checkBox5);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.checkBox4);
+            this.panel1.Controls.Add(this.checkBox3);
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.numericUpDownCMC);
             this.panel1.Controls.Add(this.checkBox2);
             this.panel1.Controls.Add(this.textBox1);
@@ -237,9 +300,62 @@
             this.panel1.Size = new System.Drawing.Size(168, 420);
             this.panel1.TabIndex = 4;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(18, 171);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(144, 20);
+            this.textBox4.TabIndex = 24;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(5, 153);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(51, 17);
+            this.checkBox5.TabIndex = 23;
+            this.checkBox5.Text = "Skrot";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(14, 315);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(144, 21);
+            this.comboBox1.TabIndex = 22;
+            this.comboBox1.ValueMember = "id";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(5, 292);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(88, 17);
+            this.checkBox4.TabIndex = 21;
+            this.checkBox4.Text = "Typ Zestawu";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(5, 246);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(94, 17);
+            this.checkBox3.TabIndex = 20;
+            this.checkBox3.Text = "Data Wydania";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(5, 266);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(153, 20);
+            this.dateTimePicker1.TabIndex = 19;
+            // 
             // numericUpDownCMC
             // 
-            this.numericUpDownCMC.Location = new System.Drawing.Point(19, 176);
+            this.numericUpDownCMC.Location = new System.Drawing.Point(19, 220);
             this.numericUpDownCMC.Maximum = new decimal(new int[] {
             15,
             0,
@@ -252,7 +368,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(5, 153);
+            this.checkBox2.Location = new System.Drawing.Point(5, 197);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(78, 17);
             this.checkBox2.TabIndex = 9;
@@ -278,10 +394,8 @@
             // 
             // comboBoxLanguage
             // 
-            this.comboBoxLanguage.DataSource = this.languageBindingSource;
-            this.comboBoxLanguage.DisplayMember = "name";
             this.comboBoxLanguage.FormattingEnabled = true;
-            this.comboBoxLanguage.Location = new System.Drawing.Point(12, 303);
+            this.comboBoxLanguage.Location = new System.Drawing.Point(14, 364);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(144, 21);
             this.comboBoxLanguage.TabIndex = 6;
@@ -290,7 +404,7 @@
             // checkBoxBlok
             // 
             this.checkBoxBlok.AutoSize = true;
-            this.checkBoxBlok.Location = new System.Drawing.Point(3, 280);
+            this.checkBoxBlok.Location = new System.Drawing.Point(5, 341);
             this.checkBoxBlok.Name = "checkBoxBlok";
             this.checkBoxBlok.Size = new System.Drawing.Size(47, 17);
             this.checkBoxBlok.TabIndex = 4;
@@ -326,37 +440,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 3;
             // 
-            // textBox2
+            // dBDataSet
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 16;
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
+            // blockBindingSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Skrot";
+            this.blockBindingSource.DataMember = "Block";
+            this.blockBindingSource.DataSource = this.dBDataSet;
             // 
-            // textBox3
+            // blockTableAdapter
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 18;
+            this.blockTableAdapter.ClearBeforeFill = true;
             // 
-            // label2
+            // cardTypeBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Symbol";
+            this.cardTypeBindingSource.DataMember = "CardType";
+            this.cardTypeBindingSource.DataSource = this.dBDataSet;
+            // 
+            // cardTypeTableAdapter
+            // 
+            this.cardTypeTableAdapter.ClearBeforeFill = true;
             // 
             // Set_List
             // 
@@ -368,19 +473,17 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Set_List";
             this.Text = "Set_List";
+            this.Load += new System.EventHandler(this.Set_List_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,25 +492,11 @@
 
         private System.Windows.Forms.Button buttonFiltrate;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.BindingSource setBindingSource;
-        private DBDataSet dBDataSet;
-        private System.Windows.Forms.BindingSource rarityBindingSource;
         private System.Windows.Forms.TextBox ImmageTB;
-        private System.Windows.Forms.BindingSource artistBindingSource;
-        private System.Windows.Forms.BindingSource languageBindingSource;
-        private System.Windows.Forms.BindingSource cardBaseBindingSource;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
-        private DBDataSetTableAdapters.ArtistTableAdapter artistTableAdapter;
-        private System.Windows.Forms.BindingSource cardBindingSource;
-    
-        private DBDataSetTableAdapters.SetTableAdapter setTableAdapter;
-        private System.Windows.Forms.BindingSource dBDataSetBindingSource;
-        private DBDataSetTableAdapters.LanguageTableAdapter languageTableAdapter;
-        private DBDataSetTableAdapters.CardBaseTableAdapter cardBaseTableAdapter;
-        private DBDataSetTableAdapters.RarityTableAdapter rarityTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.CheckBox checkBoxBlok;
@@ -422,5 +511,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private DBDataSet dBDataSet;
+        private System.Windows.Forms.BindingSource blockBindingSource;
+        private DBDataSetTableAdapters.BlockTableAdapter blockTableAdapter;
+        private System.Windows.Forms.BindingSource cardTypeBindingSource;
+        private DBDataSetTableAdapters.CardTypeTableAdapter cardTypeTableAdapter;
     }
 }

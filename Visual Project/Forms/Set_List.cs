@@ -31,11 +31,13 @@ namespace MTGCM.Forms
                             select new
                             {
                                 Lp = s.id,
-                                Nazwa = s.name,                                
+                                Nazwa = s.name,  
+                                Skrot = s.abbrev,
                                 Symbol = s.symbol,
                                 Data_wydania = s.relase_date,
                                 Blok=s.Block.name,
                                 Suma_Kart = s.cards_total,
+                                Typ_Zestawu = s.SetType.name
                                
 
                             };
@@ -81,12 +83,27 @@ namespace MTGCM.Forms
                 s.name = ImmageTB.Text;
                 s.abbrev = textBox2.Text;
                 s.symbol = textBox2.Text;
-               
-
+                s.relase_date = dateTimePicker2.Value.Date;
+                s.fk_block_id = Convert.ToInt32(comboBox2.SelectedValue);
+                s.cards_total = Convert.ToInt32(numericUpDown1.Value);
+                s.fk_type_id = Convert.ToInt32(comboBox3.SelectedValue);
                 db.Set.Add(s);
                 db.SaveChanges();
                 Filtrate();
             }
+        }
+
+        private void Set_List_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dBDataSet.CardType' table. You can move, or remove it, as needed.
+            this.cardTypeTableAdapter.Fill(this.dBDataSet.CardType);
+            // TODO: This line of code loads data into the 'dBDataSet.Block' table. You can move, or remove it, as needed.
+            this.blockTableAdapter.Fill(this.dBDataSet.Block);
+            // TODO: This line of code loads data into the 'dBDataSet.CardType' table. You can move, or remove it, as needed.
+            this.cardTypeTableAdapter.Fill(this.dBDataSet.CardType);
+            // TODO: This line of code loads data into the 'dBDataSet.Block' table. You can move, or remove it, as needed.
+            this.blockTableAdapter.Fill(this.dBDataSet.Block);
+
         }
 
     }
