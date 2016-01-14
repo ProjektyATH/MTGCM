@@ -74,16 +74,12 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
-            this.comboBoxSet = new System.Windows.Forms.ComboBox();
             this.checkBoxLanguage = new System.Windows.Forms.CheckBox();
-            this.checkBoxSet = new System.Windows.Forms.CheckBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -93,6 +89,8 @@
             this.setTableAdapter = new MTGCM.DBDataSetTableAdapters.SetTableAdapter();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -101,8 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -470,6 +466,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.textBox9);
+            this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.checkBox6);
             this.panel1.Controls.Add(this.checkBox7);
             this.panel1.Controls.Add(this.comboBox5);
@@ -478,16 +476,12 @@
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.checkBox4);
             this.panel1.Controls.Add(this.checkBox3);
-            this.panel1.Controls.Add(this.numericUpDown4);
-            this.panel1.Controls.Add(this.numericUpDown3);
             this.panel1.Controls.Add(this.checkBox2);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.comboBoxLanguage);
-            this.panel1.Controls.Add(this.comboBoxSet);
             this.panel1.Controls.Add(this.checkBoxLanguage);
-            this.panel1.Controls.Add(this.checkBoxSet);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Controls.Add(this.checkBoxName);
             this.panel1.Controls.Add(this.buttonFiltrate);
@@ -518,23 +512,22 @@
             // 
             // comboBox5
             // 
-            this.comboBox5.DisplayMember = "name";
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(14, 535);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(144, 21);
             this.comboBox5.TabIndex = 36;
-            this.comboBox5.ValueMember = "name";
             // 
             // comboBox4
             // 
+            this.comboBox4.DataSource = this.setBindingSource;
             this.comboBox4.DisplayMember = "name";
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(14, 485);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(144, 21);
             this.comboBox4.TabIndex = 36;
-            this.comboBox4.ValueMember = "name";
+            this.comboBox4.ValueMember = "id";
             // 
             // checkBox5
             // 
@@ -548,13 +541,14 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DataSource = this.artistBindingSource;
             this.comboBox3.DisplayMember = "name";
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(14, 435);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(144, 21);
             this.comboBox3.TabIndex = 34;
-            this.comboBox3.ValueMember = "name";
+            this.comboBox3.ValueMember = "id";
             // 
             // checkBox4
             // 
@@ -575,30 +569,6 @@
             this.checkBox3.TabIndex = 32;
             this.checkBox3.Text = "Koszt many";
             this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(19, 276);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(71, 20);
-            this.numericUpDown4.TabIndex = 31;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(19, 227);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(71, 20);
-            this.numericUpDown3.TabIndex = 30;
             // 
             // checkBox2
             // 
@@ -622,13 +592,14 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.rarityBindingSource;
             this.comboBox2.DisplayMember = "name";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(14, 377);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 21);
             this.comboBox2.TabIndex = 8;
-            this.comboBox2.ValueMember = "name";
+            this.comboBox2.ValueMember = "id";
             // 
             // comboBox1
             // 
@@ -642,23 +613,14 @@
             // 
             // comboBoxLanguage
             // 
+            this.comboBoxLanguage.DataSource = this.languageBindingSource;
             this.comboBoxLanguage.DisplayMember = "name";
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Location = new System.Drawing.Point(14, 177);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(144, 21);
             this.comboBoxLanguage.TabIndex = 6;
-            this.comboBoxLanguage.ValueMember = "name";
-            // 
-            // comboBoxSet
-            // 
-            this.comboBoxSet.DisplayMember = "name";
-            this.comboBoxSet.FormattingEnabled = true;
-            this.comboBoxSet.Location = new System.Drawing.Point(14, 127);
-            this.comboBoxSet.Name = "comboBoxSet";
-            this.comboBoxSet.Size = new System.Drawing.Size(144, 21);
-            this.comboBoxSet.TabIndex = 5;
-            this.comboBoxSet.ValueMember = "name";
+            this.comboBoxLanguage.ValueMember = "id";
             // 
             // checkBoxLanguage
             // 
@@ -669,16 +631,6 @@
             this.checkBoxLanguage.TabIndex = 4;
             this.checkBoxLanguage.Text = "Język";
             this.checkBoxLanguage.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSet
-            // 
-            this.checkBoxSet.AutoSize = true;
-            this.checkBoxSet.Location = new System.Drawing.Point(5, 104);
-            this.checkBoxSet.Name = "checkBoxSet";
-            this.checkBoxSet.Size = new System.Drawing.Size(67, 17);
-            this.checkBoxSet.TabIndex = 3;
-            this.checkBoxSet.Text = "Dodatek";
-            this.checkBoxSet.UseVisualStyleBackColor = true;
             // 
             // textBoxName
             // 
@@ -741,6 +693,20 @@
             this.textBox7.Size = new System.Drawing.Size(91, 20);
             this.textBox7.TabIndex = 48;
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(14, 226);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(144, 20);
+            this.textBox8.TabIndex = 38;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(14, 276);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(144, 20);
+            this.textBox9.TabIndex = 39;
+            // 
             // CardBase_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,8 +728,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -786,9 +750,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBoxLanguage;
-        private System.Windows.Forms.ComboBox comboBoxSet;
         private System.Windows.Forms.CheckBox checkBoxLanguage;
-        private System.Windows.Forms.CheckBox checkBoxSet;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.CheckBox checkBoxName;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -802,8 +764,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -835,5 +795,7 @@
         private DBDataSetTableAdapters.SetTableAdapter setTableAdapter;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }

@@ -55,17 +55,47 @@ namespace MTGCM.Forms
                     CardBases = CardBases.Where(cb => cb.Nazwa.Contains(textBoxName.Text));
                 }
 
-                //if (checkBoxSet.Checked)
-                //{
-                //    Cards = Cards.Where(c => c.Dodatek == comboBoxSet.SelectedValue);
-                //}
+             
 
-                //if (checkBoxLanguage.Checked)
-                //{
-                //    Cards = Cards.Where(c => c.Jezyk == comboBoxLanguage.SelectedValue);
-                //}
+                if (checkBoxLanguage.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Jezyk == comboBoxLanguage.SelectedValue);
+                }
 
+                if (checkBox1.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Moc.Contains(textBox8.Text));
+                }
 
+                if (checkBox2.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Wytrzymalosc.Contains(textBox8.Text));
+                }
+
+                if (checkBox3.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Koszt_Many.Contains(comboBox1.Text));
+                }
+
+                if (checkBox4.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Rzadkosc.Contains(comboBox2.Text));
+                }
+
+                if (checkBox5.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Artysta.Contains(comboBox3.Text));
+                }
+
+                if (checkBox6.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.Zestaw.Contains(comboBox4.Text));
+                }
+
+                if (checkBox7.Checked)
+                {
+                    CardBases = CardBases.Where(cb => cb.wersja.Contains(comboBox5.Text));
+                }
 
                 dataGridView1.DataSource = CardBases.ToList();
             }
