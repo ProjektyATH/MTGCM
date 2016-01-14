@@ -250,7 +250,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DB.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
