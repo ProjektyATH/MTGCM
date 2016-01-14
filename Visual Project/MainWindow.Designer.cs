@@ -146,6 +146,7 @@
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
             this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
             this.OwnedCard_TSMI.Text = "Karty";
+            this.OwnedCard_TSMI.Click += new System.EventHandler(this.OwnedCard_TSMI_Click);
             // 
             // Owned_TSMI
             // 

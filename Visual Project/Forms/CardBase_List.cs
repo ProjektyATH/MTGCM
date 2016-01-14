@@ -55,7 +55,7 @@ namespace MTGCM.Forms
                     CardBases = CardBases.Where(cb => cb.Nazwa.Contains(textBoxName.Text));
                 }
 
-             
+
 
                 if (checkBoxLanguage.Checked)
                 {
