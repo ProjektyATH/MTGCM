@@ -11,11 +11,11 @@ using System.Data.Entity;
 
 namespace MTGCM.Forms
 {
-    public partial class CardType_List : Form
+    public partial class SetType_List : Form
     {
         int id;
-        CardType ct = new CardType();
-        public CardType_List()
+        SetType st = new SetType();
+        public SetType_List()
         {
             InitializeComponent();
             Filtrate();
@@ -27,23 +27,22 @@ namespace MTGCM.Forms
             using (var db = new DBEntities())
             {
 
-                var CardTypes = from ct in db.CardType
+                var SetTypes = from st in db.SetType
 
-                            select new
-                            {
-                                Lp = ct.id,
-                                Nazwa = ct.name,
-                                
+                              select new
+                              {
+                                  Lp = st.id,
+                                  Nazwa = st.name,
 
-                            };
+                              };
 
                 if (checkBoxName.Checked)
                 {
-                    CardTypes = CardTypes.Where(ct => ct.Nazwa.Contains(textBoxName.Text));
+                    SetTypes = SetTypes.Where(st =>st.Nazwa.Contains(textBoxName.Text));
                 }
 
 
-                dataGridView1.DataSource = CardTypes.ToList();
+                dataGridView1.DataSource = SetTypes.ToList();
             }
 
 
@@ -54,16 +53,15 @@ namespace MTGCM.Forms
             Filtrate();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonArtist_Click(object sender, EventArgs e)
         {
             using (var db = new DBEntities())
             {
-                ct = new CardType();
+                st = new SetType();
 
-                ct.name = ImmageTB.Text;
-                
+                st.name = NazwaArtysty.Text;
 
-                db.CardType.Add(ct);
+                db.SetType.Add(st);
                 db.SaveChanges();
                 Filtrate();
             }
@@ -78,9 +76,9 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
-                        ct.name = ImmageTB.Text;
+                        st.name = NazwaArtysty.Text;
 
-                        db.Entry(ct).State = EntityState.Modified;
+                        db.Entry(st).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
@@ -97,7 +95,7 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
-                        db.Entry(ct).State = EntityState.Deleted;
+                        db.Entry(st).State = EntityState.Deleted;
 
                         db.SaveChanges();
                     }
@@ -106,9 +104,23 @@ namespace MTGCM.Forms
             }
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
 
+                    st = (from ST in db.SetType
+                         where ST.id == id
+                         select ST).First();
+
+                    NazwaArtysty.Text = st.name;
+                    db.Entry(st).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
         }
     }
 }
