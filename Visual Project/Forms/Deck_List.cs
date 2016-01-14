@@ -78,7 +78,7 @@ namespace MTGCM.Forms
 
                 d.name = NazwaArtysty.Text;
                 d.tags = comboBox1.Text;
-                d.fk_user_id = 1;
+                d.fk_user_id = 0;
 
                 db.Deck.Add(d);
                 db.SaveChanges();
