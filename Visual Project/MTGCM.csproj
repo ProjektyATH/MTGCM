@@ -158,12 +158,28 @@
     <Compile Include="Forms\CardType_List.Designer.cs">
       <DependentUpon>CardType_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Deck_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck_List.Designer.cs">
+      <DependentUpon>Deck_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Import.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Import.Designer.cs">
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Forms\SetType_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetType_List.Designer.cs">
+      <DependentUpon>SetType_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JClasses\JCard.cs" />
+    <Compile Include="JClasses\JSet.cs" />
+
     <Compile Include="Forms\Language_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +240,9 @@
     <EmbeddedResource Include="Forms\CardType_List.resx">
       <DependentUpon>CardType_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Deck_List.resx">
+      <DependentUpon>Deck_List.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rarity_List.resx">
       <DependentUpon>Rarity_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetType_List.resx">
+      <DependentUpon>SetType_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Set_List.resx">
       <DependentUpon>Set_List.cs</DependentUpon>
