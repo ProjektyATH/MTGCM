@@ -95,6 +95,12 @@ namespace MTGCM
             {
                 CloseChildren();
                 OpenChild<Forms.Set_List>();
+            }
+
+            private void Deck_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.Deck_List>();
             }       
 
         }
