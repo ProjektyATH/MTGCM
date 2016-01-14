@@ -33,10 +33,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cardTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.blockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -64,19 +67,16 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.blockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.blockTableAdapter = new MTGCM.DBDataSetTableAdapters.BlockTableAdapter();
-            this.cardTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardTypeTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTypeTableAdapter();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFiltrate
@@ -136,6 +136,16 @@
             this.comboBox3.TabIndex = 25;
             this.comboBox3.ValueMember = "id";
             // 
+            // cardTypeBindingSource
+            // 
+            this.cardTypeBindingSource.DataMember = "CardType";
+            this.cardTypeBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -176,6 +186,11 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 25;
             this.comboBox2.ValueMember = "id";
+            // 
+            // blockBindingSource
+            // 
+            this.blockBindingSource.DataMember = "Block";
+            this.blockBindingSource.DataSource = this.dBDataSet;
             // 
             // label3
             // 
@@ -327,7 +342,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(144, 21);
             this.comboBox1.TabIndex = 22;
-            this.comboBox1.ValueMember = "id";
+            this.comboBox1.ValueMember = "name";
             // 
             // checkBox4
             // 
@@ -404,7 +419,7 @@
             this.comboBoxBlok.Name = "comboBoxBlok";
             this.comboBoxBlok.Size = new System.Drawing.Size(144, 21);
             this.comboBoxBlok.TabIndex = 6;
-            this.comboBoxBlok.ValueMember = "id";
+            this.comboBoxBlok.ValueMember = "name";
             // 
             // checkBoxBlok
             // 
@@ -446,24 +461,9 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // blockBindingSource
-            // 
-            this.blockBindingSource.DataMember = "Block";
-            this.blockBindingSource.DataSource = this.dBDataSet;
-            // 
             // blockTableAdapter
             // 
             this.blockTableAdapter.ClearBeforeFill = true;
-            // 
-            // cardTypeBindingSource
-            // 
-            this.cardTypeBindingSource.DataMember = "CardType";
-            this.cardTypeBindingSource.DataSource = this.dBDataSet;
             // 
             // cardTypeTableAdapter
             // 
@@ -482,14 +482,14 @@
             this.Load += new System.EventHandler(this.Set_List_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
