@@ -43,7 +43,7 @@
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
-            this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            
             this.setTableAdapter = new MTGCM.DBDataSetTableAdapters.SetTableAdapter();
             this.dBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageTableAdapter = new MTGCM.DBDataSetTableAdapters.LanguageTableAdapter();
@@ -61,7 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).BeginInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -177,11 +177,7 @@
             // artistTableAdapter
             // 
             this.artistTableAdapter.ClearBeforeFill = true;
-            // 
-            // cardBindingSource
-            // 
-            this.cardBindingSource.DataMember = "Card";
-            this.cardBindingSource.DataSource = this.dBDataSet;
+           
             // 
             // setTableAdapter
             // 
@@ -270,7 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
+           
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -295,7 +291,7 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
         private DBDataSetTableAdapters.ArtistTableAdapter artistTableAdapter;
-        private System.Windows.Forms.BindingSource cardBindingSource;
+        
         private DBDataSetTableAdapters.SetTableAdapter setTableAdapter;
         private System.Windows.Forms.BindingSource dBDataSetBindingSource;
         private DBDataSetTableAdapters.LanguageTableAdapter languageTableAdapter;
