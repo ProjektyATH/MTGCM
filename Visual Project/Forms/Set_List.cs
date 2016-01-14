@@ -52,21 +52,35 @@ namespace MTGCM.Forms
                     Sets = Sets.Where(s => s.Symbol.Contains(textBox1.Text));
                 }
 
+                if (checkBox5.Checked)
+                {
+                    Sets = Sets.Where(s => s.Skrot.Contains(textBox4.Text));
+                }
+
                 if (checkBox2.Checked)
                 {
                     Sets = Sets.Where(s => s.Suma_Kart == numericUpDownCMC.Value);
                 }
 
+                if (checkBox3.Checked)
+                {
+                    Sets = Sets.Where(s => s.Data_wydania == dateTimePicker1.Value.Date);
+                }
+                if (checkBox4.Checked)
+                {
+                    Sets = Sets.Where(s => s.Typ_Zestawu == comboBox1.SelectedValue);
+                }
 
-                //if (checkBoxBlok.Checked)
-                //{
-                //   Sets = Sets.Where(s => s.Jezyk == comboBoxLanguage.SelectedValue);
-                //}
+                 if (checkBox4.Checked)
+                {
+                    Sets = Sets.Where(s => s.Blok == comboBoxBlok.SelectedValue);
+                }
+           
 
                 dataGridView1.DataSource = Sets.ToList();
             }
 
-
+            
         }
 
         private void buttonFiltrate_Click(object sender, EventArgs e)

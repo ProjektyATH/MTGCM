@@ -59,7 +59,7 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.comboBoxBlok = new System.Windows.Forms.ComboBox();
             this.checkBoxBlok = new System.Windows.Forms.CheckBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
@@ -291,7 +291,7 @@
             this.panel1.Controls.Add(this.checkBox2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.comboBoxLanguage);
+            this.panel1.Controls.Add(this.comboBoxBlok);
             this.panel1.Controls.Add(this.checkBoxBlok);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Controls.Add(this.checkBoxName);
@@ -320,6 +320,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.cardTypeBindingSource;
+            this.comboBox1.DisplayMember = "name";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(14, 315);
             this.comboBox1.Name = "comboBox1";
@@ -393,14 +395,16 @@
             this.checkBox1.Text = "Symbol";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // comboBoxLanguage
+            // comboBoxBlok
             // 
-            this.comboBoxLanguage.FormattingEnabled = true;
-            this.comboBoxLanguage.Location = new System.Drawing.Point(14, 364);
-            this.comboBoxLanguage.Name = "comboBoxLanguage";
-            this.comboBoxLanguage.Size = new System.Drawing.Size(144, 21);
-            this.comboBoxLanguage.TabIndex = 6;
-            this.comboBoxLanguage.ValueMember = "name";
+            this.comboBoxBlok.DataSource = this.blockBindingSource;
+            this.comboBoxBlok.DisplayMember = "name";
+            this.comboBoxBlok.FormattingEnabled = true;
+            this.comboBoxBlok.Location = new System.Drawing.Point(14, 364);
+            this.comboBoxBlok.Name = "comboBoxBlok";
+            this.comboBoxBlok.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxBlok.TabIndex = 6;
+            this.comboBoxBlok.ValueMember = "id";
             // 
             // checkBoxBlok
             // 
@@ -500,7 +504,7 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBoxLanguage;
+        private System.Windows.Forms.ComboBox comboBoxBlok;
         private System.Windows.Forms.CheckBox checkBoxBlok;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.CheckBox checkBoxName;
