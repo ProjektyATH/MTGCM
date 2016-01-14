@@ -164,6 +164,12 @@
     <Compile Include="Forms\Import.Designer.cs">
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SetType_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetType_List.Designer.cs">
+      <DependentUpon>SetType_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="JClasses\JCard.cs" />
     <Compile Include="JClasses\JSet.cs" />
     <Compile Include="Forms\Language_List.cs">
@@ -234,6 +240,9 @@
     <EmbeddedResource Include="Forms\Rarity_List.resx">
       <DependentUpon>Rarity_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetType_List.resx">
+      <DependentUpon>SetType_List.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Set_List.resx">
       <DependentUpon>Set_List.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,7 +259,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="DB.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>

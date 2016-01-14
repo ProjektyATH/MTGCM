@@ -38,6 +38,7 @@ namespace MTGCM
             private void Card_TSMI_Click(object sender, EventArgs e)
         {
             CloseChildren();
+            OpenChild<Forms.SetType_List>();
             
         }
 
