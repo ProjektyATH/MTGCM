@@ -53,9 +53,9 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
-            this.NazwaArtysty = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ImmageTB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).BeginInit();
@@ -236,22 +236,11 @@
             this.buttonArtist.UseVisualStyleBackColor = true;
             this.buttonArtist.Click += new System.EventHandler(this.buttonArtist_Click);
             // 
-            // NazwaArtysty
-            // 
-            this.NazwaArtysty.DataSource = this.artistBindingSource;
-            this.NazwaArtysty.DisplayMember = "name";
-            this.NazwaArtysty.FormattingEnabled = true;
-            this.NazwaArtysty.Location = new System.Drawing.Point(93, 8);
-            this.NazwaArtysty.Name = "NazwaArtysty";
-            this.NazwaArtysty.Size = new System.Drawing.Size(105, 21);
-            this.NazwaArtysty.TabIndex = 11;
-            this.NazwaArtysty.ValueMember = "id";
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.NazwaArtysty);
+            this.panel2.Controls.Add(this.ImmageTB);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.buttonDelete);
             this.panel2.Controls.Add(this.buttonEdit);
@@ -265,6 +254,13 @@
             // 
             this.languageBindingSource.DataMember = "Language";
             this.languageBindingSource.DataSource = this.dBDataSet;
+            // 
+            // ImmageTB
+            // 
+            this.ImmageTB.Location = new System.Drawing.Point(93, 8);
+            this.ImmageTB.Name = "ImmageTB";
+            this.ImmageTB.Size = new System.Drawing.Size(108, 20);
+            this.ImmageTB.TabIndex = 15;
             // 
             // SetType_List
             // 
@@ -285,7 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
-            
+           
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
@@ -322,8 +318,8 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonArtist;
-        private System.Windows.Forms.ComboBox NazwaArtysty;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource languageBindingSource;
+        private System.Windows.Forms.TextBox ImmageTB;
     }
 }
