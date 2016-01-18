@@ -69,6 +69,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.blockTableAdapter = new MTGCM.DBDataSetTableAdapters.BlockTableAdapter();
             this.cardTypeTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTypeTableAdapter();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -94,6 +95,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.comboBox3);
             this.panel2.Controls.Add(this.label6);
@@ -119,7 +121,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 265);
+            this.label7.Location = new System.Drawing.Point(10, 285);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 28;
@@ -130,7 +132,7 @@
             this.comboBox3.DataSource = this.cardTypeBindingSource;
             this.comboBox3.DisplayMember = "name";
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(92, 262);
+            this.comboBox3.Location = new System.Drawing.Point(92, 282);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(100, 21);
             this.comboBox3.TabIndex = 25;
@@ -149,7 +151,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 220);
+            this.label6.Location = new System.Drawing.Point(10, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 27;
@@ -157,7 +159,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(92, 220);
+            this.numericUpDown1.Location = new System.Drawing.Point(92, 240);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             15,
             0,
@@ -170,7 +172,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 187);
+            this.label5.Location = new System.Drawing.Point(10, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 26;
@@ -181,7 +183,7 @@
             this.comboBox2.DataSource = this.blockBindingSource;
             this.comboBox2.DisplayMember = "name";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(71, 184);
+            this.comboBox2.Location = new System.Drawing.Point(71, 204);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 25;
@@ -195,7 +197,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 137);
+            this.label3.Location = new System.Drawing.Point(6, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 21;
@@ -203,7 +205,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(23, 153);
+            this.dateTimePicker2.Location = new System.Drawing.Point(23, 173);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(153, 20);
             this.dateTimePicker2.TabIndex = 20;
@@ -470,6 +472,15 @@
             // 
             this.cardTypeTableAdapter.ClearBeforeFill = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(114, 134);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 13);
+            this.label15.TabIndex = 50;
+            this.label15.Text = "(tekst)";
+            // 
             // Set_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,5 +548,6 @@
         private DBDataSetTableAdapters.BlockTableAdapter blockTableAdapter;
         private System.Windows.Forms.BindingSource cardTypeBindingSource;
         private DBDataSetTableAdapters.CardTypeTableAdapter cardTypeTableAdapter;
+        private System.Windows.Forms.Label label15;
     }
 }
