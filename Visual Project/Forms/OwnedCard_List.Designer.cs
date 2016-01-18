@@ -29,106 +29,75 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.cardTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.blockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ImmageTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBoxName = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.cardTypeTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTypeTableAdapter();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.numericUpDownCMC = new System.Windows.Forms.NumericUpDown();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.blockTableAdapter = new MTGCM.DBDataSetTableAdapters.BlockTableAdapter();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).BeginInit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cardBaseTableAdapter = new MTGCM.DBDataSetTableAdapters.CardBaseTableAdapter();
+            this.deckTableAdapter = new MTGCM.DBDataSetTableAdapters.DeckTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cardTypeBindingSource
-            // 
-            this.cardTypeBindingSource.DataMember = "CardType";
-            this.cardTypeBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(18, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 8;
-            // 
-            // blockBindingSource
-            // 
-            this.blockBindingSource.DataMember = "Block";
-            this.blockBindingSource.DataSource = this.dBDataSet;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(5, 104);
+            this.checkBox1.Location = new System.Drawing.Point(1, 156);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 17);
+            this.checkBox1.Size = new System.Drawing.Size(48, 17);
             this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Symbol";
+            this.checkBox1.Text = "Stan";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Symbol";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(77, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 91);
+            this.label1.Location = new System.Drawing.Point(6, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Skrot";
-            // 
-            // ImmageTB
-            // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 58);
-            this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
-            this.ImmageTB.TabIndex = 14;
+            this.label1.Text = "Talia";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(3, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
@@ -136,7 +105,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(14, 78);
+            this.textBoxName.Location = new System.Drawing.Point(10, 297);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(144, 20);
             this.textBoxName.TabIndex = 2;
@@ -144,11 +113,11 @@
             // checkBoxName
             // 
             this.checkBoxName.AutoSize = true;
-            this.checkBoxName.Location = new System.Drawing.Point(5, 55);
+            this.checkBoxName.Location = new System.Drawing.Point(1, 274);
             this.checkBoxName.Name = "checkBoxName";
-            this.checkBoxName.Size = new System.Drawing.Size(85, 17);
+            this.checkBoxName.Size = new System.Drawing.Size(45, 17);
             this.checkBoxName.TabIndex = 1;
-            this.checkBoxName.Text = "Nazwa karty";
+            this.checkBoxName.Text = "Tag";
             this.checkBoxName.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -162,17 +131,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(674, 420);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(77, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 18;
-            // 
-            // cardTypeTableAdapter
-            // 
-            this.cardTypeTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // buttonDelete
             // 
@@ -184,32 +143,21 @@
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Usuń";
             this.buttonDelete.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(18, 171);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 20);
-            this.textBox4.TabIndex = 24;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(5, 153);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(51, 17);
-            this.checkBox5.TabIndex = 23;
-            this.checkBox5.Text = "Skrot";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.checkBox6);
             this.panel1.Controls.Add(this.checkBox5);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.checkBox3);
+            this.panel1.Controls.Add(this.numericUpDownCMC);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.checkBox4);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Controls.Add(this.checkBoxName);
@@ -218,6 +166,105 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(168, 420);
             this.panel1.TabIndex = 7;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(0, 251);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(59, 17);
+            this.checkBox6.TabIndex = 30;
+            this.checkBox6.Text = "Alerted";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(0, 228);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(76, 17);
+            this.checkBox5.TabIndex = 29;
+            this.checkBox5.Text = "Podpisana";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(0, 205);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(74, 17);
+            this.checkBox3.TabIndex = 28;
+            this.checkBox3.Text = "Foliowana";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownCMC
+            // 
+            this.numericUpDownCMC.Location = new System.Drawing.Point(20, 179);
+            this.numericUpDownCMC.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDownCMC.Name = "numericUpDownCMC";
+            this.numericUpDownCMC.Size = new System.Drawing.Size(71, 20);
+            this.numericUpDownCMC.TabIndex = 27;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.deckBindingSource;
+            this.comboBox2.DisplayMember = "name";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(9, 128);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(144, 21);
+            this.comboBox2.TabIndex = 26;
+            this.comboBox2.ValueMember = "name";
+            // 
+            // deckBindingSource
+            // 
+            this.deckBindingSource.DataMember = "Deck";
+            this.deckBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(0, 105);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(49, 17);
+            this.checkBox2.TabIndex = 25;
+            this.checkBox2.Text = "Talia";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.cardBaseBindingSource;
+            this.comboBox1.DisplayMember = "name";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(14, 78);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(144, 21);
+            this.comboBox1.TabIndex = 24;
+            this.comboBox1.ValueMember = "name";
+            // 
+            // cardBaseBindingSource
+            // 
+            this.cardBaseBindingSource.DataMember = "CardBase";
+            this.cardBaseBindingSource.DataSource = this.dBDataSet;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(5, 55);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(86, 17);
+            this.checkBox4.TabIndex = 23;
+            this.checkBox4.Text = "Nazwa Karty";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // buttonFiltrate
             // 
@@ -240,6 +287,7 @@
             this.buttonEdit.TabIndex = 1;
             this.buttonEdit.Text = "Edytuj";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonAdd
             // 
@@ -251,20 +299,24 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Dodaj";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            // 
-            // blockTableAdapter
-            // 
-            this.blockTableAdapter.ClearBeforeFill = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.checkBox7);
+            this.panel2.Controls.Add(this.comboBox4);
+            this.panel2.Controls.Add(this.checkBox8);
+            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.checkBox9);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.checkBox10);
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.ImmageTB);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.buttonDelete);
             this.panel2.Controls.Add(this.buttonEdit);
@@ -273,6 +325,120 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 251);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Komentarz";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(18, 268);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(144, 20);
+            this.textBox2.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 207);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Tag";
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(8, 187);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(59, 17);
+            this.checkBox7.TabIndex = 37;
+            this.checkBox7.Text = "Alerted";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DataSource = this.deckBindingSource;
+            this.comboBox4.DisplayMember = "name";
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(77, 59);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(115, 21);
+            this.comboBox4.TabIndex = 27;
+            this.comboBox4.ValueMember = "id";
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(8, 164);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(76, 17);
+            this.checkBox8.TabIndex = 36;
+            this.checkBox8.Text = "Podpisana";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.cardBaseBindingSource;
+            this.comboBox3.DisplayMember = "name";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(77, 33);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(115, 21);
+            this.comboBox3.TabIndex = 25;
+            this.comboBox3.ValueMember = "id";
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(8, 141);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(74, 17);
+            this.checkBox9.TabIndex = 35;
+            this.checkBox9.Text = "Foliowana";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(28, 115);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(71, 20);
+            this.numericUpDown1.TabIndex = 34;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(9, 92);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(48, 17);
+            this.checkBox10.TabIndex = 33;
+            this.checkBox10.Text = "Stan";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(18, 224);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.TabIndex = 32;
+            // 
+            // cardBaseTableAdapter
+            // 
+            this.cardBaseTableAdapter.ClearBeforeFill = true;
+            // 
+            // deckTableAdapter
+            // 
+            this.deckTableAdapter.ClearBeforeFill = true;
             // 
             // OwnedCard_List
             // 
@@ -284,43 +450,58 @@
             this.Controls.Add(this.panel2);
             this.Name = "OwnedCard_List";
             this.Text = "OwnedCard_List";
-            ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blockBindingSource)).EndInit();
+            this.Load += new System.EventHandler(this.OwnedCard_List_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.BindingSource cardTypeBindingSource;
-        private DBDataSet dBDataSet;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.BindingSource blockBindingSource;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox ImmageTB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.CheckBox checkBoxName;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox3;
-        private DBDataSetTableAdapters.CardTypeTableAdapter cardTypeTableAdapter;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonFiltrate;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
-        private DBDataSetTableAdapters.BlockTableAdapter blockTableAdapter;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private DBDataSet dBDataSet;
+        private System.Windows.Forms.BindingSource cardBaseBindingSource;
+        private DBDataSetTableAdapters.CardBaseTableAdapter cardBaseTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.BindingSource deckBindingSource;
+        private DBDataSetTableAdapters.DeckTableAdapter deckTableAdapter;
+        private System.Windows.Forms.NumericUpDown numericUpDownCMC;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
