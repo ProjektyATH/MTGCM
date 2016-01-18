@@ -101,15 +101,15 @@
             // 
             this.TextTB.AcceptsReturn = true;
             this.TextTB.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextTB.Location = new System.Drawing.Point(77, 101);
+            this.TextTB.Location = new System.Drawing.Point(6, 78);
             this.TextTB.Name = "TextTB";
-            this.TextTB.Size = new System.Drawing.Size(121, 20);
+            this.TextTB.Size = new System.Drawing.Size(186, 20);
             this.TextTB.TabIndex = 20;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 104);
+            this.label10.Location = new System.Drawing.Point(3, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 19;
@@ -117,15 +117,15 @@
             // 
             // ImmageTB
             // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 62);
+            this.ImmageTB.Location = new System.Drawing.Point(6, 29);
             this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
             this.ImmageTB.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(3, 10);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label4.Size = new System.Drawing.Size(40, 13);
@@ -206,7 +206,6 @@
             // 
             this.cardBindingSource.DataMember = "Card";
             this.cardBindingSource.DataSource = this.dBDataSet;
-           
             // 
             // setTableAdapter
             // 
@@ -248,9 +247,9 @@
             // 
             this.textBox1.AcceptsReturn = true;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox1.Location = new System.Drawing.Point(24, 127);
+            this.textBox1.Location = new System.Drawing.Point(14, 127);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 21;
             // 
             // checkBoxSet
@@ -311,6 +310,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

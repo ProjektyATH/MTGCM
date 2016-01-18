@@ -59,7 +59,7 @@ namespace MTGCM.Forms
             {
                 st = new SetType();
 
-                st.name = NazwaArtysty.Text;
+                st.name = ImmageTB.Text;
 
                 db.SetType.Add(st);
                 db.SaveChanges();
@@ -76,7 +76,7 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
-                        st.name = NazwaArtysty.Text;
+                        st.name = ImmageTB.Text;
 
                         db.Entry(st).State = EntityState.Modified;
                         db.SaveChanges();
@@ -116,7 +116,7 @@ namespace MTGCM.Forms
                          where ST.id == id
                          select ST).First();
 
-                    NazwaArtysty.Text = st.name;
+                    ImmageTB.Text = st.name;
                     db.Entry(st).State = EntityState.Modified;
                     db.SaveChanges();
                 }

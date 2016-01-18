@@ -53,8 +53,8 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
-            this.NazwaArtysty = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ImmageTB = new System.Windows.Forms.TextBox();
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -236,22 +236,11 @@
             this.buttonArtist.UseVisualStyleBackColor = true;
             this.buttonArtist.Click += new System.EventHandler(this.buttonArtist_Click);
             // 
-            // NazwaArtysty
-            // 
-            this.NazwaArtysty.DataSource = this.artistBindingSource;
-            this.NazwaArtysty.DisplayMember = "name";
-            this.NazwaArtysty.FormattingEnabled = true;
-            this.NazwaArtysty.Location = new System.Drawing.Point(93, 8);
-            this.NazwaArtysty.Name = "NazwaArtysty";
-            this.NazwaArtysty.Size = new System.Drawing.Size(105, 21);
-            this.NazwaArtysty.TabIndex = 11;
-            this.NazwaArtysty.ValueMember = "id";
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.NazwaArtysty);
+            this.panel2.Controls.Add(this.ImmageTB);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.buttonDelete);
             this.panel2.Controls.Add(this.buttonEdit);
@@ -260,6 +249,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 8;
+            // 
+            // ImmageTB
+            // 
+            this.ImmageTB.Location = new System.Drawing.Point(6, 29);
+            this.ImmageTB.Name = "ImmageTB";
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
+            this.ImmageTB.TabIndex = 15;
             // 
             // languageBindingSource
             // 
@@ -285,7 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
-            
+           
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
@@ -322,8 +318,8 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonArtist;
-        private System.Windows.Forms.ComboBox NazwaArtysty;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource languageBindingSource;
+        private System.Windows.Forms.TextBox ImmageTB;
     }
 }

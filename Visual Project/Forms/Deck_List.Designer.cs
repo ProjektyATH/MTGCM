@@ -55,9 +55,9 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
-            this.NazwaArtysty = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ImmageTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -133,7 +133,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 137);
+            this.textBox1.Location = new System.Drawing.Point(14, 127);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 4;
@@ -141,7 +141,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(5, 114);
+            this.checkBox1.Location = new System.Drawing.Point(5, 104);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(45, 17);
             this.checkBox1.TabIndex = 3;
@@ -217,7 +217,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Location = new System.Drawing.Point(3, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
@@ -259,24 +259,13 @@
             this.buttonArtist.UseVisualStyleBackColor = true;
             this.buttonArtist.Click += new System.EventHandler(this.buttonArtist_Click);
             // 
-            // NazwaArtysty
-            // 
-            this.NazwaArtysty.DataSource = this.artistBindingSource;
-            this.NazwaArtysty.DisplayMember = "name";
-            this.NazwaArtysty.FormattingEnabled = true;
-            this.NazwaArtysty.Location = new System.Drawing.Point(77, 8);
-            this.NazwaArtysty.Name = "NazwaArtysty";
-            this.NazwaArtysty.Size = new System.Drawing.Size(121, 21);
-            this.NazwaArtysty.TabIndex = 11;
-            this.NazwaArtysty.ValueMember = "id";
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.ImmageTB);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.NazwaArtysty);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.buttonDelete);
             this.panel2.Controls.Add(this.buttonEdit);
@@ -286,21 +275,24 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 8;
             // 
-            // comboBox1
+            // textBox2
             // 
-            this.comboBox1.DataSource = this.artistBindingSource;
-            this.comboBox1.DisplayMember = "name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(77, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.ValueMember = "id";
+            this.textBox2.Location = new System.Drawing.Point(6, 78);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(186, 20);
+            this.textBox2.TabIndex = 16;
+            // 
+            // ImmageTB
+            // 
+            this.ImmageTB.Location = new System.Drawing.Point(6, 29);
+            this.ImmageTB.Name = "ImmageTB";
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
+            this.ImmageTB.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 54);
+            this.label1.Location = new System.Drawing.Point(3, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 12;
@@ -330,7 +322,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
-        //    ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
@@ -367,12 +359,12 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonArtist;
-        private System.Windows.Forms.ComboBox NazwaArtysty;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource languageBindingSource;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ImmageTB;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

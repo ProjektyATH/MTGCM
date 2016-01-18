@@ -170,6 +170,12 @@
     <Compile Include="Forms\Import.Designer.cs">
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OwnedCard_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OwnedCard_List.Designer.cs">
+      <DependentUpon>OwnedCard_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SetType_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Language_List.resx">
       <DependentUpon>Language_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OwnedCard_List.resx">
+      <DependentUpon>OwnedCard_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rarity_List.resx">
       <DependentUpon>Rarity_List.cs</DependentUpon>

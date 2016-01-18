@@ -173,5 +173,23 @@ namespace MTGCM.Forms
 
             }
         }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                        db.Entry(s).State = EntityState.Deleted;
+
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
     }
 }
