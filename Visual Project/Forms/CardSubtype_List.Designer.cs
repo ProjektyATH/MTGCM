@@ -93,15 +93,15 @@
             // 
             // ImmageTB
             // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 38);
+            this.ImmageTB.Location = new System.Drawing.Point(6, 55);
             this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
             this.ImmageTB.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 41);
+            this.label4.Location = new System.Drawing.Point(3, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 5;
@@ -264,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

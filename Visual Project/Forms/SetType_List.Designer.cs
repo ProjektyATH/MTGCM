@@ -54,8 +54,8 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ImmageTB = new System.Windows.Forms.TextBox();
+            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).BeginInit();
@@ -250,17 +250,17 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 8;
             // 
+            // ImmageTB
+            // 
+            this.ImmageTB.Location = new System.Drawing.Point(6, 29);
+            this.ImmageTB.Name = "ImmageTB";
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
+            this.ImmageTB.TabIndex = 15;
+            // 
             // languageBindingSource
             // 
             this.languageBindingSource.DataMember = "Language";
             this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // ImmageTB
-            // 
-            this.ImmageTB.Location = new System.Drawing.Point(93, 8);
-            this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(108, 20);
-            this.ImmageTB.TabIndex = 15;
             // 
             // SetType_List
             // 

@@ -31,12 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBDataSet = new MTGCM.DBDataSet();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDataSet = new MTGCM.DBDataSet();
             this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.setBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rarityBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -55,7 +56,6 @@
             this.artistBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.fKCard20BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -97,20 +97,17 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 5;
             // 
-            // artistBindingSource
+            // textBox1
             // 
-            this.artistBindingSource.DataMember = "Artist";
-            this.artistBindingSource.DataSource = this.dBDataSet;
-            // 
-            // dBDataSet
-            // 
-            this.dBDataSet.DataSetName = "DBDataSet";
-            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.textBox1.Location = new System.Drawing.Point(6, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.TabIndex = 33;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Location = new System.Drawing.Point(3, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 3;
@@ -151,6 +148,16 @@
             this.buttonArtist.Text = "Dodaj";
             this.buttonArtist.UseVisualStyleBackColor = true;
             this.buttonArtist.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataMember = "Artist";
+            this.artistBindingSource.DataSource = this.dBDataSet;
+            // 
+            // dBDataSet
+            // 
+            this.dBDataSet.DataSetName = "DBDataSet";
+            this.dBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cardBaseBindingSource
             // 
@@ -217,7 +224,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(14, 78);
+            this.textBoxName.Location = new System.Drawing.Point(14, 89);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(144, 20);
             this.textBoxName.TabIndex = 2;
@@ -225,7 +232,7 @@
             // checkBoxName
             // 
             this.checkBoxName.AutoSize = true;
-            this.checkBoxName.Location = new System.Drawing.Point(5, 55);
+            this.checkBoxName.Location = new System.Drawing.Point(5, 66);
             this.checkBoxName.Name = "checkBoxName";
             this.checkBoxName.Size = new System.Drawing.Size(128, 17);
             this.checkBoxName.TabIndex = 1;
@@ -255,13 +262,6 @@
             this.bindingSource1.DataMember = "Artist";
             this.bindingSource1.DataSource = this.dBDataSet;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(104, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(88, 20);
-            this.textBox1.TabIndex = 33;
-            // 
             // Artist_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,7 +287,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).EndInit();
-          
+        
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 

@@ -44,7 +44,6 @@
             this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-           
             this.setTableAdapter = new MTGCM.DBDataSetTableAdapters.SetTableAdapter();
             this.dBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageTableAdapter = new MTGCM.DBDataSetTableAdapters.LanguageTableAdapter();
@@ -94,15 +93,15 @@
             // 
             // ImmageTB
             // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 62);
+            this.ImmageTB.Location = new System.Drawing.Point(6, 55);
             this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
             this.ImmageTB.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(3, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 5;
@@ -182,7 +181,6 @@
             // 
             this.cardBindingSource.DataMember = "Card";
             this.cardBindingSource.DataSource = this.dBDataSet;
-            
             // 
             // setTableAdapter
             // 
@@ -266,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
+           
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

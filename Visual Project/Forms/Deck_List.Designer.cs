@@ -56,10 +56,10 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonArtist = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ImmageTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ImmageTB = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource1)).BeginInit();
@@ -133,7 +133,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 137);
+            this.textBox1.Location = new System.Drawing.Point(14, 127);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 4;
@@ -141,7 +141,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(5, 114);
+            this.checkBox1.Location = new System.Drawing.Point(5, 104);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(45, 17);
             this.checkBox1.TabIndex = 3;
@@ -217,7 +217,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Location = new System.Drawing.Point(3, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
@@ -275,10 +275,24 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 8;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 78);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(186, 20);
+            this.textBox2.TabIndex = 16;
+            // 
+            // ImmageTB
+            // 
+            this.ImmageTB.Location = new System.Drawing.Point(6, 29);
+            this.ImmageTB.Name = "ImmageTB";
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
+            this.ImmageTB.TabIndex = 15;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 54);
+            this.label1.Location = new System.Drawing.Point(3, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 12;
@@ -288,20 +302,6 @@
             // 
             this.languageBindingSource.DataMember = "Language";
             this.languageBindingSource.DataSource = this.dBDataSet;
-            // 
-            // ImmageTB
-            // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 9);
-            this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
-            this.ImmageTB.TabIndex = 15;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(77, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 16;
             // 
             // Deck_List
             // 
@@ -322,7 +322,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCard20BindingSource)).EndInit();
-           
+            
             ((System.ComponentModel.ISupportInitialize)(this.rarityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();

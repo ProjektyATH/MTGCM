@@ -78,7 +78,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1, 156);
+            this.checkBox1.Location = new System.Drawing.Point(5, 156);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(48, 17);
             this.checkBox1.TabIndex = 7;
@@ -88,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 62);
+            this.label1.Location = new System.Drawing.Point(6, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 15;
@@ -97,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 36);
+            this.label4.Location = new System.Drawing.Point(6, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
@@ -113,7 +113,7 @@
             // checkBoxName
             // 
             this.checkBoxName.AutoSize = true;
-            this.checkBoxName.Location = new System.Drawing.Point(1, 274);
+            this.checkBoxName.Location = new System.Drawing.Point(5, 274);
             this.checkBoxName.Name = "checkBoxName";
             this.checkBoxName.Size = new System.Drawing.Size(45, 17);
             this.checkBoxName.TabIndex = 1;
@@ -170,7 +170,7 @@
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(0, 251);
+            this.checkBox6.Location = new System.Drawing.Point(5, 251);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(59, 17);
             this.checkBox6.TabIndex = 30;
@@ -180,7 +180,7 @@
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(0, 228);
+            this.checkBox5.Location = new System.Drawing.Point(5, 228);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(76, 17);
             this.checkBox5.TabIndex = 29;
@@ -190,7 +190,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(0, 205);
+            this.checkBox3.Location = new System.Drawing.Point(5, 206);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(74, 17);
             this.checkBox3.TabIndex = 28;
@@ -199,7 +199,7 @@
             // 
             // numericUpDownCMC
             // 
-            this.numericUpDownCMC.Location = new System.Drawing.Point(20, 179);
+            this.numericUpDownCMC.Location = new System.Drawing.Point(37, 179);
             this.numericUpDownCMC.Maximum = new decimal(new int[] {
             15,
             0,
@@ -216,7 +216,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(9, 128);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 21);
+            this.comboBox2.Size = new System.Drawing.Size(149, 21);
             this.comboBox2.TabIndex = 26;
             this.comboBox2.ValueMember = "name";
             // 
@@ -233,7 +233,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(0, 105);
+            this.checkBox2.Location = new System.Drawing.Point(5, 105);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(49, 17);
             this.checkBox2.TabIndex = 25;
@@ -329,7 +329,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 251);
+            this.label5.Location = new System.Drawing.Point(6, 246);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 40;
@@ -337,9 +337,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(18, 268);
+            this.textBox2.Location = new System.Drawing.Point(9, 262);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
+            this.textBox2.Size = new System.Drawing.Size(183, 20);
             this.textBox2.TabIndex = 39;
             // 
             // label3
@@ -354,7 +354,7 @@
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(8, 187);
+            this.checkBox7.Location = new System.Drawing.Point(9, 187);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(59, 17);
             this.checkBox7.TabIndex = 37;
@@ -366,16 +366,16 @@
             this.comboBox4.DataSource = this.deckBindingSource;
             this.comboBox4.DisplayMember = "name";
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(77, 59);
+            this.comboBox4.Location = new System.Drawing.Point(9, 65);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(115, 21);
+            this.comboBox4.Size = new System.Drawing.Size(183, 21);
             this.comboBox4.TabIndex = 27;
             this.comboBox4.ValueMember = "id";
             // 
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(8, 164);
+            this.checkBox8.Location = new System.Drawing.Point(9, 164);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(76, 17);
             this.checkBox8.TabIndex = 36;
@@ -387,16 +387,16 @@
             this.comboBox3.DataSource = this.cardBaseBindingSource;
             this.comboBox3.DisplayMember = "name";
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(77, 33);
+            this.comboBox3.Location = new System.Drawing.Point(9, 26);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(115, 21);
+            this.comboBox3.Size = new System.Drawing.Size(183, 21);
             this.comboBox3.TabIndex = 25;
             this.comboBox3.ValueMember = "id";
             // 
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(8, 141);
+            this.checkBox9.Location = new System.Drawing.Point(9, 141);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(74, 17);
             this.checkBox9.TabIndex = 35;
@@ -405,7 +405,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(28, 115);
+            this.numericUpDown1.Location = new System.Drawing.Point(73, 115);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             15,
             0,
@@ -427,9 +427,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(18, 224);
+            this.textBox1.Location = new System.Drawing.Point(9, 223);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.Size = new System.Drawing.Size(183, 20);
             this.textBox1.TabIndex = 32;
             // 
             // cardBaseTableAdapter

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.buttonFiltrate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.cardTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -69,7 +70,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.blockTableAdapter = new MTGCM.DBDataSetTableAdapters.BlockTableAdapter();
             this.cardTypeTableAdapter = new MTGCM.DBDataSetTableAdapters.CardTypeTableAdapter();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
@@ -118,10 +118,19 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 5;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(87, 127);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 13);
+            this.label15.TabIndex = 50;
+            this.label15.Text = "(tekst)";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 285);
+            this.label7.Location = new System.Drawing.Point(6, 273);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 28;
@@ -132,9 +141,9 @@
             this.comboBox3.DataSource = this.cardTypeBindingSource;
             this.comboBox3.DisplayMember = "name";
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(92, 282);
+            this.comboBox3.Location = new System.Drawing.Point(9, 289);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 21);
+            this.comboBox3.Size = new System.Drawing.Size(183, 21);
             this.comboBox3.TabIndex = 25;
             this.comboBox3.ValueMember = "id";
             // 
@@ -151,7 +160,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 240);
+            this.label6.Location = new System.Drawing.Point(6, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 27;
@@ -159,7 +168,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(92, 240);
+            this.numericUpDown1.Location = new System.Drawing.Point(66, 246);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             15,
             0,
@@ -172,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 207);
+            this.label5.Location = new System.Drawing.Point(6, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 26;
@@ -183,9 +192,9 @@
             this.comboBox2.DataSource = this.blockBindingSource;
             this.comboBox2.DisplayMember = "name";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(71, 204);
+            this.comboBox2.Location = new System.Drawing.Point(9, 197);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(183, 21);
             this.comboBox2.TabIndex = 25;
             this.comboBox2.ValueMember = "id";
             // 
@@ -197,7 +206,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 157);
+            this.label3.Location = new System.Drawing.Point(6, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 21;
@@ -205,22 +214,22 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(23, 173);
+            this.dateTimePicker2.Location = new System.Drawing.Point(23, 156);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(153, 20);
             this.dateTimePicker2.TabIndex = 20;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 110);
+            this.textBox3.Location = new System.Drawing.Point(9, 104);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.Size = new System.Drawing.Size(183, 20);
             this.textBox3.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 117);
+            this.label2.Location = new System.Drawing.Point(6, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 17;
@@ -228,15 +237,15 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 84);
+            this.textBox2.Location = new System.Drawing.Point(9, 65);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.Size = new System.Drawing.Size(183, 20);
             this.textBox2.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 91);
+            this.label1.Location = new System.Drawing.Point(6, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 15;
@@ -244,15 +253,15 @@
             // 
             // ImmageTB
             // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 58);
+            this.ImmageTB.Location = new System.Drawing.Point(9, 26);
             this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
+            this.ImmageTB.Size = new System.Drawing.Size(183, 20);
             this.ImmageTB.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(6, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
@@ -376,7 +385,7 @@
             // 
             // numericUpDownCMC
             // 
-            this.numericUpDownCMC.Location = new System.Drawing.Point(19, 220);
+            this.numericUpDownCMC.Location = new System.Drawing.Point(42, 220);
             this.numericUpDownCMC.Maximum = new decimal(new int[] {
             15,
             0,
@@ -471,15 +480,6 @@
             // cardTypeTableAdapter
             // 
             this.cardTypeTableAdapter.ClearBeforeFill = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(114, 134);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 13);
-            this.label15.TabIndex = 50;
-            this.label15.Text = "(tekst)";
             // 
             // Set_List
             // 

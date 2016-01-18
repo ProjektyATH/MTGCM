@@ -43,7 +43,6 @@
             this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistTableAdapter = new MTGCM.DBDataSetTableAdapters.ArtistTableAdapter();
-            
             this.setTableAdapter = new MTGCM.DBDataSetTableAdapters.SetTableAdapter();
             this.dBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageTableAdapter = new MTGCM.DBDataSetTableAdapters.LanguageTableAdapter();
@@ -61,7 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
-            
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -94,15 +92,15 @@
             // 
             // ImmageTB
             // 
-            this.ImmageTB.Location = new System.Drawing.Point(77, 62);
+            this.ImmageTB.Location = new System.Drawing.Point(6, 55);
             this.ImmageTB.Name = "ImmageTB";
-            this.ImmageTB.Size = new System.Drawing.Size(121, 20);
+            this.ImmageTB.Size = new System.Drawing.Size(186, 20);
             this.ImmageTB.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(3, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 5;
@@ -177,7 +175,6 @@
             // artistTableAdapter
             // 
             this.artistTableAdapter.ClearBeforeFill = true;
-           
             // 
             // setTableAdapter
             // 
@@ -266,7 +263,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).EndInit();
-           
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
