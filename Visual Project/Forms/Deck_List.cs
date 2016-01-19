@@ -76,8 +76,8 @@ namespace MTGCM.Forms
             {
                 d = new Deck();
 
-                d.name = NazwaArtysty.Text;
-                d.tags = comboBox1.Text;
+                d.name = ImmageTB.Text;
+                d.tags = textBox2.Text;
                 d.fk_user_id = 0;
 
                 db.Deck.Add(d);
@@ -95,9 +95,9 @@ namespace MTGCM.Forms
                 {
                     using (var db = new DBEntities())
                     {
-                        d.name = NazwaArtysty.Text;
-                        d.tags = comboBox1.Text;
-                        d.fk_user_id = 1;
+                        d.name = ImmageTB.Text;
+                        d.tags = textBox2.Text;
+                        d.fk_user_id = 0;
 
                         db.Entry(d).State = EntityState.Modified;
                         db.SaveChanges();
@@ -119,8 +119,8 @@ namespace MTGCM.Forms
                          where D.id == id
                          select D).First();
 
-                    NazwaArtysty.Text = d.name;
-                    comboBox1.Text = d.tags;
+                    ImmageTB.Text = d.name;
+                    textBox2.Text = d.tags;
 
 
                     db.Entry(d).State = EntityState.Modified;

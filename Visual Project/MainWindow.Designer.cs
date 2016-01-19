@@ -49,9 +49,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 690);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(763, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -137,15 +137,16 @@
             // Deck_TSMI
             // 
             this.Deck_TSMI.Name = "Deck_TSMI";
-            this.Deck_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.Deck_TSMI.Size = new System.Drawing.Size(101, 22);
             this.Deck_TSMI.Text = "Talie";
             this.Deck_TSMI.Click += new System.EventHandler(this.Deck_TSMI_Click);
             // 
             // OwnedCard_TSMI
             // 
             this.OwnedCard_TSMI.Name = "OwnedCard_TSMI";
-            this.OwnedCard_TSMI.Size = new System.Drawing.Size(152, 22);
+            this.OwnedCard_TSMI.Size = new System.Drawing.Size(101, 22);
             this.OwnedCard_TSMI.Text = "Karty";
+            this.OwnedCard_TSMI.Click += new System.EventHandler(this.OwnedCard_TSMI_Click);
             // 
             // Owned_TSMI
             // 
@@ -164,7 +165,7 @@
             this.importerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(763, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -179,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 461);
+            this.ClientSize = new System.Drawing.Size(1084, 712);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

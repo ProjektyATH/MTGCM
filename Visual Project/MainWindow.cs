@@ -101,6 +101,12 @@ namespace MTGCM
             {
                 CloseChildren();
                 OpenChild<Forms.Deck_List>();
+            }
+
+            private void OwnedCard_TSMI_Click(object sender, EventArgs e)
+            {
+                CloseChildren();
+                OpenChild<Forms.OwnedCard_List>();
             }       
 
         }

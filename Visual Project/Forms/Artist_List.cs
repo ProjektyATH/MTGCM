@@ -58,8 +58,8 @@ namespace MTGCM.Forms
          using (var db = new DBEntities())
          {
              a = new Artist();
-             
-             a.name =NazwaArtysty.Text;
+
+             a.name = textBox1.Text;
                 
              db.Artist.Add(a);
              db.SaveChanges();
@@ -102,7 +102,7 @@ namespace MTGCM.Forms
              {
                  using (var db = new DBEntities())
                  {
-                     a.name = NazwaArtysty.Text;
+                     a.name = textBox1.Text;
 
                      db.Entry(a).State = EntityState.Modified;
                      db.SaveChanges();
@@ -124,7 +124,7 @@ namespace MTGCM.Forms
                       where A.id == id
                       select A).First();
 
-                 NazwaArtysty.Text= a.name ;
+                 textBox1.Text = a.name;
                  db.Entry(a).State = EntityState.Modified;
                  db.SaveChanges();
              }
