@@ -7,94 +7,133 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using System.Data.Entity;
 
 namespace MTGCM.Forms
 {
     public partial class Language_List : Form
     {
-        string connString = "Data Source = DB.db; Version = 3";
-        DataTable table_DT = new DataTable();
         int id;
-        int index;
-
-        private void Odswierz()
-        {
-            table_DT.Clear();
-            using (SQLiteConnection conn = new SQLiteConnection(connString))
-            {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM [Language];", conn);
-                adapter.Fill(table_DT); // wypełniamy DataTabla danymi z wyniku zapytania
-            }
-            dataGridView1.DataSource = table_DT; // Przypisujemy dane z DataTabla do naszego GridView      
-            dataGridView1.ClearSelection();
-        }
-
-        private void EditLang()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                Language_Edit objSet_Edit = new Language_Edit (id);
-                objSet_Edit.ShowDialog();
-                Odswierz();
-            }
-
-        }
-
-        private void AddLang()
-        {
-
-            Language_Add objSet_Add = new Language_Add();
-            objSet_Add.ShowDialog();
-            Odswierz();
-
-        }
-
-        private void DeleteLang()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć język numer " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                    using (SQLiteConnection conn = new SQLiteConnection(connString))
-                    {
-                        conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = "DELETE FROM [Language] WHERE id = @id";
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        Odswierz();
-                        if (dataGridView1.RowCount != 0)
-                        {
-                            if (index == dataGridView1.RowCount) dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0];
-                            else dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
-                        }
-                    }
-            }
-        }
+        Language l = new Language();
         public Language_List()
         {
             InitializeComponent();
-            Odswierz();
+            Filtrate();
         }
 
-        private void btAdd_Click(object sender, EventArgs e)
+        private void Filtrate()
         {
-            AddLang();
+
+            using (var db = new DBEntities())
+            {
+
+                var Languages = from l in db.Language
+
+                                select new
+                                {
+                                    Lp = l.id,
+                                    Nazwa = l.name,
+                                    Skrot = l.abbrev,
+
+
+                                };
+
+                if (checkBoxName.Checked)
+                {
+                    Languages = Languages.Where(l => l.Nazwa.Contains(textBoxName.Text));
+                }
+
+                if (checkBoxSet.Checked)
+                {
+
+                    Languages = Languages.Where(l => l.Skrot.Contains(Skrot.Text));
+                }
+
+
+
+                dataGridView1.DataSource = Languages.ToList();
+            }
+
+
         }
 
-        private void btEdit_Click(object sender, EventArgs e)
+        private void buttonFiltrate_Click(object sender, EventArgs e)
         {
-            EditLang();
+            Filtrate();
         }
 
-        private void btDelete_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-            DeleteLang();
+            using (var db = new DBEntities())
+            {
+                l = new Language();
+
+                l.name = ImmageTB.Text;
+                l.abbrev = abbrev.Text;
+
+                db.Language.Add(l);
+                db.SaveChanges();
+                Filtrate();
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                        db.Entry(l).State = EntityState.Deleted;
+
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz edytować kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                        l.name = ImmageTB.Text;
+                        l.abbrev = abbrev.Text;
+
+                        db.Entry(l).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    l = (from L in db.Language
+                         where L.id == id
+                         select L).First();
+
+                    ImmageTB.Text = l.name;
+                    abbrev.Text = l.abbrev;
+                    db.Entry(l).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
         }
     }
 }

@@ -26,20 +26,10 @@ namespace MTGCM.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\PROJEKTY\\MTG\\MTGCM\\DB.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=\"DB.db\"")]
         public string DBConnectionString {
             get {
                 return ((string)(this["DBConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\PROJEKTY\\MTG\\MTGCM\\DB.db;synchronous=Full;foreign keys=True")]
-        public string DBCS {
-            get {
-                return ((string)(this["DBCS"]));
             }
         }
     }

@@ -7,136 +7,189 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using System.Data.Entity;
 
 namespace MTGCM.Forms
 {
-
     public partial class Set_List : Form
     {
-        string connString = "Data Source = DB.db; Version = 3";
-        DataTable table_DT = new DataTable();
         int id;
-        int index;
-
-        private void Odswierz()
-        {
-            table_DT.Clear();
-            using (SQLiteConnection conn = new SQLiteConnection(connString))
-            {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM [Set];", conn);
-                adapter.Fill(table_DT); // wypełniamy DataTabla danymi z wyniku zapytania
-            }
-            dataGridView1.DataSource = table_DT; // Przypisujemy dane z DataTabla do naszego GridView      
-            dataGridView1.ClearSelection();
-        }
-
-        private void EditSet()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                Set_Edit objSet_Edit = new Set_Edit(id);
-                objSet_Edit.ShowDialog();
-                Odswierz();
-            }
-
-        }
-
-        private void AddSet()
-        {
-
-            Set_Add objSet_Add = new Set_Add();
-            objSet_Add.ShowDialog();
-            Odswierz();
-
-        }
-
-        private void DeleteSet()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć zestaw numer " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                    using (SQLiteConnection conn = new SQLiteConnection(connString))
-                    {
-                        conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = "DELETE FROM [Set] WHERE id = @id";
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        Odswierz();
-                        if (dataGridView1.RowCount != 0)
-                        {
-                            if (index == dataGridView1.RowCount) dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0];
-                            else dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
-                        }
-                    }
-            }
-        }
-
-
+        Set s = new Set();
         public Set_List()
         {
             InitializeComponent();
-            Odswierz();
+            Filtrate();
         }
-
-        private void btAdd_Click(object sender, EventArgs e)
-        {
-            AddSet();
-        }
-
-        private void btEdit_Click(object sender, EventArgs e)
-        {
-            EditSet();
-        }
-
-        private void btDelete_Click(object sender, EventArgs e)
-        {
-            DeleteSet();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Filtrate()
         {
 
+            using (var db = new DBEntities())
+            {
+
+                var Sets = from s in db.Set
+
+                           select new
+                           {
+                               Lp = s.id,
+                               Nazwa = s.name,
+                               Skrot = s.abbrev,
+                               Symbol = s.symbol,
+                               Data_wydania = s.relase_date,
+                               Blok = s.Block.name,
+                               Suma_Kart = s.cards_total,
+                               Typ_Zestawu = s.SetType.name
+
+
+                           };
+
+                if (checkBoxName.Checked)
+                {
+                    Sets = Sets.Where(s => s.Nazwa.Contains(textBoxName.Text));
+                }
+
+                if (checkBox1.Checked)
+                {
+                    Sets = Sets.Where(s => s.Symbol.Contains(textBox1.Text));
+                }
+
+                if (checkBox5.Checked)
+                {
+                    Sets = Sets.Where(s => s.Skrot.Contains(textBox4.Text));
+                }
+
+                if (checkBox2.Checked)
+                {
+                    Sets = Sets.Where(s => s.Suma_Kart == numericUpDownCMC.Value);
+                }
+
+                if (checkBox3.Checked)
+                {
+                    Sets = Sets.Where(s => s.Data_wydania == dateTimePicker1.Value.Date);
+                }
+                if (checkBox4.Checked)
+                {
+                    Sets = Sets.Where(s => s.Typ_Zestawu == comboBox1.SelectedValue);
+                }
+
+                 if (checkBox4.Checked)
+                {
+                    Sets = Sets.Where(s => s.Blok == comboBoxBlok.SelectedValue);
+                }
+           
+
+                dataGridView1.DataSource = Sets.ToList();
+            }
+
+            
         }
 
-        private void userBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void buttonFiltrate_Click(object sender, EventArgs e)
         {
-
+            Filtrate();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
+            using (var db = new DBEntities())
+            {
+                s = new Set();
 
-        }
-
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void userBindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+                s.name = ImmageTB.Text;
+                s.abbrev = textBox2.Text;
+                s.symbol = textBox2.Text;
+                s.relase_date = dateTimePicker2.Value.Date;
+                s.fk_block_id = Convert.ToInt32(comboBox2.SelectedValue);
+                s.cards_total = Convert.ToInt32(numericUpDown1.Value);
+                s.fk_type_id = Convert.ToInt32(comboBox3.SelectedValue);
+                db.Set.Add(s);
+                db.SaveChanges();
+                Filtrate();
+            }
         }
 
         private void Set_List_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dBDataSet.CardType' table. You can move, or remove it, as needed.
+            this.cardTypeTableAdapter.Fill(this.dBDataSet.CardType);
+            // TODO: This line of code loads data into the 'dBDataSet.Block' table. You can move, or remove it, as needed.
+            this.blockTableAdapter.Fill(this.dBDataSet.Block);
+            // TODO: This line of code loads data into the 'dBDataSet.CardType' table. You can move, or remove it, as needed.
+            this.cardTypeTableAdapter.Fill(this.dBDataSet.CardType);
+            // TODO: This line of code loads data into the 'dBDataSet.Block' table. You can move, or remove it, as needed.
+            this.blockTableAdapter.Fill(this.dBDataSet.Block);
 
         }
 
-       
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz edytować kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+
+                        s.name = ImmageTB.Text;
+                        s.abbrev = textBox2.Text;
+                        s.symbol = textBox2.Text;
+                        s.relase_date = dateTimePicker2.Value.Date;
+                        s.fk_block_id = Convert.ToInt32(comboBox2.SelectedValue);
+                        s.cards_total = Convert.ToInt32(numericUpDown1.Value);
+                        s.fk_type_id = Convert.ToInt32(comboBox3.SelectedValue);
 
 
+                        db.Entry(s).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    s = (from S in db.Set
+                         where S.id == id
+                         select S).First();
+
+                    ImmageTB.Text = s.name;
+                    textBox2.Text = s.abbrev ;
+                    textBox3.Text = s.symbol;
+                    dateTimePicker2.Value = s.relase_date.Value;
+                    comboBox2.SelectedValue = s.fk_block_id;
+                    numericUpDown1.Value = s.cards_total.Value;
+                    comboBox3.SelectedValue = s.fk_type_id;
+
+                    db.Entry(s).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                        db.Entry(s).State = EntityState.Deleted;
+
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
     }
 }

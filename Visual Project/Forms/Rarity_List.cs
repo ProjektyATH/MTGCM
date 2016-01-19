@@ -7,99 +7,134 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
-
+using System.Data.Entity;
 
 namespace MTGCM.Forms
 {
-
     public partial class Rarity_List : Form
     {
-        string connString = "Data Source = DB.db; Version = 3";
-        DataTable table_DT = new DataTable();
         int id;
-        int index;
-
-        private void Odswierz()
-        {
-            table_DT.Clear();
-            using (SQLiteConnection conn = new SQLiteConnection(connString))
-            {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM User;", conn);
-                adapter.Fill(table_DT); // wypełniamy DataTabla danymi z wyniku zapytania
-            }
-            dataGridView1.DataSource = table_DT; // Przypisujemy dane z DataTabla do naszego GridView            
-        }
-
-        private void EditUser()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                User_Edit objUser_Edit = new User_Edit(id);
-                objUser_Edit.ShowDialog();
-                Odswierz();
-            }
-
-        }
-
-        private void AddUser()
-        {
-
-            User_Add objUser_Add = new User_Add();
-            objUser_Add.ShowDialog();
-            Odswierz();
-
-        }
-
-        private void DeleteUser()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć użytkownika numer " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                    using (SQLiteConnection conn = new SQLiteConnection(connString))
-                    {
-                        conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = "DELETE FROM User WHERE id = @id";
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        Odswierz();
-                        if (dataGridView1.RowCount != 0)
-                        {
-                            if (index == dataGridView1.RowCount) dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0];
-                            else dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
-                        }
-                    }
-            }
-        }
-
-
+        Rarity r = new Rarity();
         public Rarity_List()
         {
+           
             InitializeComponent();
-            Odswierz();
+            Filtrate();
         }
 
-        private void btAdd_Click(object sender, EventArgs e)
+        private void Filtrate()
         {
-            AddUser();
+
+            using (var db = new DBEntities())
+            {
+
+                var Raritys = from r in db.Rarity
+
+                            select new
+                            {
+                                Lp = r.id,
+                                Nazwa = r.name,
+                                Kolor = r.color,
+                               
+
+                            };
+
+                if (checkBoxName.Checked)
+                {
+                    Raritys = Raritys.Where(r => r.Nazwa.Contains(textBoxName.Text));
+                }
+
+               // if (checkBoxSet.Checked)
+               // {
+           //         Cards = Cards.Where(c => c.Dodatek == comboBoxSet.SelectedValue);
+            //    }
+
+
+                dataGridView1.DataSource = Raritys.ToList();
+            }
+
+
         }
 
-        private void btEdit_Click(object sender, EventArgs e)
+        private void buttonFiltrate_Click(object sender, EventArgs e)
         {
-            EditUser();
+            Filtrate();
         }
 
-        private void btDelete_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-            DeleteUser();
+            using (var db = new DBEntities())
+            {
+                r = new Rarity();
+                r.name = ImmageTB.Text;             
+                r.color = TextTB.Text;
+               
+                db.Rarity.Add(r);
+                db.SaveChanges();
+                Filtrate();
+            }
         }
 
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz edytować kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                        r.name = ImmageTB.Text;
+                        r.color = TextTB.Text;
+               
+                        db.Entry(r).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
 
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz edytować kartę o numerze id " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var db = new DBEntities())
+                    {
+                       
+                        r.name = ImmageTB.Text;
+                        r.color = TextTB.Text;
+                        db.Entry(r).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                Filtrate();
+            }
+        }
+       
+
+        private void dataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
+        {
+            using (var db = new DBEntities())
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                    r = (from R in db.Rarity
+                         where R.id == id
+                         select R).First();
+
+                      r.color=TextTB.Text;
+                      r.color=textBox1.Text;
+                      db.Entry(r).State = EntityState.Modified;
+                      db.SaveChanges();
+
+                }
+            }
+        }
     }
 }

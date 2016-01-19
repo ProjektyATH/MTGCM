@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e37084c7c6a1478fbf5918f09541b53f" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Artist" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Block" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CardBase" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CardSubtype" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CardType" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Deck" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Language" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.OwnedCard" Width="1.5" PointX="10.625" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Rarity" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Set" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SetType" Width="1.5" PointX="0.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_CardBase_2_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Set_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CardBase_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CardBase_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CardBase_3_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OwnedCard_2_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Deck_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OwnedCard_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OwnedCard_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Set_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.LinkSubtype" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.LinkType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -28,8 +28,6 @@ namespace MTGCM {
         
         private BlockDataTable tableBlock;
         
-        private CardDataTable tableCard;
-        
         private CardBaseDataTable tableCardBase;
         
         private CardSubtypeDataTable tableCardSubtype;
@@ -50,17 +48,17 @@ namespace MTGCM {
         
         private SetDataTable tableSet;
         
+        private SetTypeDataTable tableSetType;
+        
         private UserDataTable tableUser;
         
-        private global::System.Data.DataRelation relationFK_Card_0_0;
+        private global::System.Data.DataRelation relationFK_CardBase_0_0;
         
-        private global::System.Data.DataRelation relationFK_Card_1_0;
+        private global::System.Data.DataRelation relationFK_CardBase_1_0;
         
-        private global::System.Data.DataRelation relationFK_Card_2_0;
+        private global::System.Data.DataRelation relationFK_CardBase_2_0;
         
-        private global::System.Data.DataRelation relationFK_Card_3_0;
-        
-        private global::System.Data.DataRelation relationFK_Card_4_0;
+        private global::System.Data.DataRelation relationFK_CardBase_3_0;
         
         private global::System.Data.DataRelation relationFK_Deck_0_0;
         
@@ -76,9 +74,11 @@ namespace MTGCM {
         
         private global::System.Data.DataRelation relationFK_OwnedCard_1_0;
         
-        private global::System.Data.DataRelation relationBlock_Set;
+        private global::System.Data.DataRelation relationFK_OwnedCard_2_0;
         
-        private global::System.Data.DataRelation relationCard_OwnedCard;
+        private global::System.Data.DataRelation relationFK_Set_0_0;
+        
+        private global::System.Data.DataRelation relationFK_Set_1_0;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -114,9 +114,6 @@ namespace MTGCM {
                 if ((ds.Tables["Block"] != null)) {
                     base.Tables.Add(new BlockDataTable(ds.Tables["Block"]));
                 }
-                if ((ds.Tables["Card"] != null)) {
-                    base.Tables.Add(new CardDataTable(ds.Tables["Card"]));
-                }
                 if ((ds.Tables["CardBase"] != null)) {
                     base.Tables.Add(new CardBaseDataTable(ds.Tables["CardBase"]));
                 }
@@ -146,6 +143,9 @@ namespace MTGCM {
                 }
                 if ((ds.Tables["Set"] != null)) {
                     base.Tables.Add(new SetDataTable(ds.Tables["Set"]));
+                }
+                if ((ds.Tables["SetType"] != null)) {
+                    base.Tables.Add(new SetTypeDataTable(ds.Tables["SetType"]));
                 }
                 if ((ds.Tables["User"] != null)) {
                     base.Tables.Add(new UserDataTable(ds.Tables["User"]));
@@ -185,16 +185,6 @@ namespace MTGCM {
         public BlockDataTable Block {
             get {
                 return this.tableBlock;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CardDataTable Card {
-            get {
-                return this.tableCard;
             }
         }
         
@@ -302,6 +292,16 @@ namespace MTGCM {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SetTypeDataTable SetType {
+            get {
+                return this.tableSetType;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public UserDataTable User {
             get {
                 return this.tableUser;
@@ -381,9 +381,6 @@ namespace MTGCM {
                 if ((ds.Tables["Block"] != null)) {
                     base.Tables.Add(new BlockDataTable(ds.Tables["Block"]));
                 }
-                if ((ds.Tables["Card"] != null)) {
-                    base.Tables.Add(new CardDataTable(ds.Tables["Card"]));
-                }
                 if ((ds.Tables["CardBase"] != null)) {
                     base.Tables.Add(new CardBaseDataTable(ds.Tables["CardBase"]));
                 }
@@ -413,6 +410,9 @@ namespace MTGCM {
                 }
                 if ((ds.Tables["Set"] != null)) {
                     base.Tables.Add(new SetDataTable(ds.Tables["Set"]));
+                }
+                if ((ds.Tables["SetType"] != null)) {
+                    base.Tables.Add(new SetTypeDataTable(ds.Tables["SetType"]));
                 }
                 if ((ds.Tables["User"] != null)) {
                     base.Tables.Add(new UserDataTable(ds.Tables["User"]));
@@ -460,12 +460,6 @@ namespace MTGCM {
             if ((initTable == true)) {
                 if ((this.tableBlock != null)) {
                     this.tableBlock.InitVars();
-                }
-            }
-            this.tableCard = ((CardDataTable)(base.Tables["Card"]));
-            if ((initTable == true)) {
-                if ((this.tableCard != null)) {
-                    this.tableCard.InitVars();
                 }
             }
             this.tableCardBase = ((CardBaseDataTable)(base.Tables["CardBase"]));
@@ -528,17 +522,22 @@ namespace MTGCM {
                     this.tableSet.InitVars();
                 }
             }
+            this.tableSetType = ((SetTypeDataTable)(base.Tables["SetType"]));
+            if ((initTable == true)) {
+                if ((this.tableSetType != null)) {
+                    this.tableSetType.InitVars();
+                }
+            }
             this.tableUser = ((UserDataTable)(base.Tables["User"]));
             if ((initTable == true)) {
                 if ((this.tableUser != null)) {
                     this.tableUser.InitVars();
                 }
             }
-            this.relationFK_Card_0_0 = this.Relations["FK_Card_0_0"];
-            this.relationFK_Card_1_0 = this.Relations["FK_Card_1_0"];
-            this.relationFK_Card_2_0 = this.Relations["FK_Card_2_0"];
-            this.relationFK_Card_3_0 = this.Relations["FK_Card_3_0"];
-            this.relationFK_Card_4_0 = this.Relations["FK_Card_4_0"];
+            this.relationFK_CardBase_0_0 = this.Relations["FK_CardBase_0_0"];
+            this.relationFK_CardBase_1_0 = this.Relations["FK_CardBase_1_0"];
+            this.relationFK_CardBase_2_0 = this.Relations["FK_CardBase_2_0"];
+            this.relationFK_CardBase_3_0 = this.Relations["FK_CardBase_3_0"];
             this.relationFK_Deck_0_0 = this.Relations["FK_Deck_0_0"];
             this.relationFK_LinkSubtype_0_0 = this.Relations["FK_LinkSubtype_0_0"];
             this.relationFK_LinkSubtype_1_0 = this.Relations["FK_LinkSubtype_1_0"];
@@ -546,8 +545,9 @@ namespace MTGCM {
             this.relationFK_LinkType_1_0 = this.Relations["FK_LinkType_1_0"];
             this.relationFK_OwnedCard_0_0 = this.Relations["FK_OwnedCard_0_0"];
             this.relationFK_OwnedCard_1_0 = this.Relations["FK_OwnedCard_1_0"];
-            this.relationBlock_Set = this.Relations["Block_Set"];
-            this.relationCard_OwnedCard = this.Relations["Card_OwnedCard"];
+            this.relationFK_OwnedCard_2_0 = this.Relations["FK_OwnedCard_2_0"];
+            this.relationFK_Set_0_0 = this.Relations["FK_Set_0_0"];
+            this.relationFK_Set_1_0 = this.Relations["FK_Set_1_0"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -562,8 +562,6 @@ namespace MTGCM {
             base.Tables.Add(this.tableArtist);
             this.tableBlock = new BlockDataTable();
             base.Tables.Add(this.tableBlock);
-            this.tableCard = new CardDataTable();
-            base.Tables.Add(this.tableCard);
             this.tableCardBase = new CardBaseDataTable();
             base.Tables.Add(this.tableCardBase);
             this.tableCardSubtype = new CardSubtypeDataTable();
@@ -584,28 +582,26 @@ namespace MTGCM {
             base.Tables.Add(this.tableRarity);
             this.tableSet = new SetDataTable();
             base.Tables.Add(this.tableSet);
+            this.tableSetType = new SetTypeDataTable();
+            base.Tables.Add(this.tableSetType);
             this.tableUser = new UserDataTable();
             base.Tables.Add(this.tableUser);
-            this.relationFK_Card_0_0 = new global::System.Data.DataRelation("FK_Card_0_0", new global::System.Data.DataColumn[] {
+            this.relationFK_CardBase_0_0 = new global::System.Data.DataRelation("FK_CardBase_0_0", new global::System.Data.DataColumn[] {
                         this.tableSet.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCard.fk_set_idColumn}, false);
-            this.Relations.Add(this.relationFK_Card_0_0);
-            this.relationFK_Card_1_0 = new global::System.Data.DataRelation("FK_Card_1_0", new global::System.Data.DataColumn[] {
+                        this.tableCardBase.fk_set_idColumn}, false);
+            this.Relations.Add(this.relationFK_CardBase_0_0);
+            this.relationFK_CardBase_1_0 = new global::System.Data.DataRelation("FK_CardBase_1_0", new global::System.Data.DataColumn[] {
                         this.tableRarity.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCard.fk_rarity_idColumn}, false);
-            this.Relations.Add(this.relationFK_Card_1_0);
-            this.relationFK_Card_2_0 = new global::System.Data.DataRelation("FK_Card_2_0", new global::System.Data.DataColumn[] {
+                        this.tableCardBase.fk_rarity_idColumn}, false);
+            this.Relations.Add(this.relationFK_CardBase_1_0);
+            this.relationFK_CardBase_2_0 = new global::System.Data.DataRelation("FK_CardBase_2_0", new global::System.Data.DataColumn[] {
                         this.tableArtist.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCard.fk_artist_idColumn}, false);
-            this.Relations.Add(this.relationFK_Card_2_0);
-            this.relationFK_Card_3_0 = new global::System.Data.DataRelation("FK_Card_3_0", new global::System.Data.DataColumn[] {
-                        this.tableCardBase.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCard.fk_base_idColumn}, false);
-            this.Relations.Add(this.relationFK_Card_3_0);
-            this.relationFK_Card_4_0 = new global::System.Data.DataRelation("FK_Card_4_0", new global::System.Data.DataColumn[] {
+                        this.tableCardBase.fk_artist_idColumn}, false);
+            this.Relations.Add(this.relationFK_CardBase_2_0);
+            this.relationFK_CardBase_3_0 = new global::System.Data.DataRelation("FK_CardBase_3_0", new global::System.Data.DataColumn[] {
                         this.tableLanguage.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCard.fk_language_idColumn}, false);
-            this.Relations.Add(this.relationFK_Card_4_0);
+                        this.tableCardBase.fk_language_idColumn}, false);
+            this.Relations.Add(this.relationFK_CardBase_3_0);
             this.relationFK_Deck_0_0 = new global::System.Data.DataRelation("FK_Deck_0_0", new global::System.Data.DataColumn[] {
                         this.tableUser.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableDeck.fk_user_idColumn}, false);
@@ -634,14 +630,18 @@ namespace MTGCM {
                         this.tableUser.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableOwnedCard.fk_user_idColumn}, false);
             this.Relations.Add(this.relationFK_OwnedCard_1_0);
-            this.relationBlock_Set = new global::System.Data.DataRelation("Block_Set", new global::System.Data.DataColumn[] {
+            this.relationFK_OwnedCard_2_0 = new global::System.Data.DataRelation("FK_OwnedCard_2_0", new global::System.Data.DataColumn[] {
+                        this.tableCardBase.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOwnedCard.fk_card_idColumn}, false);
+            this.Relations.Add(this.relationFK_OwnedCard_2_0);
+            this.relationFK_Set_0_0 = new global::System.Data.DataRelation("FK_Set_0_0", new global::System.Data.DataColumn[] {
+                        this.tableSetType.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSet.fk_type_idColumn}, false);
+            this.Relations.Add(this.relationFK_Set_0_0);
+            this.relationFK_Set_1_0 = new global::System.Data.DataRelation("FK_Set_1_0", new global::System.Data.DataColumn[] {
                         this.tableBlock.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableSet.fk_block_idColumn}, false);
-            this.Relations.Add(this.relationBlock_Set);
-            this.relationCard_OwnedCard = new global::System.Data.DataRelation("Card_OwnedCard", new global::System.Data.DataColumn[] {
-                        this.tableCard.gatherer_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOwnedCard.fk_card_idColumn}, false);
-            this.Relations.Add(this.relationCard_OwnedCard);
+            this.Relations.Add(this.relationFK_Set_1_0);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -653,12 +653,6 @@ namespace MTGCM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeBlock() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeCard() {
             return false;
         }
         
@@ -719,6 +713,12 @@ namespace MTGCM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeSet() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeSetType() {
             return false;
         }
         
@@ -790,9 +790,6 @@ namespace MTGCM {
         public delegate void BlockRowChangeEventHandler(object sender, BlockRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void CardRowChangeEventHandler(object sender, CardRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void CardBaseRowChangeEventHandler(object sender, CardBaseRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -821,6 +818,9 @@ namespace MTGCM {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SetRowChangeEventHandler(object sender, SetRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void SetTypeRowChangeEventHandler(object sender, SetTypeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void UserRowChangeEventHandler(object sender, UserRowChangeEvent e);
@@ -974,6 +974,7 @@ namespace MTGCM {
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 2147483647;
             }
             
@@ -1383,15 +1384,25 @@ namespace MTGCM {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CardDataTable : global::System.Data.TypedTableBase<CardRow> {
+        public partial class CardBaseDataTable : global::System.Data.TypedTableBase<CardBaseRow> {
             
-            private global::System.Data.DataColumn columngatherer_id;
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnname;
+            
+            private global::System.Data.DataColumn columnoracle_text;
+            
+            private global::System.Data.DataColumn columnpower;
+            
+            private global::System.Data.DataColumn columntoughness;
+            
+            private global::System.Data.DataColumn columnmana_cost;
+            
+            private global::System.Data.DataColumn columncmc;
             
             private global::System.Data.DataColumn columnfk_language_id;
             
-            private global::System.Data.DataColumn columnfk_base_id;
-            
-            private global::System.Data.DataColumn columnartwork;
+            private global::System.Data.DataColumn columnimage;
             
             private global::System.Data.DataColumn columnfk_artist_id;
             
@@ -1407,8 +1418,8 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardDataTable() {
-                this.TableName = "Card";
+            public CardBaseDataTable() {
+                this.TableName = "CardBase";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1416,7 +1427,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal CardDataTable(global::System.Data.DataTable table) {
+            internal CardBaseDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1433,16 +1444,64 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected CardDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CardBaseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn gatherer_idColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columngatherer_id;
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nameColumn {
+                get {
+                    return this.columnname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn oracle_textColumn {
+                get {
+                    return this.columnoracle_text;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn powerColumn {
+                get {
+                    return this.columnpower;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn toughnessColumn {
+                get {
+                    return this.columntoughness;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn mana_costColumn {
+                get {
+                    return this.columnmana_cost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cmcColumn {
+                get {
+                    return this.columncmc;
                 }
             }
             
@@ -1456,17 +1515,9 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fk_base_idColumn {
+            public global::System.Data.DataColumn imageColumn {
                 get {
-                    return this.columnfk_base_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn artworkColumn {
-                get {
-                    return this.columnartwork;
+                    return this.columnimage;
                 }
             }
             
@@ -1529,393 +1580,6 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow this[int index] {
-                get {
-                    return ((CardRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CardRowChangeEventHandler CardRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CardRowChangeEventHandler CardRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CardRowChangeEventHandler CardRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CardRowChangeEventHandler CardRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddCardRow(CardRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow AddCardRow(LanguageRow parentLanguageRowByFK_Card_4_0, CardBaseRow parentCardBaseRowByFK_Card_3_0, string artwork, ArtistRow parentArtistRowByFK_Card_2_0, RarityRow parentRarityRowByFK_Card_1_0, SetRow parentSetRowByFK_Card_0_0, string flavor_text, long number, string version) {
-                CardRow rowCardRow = ((CardRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        null,
-                        artwork,
-                        null,
-                        null,
-                        null,
-                        flavor_text,
-                        number,
-                        version};
-                if ((parentLanguageRowByFK_Card_4_0 != null)) {
-                    columnValuesArray[1] = parentLanguageRowByFK_Card_4_0[0];
-                }
-                if ((parentCardBaseRowByFK_Card_3_0 != null)) {
-                    columnValuesArray[2] = parentCardBaseRowByFK_Card_3_0[0];
-                }
-                if ((parentArtistRowByFK_Card_2_0 != null)) {
-                    columnValuesArray[4] = parentArtistRowByFK_Card_2_0[0];
-                }
-                if ((parentRarityRowByFK_Card_1_0 != null)) {
-                    columnValuesArray[5] = parentRarityRowByFK_Card_1_0[0];
-                }
-                if ((parentSetRowByFK_Card_0_0 != null)) {
-                    columnValuesArray[6] = parentSetRowByFK_Card_0_0[0];
-                }
-                rowCardRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCardRow);
-                return rowCardRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow FindBygatherer_id(long gatherer_id) {
-                return ((CardRow)(this.Rows.Find(new object[] {
-                            gatherer_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CardDataTable cln = ((CardDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CardDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columngatherer_id = base.Columns["gatherer_id"];
-                this.columnfk_language_id = base.Columns["fk_language_id"];
-                this.columnfk_base_id = base.Columns["fk_base_id"];
-                this.columnartwork = base.Columns["artwork"];
-                this.columnfk_artist_id = base.Columns["fk_artist_id"];
-                this.columnfk_rarity_id = base.Columns["fk_rarity_id"];
-                this.columnfk_set_id = base.Columns["fk_set_id"];
-                this.columnflavor_text = base.Columns["flavor_text"];
-                this.columnnumber = base.Columns["number"];
-                this.columnversion = base.Columns["version"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columngatherer_id = new global::System.Data.DataColumn("gatherer_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columngatherer_id);
-                this.columnfk_language_id = new global::System.Data.DataColumn("fk_language_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_language_id);
-                this.columnfk_base_id = new global::System.Data.DataColumn("fk_base_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_base_id);
-                this.columnartwork = new global::System.Data.DataColumn("artwork", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnartwork);
-                this.columnfk_artist_id = new global::System.Data.DataColumn("fk_artist_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_artist_id);
-                this.columnfk_rarity_id = new global::System.Data.DataColumn("fk_rarity_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_rarity_id);
-                this.columnfk_set_id = new global::System.Data.DataColumn("fk_set_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_set_id);
-                this.columnflavor_text = new global::System.Data.DataColumn("flavor_text", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnflavor_text);
-                this.columnnumber = new global::System.Data.DataColumn("number", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnumber);
-                this.columnversion = new global::System.Data.DataColumn("version", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnversion);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columngatherer_id}, true));
-                this.columngatherer_id.AutoIncrement = true;
-                this.columngatherer_id.AutoIncrementSeed = -1;
-                this.columngatherer_id.AutoIncrementStep = -1;
-                this.columngatherer_id.AllowDBNull = false;
-                this.columngatherer_id.Unique = true;
-                this.columnfk_language_id.AllowDBNull = false;
-                this.columnfk_base_id.AllowDBNull = false;
-                this.columnartwork.MaxLength = 2147483647;
-                this.columnflavor_text.MaxLength = 2147483647;
-                this.columnversion.MaxLength = 2147483647;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow NewCardRow() {
-                return ((CardRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CardRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CardRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CardRowChanged != null)) {
-                    this.CardRowChanged(this, new CardRowChangeEvent(((CardRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CardRowChanging != null)) {
-                    this.CardRowChanging(this, new CardRowChangeEvent(((CardRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CardRowDeleted != null)) {
-                    this.CardRowDeleted(this, new CardRowChangeEvent(((CardRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CardRowDeleting != null)) {
-                    this.CardRowDeleting(this, new CardRowChangeEvent(((CardRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveCardRow(CardRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DBDataSet ds = new DBDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CardDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CardBaseDataTable : global::System.Data.TypedTableBase<CardBaseRow> {
-            
-            private global::System.Data.DataColumn columnid;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columntext;
-            
-            private global::System.Data.DataColumn columnflavor;
-            
-            private global::System.Data.DataColumn columnpower;
-            
-            private global::System.Data.DataColumn columntoughness;
-            
-            private global::System.Data.DataColumn columnmana_cost;
-            
-            private global::System.Data.DataColumn columncmc;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardBaseDataTable() {
-                this.TableName = "CardBase";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal CardBaseDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected CardBaseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
-                get {
-                    return this.columnid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn textColumn {
-                get {
-                    return this.columntext;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn flavorColumn {
-                get {
-                    return this.columnflavor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn powerColumn {
-                get {
-                    return this.columnpower;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn toughnessColumn {
-                get {
-                    return this.columntoughness;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn mana_costColumn {
-                get {
-                    return this.columnmana_cost;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cmcColumn {
-                get {
-                    return this.columncmc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CardBaseRow this[int index] {
                 get {
                     return ((CardBaseRow)(this.Rows[index]));
@@ -1942,17 +1606,36 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardBaseRow AddCardBaseRow(string name, string text, string flavor, long power, long toughness, string mana_cost, long cmc) {
+            public CardBaseRow AddCardBaseRow(string name, string oracle_text, string power, string toughness, string mana_cost, decimal cmc, LanguageRow parentLanguageRowByFK_CardBase_3_0, string image, ArtistRow parentArtistRowByFK_CardBase_2_0, RarityRow parentRarityRowByFK_CardBase_1_0, SetRow parentSetRowByFK_CardBase_0_0, string flavor_text, string number, long version) {
                 CardBaseRow rowCardBaseRow = ((CardBaseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
-                        text,
-                        flavor,
+                        oracle_text,
                         power,
                         toughness,
                         mana_cost,
-                        cmc};
+                        cmc,
+                        null,
+                        image,
+                        null,
+                        null,
+                        null,
+                        flavor_text,
+                        number,
+                        version};
+                if ((parentLanguageRowByFK_CardBase_3_0 != null)) {
+                    columnValuesArray[7] = parentLanguageRowByFK_CardBase_3_0[0];
+                }
+                if ((parentArtistRowByFK_CardBase_2_0 != null)) {
+                    columnValuesArray[9] = parentArtistRowByFK_CardBase_2_0[0];
+                }
+                if ((parentRarityRowByFK_CardBase_1_0 != null)) {
+                    columnValuesArray[10] = parentRarityRowByFK_CardBase_1_0[0];
+                }
+                if ((parentSetRowByFK_CardBase_0_0 != null)) {
+                    columnValuesArray[11] = parentSetRowByFK_CardBase_0_0[0];
+                }
                 rowCardBaseRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCardBaseRow);
                 return rowCardBaseRow;
@@ -1984,12 +1667,19 @@ namespace MTGCM {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columnname = base.Columns["name"];
-                this.columntext = base.Columns["text"];
-                this.columnflavor = base.Columns["flavor"];
+                this.columnoracle_text = base.Columns["oracle_text"];
                 this.columnpower = base.Columns["power"];
                 this.columntoughness = base.Columns["toughness"];
                 this.columnmana_cost = base.Columns["mana_cost"];
                 this.columncmc = base.Columns["cmc"];
+                this.columnfk_language_id = base.Columns["fk_language_id"];
+                this.columnimage = base.Columns["image"];
+                this.columnfk_artist_id = base.Columns["fk_artist_id"];
+                this.columnfk_rarity_id = base.Columns["fk_rarity_id"];
+                this.columnfk_set_id = base.Columns["fk_set_id"];
+                this.columnflavor_text = base.Columns["flavor_text"];
+                this.columnnumber = base.Columns["number"];
+                this.columnversion = base.Columns["version"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1999,18 +1689,32 @@ namespace MTGCM {
                 base.Columns.Add(this.columnid);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
-                this.columntext = new global::System.Data.DataColumn("text", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntext);
-                this.columnflavor = new global::System.Data.DataColumn("flavor", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnflavor);
-                this.columnpower = new global::System.Data.DataColumn("power", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnoracle_text = new global::System.Data.DataColumn("oracle_text", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoracle_text);
+                this.columnpower = new global::System.Data.DataColumn("power", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpower);
-                this.columntoughness = new global::System.Data.DataColumn("toughness", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columntoughness = new global::System.Data.DataColumn("toughness", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntoughness);
                 this.columnmana_cost = new global::System.Data.DataColumn("mana_cost", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmana_cost);
-                this.columncmc = new global::System.Data.DataColumn("cmc", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columncmc = new global::System.Data.DataColumn("cmc", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncmc);
+                this.columnfk_language_id = new global::System.Data.DataColumn("fk_language_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfk_language_id);
+                this.columnimage = new global::System.Data.DataColumn("image", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimage);
+                this.columnfk_artist_id = new global::System.Data.DataColumn("fk_artist_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfk_artist_id);
+                this.columnfk_rarity_id = new global::System.Data.DataColumn("fk_rarity_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfk_rarity_id);
+                this.columnfk_set_id = new global::System.Data.DataColumn("fk_set_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfk_set_id);
+                this.columnflavor_text = new global::System.Data.DataColumn("flavor_text", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflavor_text);
+                this.columnnumber = new global::System.Data.DataColumn("number", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumber);
+                this.columnversion = new global::System.Data.DataColumn("version", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnversion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -2020,11 +1724,13 @@ namespace MTGCM {
                 this.columnid.Unique = true;
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 2147483647;
-                this.columntext.MaxLength = 2147483647;
-                this.columnflavor.MaxLength = 2147483647;
-                this.columnpower.AllowDBNull = false;
-                this.columntoughness.AllowDBNull = false;
+                this.columnoracle_text.MaxLength = 2147483647;
+                this.columnpower.MaxLength = 2147483647;
+                this.columntoughness.MaxLength = 2147483647;
                 this.columnmana_cost.MaxLength = 2147483647;
+                this.columnimage.MaxLength = 2147483647;
+                this.columnflavor_text.MaxLength = 2147483647;
+                this.columnnumber.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2822,10 +2528,10 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DeckRow AddDeckRow(long id, string name, UserRow parentUserRowByFK_Deck_0_0, string tags) {
+            public DeckRow AddDeckRow(string name, UserRow parentUserRowByFK_Deck_0_0, string tags) {
                 DeckRow rowDeckRow = ((DeckRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         name,
                         null,
                         tags};
@@ -2880,8 +2586,12 @@ namespace MTGCM {
                 base.Columns.Add(this.columntags);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 2147483647;
                 this.columntags.MaxLength = 2147483647;
             }
@@ -3173,6 +2883,7 @@ namespace MTGCM {
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 2147483647;
                 this.columnabbrev.MaxLength = 2147483647;
             }
@@ -4038,7 +3749,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OwnedCardRow AddOwnedCardRow(CardRow parentCardRowByCard_OwnedCard, UserRow parentUserRowByFK_OwnedCard_1_0, DeckRow parentDeckRowByFK_OwnedCard_0_0, bool foil, bool signed, long condition, bool altered, string tags, string comment) {
+            public OwnedCardRow AddOwnedCardRow(CardBaseRow parentCardBaseRowByFK_OwnedCard_2_0, UserRow parentUserRowByFK_OwnedCard_1_0, DeckRow parentDeckRowByFK_OwnedCard_0_0, bool foil, bool signed, long condition, bool altered, string tags, string comment) {
                 OwnedCardRow rowOwnedCardRow = ((OwnedCardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4051,8 +3762,8 @@ namespace MTGCM {
                         altered,
                         tags,
                         comment};
-                if ((parentCardRowByCard_OwnedCard != null)) {
-                    columnValuesArray[1] = parentCardRowByCard_OwnedCard[0];
+                if ((parentCardBaseRowByFK_OwnedCard_2_0 != null)) {
+                    columnValuesArray[1] = parentCardBaseRowByFK_OwnedCard_2_0[0];
                 }
                 if ((parentUserRowByFK_OwnedCard_1_0 != null)) {
                     columnValuesArray[2] = parentUserRowByFK_OwnedCard_1_0[0];
@@ -4131,6 +3842,7 @@ namespace MTGCM {
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnfk_card_id.AllowDBNull = false;
                 this.columntags.MaxLength = 2147483647;
                 this.columncomment.MaxLength = 2147483647;
             }
@@ -4572,9 +4284,7 @@ namespace MTGCM {
             
             private global::System.Data.DataColumn columncards_total;
             
-            private global::System.Data.DataColumn columnis_core;
-            
-            private global::System.Data.DataColumn columnis_special;
+            private global::System.Data.DataColumn columnfk_type_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4667,17 +4377,9 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn is_coreColumn {
+            public global::System.Data.DataColumn fk_type_idColumn {
                 get {
-                    return this.columnis_core;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn is_specialColumn {
-                get {
-                    return this.columnis_special;
+                    return this.columnfk_type_id;
                 }
             }
             
@@ -4718,7 +4420,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SetRow AddSetRow(string name, string abbrev, string symbol, System.DateTime relase_date, BlockRow parentBlockRowByBlock_Set, long cards_total, bool is_core, bool is_special) {
+            public SetRow AddSetRow(string name, string abbrev, string symbol, System.DateTime relase_date, BlockRow parentBlockRowByFK_Set_1_0, long cards_total, SetTypeRow parentSetTypeRowByFK_Set_0_0) {
                 SetRow rowSetRow = ((SetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4728,10 +4430,12 @@ namespace MTGCM {
                         relase_date,
                         null,
                         cards_total,
-                        is_core,
-                        is_special};
-                if ((parentBlockRowByBlock_Set != null)) {
-                    columnValuesArray[5] = parentBlockRowByBlock_Set[0];
+                        null};
+                if ((parentBlockRowByFK_Set_1_0 != null)) {
+                    columnValuesArray[5] = parentBlockRowByFK_Set_1_0[0];
+                }
+                if ((parentSetTypeRowByFK_Set_0_0 != null)) {
+                    columnValuesArray[7] = parentSetTypeRowByFK_Set_0_0[0];
                 }
                 rowSetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSetRow);
@@ -4769,8 +4473,7 @@ namespace MTGCM {
                 this.columnrelase_date = base.Columns["relase_date"];
                 this.columnfk_block_id = base.Columns["fk_block_id"];
                 this.columncards_total = base.Columns["cards_total"];
-                this.columnis_core = base.Columns["is_core"];
-                this.columnis_special = base.Columns["is_special"];
+                this.columnfk_type_id = base.Columns["fk_type_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4790,10 +4493,8 @@ namespace MTGCM {
                 base.Columns.Add(this.columnfk_block_id);
                 this.columncards_total = new global::System.Data.DataColumn("cards_total", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncards_total);
-                this.columnis_core = new global::System.Data.DataColumn("is_core", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnis_core);
-                this.columnis_special = new global::System.Data.DataColumn("is_special", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnis_special);
+                this.columnfk_type_id = new global::System.Data.DataColumn("fk_type_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfk_type_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -4891,6 +4592,283 @@ namespace MTGCM {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "SetDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SetTypeDataTable : global::System.Data.TypedTableBase<SetTypeRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnname;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeDataTable() {
+                this.TableName = "SetType";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal SetTypeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected SetTypeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nameColumn {
+                get {
+                    return this.columnname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeRow this[int index] {
+                get {
+                    return ((SetTypeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SetTypeRowChangeEventHandler SetTypeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SetTypeRowChangeEventHandler SetTypeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SetTypeRowChangeEventHandler SetTypeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SetTypeRowChangeEventHandler SetTypeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddSetTypeRow(SetTypeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeRow AddSetTypeRow(string name) {
+                SetTypeRow rowSetTypeRow = ((SetTypeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        name};
+                rowSetTypeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSetTypeRow);
+                return rowSetTypeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeRow FindByid(long id) {
+                return ((SetTypeRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SetTypeDataTable cln = ((SetTypeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SetTypeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnname = base.Columns["name"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
+                this.columnname.AllowDBNull = false;
+                this.columnname.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeRow NewSetTypeRow() {
+                return ((SetTypeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SetTypeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SetTypeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SetTypeRowChanged != null)) {
+                    this.SetTypeRowChanged(this, new SetTypeRowChangeEvent(((SetTypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SetTypeRowChanging != null)) {
+                    this.SetTypeRowChanging(this, new SetTypeRowChangeEvent(((SetTypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SetTypeRowDeleted != null)) {
+                    this.SetTypeRowDeleted(this, new SetTypeRowChangeEvent(((SetTypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SetTypeRowDeleting != null)) {
+                    this.SetTypeRowDeleting(this, new SetTypeRowChangeEvent(((SetTypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveSetTypeRow(SetTypeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DBDataSet ds = new DBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SetTypeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5094,6 +5072,7 @@ namespace MTGCM {
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
+                this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 2147483647;
                 this.columnpassword.MaxLength = 2147483647;
             }
@@ -5251,12 +5230,7 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string name {
                 get {
-                    try {
-                        return ((string)(this[this.tableArtist.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'Artist\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableArtist.nameColumn]));
                 }
                 set {
                     this[this.tableArtist.nameColumn] = value;
@@ -5265,24 +5239,12 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableArtist.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableArtist.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_2_0"] == null)) {
-                    return new CardRow[0];
+            public CardBaseRow[] GetCardBaseRows() {
+                if ((this.Table.ChildRelations["FK_CardBase_2_0"] == null)) {
+                    return new CardBaseRow[0];
                 }
                 else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_2_0"])));
+                    return ((CardBaseRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CardBase_2_0"])));
                 }
             }
         }
@@ -5326,321 +5288,11 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SetRow[] GetSetRows() {
-                if ((this.Table.ChildRelations["Block_Set"] == null)) {
+                if ((this.Table.ChildRelations["FK_Set_1_0"] == null)) {
                     return new SetRow[0];
                 }
                 else {
-                    return ((SetRow[])(base.GetChildRows(this.Table.ChildRelations["Block_Set"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class CardRow : global::System.Data.DataRow {
-            
-            private CardDataTable tableCard;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal CardRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCard = ((CardDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long gatherer_id {
-                get {
-                    return ((long)(this[this.tableCard.gatherer_idColumn]));
-                }
-                set {
-                    this[this.tableCard.gatherer_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long fk_language_id {
-                get {
-                    return ((long)(this[this.tableCard.fk_language_idColumn]));
-                }
-                set {
-                    this[this.tableCard.fk_language_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long fk_base_id {
-                get {
-                    return ((long)(this[this.tableCard.fk_base_idColumn]));
-                }
-                set {
-                    this[this.tableCard.fk_base_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string artwork {
-                get {
-                    try {
-                        return ((string)(this[this.tableCard.artworkColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'artwork\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.artworkColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long fk_artist_id {
-                get {
-                    try {
-                        return ((long)(this[this.tableCard.fk_artist_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fk_artist_id\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.fk_artist_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long fk_rarity_id {
-                get {
-                    try {
-                        return ((long)(this[this.tableCard.fk_rarity_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fk_rarity_id\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.fk_rarity_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long fk_set_id {
-                get {
-                    try {
-                        return ((long)(this[this.tableCard.fk_set_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fk_set_id\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.fk_set_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string flavor_text {
-                get {
-                    try {
-                        return ((string)(this[this.tableCard.flavor_textColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'flavor_text\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.flavor_textColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long number {
-                get {
-                    try {
-                        return ((long)(this[this.tableCard.numberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'number\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.numberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string version {
-                get {
-                    try {
-                        return ((string)(this[this.tableCard.versionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'version\' in table \'Card\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCard.versionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SetRow SetRow {
-                get {
-                    return ((SetRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_0_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Card_0_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RarityRow RarityRow {
-                get {
-                    return ((RarityRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_1_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Card_1_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ArtistRow ArtistRow {
-                get {
-                    return ((ArtistRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_2_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Card_2_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardBaseRow CardBaseRow {
-                get {
-                    return ((CardBaseRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_3_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Card_3_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LanguageRow LanguageRow {
-                get {
-                    return ((LanguageRow)(this.GetParentRow(this.Table.ParentRelations["FK_Card_4_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Card_4_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsartworkNull() {
-                return this.IsNull(this.tableCard.artworkColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetartworkNull() {
-                this[this.tableCard.artworkColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isfk_artist_idNull() {
-                return this.IsNull(this.tableCard.fk_artist_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setfk_artist_idNull() {
-                this[this.tableCard.fk_artist_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isfk_rarity_idNull() {
-                return this.IsNull(this.tableCard.fk_rarity_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setfk_rarity_idNull() {
-                this[this.tableCard.fk_rarity_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isfk_set_idNull() {
-                return this.IsNull(this.tableCard.fk_set_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setfk_set_idNull() {
-                this[this.tableCard.fk_set_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isflavor_textNull() {
-                return this.IsNull(this.tableCard.flavor_textColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setflavor_textNull() {
-                this[this.tableCard.flavor_textColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnumberNull() {
-                return this.IsNull(this.tableCard.numberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnumberNull() {
-                this[this.tableCard.numberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsversionNull() {
-                return this.IsNull(this.tableCard.versionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetversionNull() {
-                this[this.tableCard.versionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OwnedCardRow[] GetOwnedCardRows() {
-                if ((this.Table.ChildRelations["Card_OwnedCard"] == null)) {
-                    return new OwnedCardRow[0];
-                }
-                else {
-                    return ((OwnedCardRow[])(base.GetChildRows(this.Table.ChildRelations["Card_OwnedCard"])));
+                    return ((SetRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Set_1_0"])));
                 }
             }
         }
@@ -5683,41 +5335,30 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string text {
+            public string oracle_text {
                 get {
                     try {
-                        return ((string)(this[this.tableCardBase.textColumn]));
+                        return ((string)(this[this.tableCardBase.oracle_textColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'text\' in table \'CardBase\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'oracle_text\' in table \'CardBase\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCardBase.textColumn] = value;
+                    this[this.tableCardBase.oracle_textColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string flavor {
+            public string power {
                 get {
                     try {
-                        return ((string)(this[this.tableCardBase.flavorColumn]));
+                        return ((string)(this[this.tableCardBase.powerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'flavor\' in table \'CardBase\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'power\' in table \'CardBase\' is DBNull.", e);
                     }
-                }
-                set {
-                    this[this.tableCardBase.flavorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long power {
-                get {
-                    return ((long)(this[this.tableCardBase.powerColumn]));
                 }
                 set {
                     this[this.tableCardBase.powerColumn] = value;
@@ -5726,9 +5367,14 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long toughness {
+            public string toughness {
                 get {
-                    return ((long)(this[this.tableCardBase.toughnessColumn]));
+                    try {
+                        return ((string)(this[this.tableCardBase.toughnessColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'toughness\' in table \'CardBase\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableCardBase.toughnessColumn] = value;
@@ -5753,10 +5399,10 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long cmc {
+            public decimal cmc {
                 get {
                     try {
-                        return ((long)(this[this.tableCardBase.cmcColumn]));
+                        return ((decimal)(this[this.tableCardBase.cmcColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cmc\' in table \'CardBase\' is DBNull.", e);
@@ -5769,26 +5415,210 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IstextNull() {
-                return this.IsNull(this.tableCardBase.textColumn);
+            public long fk_language_id {
+                get {
+                    try {
+                        return ((long)(this[this.tableCardBase.fk_language_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fk_language_id\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.fk_language_idColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SettextNull() {
-                this[this.tableCardBase.textColumn] = global::System.Convert.DBNull;
+            public string image {
+                get {
+                    try {
+                        return ((string)(this[this.tableCardBase.imageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'image\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.imageColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsflavorNull() {
-                return this.IsNull(this.tableCardBase.flavorColumn);
+            public long fk_artist_id {
+                get {
+                    try {
+                        return ((long)(this[this.tableCardBase.fk_artist_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fk_artist_id\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.fk_artist_idColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetflavorNull() {
-                this[this.tableCardBase.flavorColumn] = global::System.Convert.DBNull;
+            public long fk_rarity_id {
+                get {
+                    try {
+                        return ((long)(this[this.tableCardBase.fk_rarity_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fk_rarity_id\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.fk_rarity_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long fk_set_id {
+                get {
+                    try {
+                        return ((long)(this[this.tableCardBase.fk_set_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fk_set_id\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.fk_set_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string flavor_text {
+                get {
+                    try {
+                        return ((string)(this[this.tableCardBase.flavor_textColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'flavor_text\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.flavor_textColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string number {
+                get {
+                    try {
+                        return ((string)(this[this.tableCardBase.numberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'number\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.numberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long version {
+                get {
+                    try {
+                        return ((long)(this[this.tableCardBase.versionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'version\' in table \'CardBase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCardBase.versionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetRow SetRow {
+                get {
+                    return ((SetRow)(this.GetParentRow(this.Table.ParentRelations["FK_CardBase_0_0"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CardBase_0_0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RarityRow RarityRow {
+                get {
+                    return ((RarityRow)(this.GetParentRow(this.Table.ParentRelations["FK_CardBase_1_0"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CardBase_1_0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ArtistRow ArtistRow {
+                get {
+                    return ((ArtistRow)(this.GetParentRow(this.Table.ParentRelations["FK_CardBase_2_0"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CardBase_2_0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LanguageRow LanguageRow {
+                get {
+                    return ((LanguageRow)(this.GetParentRow(this.Table.ParentRelations["FK_CardBase_3_0"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CardBase_3_0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isoracle_textNull() {
+                return this.IsNull(this.tableCardBase.oracle_textColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setoracle_textNull() {
+                this[this.tableCardBase.oracle_textColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspowerNull() {
+                return this.IsNull(this.tableCardBase.powerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpowerNull() {
+                this[this.tableCardBase.powerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstoughnessNull() {
+                return this.IsNull(this.tableCardBase.toughnessColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettoughnessNull() {
+                this[this.tableCardBase.toughnessColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5817,13 +5647,98 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_3_0"] == null)) {
-                    return new CardRow[0];
-                }
-                else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_3_0"])));
-                }
+            public bool Isfk_language_idNull() {
+                return this.IsNull(this.tableCardBase.fk_language_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfk_language_idNull() {
+                this[this.tableCardBase.fk_language_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsimageNull() {
+                return this.IsNull(this.tableCardBase.imageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetimageNull() {
+                this[this.tableCardBase.imageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfk_artist_idNull() {
+                return this.IsNull(this.tableCardBase.fk_artist_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfk_artist_idNull() {
+                this[this.tableCardBase.fk_artist_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfk_rarity_idNull() {
+                return this.IsNull(this.tableCardBase.fk_rarity_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfk_rarity_idNull() {
+                this[this.tableCardBase.fk_rarity_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfk_set_idNull() {
+                return this.IsNull(this.tableCardBase.fk_set_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfk_set_idNull() {
+                this[this.tableCardBase.fk_set_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isflavor_textNull() {
+                return this.IsNull(this.tableCardBase.flavor_textColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setflavor_textNull() {
+                this[this.tableCardBase.flavor_textColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnumberNull() {
+                return this.IsNull(this.tableCardBase.numberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnumberNull() {
+                this[this.tableCardBase.numberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsversionNull() {
+                return this.IsNull(this.tableCardBase.versionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetversionNull() {
+                this[this.tableCardBase.versionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5845,6 +5760,17 @@ namespace MTGCM {
                 }
                 else {
                     return ((LinkTypeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_LinkType_0_0"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OwnedCardRow[] GetOwnedCardRows() {
+                if ((this.Table.ChildRelations["FK_OwnedCard_2_0"] == null)) {
+                    return new OwnedCardRow[0];
+                }
+                else {
+                    return ((OwnedCardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OwnedCard_2_0"])));
                 }
             }
         }
@@ -5974,12 +5900,7 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string name {
                 get {
-                    try {
-                        return ((string)(this[this.tableDeck.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'Deck\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDeck.nameColumn]));
                 }
                 set {
                     this[this.tableDeck.nameColumn] = value;
@@ -6027,18 +5948,6 @@ namespace MTGCM {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Deck_0_0"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableDeck.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableDeck.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6106,12 +6015,7 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string name {
                 get {
-                    try {
-                        return ((string)(this[this.tableLanguage.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'Language\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableLanguage.nameColumn]));
                 }
                 set {
                     this[this.tableLanguage.nameColumn] = value;
@@ -6136,18 +6040,6 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableLanguage.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableLanguage.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsabbrevNull() {
                 return this.IsNull(this.tableLanguage.abbrevColumn);
             }
@@ -6160,12 +6052,12 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_4_0"] == null)) {
-                    return new CardRow[0];
+            public CardBaseRow[] GetCardBaseRows() {
+                if ((this.Table.ChildRelations["FK_CardBase_3_0"] == null)) {
+                    return new CardBaseRow[0];
                 }
                 else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_4_0"])));
+                    return ((CardBaseRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CardBase_3_0"])));
                 }
             }
         }
@@ -6317,12 +6209,7 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public long fk_card_id {
                 get {
-                    try {
-                        return ((long)(this[this.tableOwnedCard.fk_card_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fk_card_id\' in table \'OwnedCard\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tableOwnedCard.fk_card_idColumn]));
                 }
                 set {
                     this[this.tableOwnedCard.fk_card_idColumn] = value;
@@ -6481,25 +6368,13 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow CardRow {
+            public CardBaseRow CardBaseRow {
                 get {
-                    return ((CardRow)(this.GetParentRow(this.Table.ParentRelations["Card_OwnedCard"])));
+                    return ((CardBaseRow)(this.GetParentRow(this.Table.ParentRelations["FK_OwnedCard_2_0"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Card_OwnedCard"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OwnedCard_2_0"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isfk_card_idNull() {
-                return this.IsNull(this.tableOwnedCard.fk_card_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setfk_card_idNull() {
-                this[this.tableOwnedCard.fk_card_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6665,12 +6540,12 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_1_0"] == null)) {
-                    return new CardRow[0];
+            public CardBaseRow[] GetCardBaseRows() {
+                if ((this.Table.ChildRelations["FK_CardBase_1_0"] == null)) {
+                    return new CardBaseRow[0];
                 }
                 else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_1_0"])));
+                    return ((CardBaseRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CardBase_1_0"])));
                 }
             }
         }
@@ -6793,33 +6668,28 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool is_core {
+            public long fk_type_id {
                 get {
                     try {
-                        return ((bool)(this[this.tableSet.is_coreColumn]));
+                        return ((long)(this[this.tableSet.fk_type_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'is_core\' in table \'Set\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'fk_type_id\' in table \'Set\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSet.is_coreColumn] = value;
+                    this[this.tableSet.fk_type_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool is_special {
+            public SetTypeRow SetTypeRow {
                 get {
-                    try {
-                        return ((bool)(this[this.tableSet.is_specialColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'is_special\' in table \'Set\' is DBNull.", e);
-                    }
+                    return ((SetTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_Set_0_0"])));
                 }
                 set {
-                    this[this.tableSet.is_specialColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Set_0_0"]);
                 }
             }
             
@@ -6827,10 +6697,10 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BlockRow BlockRow {
                 get {
-                    return ((BlockRow)(this.GetParentRow(this.Table.ParentRelations["Block_Set"])));
+                    return ((BlockRow)(this.GetParentRow(this.Table.ParentRelations["FK_Set_1_0"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Block_Set"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Set_1_0"]);
                 }
             }
             
@@ -6896,36 +6766,72 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isis_coreNull() {
-                return this.IsNull(this.tableSet.is_coreColumn);
+            public bool Isfk_type_idNull() {
+                return this.IsNull(this.tableSet.fk_type_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setis_coreNull() {
-                this[this.tableSet.is_coreColumn] = global::System.Convert.DBNull;
+            public void Setfk_type_idNull() {
+                this[this.tableSet.fk_type_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isis_specialNull() {
-                return this.IsNull(this.tableSet.is_specialColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setis_specialNull() {
-                this[this.tableSet.is_specialColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow[] GetCardRows() {
-                if ((this.Table.ChildRelations["FK_Card_0_0"] == null)) {
-                    return new CardRow[0];
+            public CardBaseRow[] GetCardBaseRows() {
+                if ((this.Table.ChildRelations["FK_CardBase_0_0"] == null)) {
+                    return new CardBaseRow[0];
                 }
                 else {
-                    return ((CardRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Card_0_0"])));
+                    return ((CardBaseRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CardBase_0_0"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SetTypeRow : global::System.Data.DataRow {
+            
+            private SetTypeDataTable tableSetType;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal SetTypeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSetType = ((SetTypeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long id {
+                get {
+                    return ((long)(this[this.tableSetType.idColumn]));
+                }
+                set {
+                    this[this.tableSetType.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string name {
+                get {
+                    return ((string)(this[this.tableSetType.nameColumn]));
+                }
+                set {
+                    this[this.tableSetType.nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetRow[] GetSetRows() {
+                if ((this.Table.ChildRelations["FK_Set_0_0"] == null)) {
+                    return new SetRow[0];
+                }
+                else {
+                    return ((SetRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Set_0_0"])));
                 }
             }
         }
@@ -6959,12 +6865,7 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string name {
                 get {
-                    try {
-                        return ((string)(this[this.tableUser.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'User\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableUser.nameColumn]));
                 }
                 set {
                     this[this.tableUser.nameColumn] = value;
@@ -6985,18 +6886,6 @@ namespace MTGCM {
                 set {
                     this[this.tableUser.passwordColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableUser.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableUser.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7088,40 +6977,6 @@ namespace MTGCM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BlockRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class CardRowChangeEvent : global::System.EventArgs {
-            
-            private CardRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRowChangeEvent(CardRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CardRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7480,6 +7335,40 @@ namespace MTGCM {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class SetTypeRowChangeEvent : global::System.EventArgs {
+            
+            private SetTypeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeRowChangeEvent(SetTypeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SetTypeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class UserRowChangeEvent : global::System.EventArgs {
             
             private UserRow eventRow;
@@ -7641,7 +7530,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[Artist] WHERE (([id] = @Original_id) " +
-                "AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)))";
+                "AND ([name] = @Original_name))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -7649,14 +7538,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -7676,8 +7557,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[Artist] SET [name] = @name WHERE (([id] = " +
-                "@Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_" +
-                "name)))";
+                "@Original_id) AND ([name] = @Original_name))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -7692,14 +7572,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "name";
@@ -7711,7 +7583,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7784,12 +7656,10 @@ namespace MTGCM.DBDataSetTableAdapters {
         public virtual int Delete(long Original_id, string Original_name) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7813,7 +7683,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(string name) {
             if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
@@ -7840,19 +7710,17 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string name, long Original_id, string Original_name) {
             if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8051,7 +7919,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8216,860 +8084,6 @@ namespace MTGCM.DBDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CardTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
-        
-        private global::System.Data.SQLite.SQLiteConnection _connection;
-        
-        private global::System.Data.SQLite.SQLiteTransaction _transaction;
-        
-        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public CardTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Card";
-            tableMapping.ColumnMappings.Add("gatherer_id", "gatherer_id");
-            tableMapping.ColumnMappings.Add("fk_language_id", "fk_language_id");
-            tableMapping.ColumnMappings.Add("fk_base_id", "fk_base_id");
-            tableMapping.ColumnMappings.Add("artwork", "artwork");
-            tableMapping.ColumnMappings.Add("fk_artist_id", "fk_artist_id");
-            tableMapping.ColumnMappings.Add("fk_rarity_id", "fk_rarity_id");
-            tableMapping.ColumnMappings.Add("fk_set_id", "fk_set_id");
-            tableMapping.ColumnMappings.Add("flavor_text", "flavor_text");
-            tableMapping.ColumnMappings.Add("number", "number");
-            tableMapping.ColumnMappings.Add("version", "version");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Card] WHERE (([gatherer_id] = @Original_gatherer_id) AND ([fk_language_id] = @Original_fk_language_id) AND ([fk_base_id] = @Original_fk_base_id) AND ((@IsNull_artwork = 1 AND [artwork] IS NULL) OR ([artwork] = @Original_artwork)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_gatherer_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "gatherer_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_base_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_base_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_artwork";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "artwork";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_artwork";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "artwork";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_artist_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_artist_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_artist_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_artist_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_rarity_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_rarity_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_rarity_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_rarity_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_set_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_set_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_set_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_set_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_flavor_text";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "flavor_text";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_flavor_text";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor_text";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_number";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "number";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_number";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "number";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_version";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "version";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_version";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "version";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[Card] ([fk_language_id], [fk_base_id], [artwork], [fk_artist_id], [fk_rarity_id], [fk_set_id], [flavor_text], [number], [version]) VALUES (@fk_language_id, @fk_base_id, @artwork, @fk_artist_id, @fk_rarity_id, @fk_set_id, @flavor_text, @number, @version)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_base_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_base_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@artwork";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "artwork";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_artist_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_artist_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_rarity_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_rarity_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_set_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_set_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@flavor_text";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor_text";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@number";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "number";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@version";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "version";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Card] SET [fk_language_id] = @fk_language_id, [fk_base_id] = @fk_base_id, [artwork] = @artwork, [fk_artist_id] = @fk_artist_id, [fk_rarity_id] = @fk_rarity_id, [fk_set_id] = @fk_set_id, [flavor_text] = @flavor_text, [number] = @number, [version] = @version WHERE (([gatherer_id] = @Original_gatherer_id) AND ([fk_language_id] = @Original_fk_language_id) AND ([fk_base_id] = @Original_fk_base_id) AND ((@IsNull_artwork = 1 AND [artwork] IS NULL) OR ([artwork] = @Original_artwork)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_base_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_base_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@artwork";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "artwork";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_artist_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_artist_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_rarity_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_rarity_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fk_set_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_set_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@flavor_text";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor_text";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@number";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "number";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@version";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "version";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_gatherer_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "gatherer_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_language_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_language_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_base_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_base_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_artwork";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "artwork";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_artwork";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "artwork";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_artist_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_artist_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_artist_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_artist_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_rarity_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_rarity_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_rarity_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_rarity_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_set_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_set_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fk_set_id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "fk_set_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_flavor_text";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "flavor_text";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_flavor_text";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor_text";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_number";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "number";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_number";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "number";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_version";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "version";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_version";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "version";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
-            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [gatherer_id], [fk_language_id], [fk_base_id], [artwork], [fk_artist_id], " +
-                "[fk_rarity_id], [fk_set_id], [flavor_text], [number], [version] FROM [Card]";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DBDataSet.CardDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DBDataSet.CardDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DBDataSet.CardDataTable dataTable = new DBDataSet.CardDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet.CardDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Card");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_gatherer_id, long Original_fk_language_id, long Original_fk_base_id, string Original_artwork, global::System.Nullable<long> Original_fk_artist_id, global::System.Nullable<long> Original_fk_rarity_id, global::System.Nullable<long> Original_fk_set_id, string Original_flavor_text, global::System.Nullable<long> Original_number, string Original_version) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_gatherer_id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_fk_language_id));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_fk_base_id));
-            if ((Original_artwork == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_artwork));
-            }
-            if ((Original_fk_artist_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((long)(Original_fk_artist_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_fk_rarity_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((long)(Original_fk_rarity_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_fk_set_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((long)(Original_fk_set_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_flavor_text == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_flavor_text));
-            }
-            if ((Original_number.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((long)(Original_number.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_version == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_version));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long fk_language_id, long fk_base_id, string artwork, global::System.Nullable<long> fk_artist_id, global::System.Nullable<long> fk_rarity_id, global::System.Nullable<long> fk_set_id, string flavor_text, global::System.Nullable<long> number, string version) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(fk_language_id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fk_base_id));
-            if ((artwork == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(artwork));
-            }
-            if ((fk_artist_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((long)(fk_artist_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((fk_rarity_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((long)(fk_rarity_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((fk_set_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((long)(fk_set_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((flavor_text == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(flavor_text));
-            }
-            if ((number.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((long)(number.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((version == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(version));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    long fk_language_id, 
-                    long fk_base_id, 
-                    string artwork, 
-                    global::System.Nullable<long> fk_artist_id, 
-                    global::System.Nullable<long> fk_rarity_id, 
-                    global::System.Nullable<long> fk_set_id, 
-                    string flavor_text, 
-                    global::System.Nullable<long> number, 
-                    string version, 
-                    long Original_gatherer_id, 
-                    long Original_fk_language_id, 
-                    long Original_fk_base_id, 
-                    string Original_artwork, 
-                    global::System.Nullable<long> Original_fk_artist_id, 
-                    global::System.Nullable<long> Original_fk_rarity_id, 
-                    global::System.Nullable<long> Original_fk_set_id, 
-                    string Original_flavor_text, 
-                    global::System.Nullable<long> Original_number, 
-                    string Original_version) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(fk_language_id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fk_base_id));
-            if ((artwork == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(artwork));
-            }
-            if ((fk_artist_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(fk_artist_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((fk_rarity_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(fk_rarity_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((fk_set_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(fk_set_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((flavor_text == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(flavor_text));
-            }
-            if ((number.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(number.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((version == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(version));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_gatherer_id));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_fk_language_id));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_fk_base_id));
-            if ((Original_artwork == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_artwork));
-            }
-            if ((Original_fk_artist_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((long)(Original_fk_artist_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_fk_rarity_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((long)(Original_fk_rarity_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Original_fk_set_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((long)(Original_fk_set_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_flavor_text == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_flavor_text));
-            }
-            if ((Original_number.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((long)(Original_number.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Original_version == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_version));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class CardBaseTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
@@ -9184,16 +8198,23 @@ namespace MTGCM.DBDataSetTableAdapters {
             tableMapping.DataSetTable = "CardBase";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("text", "text");
-            tableMapping.ColumnMappings.Add("flavor", "flavor");
+            tableMapping.ColumnMappings.Add("oracle_text", "oracle_text");
             tableMapping.ColumnMappings.Add("power", "power");
             tableMapping.ColumnMappings.Add("toughness", "toughness");
             tableMapping.ColumnMappings.Add("mana_cost", "mana_cost");
             tableMapping.ColumnMappings.Add("cmc", "cmc");
+            tableMapping.ColumnMappings.Add("fk_language_id", "fk_language_id");
+            tableMapping.ColumnMappings.Add("image", "image");
+            tableMapping.ColumnMappings.Add("fk_artist_id", "fk_artist_id");
+            tableMapping.ColumnMappings.Add("fk_rarity_id", "fk_rarity_id");
+            tableMapping.ColumnMappings.Add("fk_set_id", "fk_set_id");
+            tableMapping.ColumnMappings.Add("flavor_text", "flavor_text");
+            tableMapping.ColumnMappings.Add("number", "number");
+            tableMapping.ColumnMappings.Add("version", "version");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[CardBase] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_text = 1 AND [text] IS NULL) OR ([text] = @Original_text)) AND ((@IsNull_flavor = 1 AND [flavor] IS NULL) OR ([flavor] = @Original_flavor)) AND ([power] = @Original_power) AND ([toughness] = @Original_toughness) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[CardBase] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_oracle_text = 1 AND [oracle_text] IS NULL) OR ([oracle_text] = @Original_oracle_text)) AND ((@IsNull_power = 1 AND [power] IS NULL) OR ([power] = @Original_power)) AND ((@IsNull_toughness = 1 AND [toughness] IS NULL) OR ([toughness] = @Original_toughness)) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)) AND ((@IsNull_fk_language_id = 1 AND [fk_language_id] IS NULL) OR ([fk_language_id] = @Original_fk_language_id)) AND ((@IsNull_image = 1 AND [image] IS NULL) OR ([image] = @Original_image)) AND ((@IsNull_fk_artist_id = 1 AND [fk_artist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rarity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = @Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) OR ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number] IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [version] IS NULL) OR ([version] = @Original_version)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -9209,44 +8230,44 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_text";
+            param.ParameterName = "@IsNull_oracle_text";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "text";
+            param.SourceColumn = "oracle_text";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_text";
+            param.ParameterName = "@Original_oracle_text";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "text";
+            param.SourceColumn = "oracle_text";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_flavor";
+            param.ParameterName = "@IsNull_power";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "flavor";
+            param.SourceColumn = "power";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_power";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "power";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_toughness";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "toughness";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_toughness";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "toughness";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -9274,16 +8295,131 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_cmc";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
             param.SourceColumn = "cmc";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_language_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_language_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_image";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "image";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_image";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "image";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_artist_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_artist_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_artist_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_artist_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_rarity_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_rarity_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_rarity_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_rarity_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_set_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_set_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_set_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_set_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_flavor_text";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "flavor_text";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_flavor_text";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "flavor_text";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_number";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "number";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_number";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "number";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_version";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "version";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_version";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "version";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[CardBase] ([name], [text], [flavor], " +
-                "[power], [toughness], [mana_cost], [cmc]) VALUES (@name, @text, @flavor, @power," +
-                " @toughness, @mana_cost, @cmc)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[CardBase] ([name], [oracle_text], [power], [toughness], [mana_cost], [cmc], [fk_language_id], [image], [fk_artist_id], [fk_rarity_id], [fk_set_id], [flavor_text], [number], [version]) VALUES (@name, @oracle_text, @power, @toughness, @mana_cost, @cmc, @fk_language_id, @image, @fk_artist_id, @fk_rarity_id, @fk_set_id, @flavor_text, @number, @version)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -9291,25 +8427,18 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "name";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@text";
+            param.ParameterName = "@oracle_text";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "text";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
+            param.SourceColumn = "oracle_text";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@power";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "power";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@toughness";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "toughness";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -9319,13 +8448,78 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@cmc";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
             param.SourceColumn = "cmc";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@image";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "image";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_artist_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_artist_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_rarity_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_rarity_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_set_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_set_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@flavor_text";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "flavor_text";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@number";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "number";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@version";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "version";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[CardBase] SET [name] = @name, [text] = @text, [flavor] = @flavor, [power] = @power, [toughness] = @toughness, [mana_cost] = @mana_cost, [cmc] = @cmc WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_text = 1 AND [text] IS NULL) OR ([text] = @Original_text)) AND ((@IsNull_flavor = 1 AND [flavor] IS NULL) OR ([flavor] = @Original_flavor)) AND ([power] = @Original_power) AND ([toughness] = @Original_toughness) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @Original_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Original_cmc)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[CardBase] SET [name] = @name, [oracle_text" +
+                "] = @oracle_text, [power] = @power, [toughness] = @toughness, [mana_cost] = @man" +
+                "a_cost, [cmc] = @cmc, [fk_language_id] = @fk_language_id, [image] = @image, [fk_" +
+                "artist_id] = @fk_artist_id, [fk_rarity_id] = @fk_rarity_id, [fk_set_id] = @fk_se" +
+                "t_id, [flavor_text] = @flavor_text, [number] = @number, [version] = @version WHE" +
+                "RE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_oracle_tex" +
+                "t = 1 AND [oracle_text] IS NULL) OR ([oracle_text] = @Original_oracle_text)) AND" +
+                " ((@IsNull_power = 1 AND [power] IS NULL) OR ([power] = @Original_power)) AND ((" +
+                "@IsNull_toughness = 1 AND [toughness] IS NULL) OR ([toughness] = @Original_tough" +
+                "ness)) AND ((@IsNull_mana_cost = 1 AND [mana_cost] IS NULL) OR ([mana_cost] = @O" +
+                "riginal_mana_cost)) AND ((@IsNull_cmc = 1 AND [cmc] IS NULL) OR ([cmc] = @Origin" +
+                "al_cmc)) AND ((@IsNull_fk_language_id = 1 AND [fk_language_id] IS NULL) OR ([fk_" +
+                "language_id] = @Original_fk_language_id)) AND ((@IsNull_image = 1 AND [image] IS" +
+                " NULL) OR ([image] = @Original_image)) AND ((@IsNull_fk_artist_id = 1 AND [fk_ar" +
+                "tist_id] IS NULL) OR ([fk_artist_id] = @Original_fk_artist_id)) AND ((@IsNull_fk" +
+                "_rarity_id = 1 AND [fk_rarity_id] IS NULL) OR ([fk_rarity_id] = @Original_fk_rar" +
+                "ity_id)) AND ((@IsNull_fk_set_id = 1 AND [fk_set_id] IS NULL) OR ([fk_set_id] = " +
+                "@Original_fk_set_id)) AND ((@IsNull_flavor_text = 1 AND [flavor_text] IS NULL) O" +
+                "R ([flavor_text] = @Original_flavor_text)) AND ((@IsNull_number = 1 AND [number]" +
+                " IS NULL) OR ([number] = @Original_number)) AND ((@IsNull_version = 1 AND [versi" +
+                "on] IS NULL) OR ([version] = @Original_version)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -9333,25 +8527,18 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "name";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@text";
+            param.ParameterName = "@oracle_text";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "text";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
+            param.SourceColumn = "oracle_text";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@power";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "power";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@toughness";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "toughness";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -9361,9 +8548,54 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@cmc";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
             param.SourceColumn = "cmc";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@image";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "image";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_artist_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_artist_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_rarity_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_rarity_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fk_set_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_set_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@flavor_text";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "flavor_text";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@number";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "number";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@version";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "version";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -9379,44 +8611,44 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_text";
+            param.ParameterName = "@IsNull_oracle_text";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "text";
+            param.SourceColumn = "oracle_text";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_text";
+            param.ParameterName = "@Original_oracle_text";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "text";
+            param.SourceColumn = "oracle_text";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_flavor";
+            param.ParameterName = "@IsNull_power";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "flavor";
+            param.SourceColumn = "power";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_flavor";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "flavor";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_power";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "power";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_toughness";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "toughness";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_toughness";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "toughness";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -9444,9 +8676,126 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_cmc";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
             param.SourceColumn = "cmc";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_language_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_language_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_language_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_language_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_image";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "image";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_image";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "image";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_artist_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_artist_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_artist_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_artist_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_rarity_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_rarity_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_rarity_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_rarity_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_fk_set_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "fk_set_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fk_set_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_set_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_flavor_text";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "flavor_text";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_flavor_text";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "flavor_text";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_number";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "number";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_number";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "number";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_version";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "version";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_version";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "version";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -9455,7 +8804,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9464,8 +8813,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [id], [name], [text], [flavor], [power], [toughness], [mana_cost], [cmc] F" +
-                "ROM [CardBase]";
+            this._commandCollection[0].CommandText = "SELECT [id], [name], [oracle_text], [power], [toughness], [mana_cost], [cmc], [fk" +
+                "_language_id], [image], [fk_artist_id], [fk_rarity_id], [fk_set_id], [flavor_tex" +
+                "t], [number], [version] FROM [CardBase]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9526,7 +8876,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, string Original_name, string Original_text, string Original_flavor, long Original_power, long Original_toughness, string Original_mana_cost, global::System.Nullable<long> Original_cmc) {
+        public virtual int Delete(long Original_id, string Original_name, string Original_oracle_text, string Original_power, string Original_toughness, string Original_mana_cost, global::System.Nullable<decimal> Original_cmc, global::System.Nullable<long> Original_fk_language_id, string Original_image, global::System.Nullable<long> Original_fk_artist_id, global::System.Nullable<long> Original_fk_rarity_id, global::System.Nullable<long> Original_fk_set_id, string Original_flavor_text, string Original_number, global::System.Nullable<long> Original_version) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -9534,24 +8884,30 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
-            if ((Original_text == null)) {
+            if ((Original_oracle_text == null)) {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_text));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_oracle_text));
             }
-            if ((Original_flavor == null)) {
+            if ((Original_power == null)) {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_flavor));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_power));
             }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((long)(Original_power));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((long)(Original_toughness));
+            if ((Original_toughness == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_toughness));
+            }
             if ((Original_mana_cost == null)) {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
@@ -9562,11 +8918,75 @@ namespace MTGCM.DBDataSetTableAdapters {
             }
             if ((Original_cmc.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((long)(Original_cmc.Value));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_cmc.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_fk_language_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((long)(Original_fk_language_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_image == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_image));
+            }
+            if ((Original_fk_artist_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((long)(Original_fk_artist_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_fk_rarity_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((long)(Original_fk_rarity_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_fk_set_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((long)(Original_fk_set_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flavor_text == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_flavor_text));
+            }
+            if ((Original_number == null)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_number));
+            }
+            if ((Original_version.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((long)(Original_version.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9588,38 +9008,90 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string text, string flavor, long power, long toughness, string mana_cost, global::System.Nullable<long> cmc) {
+        public virtual int Insert(string name, string oracle_text, string power, string toughness, string mana_cost, global::System.Nullable<decimal> cmc, global::System.Nullable<long> fk_language_id, string image, global::System.Nullable<long> fk_artist_id, global::System.Nullable<long> fk_rarity_id, global::System.Nullable<long> fk_set_id, string flavor_text, string number, global::System.Nullable<long> version) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
             }
-            if ((text == null)) {
+            if ((oracle_text == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(text));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(oracle_text));
             }
-            if ((flavor == null)) {
+            if ((power == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(flavor));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(power));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(power));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((long)(toughness));
-            if ((mana_cost == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((toughness == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(mana_cost));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(toughness));
+            }
+            if ((mana_cost == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(mana_cost));
             }
             if ((cmc.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((long)(cmc.Value));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(cmc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((fk_language_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((long)(fk_language_id.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((image == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(image));
+            }
+            if ((fk_artist_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((long)(fk_artist_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((fk_rarity_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((long)(fk_rarity_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((fk_set_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((long)(fk_set_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((flavor_text == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(flavor_text));
+            }
+            if ((number == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(number));
+            }
+            if ((version.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((long)(version.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9641,79 +9113,230 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string text, string flavor, long power, long toughness, string mana_cost, global::System.Nullable<long> cmc, long Original_id, string Original_name, string Original_text, string Original_flavor, long Original_power, long Original_toughness, string Original_mana_cost, global::System.Nullable<long> Original_cmc) {
+        public virtual int Update(
+                    string name, 
+                    string oracle_text, 
+                    string power, 
+                    string toughness, 
+                    string mana_cost, 
+                    global::System.Nullable<decimal> cmc, 
+                    global::System.Nullable<long> fk_language_id, 
+                    string image, 
+                    global::System.Nullable<long> fk_artist_id, 
+                    global::System.Nullable<long> fk_rarity_id, 
+                    global::System.Nullable<long> fk_set_id, 
+                    string flavor_text, 
+                    string number, 
+                    global::System.Nullable<long> version, 
+                    long Original_id, 
+                    string Original_name, 
+                    string Original_oracle_text, 
+                    string Original_power, 
+                    string Original_toughness, 
+                    string Original_mana_cost, 
+                    global::System.Nullable<decimal> Original_cmc, 
+                    global::System.Nullable<long> Original_fk_language_id, 
+                    string Original_image, 
+                    global::System.Nullable<long> Original_fk_artist_id, 
+                    global::System.Nullable<long> Original_fk_rarity_id, 
+                    global::System.Nullable<long> Original_fk_set_id, 
+                    string Original_flavor_text, 
+                    string Original_number, 
+                    global::System.Nullable<long> Original_version) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
             }
-            if ((text == null)) {
+            if ((oracle_text == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(text));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(oracle_text));
             }
-            if ((flavor == null)) {
+            if ((power == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(flavor));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(power));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(power));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(toughness));
-            if ((mana_cost == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((toughness == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(mana_cost));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(toughness));
+            }
+            if ((mana_cost == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(mana_cost));
             }
             if ((cmc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(cmc.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(cmc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((fk_language_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(fk_language_id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_id));
+            if ((image == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(image));
+            }
+            if ((fk_artist_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(fk_artist_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((fk_rarity_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(fk_rarity_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((fk_set_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(fk_set_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((flavor_text == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(flavor_text));
+            }
+            if ((number == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(number));
+            }
+            if ((version.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(version.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_name));
             }
-            if ((Original_text == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_text));
-            }
-            if ((Original_flavor == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            if ((Original_oracle_text == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_flavor));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_oracle_text));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_power));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Original_toughness));
+            if ((Original_power == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_power));
+            }
+            if ((Original_toughness == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_toughness));
+            }
             if ((Original_mana_cost == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_mana_cost));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_mana_cost));
             }
             if ((Original_cmc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((long)(Original_cmc.Value));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_cmc.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_fk_language_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((long)(Original_fk_language_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((Original_image == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_image));
+            }
+            if ((Original_fk_artist_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((long)(Original_fk_artist_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_fk_rarity_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((long)(Original_fk_rarity_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_fk_set_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((long)(Original_fk_set_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flavor_text == null)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_flavor_text));
+            }
+            if ((Original_number == null)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_number));
+            }
+            if ((Original_version.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((long)(Original_version.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9912,7 +9535,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10248,7 +9871,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10532,7 +10155,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Deck] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Deck] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -10540,14 +10163,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -10586,15 +10201,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Deck] ([id], [name], [fk_user_id], [t" +
-                "ags]) VALUES (@id, @name, @fk_user_id, @tags)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Deck] ([name], [fk_user_id], [tags]) " +
+                "VALUES (@name, @fk_user_id, @tags)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "id";
-            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
             param.DbType = global::System.Data.DbType.String;
@@ -10613,14 +10222,8 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Deck] SET [id] = @id, [name] = @name, [fk_user_id] = @fk_user_id, [tags] = @tags WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Deck] SET [name] = @name, [fk_user_id] = @fk_user_id, [tags] = @tags WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
             param.DbType = global::System.Data.DbType.String;
@@ -10643,14 +10246,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -10693,7 +10288,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10766,28 +10361,26 @@ namespace MTGCM.DBDataSetTableAdapters {
         public virtual int Delete(long Original_id, string Original_name, global::System.Nullable<long> Original_fk_user_id, string Original_tags) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
             if ((Original_fk_user_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_fk_user_id.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((long)(Original_fk_user_id.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Original_tags == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_tags));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_tags));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10809,25 +10402,24 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long id, string name, global::System.Nullable<long> fk_user_id, string tags) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
+        public virtual int Insert(string name, global::System.Nullable<long> fk_user_id, string tags) {
             if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
             }
             if ((fk_user_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(fk_user_id.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fk_user_id.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((tags == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(tags));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(tags));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10849,50 +10441,47 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long id, string name, global::System.Nullable<long> fk_user_id, string tags, long Original_id, string Original_name, global::System.Nullable<long> Original_fk_user_id, string Original_tags) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
+        public virtual int Update(string name, global::System.Nullable<long> fk_user_id, string tags, long Original_id, string Original_name, global::System.Nullable<long> Original_fk_user_id, string Original_tags) {
             if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
             }
             if ((fk_user_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(fk_user_id.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fk_user_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((tags == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(tags));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(tags));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Original_id));
             if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
+            }
+            if ((Original_fk_user_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_fk_user_id.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_name));
-            }
-            if ((Original_fk_user_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_fk_user_id.Value));
-            }
-            else {
+            if ((Original_tags == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_tags == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_tags));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_tags));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10908,14 +10497,6 @@ namespace MTGCM.DBDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, global::System.Nullable<long> fk_user_id, string tags, long Original_id, string Original_name, global::System.Nullable<long> Original_fk_user_id, string Original_tags) {
-            return this.Update(Original_id, name, fk_user_id, tags, Original_id, Original_name, Original_fk_user_id, Original_tags);
         }
     }
     
@@ -11047,8 +10628,8 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[Language] WHERE (([id] = @Original_id" +
-                ") AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND (" +
-                "(@IsNull_abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)))";
+                ") AND ([name] = @Original_name) AND ((@IsNull_abbrev = 1 AND [abbrev] IS NULL) O" +
+                "R ([abbrev] = @Original_abbrev)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -11056,14 +10637,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -11102,7 +10675,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Language] SET [name] = @name, [abbrev] = @abbrev WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[Language] SET [name] = @name, [abbrev] = @" +
+                "abbrev WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_" +
+                "abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -11120,14 +10695,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -11155,7 +10722,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11228,20 +10795,18 @@ namespace MTGCM.DBDataSetTableAdapters {
         public virtual int Delete(long Original_id, string Original_name, string Original_abbrev) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
             if ((Original_abbrev == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_abbrev));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_abbrev));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11265,7 +10830,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(string name, string abbrev) {
             if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
@@ -11298,7 +10863,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string name, string abbrev, long Original_id, string Original_name, string Original_abbrev) {
             if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
@@ -11311,20 +10876,18 @@ namespace MTGCM.DBDataSetTableAdapters {
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_name));
             }
             if ((Original_abbrev == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_abbrev));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_abbrev));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11543,7 +11106,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11887,7 +11450,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12167,7 +11730,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[OwnedCard] WHERE (([id] = @Original_id) AND ((@IsNull_fk_card_id = 1 AND [fk_card_id] IS NULL) OR ([fk_card_id] = @Original_fk_card_id)) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[OwnedCard] WHERE (([id] = @Original_id) AND ([fk_card_id] = @Original_fk_card_id) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -12175,14 +11738,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_card_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_card_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_fk_card_id";
@@ -12367,7 +11922,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[OwnedCard] SET [fk_card_id] = @fk_card_id, [fk_user_id] = @fk_user_id, [fk_deck_id] = @fk_deck_id, [foil] = @foil, [signed] = @signed, [condition] = @condition, [altered] = @altered, [tags] = @tags, [comment] = @comment WHERE (([id] = @Original_id) AND ((@IsNull_fk_card_id = 1 AND [fk_card_id] IS NULL) OR ([fk_card_id] = @Original_fk_card_id)) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[OwnedCard] SET [fk_card_id] = @fk_card_id, [fk_user_id] = @fk_user_id, [fk_deck_id] = @fk_deck_id, [foil] = @foil, [signed] = @signed, [condition] = @condition, [altered] = @altered, [tags] = @tags, [comment] = @comment WHERE (([id] = @Original_id) AND ([fk_card_id] = @Original_fk_card_id) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@fk_card_id";
@@ -12427,14 +11982,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_fk_card_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fk_card_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_fk_card_id";
@@ -12567,7 +12114,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12638,79 +12185,72 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, global::System.Nullable<long> Original_fk_card_id, global::System.Nullable<long> Original_fk_user_id, global::System.Nullable<long> Original_fk_deck_id, global::System.Nullable<bool> Original_foil, global::System.Nullable<bool> Original_signed, global::System.Nullable<long> Original_condition, global::System.Nullable<bool> Original_altered, string Original_tags, string Original_comment) {
+        public virtual int Delete(long Original_id, long Original_fk_card_id, global::System.Nullable<long> Original_fk_user_id, global::System.Nullable<long> Original_fk_deck_id, global::System.Nullable<bool> Original_foil, global::System.Nullable<bool> Original_signed, global::System.Nullable<long> Original_condition, global::System.Nullable<bool> Original_altered, string Original_tags, string Original_comment) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
-            if ((Original_fk_card_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_fk_card_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_fk_card_id));
             if ((Original_fk_user_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_fk_user_id.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((long)(Original_fk_user_id.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Original_fk_deck_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((long)(Original_fk_deck_id.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((long)(Original_fk_deck_id.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((Original_foil.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_foil.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_foil.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((Original_signed.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_signed.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_signed.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_condition.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((long)(Original_condition.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((long)(Original_condition.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_altered.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_altered.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((bool)(Original_altered.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_tags == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_tags));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_tags));
             }
             if ((Original_comment == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_comment));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_comment));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12732,13 +12272,8 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<long> fk_card_id, global::System.Nullable<long> fk_user_id, global::System.Nullable<long> fk_deck_id, global::System.Nullable<bool> foil, global::System.Nullable<bool> signed, global::System.Nullable<long> condition, global::System.Nullable<bool> altered, string tags, string comment) {
-            if ((fk_card_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((long)(fk_card_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
+        public virtual int Insert(long fk_card_id, global::System.Nullable<long> fk_user_id, global::System.Nullable<long> fk_deck_id, global::System.Nullable<bool> foil, global::System.Nullable<bool> signed, global::System.Nullable<long> condition, global::System.Nullable<bool> altered, string tags, string comment) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(fk_card_id));
             if ((fk_user_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fk_user_id.Value));
             }
@@ -12808,7 +12343,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<long> fk_card_id, 
+                    long fk_card_id, 
                     global::System.Nullable<long> fk_user_id, 
                     global::System.Nullable<long> fk_deck_id, 
                     global::System.Nullable<bool> foil, 
@@ -12818,7 +12353,7 @@ namespace MTGCM.DBDataSetTableAdapters {
                     string tags, 
                     string comment, 
                     long Original_id, 
-                    global::System.Nullable<long> Original_fk_card_id, 
+                    long Original_fk_card_id, 
                     global::System.Nullable<long> Original_fk_user_id, 
                     global::System.Nullable<long> Original_fk_deck_id, 
                     global::System.Nullable<bool> Original_foil, 
@@ -12827,12 +12362,7 @@ namespace MTGCM.DBDataSetTableAdapters {
                     global::System.Nullable<bool> Original_altered, 
                     string Original_tags, 
                     string Original_comment) {
-            if ((fk_card_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(fk_card_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(fk_card_id));
             if ((fk_user_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fk_user_id.Value));
             }
@@ -12882,77 +12412,70 @@ namespace MTGCM.DBDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(comment));
             }
             this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_id));
-            if ((Original_fk_card_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_fk_card_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_fk_card_id));
             if ((Original_fk_user_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_fk_user_id.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((long)(Original_fk_user_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_fk_deck_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((long)(Original_fk_deck_id.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Original_fk_deck_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_foil.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_foil.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_foil.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_signed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(Original_signed.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_signed.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_condition.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((long)(Original_condition.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((long)(Original_condition.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_altered.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((bool)(Original_altered.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((bool)(Original_altered.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_tags == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_tags));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_tags));
             }
             if ((Original_comment == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_comment));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_comment));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13193,7 +12716,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13505,12 +13028,11 @@ namespace MTGCM.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("relase_date", "relase_date");
             tableMapping.ColumnMappings.Add("fk_block_id", "fk_block_id");
             tableMapping.ColumnMappings.Add("cards_total", "cards_total");
-            tableMapping.ColumnMappings.Add("is_core", "is_core");
-            tableMapping.ColumnMappings.Add("is_special", "is_special");
+            tableMapping.ColumnMappings.Add("fk_type_id", "fk_type_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Set] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)) AND ((@IsNull_symbol = 1 AND [symbol] IS NULL) OR ([symbol] = @Original_symbol)) AND ((@IsNull_relase_date = 1 AND [relase_date] IS NULL) OR ([relase_date] = @Original_relase_date)) AND ((@IsNull_fk_block_id = 1 AND [fk_block_id] IS NULL) OR ([fk_block_id] = @Original_fk_block_id)) AND ((@IsNull_cards_total = 1 AND [cards_total] IS NULL) OR ([cards_total] = @Original_cards_total)) AND ((@IsNull_is_core = 1 AND [is_core] IS NULL) OR ([is_core] = @Original_is_core)) AND ((@IsNull_is_special = 1 AND [is_special] IS NULL) OR ([is_special] = @Original_is_special)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[Set] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)) AND ((@IsNull_symbol = 1 AND [symbol] IS NULL) OR ([symbol] = @Original_symbol)) AND ((@IsNull_relase_date = 1 AND [relase_date] IS NULL) OR ([relase_date] = @Original_relase_date)) AND ((@IsNull_fk_block_id = 1 AND [fk_block_id] IS NULL) OR ([fk_block_id] = @Original_fk_block_id)) AND ((@IsNull_cards_total = 1 AND [cards_total] IS NULL) OR ([cards_total] = @Original_cards_total)) AND ((@IsNull_fk_type_id = 1 AND [fk_type_id] IS NULL) OR ([fk_type_id] = @Original_fk_type_id)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -13599,41 +13121,25 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_is_core";
+            param.ParameterName = "@IsNull_fk_type_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "is_core";
+            param.SourceColumn = "fk_type_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_is_core";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_core";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_is_special";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "is_special";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_is_special";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_special";
+            param.ParameterName = "@Original_fk_type_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_type_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Set] ([name], [abbrev], [symbol], [re" +
-                "lase_date], [fk_block_id], [cards_total], [is_core], [is_special]) VALUES (@name" +
-                ", @abbrev, @symbol, @relase_date, @fk_block_id, @cards_total, @is_core, @is_spec" +
-                "ial)";
+                "lase_date], [fk_block_id], [cards_total], [fk_type_id]) VALUES (@name, @abbrev, " +
+                "@symbol, @relase_date, @fk_block_id, @cards_total, @fk_type_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -13669,20 +13175,14 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "cards_total";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@is_core";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_core";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@is_special";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_special";
+            param.ParameterName = "@fk_type_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_type_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Set] SET [name] = @name, [abbrev] = @abbrev, [symbol] = @symbol, [relase_date] = @relase_date, [fk_block_id] = @fk_block_id, [cards_total] = @cards_total, [is_core] = @is_core, [is_special] = @is_special WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)) AND ((@IsNull_symbol = 1 AND [symbol] IS NULL) OR ([symbol] = @Original_symbol)) AND ((@IsNull_relase_date = 1 AND [relase_date] IS NULL) OR ([relase_date] = @Original_relase_date)) AND ((@IsNull_fk_block_id = 1 AND [fk_block_id] IS NULL) OR ([fk_block_id] = @Original_fk_block_id)) AND ((@IsNull_cards_total = 1 AND [cards_total] IS NULL) OR ([cards_total] = @Original_cards_total)) AND ((@IsNull_is_core = 1 AND [is_core] IS NULL) OR ([is_core] = @Original_is_core)) AND ((@IsNull_is_special = 1 AND [is_special] IS NULL) OR ([is_special] = @Original_is_special)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Set] SET [name] = @name, [abbrev] = @abbrev, [symbol] = @symbol, [relase_date] = @relase_date, [fk_block_id] = @fk_block_id, [cards_total] = @cards_total, [fk_type_id] = @fk_type_id WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_abbrev = 1 AND [abbrev] IS NULL) OR ([abbrev] = @Original_abbrev)) AND ((@IsNull_symbol = 1 AND [symbol] IS NULL) OR ([symbol] = @Original_symbol)) AND ((@IsNull_relase_date = 1 AND [relase_date] IS NULL) OR ([relase_date] = @Original_relase_date)) AND ((@IsNull_fk_block_id = 1 AND [fk_block_id] IS NULL) OR ([fk_block_id] = @Original_fk_block_id)) AND ((@IsNull_cards_total = 1 AND [cards_total] IS NULL) OR ([cards_total] = @Original_cards_total)) AND ((@IsNull_fk_type_id = 1 AND [fk_type_id] IS NULL) OR ([fk_type_id] = @Original_fk_type_id)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -13718,16 +13218,10 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "cards_total";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@is_core";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_core";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@is_special";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_special";
+            param.ParameterName = "@fk_type_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_type_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -13816,33 +13310,18 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_is_core";
+            param.ParameterName = "@IsNull_fk_type_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "is_core";
+            param.SourceColumn = "fk_type_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_is_core";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_core";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_is_special";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "is_special";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_is_special";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "is_special";
+            param.ParameterName = "@Original_fk_type_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fk_type_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -13851,7 +13330,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13861,7 +13340,7 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [id], [name], [abbrev], [symbol], [relase_date], [fk_block_id], [cards_tot" +
-                "al], [is_core], [is_special] FROM [Set]";
+                "al], [fk_type_id] FROM [Set]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13922,7 +13401,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, string Original_name, string Original_abbrev, string Original_symbol, global::System.Nullable<global::System.DateTime> Original_relase_date, global::System.Nullable<long> Original_fk_block_id, global::System.Nullable<long> Original_cards_total, global::System.Nullable<bool> Original_is_core, global::System.Nullable<bool> Original_is_special) {
+        public virtual int Delete(long Original_id, string Original_name, string Original_abbrev, string Original_symbol, global::System.Nullable<global::System.DateTime> Original_relase_date, global::System.Nullable<long> Original_fk_block_id, global::System.Nullable<long> Original_cards_total, global::System.Nullable<long> Original_fk_type_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -13970,21 +13449,13 @@ namespace MTGCM.DBDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_is_core.HasValue == true)) {
+            if ((Original_fk_type_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((bool)(Original_is_core.Value));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((long)(Original_fk_type_id.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Original_is_special.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((bool)(Original_is_special.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14006,7 +13477,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string abbrev, string symbol, global::System.Nullable<global::System.DateTime> relase_date, global::System.Nullable<long> fk_block_id, global::System.Nullable<long> cards_total, global::System.Nullable<bool> is_core, global::System.Nullable<bool> is_special) {
+        public virtual int Insert(string name, string abbrev, string symbol, global::System.Nullable<global::System.DateTime> relase_date, global::System.Nullable<long> fk_block_id, global::System.Nullable<long> cards_total, global::System.Nullable<long> fk_type_id) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -14043,17 +13514,11 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((is_core.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(is_core.Value));
+            if ((fk_type_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((long)(fk_type_id.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((is_special.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(is_special.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14075,24 +13540,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string name, 
-                    string abbrev, 
-                    string symbol, 
-                    global::System.Nullable<global::System.DateTime> relase_date, 
-                    global::System.Nullable<long> fk_block_id, 
-                    global::System.Nullable<long> cards_total, 
-                    global::System.Nullable<bool> is_core, 
-                    global::System.Nullable<bool> is_special, 
-                    long Original_id, 
-                    string Original_name, 
-                    string Original_abbrev, 
-                    string Original_symbol, 
-                    global::System.Nullable<global::System.DateTime> Original_relase_date, 
-                    global::System.Nullable<long> Original_fk_block_id, 
-                    global::System.Nullable<long> Original_cards_total, 
-                    global::System.Nullable<bool> Original_is_core, 
-                    global::System.Nullable<bool> Original_is_special) {
+        public virtual int Update(string name, string abbrev, string symbol, global::System.Nullable<global::System.DateTime> relase_date, global::System.Nullable<long> fk_block_id, global::System.Nullable<long> cards_total, global::System.Nullable<long> fk_type_id, long Original_id, string Original_name, string Original_abbrev, string Original_symbol, global::System.Nullable<global::System.DateTime> Original_relase_date, global::System.Nullable<long> Original_fk_block_id, global::System.Nullable<long> Original_cards_total, global::System.Nullable<long> Original_fk_type_id) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -14129,80 +13577,402 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((is_core.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(is_core.Value));
+            if ((fk_type_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(fk_type_id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((is_special.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(is_special.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_name));
             }
             if ((Original_abbrev == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_abbrev));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_abbrev));
             }
             if ((Original_symbol == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_symbol));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_symbol));
             }
             if ((Original_relase_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_relase_date.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_relase_date.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_fk_block_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((long)(Original_fk_block_id.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((long)(Original_fk_block_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_cards_total.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((long)(Original_cards_total.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((long)(Original_cards_total.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_is_core.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_is_core.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_is_special.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((bool)(Original_is_special.Value));
+            if ((Original_fk_type_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((long)(Original_fk_type_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SetTypeTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
+        
+        private global::System.Data.SQLite.SQLiteConnection _connection;
+        
+        private global::System.Data.SQLite.SQLiteTransaction _transaction;
+        
+        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public SetTypeTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SetType";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("name", "name");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[SetType] WHERE (([id] = @Original_id)" +
+                " AND ([name] = @Original_name))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_name";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[SetType] ([name]) VALUES (@name)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@name";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "name";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[SetType] SET [name] = @name WHERE (([id] =" +
+                " @Original_id) AND ([name] = @Original_name))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@name";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "name";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_name";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SQLite.SQLiteConnection();
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
+            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT [id], [name] FROM [SetType]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DBDataSet.SetTypeDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DBDataSet.SetTypeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DBDataSet.SetTypeDataTable dataTable = new DBDataSet.SetTypeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DBDataSet.SetTypeDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "SetType");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(long Original_id, string Original_name) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string name) {
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string name, long Original_id, string Original_name) {
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(Original_id));
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14349,9 +14119,8 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[User] WHERE (([id] = @Original_id) AN" +
-                "D ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@Is" +
-                "Null_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)))" +
-                "";
+                "D ([name] = @Original_name) AND ((@IsNull_password = 1 AND [password] IS NULL) O" +
+                "R ([password] = @Original_password)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -14359,14 +14128,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -14405,7 +14166,9 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[User] SET [name] = @name, [password] = @password WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[User] SET [name] = @name, [password] = @pa" +
+                "ssword WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ((@IsNull_" +
+                "password = 1 AND [password] IS NULL) OR ([password] = @Original_password)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -14423,14 +14186,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int64;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_name";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -14458,7 +14213,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBCS;
+            this._connection.ConnectionString = global::MTGCM.Properties.Settings.Default.DBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14531,20 +14286,18 @@ namespace MTGCM.DBDataSetTableAdapters {
         public virtual int Delete(long Original_id, string Original_name, string Original_password) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
             if ((Original_password == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_password));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14568,7 +14321,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(string name, string password) {
             if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
@@ -14601,7 +14354,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string name, string password, long Original_id, string Original_name, string Original_password) {
             if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("name");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
@@ -14614,20 +14367,18 @@ namespace MTGCM.DBDataSetTableAdapters {
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_name));
             }
             if ((Original_password == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_password));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14662,8 +14413,6 @@ namespace MTGCM.DBDataSetTableAdapters {
         
         private BlockTableAdapter _blockTableAdapter;
         
-        private CardTableAdapter _cardTableAdapter;
-        
         private CardBaseTableAdapter _cardBaseTableAdapter;
         
         private CardSubtypeTableAdapter _cardSubtypeTableAdapter;
@@ -14683,6 +14432,8 @@ namespace MTGCM.DBDataSetTableAdapters {
         private RarityTableAdapter _rarityTableAdapter;
         
         private SetTableAdapter _setTableAdapter;
+        
+        private SetTypeTableAdapter _setTypeTableAdapter;
         
         private UserTableAdapter _userTableAdapter;
         
@@ -14726,20 +14477,6 @@ namespace MTGCM.DBDataSetTableAdapters {
             }
             set {
                 this._blockTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CardTableAdapter CardTableAdapter {
-            get {
-                return this._cardTableAdapter;
-            }
-            set {
-                this._cardTableAdapter = value;
             }
         }
         
@@ -14888,6 +14625,20 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public SetTypeTableAdapter SetTypeTableAdapter {
+            get {
+                return this._setTypeTableAdapter;
+            }
+            set {
+                this._setTypeTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public UserTableAdapter UserTableAdapter {
             get {
                 return this._userTableAdapter;
@@ -14923,10 +14674,6 @@ namespace MTGCM.DBDataSetTableAdapters {
                 if (((this._blockTableAdapter != null) 
                             && (this._blockTableAdapter.Connection != null))) {
                     return this._blockTableAdapter.Connection;
-                }
-                if (((this._cardTableAdapter != null) 
-                            && (this._cardTableAdapter.Connection != null))) {
-                    return this._cardTableAdapter.Connection;
                 }
                 if (((this._cardBaseTableAdapter != null) 
                             && (this._cardBaseTableAdapter.Connection != null))) {
@@ -14968,6 +14715,10 @@ namespace MTGCM.DBDataSetTableAdapters {
                             && (this._setTableAdapter.Connection != null))) {
                     return this._setTableAdapter.Connection;
                 }
+                if (((this._setTypeTableAdapter != null) 
+                            && (this._setTypeTableAdapter.Connection != null))) {
+                    return this._setTypeTableAdapter.Connection;
+                }
                 if (((this._userTableAdapter != null) 
                             && (this._userTableAdapter.Connection != null))) {
                     return this._userTableAdapter.Connection;
@@ -14989,9 +14740,6 @@ namespace MTGCM.DBDataSetTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._blockTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._cardTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._cardBaseTableAdapter != null)) {
@@ -15024,6 +14772,9 @@ namespace MTGCM.DBDataSetTableAdapters {
                 if ((this._setTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._setTypeTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._userTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -15047,21 +14798,21 @@ namespace MTGCM.DBDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._setTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SetType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._setTypeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._artistTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Artist.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._artistTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cardBaseTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CardBase.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cardBaseTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15101,12 +14852,12 @@ namespace MTGCM.DBDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cardTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Card.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._cardBaseTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CardBase.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cardTableAdapter.Update(updatedRows));
+                    result = (result + this._cardBaseTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15182,19 +14933,19 @@ namespace MTGCM.DBDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._setTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SetType.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._setTypeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._artistTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Artist.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._artistTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cardBaseTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CardBase.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cardBaseTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15230,11 +14981,11 @@ namespace MTGCM.DBDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cardTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Card.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._cardBaseTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CardBase.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cardTableAdapter.Update(addedRows));
+                    result = (result + this._cardBaseTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15344,11 +15095,11 @@ namespace MTGCM.DBDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cardTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Card.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cardBaseTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CardBase.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cardTableAdapter.Update(deletedRows));
+                    result = (result + this._cardBaseTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15384,19 +15135,19 @@ namespace MTGCM.DBDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cardBaseTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CardBase.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cardBaseTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._artistTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Artist.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._artistTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._setTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SetType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._setTypeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15457,11 +15208,6 @@ namespace MTGCM.DBDataSetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._cardTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._cardTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._cardBaseTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._cardBaseTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -15509,6 +15255,11 @@ namespace MTGCM.DBDataSetTableAdapters {
             }
             if (((this._setTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._setTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._setTypeTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._setTypeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -15565,15 +15316,6 @@ namespace MTGCM.DBDataSetTableAdapters {
                     if (this._blockTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._blockTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._blockTableAdapter.Adapter);
-                    }
-                }
-                if ((this._cardTableAdapter != null)) {
-                    revertConnections.Add(this._cardTableAdapter, this._cardTableAdapter.Connection);
-                    this._cardTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._cardTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._cardTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._cardTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._cardTableAdapter.Adapter);
                     }
                 }
                 if ((this._cardBaseTableAdapter != null)) {
@@ -15666,6 +15408,15 @@ namespace MTGCM.DBDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._setTableAdapter.Adapter);
                     }
                 }
+                if ((this._setTypeTableAdapter != null)) {
+                    revertConnections.Add(this._setTypeTableAdapter, this._setTypeTableAdapter.Connection);
+                    this._setTypeTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._setTypeTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._setTypeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._setTypeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._setTypeTableAdapter.Adapter);
+                    }
+                }
                 if ((this._userTableAdapter != null)) {
                     revertConnections.Add(this._userTableAdapter, this._userTableAdapter.Connection);
                     this._userTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
@@ -15741,10 +15492,6 @@ namespace MTGCM.DBDataSetTableAdapters {
                     this._blockTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._blockTableAdapter]));
                     this._blockTableAdapter.Transaction = null;
                 }
-                if ((this._cardTableAdapter != null)) {
-                    this._cardTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._cardTableAdapter]));
-                    this._cardTableAdapter.Transaction = null;
-                }
                 if ((this._cardBaseTableAdapter != null)) {
                     this._cardBaseTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._cardBaseTableAdapter]));
                     this._cardBaseTableAdapter.Transaction = null;
@@ -15784,6 +15531,10 @@ namespace MTGCM.DBDataSetTableAdapters {
                 if ((this._setTableAdapter != null)) {
                     this._setTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._setTableAdapter]));
                     this._setTableAdapter.Transaction = null;
+                }
+                if ((this._setTypeTableAdapter != null)) {
+                    this._setTypeTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._setTypeTableAdapter]));
+                    this._setTypeTableAdapter.Transaction = null;
                 }
                 if ((this._userTableAdapter != null)) {
                     this._userTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._userTableAdapter]));
