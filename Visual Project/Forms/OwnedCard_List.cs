@@ -61,18 +61,16 @@ namespace MTGCM.Forms
 
                 if (checkBox3.Checked)
                 {
-                    OwnedCards = OwnedCards.Where(o => o.Foliowana == true);
+                    OwnedCards = OwnedCards.Where(o => o.Foliowana == radioButtonFoil.Checked);
                 }
-
                 if (checkBox5.Checked)
                 {
-                    OwnedCards = OwnedCards.Where(o => o.Podpisana == true);
+                    OwnedCards = OwnedCards.Where(o => o.Podpisana == radioButtonSigned.Checked);
                 }
                 if (checkBox6.Checked)
                 {
-                    OwnedCards = OwnedCards.Where(o => o.Altered == true);
+                    OwnedCards = OwnedCards.Where(o => o.Altered == radioButtonAltered.Checked);
                 }
-
                 if (checkBoxName.Checked)
                 {
                     OwnedCards = OwnedCards.Where(o => o.Tag.Contains(textBoxName.Text));
@@ -108,30 +106,9 @@ namespace MTGCM.Forms
                                 o.fk_user_id = 0;
                                 o.fk_card_id = Convert.ToInt32(comboBox3.SelectedValue);
                                 o.fk_deck_id = Convert.ToInt32(comboBox4.SelectedValue);
-                                if (checkBox9.Checked)
-                                {
-                                    o.signed = true;
-                                }
-                                else
-                                {
-                                    o.signed = false;
-                                }
-                                if (checkBox8.Checked)
-                                {
-                                    o.signed = true;
-                                }
-                                else
-                                {
-                                    o.signed = false;
-                                }
-                                if (checkBox7.Checked)
-                                {
-                                    o.altered = true;
-                                }
-                                else
-                                {
-                                    o.altered = false;
-                                }
+                                o.foil = checkBox9.Checked;
+                                o.signed = checkBox8.Checked;
+                                o.altered = checkBox7.Checked;
                                 o.condition = Convert.ToInt32(numericUpDown1.Value);
                                 o.tags = textBox1.Text;
                                 o.comment = textBox2.Text;
@@ -157,30 +134,9 @@ namespace MTGCM.Forms
                  
                     comboBox3.SelectedValue = o.fk_card_id;
                     comboBox4.SelectedValue = o.fk_deck_id;
-                    //if (checkBox9.Checked)
-                    //{
-                    //    o.signed = true;
-                    //}
-                    //else
-                    //{
-                    //    o.signed = false;
-                    //}
-                    //if (checkBox8.Checked)
-                    //{
-                    //    o.signed = true;
-                    //}
-                    //else
-                    //{
-                    //    o.signed = false;
-                    //}
-                    //if (checkBox7.Checked)
-                    //{
-                    //    o.altered = true;
-                    //}
-                    //else
-                    //{
-                    //    o.altered = false;
-                    //}
+                    checkBox9.Checked = o.foil.Value;
+                    checkBox8.Checked = o.signed.Value;
+                    checkBox7.Checked = o.altered.Value;
                     numericUpDown1.Value =Convert.ToInt32(o.condition);
                     textBox1.Text = o.tags;
                     textBox2.Text = o.comment;
@@ -202,33 +158,13 @@ namespace MTGCM.Forms
                     using (var db = new DBEntities())
                     {
 
+                      
                         o.fk_user_id = 0;
                         o.fk_card_id = Convert.ToInt32(comboBox3.SelectedValue);
                         o.fk_deck_id = Convert.ToInt32(comboBox4.SelectedValue);
-                        if (checkBox9.Checked)
-                        {
-                            o.signed = true;
-                        }
-                        else
-                        {
-                            o.signed = false;
-                        }
-                        if (checkBox8.Checked)
-                        {
-                            o.signed = true;
-                        }
-                        else
-                        {
-                            o.signed = false;
-                        }
-                        if (checkBox7.Checked)
-                        {
-                            o.altered = true;
-                        }
-                        else
-                        {
-                            o.altered = false;
-                        }
+                        o.foil = checkBox9.Checked;
+                        o.signed = checkBox8.Checked;
+                        o.altered = checkBox7.Checked;
                         o.condition = Convert.ToInt32(numericUpDown1.Value);
                         o.tags = textBox1.Text;
                         o.comment = textBox2.Text;
