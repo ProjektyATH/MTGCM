@@ -249,7 +249,7 @@ namespace MTGCM.Forms
                     textBox6.Text = cb.power;
                     textBox7.Text = cb.toughness;
                     textBox1.Text = cb.mana_cost;
-                    numericUpDown2.Value = Convert.ToInt32(cb.cmc);
+                    numericUpDown2.Value = cb.cmc.Value;
                     comboBox9.Text = Convert.ToString(cb.fk_language_id);
                     textBox2.Text = cb.image;
                     comboBox6.Text = Convert.ToString(cb.fk_artist_id);
