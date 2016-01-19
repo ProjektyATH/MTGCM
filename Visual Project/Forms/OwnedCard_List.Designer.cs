@@ -37,8 +37,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.radioButtonAltered = new System.Windows.Forms.RadioButton();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.radioButtonSigned = new System.Windows.Forms.RadioButton();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.radioButtonFoil = new System.Windows.Forms.RadioButton();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.numericUpDownCMC = new System.Windows.Forms.NumericUpDown();
@@ -53,6 +58,7 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,23 +71,17 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cardBaseTableAdapter = new MTGCM.DBDataSetTableAdapters.CardBaseTableAdapter();
             this.deckTableAdapter = new MTGCM.DBDataSetTableAdapters.DeckTableAdapter();
-            this.label2 = new System.Windows.Forms.Label();
-            this.radioButtonSigned = new System.Windows.Forms.RadioButton();
-            this.radioButtonAltered = new System.Windows.Forms.RadioButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardBaseBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -176,6 +176,26 @@
             this.panel1.Size = new System.Drawing.Size(168, 420);
             this.panel1.TabIndex = 7;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.radioButtonAltered);
+            this.panel5.Controls.Add(this.checkBox6);
+            this.panel5.Location = new System.Drawing.Point(0, 346);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(154, 25);
+            this.panel5.TabIndex = 30;
+            // 
+            // radioButtonAltered
+            // 
+            this.radioButtonAltered.AutoSize = true;
+            this.radioButtonAltered.Location = new System.Drawing.Point(30, 5);
+            this.radioButtonAltered.Name = "radioButtonAltered";
+            this.radioButtonAltered.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonAltered.TabIndex = 35;
+            this.radioButtonAltered.TabStop = true;
+            this.radioButtonAltered.Text = "Altered ??";
+            this.radioButtonAltered.UseVisualStyleBackColor = true;
+            // 
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
@@ -185,6 +205,26 @@
             this.checkBox6.TabIndex = 33;
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.radioButtonSigned);
+            this.panel4.Controls.Add(this.checkBox5);
+            this.panel4.Location = new System.Drawing.Point(0, 315);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(154, 25);
+            this.panel4.TabIndex = 30;
+            // 
+            // radioButtonSigned
+            // 
+            this.radioButtonSigned.AutoSize = true;
+            this.radioButtonSigned.Location = new System.Drawing.Point(28, 5);
+            this.radioButtonSigned.Name = "radioButtonSigned";
+            this.radioButtonSigned.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonSigned.TabIndex = 34;
+            this.radioButtonSigned.TabStop = true;
+            this.radioButtonSigned.Text = "Podpisana";
+            this.radioButtonSigned.UseVisualStyleBackColor = true;
+            // 
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
@@ -193,6 +233,15 @@
             this.checkBox5.Size = new System.Drawing.Size(15, 14);
             this.checkBox5.TabIndex = 32;
             this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.radioButtonFoil);
+            this.panel3.Controls.Add(this.checkBox3);
+            this.panel3.Location = new System.Drawing.Point(0, 281);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(154, 25);
+            this.panel3.TabIndex = 9;
             // 
             // radioButtonFoil
             // 
@@ -343,6 +392,15 @@
             this.panel2.Size = new System.Drawing.Size(201, 420);
             this.panel2.TabIndex = 8;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Stan (w skali 0-10)";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -423,11 +481,6 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(9, 115);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(71, 20);
             this.numericUpDown1.TabIndex = 34;
@@ -447,64 +500,6 @@
             // 
             this.deckTableAdapter.ClearBeforeFill = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Stan (w skali 0-10)";
-            // 
-            // radioButtonSigned
-            // 
-            this.radioButtonSigned.AutoSize = true;
-            this.radioButtonSigned.Location = new System.Drawing.Point(28, 5);
-            this.radioButtonSigned.Name = "radioButtonSigned";
-            this.radioButtonSigned.Size = new System.Drawing.Size(75, 17);
-            this.radioButtonSigned.TabIndex = 34;
-            this.radioButtonSigned.TabStop = true;
-            this.radioButtonSigned.Text = "Podpisana";
-            this.radioButtonSigned.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonAltered
-            // 
-            this.radioButtonAltered.AutoSize = true;
-            this.radioButtonAltered.Location = new System.Drawing.Point(30, 5);
-            this.radioButtonAltered.Name = "radioButtonAltered";
-            this.radioButtonAltered.Size = new System.Drawing.Size(73, 17);
-            this.radioButtonAltered.TabIndex = 35;
-            this.radioButtonAltered.TabStop = true;
-            this.radioButtonAltered.Text = "Altered ??";
-            this.radioButtonAltered.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.radioButtonFoil);
-            this.panel3.Controls.Add(this.checkBox3);
-            this.panel3.Location = new System.Drawing.Point(0, 281);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(154, 25);
-            this.panel3.TabIndex = 9;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.radioButtonSigned);
-            this.panel4.Controls.Add(this.checkBox5);
-            this.panel4.Location = new System.Drawing.Point(0, 315);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(154, 25);
-            this.panel4.TabIndex = 30;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.radioButtonAltered);
-            this.panel5.Controls.Add(this.checkBox6);
-            this.panel5.Location = new System.Drawing.Point(0, 346);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(154, 25);
-            this.panel5.TabIndex = 30;
-            // 
             // OwnedCard_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +514,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCMC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDataSet)).EndInit();
@@ -526,12 +527,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
