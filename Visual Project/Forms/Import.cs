@@ -107,6 +107,30 @@ namespace MTGCM.Forms
                         TmpS.name = s.name;
                         TmpS.relase_date = Convert.ToDateTime(s.releaseDate);
 
+                        if (s.type != null)
+                        {
+                            var tmpt = from t in db.SetType
+                                       where t.name == s.type
+                                       select t;
+
+
+                            if (tmpt.Count() == 0)
+                            {
+                                SetType TmpST = new SetType();
+
+                                TmpST.name = s.type;
+
+                                db.SetType.Add(TmpST);
+                                db.SaveChanges();
+                            }
+
+                            SetType tmp = ( from t in db.SetType
+                                       where t.name == s.type
+                                       select t).First();
+
+                            TmpS.fk_type_id = tmp.id;
+                        }
+
                         if (s.block != null)
                         {
                             var tmpb = from b in db.Block
@@ -166,7 +190,7 @@ namespace MTGCM.Forms
                             TmpCB.fk_set_id = (from r in db.Set
                                                where r.symbol == s.code
                                                select r).First().id;
-
+                            //TmpCB.CardSubtype. = card.subtypes.;
                             if (card.artist != null)
                             {
                                 var tmpa = from a in db.Artist
