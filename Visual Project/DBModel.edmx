@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=DB.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=DB.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Artist">
           <Key>
             <PropertyRef Name="id" />
@@ -100,6 +100,7 @@
           <Property Name="altered" Type="bit" />
           <Property Name="tags" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="comment" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="price" Type="decimal" Precision="53" Scale="0" />
         </EntityType>
         <EntityType Name="Rarity">
           <Key>
@@ -377,8 +378,7 @@
             <End Role="Set" EntitySet="Set" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -478,6 +478,7 @@
           <NavigationProperty Name="CardBase" Relationship="Self.FK_OwnedCard_2_0" FromRole="OwnedCard" ToRole="CardBase" />
           <NavigationProperty Name="Deck" Relationship="Self.FK_OwnedCard_0_0" FromRole="OwnedCard" ToRole="Deck" />
           <NavigationProperty Name="User" Relationship="Self.FK_OwnedCard_1_0" FromRole="OwnedCard" ToRole="User" />
+          <Property Name="price" Type="Decimal" Precision="53" Scale="0" />
         </EntityType>
         <EntityType Name="Rarity">
           <Key>
@@ -793,6 +794,7 @@
           <EntitySetMapping Name="OwnedCard">
             <EntityTypeMapping TypeName="DBModel.OwnedCard">
               <MappingFragment StoreEntitySet="OwnedCard">
+                <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="fk_card_id" ColumnName="fk_card_id" />
                 <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />

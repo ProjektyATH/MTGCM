@@ -35,8 +35,8 @@ namespace MTGCM.Forms
                                 {
                                     Lp = cb.id,
                                     Nazwa = cb.name,
-                                    Moc = cb.power,
-                                    Wytrzymalosc = cb.toughness,
+                                    Moc = cb.power.ToLower(),
+                                    Wytrzymalosc = cb.toughness.ToLower(),
                                     Koszt_Many = cb.mana_cost,
                                     Sumaryczny_koszt = cb.cmc,
                                     Artysta = cb.Artist.name,
@@ -69,7 +69,7 @@ namespace MTGCM.Forms
 
                 if (checkBox2.Checked)
                 {
-                    CardBases = CardBases.Where(cb => cb.Wytrzymalosc.Contains(textBox8.Text));
+                    CardBases = CardBases.Where(cb => cb.Wytrzymalosc.Contains(textBox9.Text));
                 }
 
                 if (checkBox3.Checked)
@@ -239,10 +239,12 @@ namespace MTGCM.Forms
                 if (dataGridView1.SelectedRows.Count == 1)
                 {
                     id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                    
+                    var tmpcb = from CB in db.CardBase
+                             where CB.id == Convert.ToInt64( id)
+                             select CB;
 
-                    cb = (from CB in db.CardBase
-                          where CB.id == id
-                          select CB).First();
+                    cb = tmpcb.First();
 
                     ImmageTB.Text = cb.name;
                     TextTB.Text = cb.oracle_text;
