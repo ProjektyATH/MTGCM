@@ -142,7 +142,7 @@ namespace MTGCM.Forms
                     numericUpDown1.Value =Convert.ToInt32(o.condition);
                     textBox1.Text = o.tags;
                     textBox2.Text = o.comment;
-                    numericUpDown2.Value = o.price.Value;
+                    numericUpDown2.Value = (o.price != null) ? o.price.Value : 0;
 
                     db.Entry(o).State = EntityState.Modified;
                     db.SaveChanges();

@@ -77,11 +77,10 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
             "SetList.json",
-            "AllSetsArray.json",
             "konkretny dodatek"});
             this.checkedListBox1.Location = new System.Drawing.Point(12, 41);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(153, 58);
+            this.checkedListBox1.Size = new System.Drawing.Size(153, 40);
             this.checkedListBox1.TabIndex = 3;
             // 
             // textBox2

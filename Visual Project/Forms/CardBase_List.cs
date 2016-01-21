@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System;
 
 namespace MTGCM.Forms
 {
@@ -36,7 +37,7 @@ namespace MTGCM.Forms
                                     Lp = cb.id,
                                     Nazwa = cb.name,
                                     Moc = cb.power.ToLower(),
-                                    Wytrzymalosc = cb.toughness.ToLower(),
+                                    Wytrzymalosc = cb.toughness.ToUpper(),
                                     Koszt_Many = cb.mana_cost,
                                     Sumaryczny_koszt = cb.cmc,
                                     Artysta = cb.Artist.name,
@@ -48,7 +49,7 @@ namespace MTGCM.Forms
 
 
                                 };
-
+               
 
                 if (checkBoxName.Checked)
                 {
@@ -116,8 +117,8 @@ namespace MTGCM.Forms
 
                 cb.name = ImmageTB.Text;
                 cb.oracle_text = TextTB.Text;
-                cb.power = textBox6.Text;
-                cb.toughness = textBox7.Text;
+                cb.power = ':' + textBox6.Text;
+                cb.toughness = ':' + textBox7.Text;
                 cb.mana_cost = textBox1.Text;
                 cb.cmc = numericUpDown2.Value;
                 cb.fk_language_id = Convert.ToInt32(comboBox9.SelectedValue);
@@ -126,7 +127,7 @@ namespace MTGCM.Forms
                 cb.fk_rarity_id = Convert.ToInt32(comboBox7.SelectedValue);
                 cb.fk_set_id = Convert.ToInt32(comboBox8.SelectedValue);
                 cb.flavor_text = textBox3.Text;
-                cb.number = textBox4.Text;
+                cb.number = ':' + textBox4.Text;
                 cb.version = Convert.ToInt32(textBox5.Text);
 
                 db.CardBase.Add(cb);
@@ -146,8 +147,8 @@ namespace MTGCM.Forms
                     {
                         cb.name = ImmageTB.Text;
                         cb.oracle_text = TextTB.Text;
-                        cb.power = textBox6.Text;
-                        cb.toughness = textBox7.Text;
+                        cb.power = ':' + textBox6.Text;
+                        cb.toughness = ':' + textBox7.Text;
                         cb.mana_cost = textBox1.Text;
                         cb.cmc = numericUpDown2.Value;
                         cb.fk_language_id = Convert.ToInt32(comboBox9.SelectedValue);
@@ -156,7 +157,7 @@ namespace MTGCM.Forms
                         cb.fk_rarity_id = Convert.ToInt32(comboBox7.SelectedValue);
                         cb.fk_set_id = Convert.ToInt32(comboBox8.SelectedValue);
                         cb.flavor_text = textBox3.Text;
-                        cb.number = textBox4.Text;
+                        cb.number = ':' + textBox4.Text;
                         cb.version = Convert.ToInt32(textBox5.Text);
 
 
@@ -241,15 +242,15 @@ namespace MTGCM.Forms
                     id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                     
                     var tmpcb = from CB in db.CardBase
-                             where CB.id == Convert.ToInt64( id)
+                             where CB.id == id
                              select CB;
 
                     cb = tmpcb.First();
 
                     ImmageTB.Text = cb.name;
                     TextTB.Text = cb.oracle_text;
-                    textBox6.Text = cb.power;
-                    textBox7.Text = cb.toughness;
+                    textBox6.Text = cb.power.Split(':').Last();
+                    textBox7.Text = cb.toughness.Split(':').Last();
                     textBox1.Text = cb.mana_cost;
                     numericUpDown2.Value = cb.cmc.Value;
                     comboBox9.Text = Convert.ToString(cb.fk_language_id);
@@ -258,7 +259,7 @@ namespace MTGCM.Forms
                     comboBox7.Text = Convert.ToString(cb.fk_rarity_id);
                     comboBox8.Text = Convert.ToString(cb.fk_set_id);
                     textBox3.Text = Convert.ToString(cb.flavor_text);
-                    textBox4.Text = cb.number;
+                    textBox4.Text = cb.number.Split(':').Last();
                     textBox5.Text = Convert.ToString(cb.version);
 
 
