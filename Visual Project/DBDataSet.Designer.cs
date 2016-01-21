@@ -3599,6 +3599,8 @@ namespace MTGCM {
             
             private global::System.Data.DataColumn columncomment;
             
+            private global::System.Data.DataColumn columnprice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OwnedCardDataTable() {
@@ -3714,6 +3716,14 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3749,7 +3759,7 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OwnedCardRow AddOwnedCardRow(CardBaseRow parentCardBaseRowByFK_OwnedCard_2_0, UserRow parentUserRowByFK_OwnedCard_1_0, DeckRow parentDeckRowByFK_OwnedCard_0_0, bool foil, bool signed, long condition, bool altered, string tags, string comment) {
+            public OwnedCardRow AddOwnedCardRow(CardBaseRow parentCardBaseRowByFK_OwnedCard_2_0, UserRow parentUserRowByFK_OwnedCard_1_0, DeckRow parentDeckRowByFK_OwnedCard_0_0, bool foil, bool signed, long condition, bool altered, string tags, string comment, decimal price) {
                 OwnedCardRow rowOwnedCardRow = ((OwnedCardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3761,7 +3771,8 @@ namespace MTGCM {
                         condition,
                         altered,
                         tags,
-                        comment};
+                        comment,
+                        price};
                 if ((parentCardBaseRowByFK_OwnedCard_2_0 != null)) {
                     columnValuesArray[1] = parentCardBaseRowByFK_OwnedCard_2_0[0];
                 }
@@ -3810,6 +3821,7 @@ namespace MTGCM {
                 this.columnaltered = base.Columns["altered"];
                 this.columntags = base.Columns["tags"];
                 this.columncomment = base.Columns["comment"];
+                this.columnprice = base.Columns["price"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3835,6 +3847,8 @@ namespace MTGCM {
                 base.Columns.Add(this.columntags);
                 this.columncomment = new global::System.Data.DataColumn("comment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncomment);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -6346,6 +6360,22 @@ namespace MTGCM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal price {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableOwnedCard.priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'OwnedCard\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOwnedCard.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DeckRow DeckRow {
                 get {
                     return ((DeckRow)(this.GetParentRow(this.Table.ParentRelations["FK_OwnedCard_0_0"])));
@@ -6471,6 +6501,18 @@ namespace MTGCM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcommentNull() {
                 this[this.tableOwnedCard.commentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspriceNull() {
+                return this.IsNull(this.tableOwnedCard.priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpriceNull() {
+                this[this.tableOwnedCard.priceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11727,10 +11769,11 @@ namespace MTGCM.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("altered", "altered");
             tableMapping.ColumnMappings.Add("tags", "tags");
             tableMapping.ColumnMappings.Add("comment", "comment");
+            tableMapping.ColumnMappings.Add("price", "price");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[OwnedCard] WHERE (([id] = @Original_id) AND ([fk_card_id] = @Original_fk_card_id) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[OwnedCard] WHERE (([id] = @Original_id) AND ([fk_card_id] = @Original_fk_card_id) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)) AND ((@IsNull_price = 1 AND [price] IS NULL) OR ([price] = @Original_price)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -11864,9 +11907,24 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "comment";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_price";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "price";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_price";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.SourceColumn = "price";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[OwnedCard] ([fk_card_id], [fk_user_id], [fk_deck_id], [foil], [signed], [condition], [altered], [tags], [comment]) VALUES (@fk_card_id, @fk_user_id, @fk_deck_id, @foil, @signed, @condition, @altered, @tags, @comment)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[OwnedCard] ([fk_card_id], [fk_user_id], [fk_deck_id], [foil], [signed], [condition], [altered], [tags], [comment], [price]) VALUES (@fk_card_id, @fk_user_id, @fk_deck_id, @foil, @signed, @condition, @altered, @tags, @comment, @price)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@fk_card_id";
@@ -11920,9 +11978,15 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "comment";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@price";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.SourceColumn = "price";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[OwnedCard] SET [fk_card_id] = @fk_card_id, [fk_user_id] = @fk_user_id, [fk_deck_id] = @fk_deck_id, [foil] = @foil, [signed] = @signed, [condition] = @condition, [altered] = @altered, [tags] = @tags, [comment] = @comment WHERE (([id] = @Original_id) AND ([fk_card_id] = @Original_fk_card_id) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[OwnedCard] SET [fk_card_id] = @fk_card_id, [fk_user_id] = @fk_user_id, [fk_deck_id] = @fk_deck_id, [foil] = @foil, [signed] = @signed, [condition] = @condition, [altered] = @altered, [tags] = @tags, [comment] = @comment, [price] = @price WHERE (([id] = @Original_id) AND ([fk_card_id] = @Original_fk_card_id) AND ((@IsNull_fk_user_id = 1 AND [fk_user_id] IS NULL) OR ([fk_user_id] = @Original_fk_user_id)) AND ((@IsNull_fk_deck_id = 1 AND [fk_deck_id] IS NULL) OR ([fk_deck_id] = @Original_fk_deck_id)) AND ((@IsNull_foil = 1 AND [foil] IS NULL) OR ([foil] = @Original_foil)) AND ((@IsNull_signed = 1 AND [signed] IS NULL) OR ([signed] = @Original_signed)) AND ((@IsNull_condition = 1 AND [condition] IS NULL) OR ([condition] = @Original_condition)) AND ((@IsNull_altered = 1 AND [altered] IS NULL) OR ([altered] = @Original_altered)) AND ((@IsNull_tags = 1 AND [tags] IS NULL) OR ([tags] = @Original_tags)) AND ((@IsNull_comment = 1 AND [comment] IS NULL) OR ([comment] = @Original_comment)) AND ((@IsNull_price = 1 AND [price] IS NULL) OR ([price] = @Original_price)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@fk_card_id";
@@ -11975,6 +12039,12 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.ParameterName = "@comment";
             param.DbType = global::System.Data.DbType.String;
             param.SourceColumn = "comment";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@price";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.SourceColumn = "price";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_id";
@@ -12108,6 +12178,21 @@ namespace MTGCM.DBDataSetTableAdapters {
             param.SourceColumn = "comment";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_price";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "price";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_price";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.SourceColumn = "price";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12123,8 +12208,8 @@ namespace MTGCM.DBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [id], [fk_card_id], [fk_user_id], [fk_deck_id], [foil], [signed], [conditi" +
-                "on], [altered], [tags], [comment] FROM [OwnedCard]";
+            this._commandCollection[0].CommandText = "SELECT        id, fk_card_id, fk_user_id, fk_deck_id, foil, signed, condition, al" +
+                "tered, tags, comment, price\r\nFROM            OwnedCard";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12185,7 +12270,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, long Original_fk_card_id, global::System.Nullable<long> Original_fk_user_id, global::System.Nullable<long> Original_fk_deck_id, global::System.Nullable<bool> Original_foil, global::System.Nullable<bool> Original_signed, global::System.Nullable<long> Original_condition, global::System.Nullable<bool> Original_altered, string Original_tags, string Original_comment) {
+        public virtual int Delete(long Original_id, long Original_fk_card_id, global::System.Nullable<long> Original_fk_user_id, global::System.Nullable<long> Original_fk_deck_id, global::System.Nullable<bool> Original_foil, global::System.Nullable<bool> Original_signed, global::System.Nullable<long> Original_condition, global::System.Nullable<bool> Original_altered, string Original_tags, string Original_comment, global::System.Nullable<decimal> Original_price) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_fk_card_id));
             if ((Original_fk_user_id.HasValue == true)) {
@@ -12252,6 +12337,14 @@ namespace MTGCM.DBDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_comment));
             }
+            if ((Original_price.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((decimal)(Original_price.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12272,7 +12365,7 @@ namespace MTGCM.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long fk_card_id, global::System.Nullable<long> fk_user_id, global::System.Nullable<long> fk_deck_id, global::System.Nullable<bool> foil, global::System.Nullable<bool> signed, global::System.Nullable<long> condition, global::System.Nullable<bool> altered, string tags, string comment) {
+        public virtual int Insert(long fk_card_id, global::System.Nullable<long> fk_user_id, global::System.Nullable<long> fk_deck_id, global::System.Nullable<bool> foil, global::System.Nullable<bool> signed, global::System.Nullable<long> condition, global::System.Nullable<bool> altered, string tags, string comment, global::System.Nullable<decimal> price) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((long)(fk_card_id));
             if ((fk_user_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fk_user_id.Value));
@@ -12322,6 +12415,12 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(comment));
             }
+            if ((price.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(price.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12352,6 +12451,7 @@ namespace MTGCM.DBDataSetTableAdapters {
                     global::System.Nullable<bool> altered, 
                     string tags, 
                     string comment, 
+                    global::System.Nullable<decimal> price, 
                     long Original_id, 
                     long Original_fk_card_id, 
                     global::System.Nullable<long> Original_fk_user_id, 
@@ -12361,7 +12461,8 @@ namespace MTGCM.DBDataSetTableAdapters {
                     global::System.Nullable<long> Original_condition, 
                     global::System.Nullable<bool> Original_altered, 
                     string Original_tags, 
-                    string Original_comment) {
+                    string Original_comment, 
+                    global::System.Nullable<decimal> Original_price) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(fk_card_id));
             if ((fk_user_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fk_user_id.Value));
@@ -12411,71 +12512,85 @@ namespace MTGCM.DBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(comment));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_id));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_fk_card_id));
-            if ((Original_fk_user_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((long)(Original_fk_user_id.Value));
+            if ((price.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(price.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_fk_card_id));
+            if ((Original_fk_user_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_fk_user_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_fk_deck_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Original_fk_deck_id.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((long)(Original_fk_deck_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_foil.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_foil.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_foil.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_signed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_signed.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(Original_signed.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             if ((Original_condition.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((long)(Original_condition.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((long)(Original_condition.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             if ((Original_altered.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((bool)(Original_altered.Value));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((bool)(Original_altered.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             if ((Original_tags == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_tags));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_tags));
             }
             if ((Original_comment == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_comment));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_comment));
+            }
+            if ((Original_price.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(Original_price.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

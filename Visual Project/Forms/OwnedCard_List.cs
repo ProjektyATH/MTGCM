@@ -33,13 +33,15 @@ namespace MTGCM.Forms
                            {
                                Lp = o.id,
                                Karta = o.CardBase.name,
+                               MocIWytrzym = o.CardBase.power + "/"+ o.CardBase.toughness,
                                Talia = o.Deck.name,
                                Foliowana = o.foil,
                                Podpisana = o.signed,
                                Stan = o.condition,
                                Altered = o.altered,
                                Tag = o.tags,
-                               Komentarza = o.comment
+                               Cena = o.price,
+                               Komentarz = o.comment
                              
                                
                            };
@@ -126,10 +128,10 @@ namespace MTGCM.Forms
                 if (dataGridView1.SelectedRows.Count == 1)
                 {
                     id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-
-                    o = (from O in db.OwnedCard
+                   var tmpo = from O in db.OwnedCard
                          where O.id == id
-                         select O).First();
+                         select O;
+                    o = tmpo.First();
 
                  
                     comboBox3.SelectedValue = o.fk_card_id;
@@ -140,6 +142,7 @@ namespace MTGCM.Forms
                     numericUpDown1.Value =Convert.ToInt32(o.condition);
                     textBox1.Text = o.tags;
                     textBox2.Text = o.comment;
+                    numericUpDown2.Value = (o.price != null) ? o.price.Value : 0;
 
                     db.Entry(o).State = EntityState.Modified;
                     db.SaveChanges();
@@ -168,7 +171,7 @@ namespace MTGCM.Forms
                         o.condition = Convert.ToInt32(numericUpDown1.Value);
                         o.tags = textBox1.Text;
                         o.comment = textBox2.Text;
-
+                        o.price = numericUpDown2.Value;
 
                         db.Entry(o).State = EntityState.Modified;
                         db.SaveChanges();

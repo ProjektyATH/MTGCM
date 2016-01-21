@@ -24,6 +24,7 @@ namespace MTGCM
         public Nullable<bool> altered { get; set; }
         public string tags { get; set; }
         public string comment { get; set; }
+        public Nullable<decimal> price { get; set; }
     
         public virtual CardBase CardBase { get; set; }
         public virtual Deck Deck { get; set; }

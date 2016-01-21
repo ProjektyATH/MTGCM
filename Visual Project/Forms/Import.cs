@@ -27,7 +27,7 @@ namespace MTGCM.Forms
             openFileDialog1.ShowDialog();
             textBox1.Text = path = openFileDialog1.FileName;
 
-            try
+           // try
             {
                 switch (checkedListBox1.SelectedIndex)
                 {
@@ -60,11 +60,8 @@ namespace MTGCM.Forms
                             }
                         }
                         break;
+                   
                     case 1:
-                        textBox2.Text = text = System.IO.File.ReadAllText(@path);
-                        wstaw(text);
-                        break;
-                    case 2:
                         textBox2.Text = text = "[" + System.IO.File.ReadAllText(@path) + "]";
                         wstaw(text);
                         break;
@@ -72,10 +69,10 @@ namespace MTGCM.Forms
                         break;
                 }
             }
-            catch (Exception)
-            {
-                 MessageBox.Show("Sprawdź czy dobrze wybrałeś typ pliku lub czy plik jest prawidłowy", "Ważne", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //catch (Exception)
+            //{
+            //     MessageBox.Show("Sprawdź czy dobrze wybrałeś typ pliku lub czy plik jest prawidłowy", "Ważne", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
 
 
 
@@ -179,10 +176,10 @@ namespace MTGCM.Forms
                             TmpCB.image = card.imageName;
                             TmpCB.cmc = card.cmc;
                             TmpCB.mana_cost = card.manaCost;
-                            TmpCB.number = card.number;
+                            TmpCB.number = ':' + card.number;
                             TmpCB.version = card.multiverseid;
-                            TmpCB.power = card.power;
-                            TmpCB.toughness = card.toughness;
+                            TmpCB.power = ':' + card.power;
+                            TmpCB.toughness = ':' + card.toughness;
                             TmpCB.oracle_text = card.text;
                             TmpCB.flavor_text = card.flavor;
                             TmpCB.fk_language_id = 0;
@@ -190,7 +187,35 @@ namespace MTGCM.Forms
                             TmpCB.fk_set_id = (from r in db.Set
                                                where r.symbol == s.code
                                                select r).First().id;
-                            //TmpCB.CardSubtype. = card.subtypes.;
+                            if (card.subtypes != null)
+                            {
+
+
+                                List<CardSubtype> st = new List<CardSubtype>();
+
+                                foreach (string str in card.subtypes)
+                                {
+                                    CardSubtype st1 = new CardSubtype();
+                                    st1.name = str;
+                                    st.Add(st1);
+                                    db.SaveChanges();
+                                }
+                                TmpCB.CardSubtype = st;
+                            }
+                            if (card.types != null)
+                            {
+                                List<CardType> ST = new List<CardType>();
+                                
+                                foreach (string str in card.types)
+                                {
+                                    CardType st2 = new CardType();
+                                    st2.name = str;
+                                    ST.Add(st2);
+                                    db.SaveChanges();
+                                }
+                                TmpCB.CardType = ST;
+                            }
+                            
                             if (card.artist != null)
                             {
                                 var tmpa = from a in db.Artist

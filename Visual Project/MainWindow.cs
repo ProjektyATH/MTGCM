@@ -29,9 +29,11 @@ namespace MTGCM
                 chform.Close();
         }
 
+
         public MainWindow()
         {
             InitializeComponent();
+            OpenChild<Forms.OwnedCard_List>();
         }
 
        
